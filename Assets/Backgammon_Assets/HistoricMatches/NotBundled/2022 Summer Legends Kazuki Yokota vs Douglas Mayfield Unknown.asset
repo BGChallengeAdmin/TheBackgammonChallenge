@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: 2022 Summer Legends Kazuki Yokota vs Douglas Mayfield Unknown
+  m_EditorClassIdentifier: 
+  title: 2022 Summer Legends Kazuki Yokota vs Douglas Mayfield
+  id: 2118145
+  round: Unknown
+  points: 15
+  player1Surname: Yokota
+  player1: Kazuki Yokota
+  player2Surname: Mayfield
+  player2: Douglas Mayfield
+  games:
+  - {fileID: 11400000, guid: f1d5d0d259a59544d9407e144817a9f0, type: 2}
+  - {fileID: 11400000, guid: 98ea4073cfbfc4144af391285d07d976, type: 2}
+  - {fileID: 11400000, guid: fafd0187c1f327c41ac3ea5575d731bd, type: 2}
+  - {fileID: 11400000, guid: 46c8e197f4de15e41856d01c9917d294, type: 2}
+  - {fileID: 11400000, guid: 42af756e39d8883448d02894a7c8c543, type: 2}
+  - {fileID: 11400000, guid: 41da8f481ce64ef4181af2e2a366f0c2, type: 2}
+  - {fileID: 11400000, guid: 849a8f978156aca4c9fa04a576ebd804, type: 2}
+  - {fileID: 11400000, guid: 723330dfe3f7e5a4eb592940f7319a22, type: 2}
+  - {fileID: 11400000, guid: 2a092ad595691214da5ab07f3d4f8e41, type: 2}
+  - {fileID: 11400000, guid: 192393ebee7ceea4d855015f34099e26, type: 2}
+  - {fileID: 11400000, guid: c9f88266b01ae1e428f2b379874af16c, type: 2}
+  - {fileID: 11400000, guid: dfe9b80c6aa7690469e1e0f67a672592, type: 2}
+  - {fileID: 11400000, guid: 8d8b0fe9588a715459336262fd479b8b, type: 2}
+  - {fileID: 11400000, guid: ee1bc31a22d0b5f4a83e79afa4aec534, type: 2}
+  - {fileID: 11400000, guid: c5db5addd6773ae4689ae557e91a9935, type: 2}
+  - {fileID: 11400000, guid: 79accabc7f3f3a4498bef1a7ccf5c2dd, type: 2}
+  - {fileID: 11400000, guid: 77ec9528f2bc69b4eb5d538b928b9dfa, type: 2}
+  - {fileID: 11400000, guid: 46beaef04b9780c4b8822bd4c4462dd0, type: 2}
+  - {fileID: 11400000, guid: eab2017697d5a5f4f853bb082b2b5c1f, type: 2}
+  - {fileID: 11400000, guid: 71e52295507ed3b42a7636b629aaed9a, type: 2}
+  crawford: false

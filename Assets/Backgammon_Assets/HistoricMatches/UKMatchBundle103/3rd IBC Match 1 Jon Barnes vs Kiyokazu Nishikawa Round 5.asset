@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: 3rd IBC Match 1 Jon Barnes vs Kiyokazu Nishikawa Round 5
+  m_EditorClassIdentifier: 
+  title: 3rd IBC Match 1 Jon Barnes vs Kiyokazu Nishikawa
+  id: 7326376
+  eventName: 3rd IBC Match 1
+  round: Round 5
+  points: 11
+  player1Surname: Barnes
+  player1: Jon Barnes
+  player2Surname: Nishikawa
+  player2: Kiyokazu Nishikawa
+  games:
+  - {fileID: 11400000, guid: 6db3f13071a39bb4bb4ad128133293d8, type: 2}
+  - {fileID: 11400000, guid: d12b5e2907302fa478907fcc140b9180, type: 2}
+  - {fileID: 11400000, guid: 5dfea86f1ee8b234e918381b14fa6711, type: 2}
+  - {fileID: 11400000, guid: 9fec163848fddc645bdbc55064765de0, type: 2}
+  - {fileID: 11400000, guid: 1809c59756e3e0248a43230cfb7ed6d3, type: 2}
+  - {fileID: 11400000, guid: d1a7905ca5d013f4db682b02822feac6, type: 2}
+  - {fileID: 11400000, guid: f9e6830814a45f84083665dbd51a2d4f, type: 2}
+  - {fileID: 11400000, guid: ded334246dfd99f40bd8285ad872ebd4, type: 2}
+  - {fileID: 11400000, guid: e1a220567ef1ae84e92748fe95183907, type: 2}
+  - {fileID: 11400000, guid: 19788f0be10c3f04ab9f15c515f05f5a, type: 2}
+  crawford: false

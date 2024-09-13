@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: UKBGF League Michihito Kageyama vs Simon Barget Unknown
+  m_EditorClassIdentifier: 
+  title: UKBGF League Michihito Kageyama vs Simon Barget
+  id: 1268597
+  eventName: UKBGF League
+  round: Unknown
+  points: 11
+  player1Surname: Kageyama
+  player1: Michihito Kageyama
+  player2Surname: Barget
+  player2: Simon Barget
+  games:
+  - {fileID: 11400000, guid: d2f1319f8d5b66f40b6ed384c683cff6, type: 2}
+  - {fileID: 11400000, guid: c7a177ce84a3f0846adc99681f6054db, type: 2}
+  - {fileID: 11400000, guid: 753340e52dcccfe4bb7e433226a3f2e0, type: 2}
+  - {fileID: 11400000, guid: 43199b61b6a1a7543ab2c56cee4b5091, type: 2}
+  - {fileID: 11400000, guid: 514ea044c2d3a1c4c8287a4cd448ace5, type: 2}
+  - {fileID: 11400000, guid: 2570bce6568aab94e87a7cf7f03382f6, type: 2}
+  - {fileID: 11400000, guid: e79ad9b4fbda08f4da1c26c1d200da0c, type: 2}
+  crawford: true

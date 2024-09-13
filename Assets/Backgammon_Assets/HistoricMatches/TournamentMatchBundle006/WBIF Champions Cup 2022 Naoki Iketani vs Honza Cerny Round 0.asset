@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: WBIF Champions Cup 2022 Naoki Iketani vs Honza Cerny Round 0
+  m_EditorClassIdentifier: 
+  title: WBIF Champions Cup 2022 Naoki Iketani vs Honza Cerny
+  id: 1945749
+  eventName: WBIF Champions Cup 2022
+  round: Round 0
+  points: 13
+  player1Surname: Iketani
+  player1: Naoki Iketani
+  player2Surname: Cerny
+  player2: Honza Cerny
+  games:
+  - {fileID: 11400000, guid: d29c7fd92f93e944aafc3f396ccf7cad, type: 2}
+  - {fileID: 11400000, guid: 0ce192fb0f71954478d25404139871f0, type: 2}
+  - {fileID: 11400000, guid: d18679d677835b149bf31d2afd65a12f, type: 2}
+  - {fileID: 11400000, guid: 136a7bfb9ccbd0a41a6d15f4a777426d, type: 2}
+  - {fileID: 11400000, guid: 5fc34a8de84a73f4589a4f70c05d36e3, type: 2}
+  - {fileID: 11400000, guid: 6826362246163e64ab4f6cb34b5989bd, type: 2}
+  - {fileID: 11400000, guid: c6bcc8e66a9ddc343808558ad18fa350, type: 2}
+  - {fileID: 11400000, guid: f6f253ab3f40c7548adf11ea638bfbe4, type: 2}
+  - {fileID: 11400000, guid: bf5130db126515e47ba99d7b78f7652b, type: 2}
+  - {fileID: 11400000, guid: abd6e8f4cf959b9409049615dd00f7ca, type: 2}
+  - {fileID: 11400000, guid: 417fc28cfdc60e344836e14692b98490, type: 2}
+  - {fileID: 11400000, guid: dceae593e2a83a84baf22fcfbd8c5862, type: 2}
+  crawford: false

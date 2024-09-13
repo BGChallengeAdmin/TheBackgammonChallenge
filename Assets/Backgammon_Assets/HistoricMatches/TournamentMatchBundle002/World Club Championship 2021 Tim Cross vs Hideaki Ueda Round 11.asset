@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: World Club Championship 2021 Tim Cross vs Hideaki Ueda Round 11
+  m_EditorClassIdentifier: 
+  title: World Club Championship 2021 Tim Cross vs Hideaki Ueda
+  id: 1668091
+  eventName: World Club Championship 2021
+  round: Round 11
+  points: 13
+  player1Surname: Cross
+  player1: Tim Cross
+  player2Surname: Ueda
+  player2: Hideaki Ueda
+  games:
+  - {fileID: 11400000, guid: 56d29bfeac38a3b4c8a37f1bc5ab146a, type: 2}
+  - {fileID: 11400000, guid: e84001c56d11bfd4caae5c6446112f6d, type: 2}
+  - {fileID: 11400000, guid: b74ea15237b710e4e902e3b824bc4c2b, type: 2}
+  - {fileID: 11400000, guid: 6c1f38d4bf1954744a5a30aa4fe372cb, type: 2}
+  - {fileID: 11400000, guid: b9caf74bf869e924b9bd369c1e18f6dc, type: 2}
+  - {fileID: 11400000, guid: f6900ec6642af4d4db90321bdb32e19d, type: 2}
+  - {fileID: 11400000, guid: 84c50f7ccdea1454c93620a958ef48fa, type: 2}
+  - {fileID: 11400000, guid: b694044e20451f547a0d3c6159c9b46b, type: 2}
+  - {fileID: 11400000, guid: 3a499d8c141f4394eb8c89a459035483, type: 2}
+  - {fileID: 11400000, guid: de086d21e23a4e543b32f7cf72738544, type: 2}
+  - {fileID: 11400000, guid: d1412ef15e10f5d41a9eb6ae2d35d7d4, type: 2}
+  - {fileID: 11400000, guid: 0726970999d257a41be1894d908f3bc5, type: 2}
+  - {fileID: 11400000, guid: f9c8697ec588460458db0cc9bc3a514f, type: 2}
+  crawford: false

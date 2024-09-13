@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: WBIF World Individual Championship 2022 Sebastian Wilkinson vs Sam Mizutani
+    Round 0
+  m_EditorClassIdentifier: 
+  title: WBIF World Individual Championship 2022 Sebastian Wilkinson vs Sam Mizutani
+  id: 1948676
+  round: Round 0
+  points: 13
+  player1Surname: Wilkinson
+  player1: Sebastian Wilkinson
+  player2Surname: Mizutani
+  player2: Sam Mizutani
+  games:
+  - {fileID: 11400000, guid: 3f54193d07df399408805b55283af1a4, type: 2}
+  - {fileID: 11400000, guid: 8a48fbded58efea42aef1995cc8b347c, type: 2}
+  - {fileID: 11400000, guid: bd6229e5ca5f3ae41aec84e82b679476, type: 2}
+  - {fileID: 11400000, guid: 9b05ee4ecbb362e41b9f5aa8aad9a235, type: 2}
+  crawford: false

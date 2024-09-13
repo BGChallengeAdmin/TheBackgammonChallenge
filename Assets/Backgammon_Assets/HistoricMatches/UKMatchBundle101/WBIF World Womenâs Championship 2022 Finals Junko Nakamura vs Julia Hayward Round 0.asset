@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: "WBIF World Women\xE2\x80\x99s Championship 2022 Finals Junko Nakamura
+    vs Julia Hayward Round 0"
+  m_EditorClassIdentifier: 
+  title: "WBIF World Women\xE2\x80\x99s Championship 2022 Finals Junko Nakamura vs
+    Julia Hayward"
+  id: 2072025
+  eventName: "WBIF World Women\xE2\x80\x99s Championship 2022 Finals"
+  round: Round 0
+  points: 13
+  player1Surname: Nakamura
+  player1: Junko Nakamura
+  player2Surname: Hayward
+  player2: Julia Hayward
+  games:
+  - {fileID: 11400000, guid: c7708a91a07e15d4da1118d030a30dc6, type: 2}
+  - {fileID: 11400000, guid: 95bad8da64107cd448633b0b32134d29, type: 2}
+  - {fileID: 11400000, guid: 8fd6103e54a19d741af4ba0acbe9a54f, type: 2}
+  - {fileID: 11400000, guid: 26488d79a4ae74741adf7d6b99ae181a, type: 2}
+  - {fileID: 11400000, guid: a029657c408e2fc48b174a1c25c3c12e, type: 2}
+  - {fileID: 11400000, guid: 072ae1c9ae011554c821e508d39c7cd1, type: 2}
+  - {fileID: 11400000, guid: 4899cb6de8292194a90efedaa6e7822a, type: 2}
+  - {fileID: 11400000, guid: afc4e9c97f1c24c4dbea2be63e87fbe2, type: 2}
+  - {fileID: 11400000, guid: 3e7cdc487d2b3034fbfac08e87927f93, type: 2}
+  crawford: false

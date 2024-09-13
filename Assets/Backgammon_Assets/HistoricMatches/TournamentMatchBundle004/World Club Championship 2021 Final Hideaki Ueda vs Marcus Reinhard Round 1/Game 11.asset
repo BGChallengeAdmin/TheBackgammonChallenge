@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6343b2ba06dcbc429119dd1651b4b03, type: 3}
+  m_Name: Game 11
+  m_EditorClassIdentifier: 
+  player1PointsAtStart: 7
+  player2PointsAtStart: 12
+  format: 1
+  moves:
+  - '63: 24/18 13/10 '
+  - '65: 13/7* 6/1* '
+  - Doubles
+  - Takes
+  - '44: 25/21 25/21 8/4 8/4 '
+  - '32: 8/5 7/5 '
+  - '32: 13/10 10/8 '
+  - '64: 24/18 18/14 '
+  - '54: 13/8 8/4 '
+  - '64: 24/18 18/14 '
+  - '41: 6/5 6/2 '
+  - '54: 13/8 6/2 '
+  - '61: 8/2 6/5 '
+  - '63: 8/2 6/3 '
+  - '65: 10/4 8/3 '
+  - '21: 13/11 2/1 '
+  - '22: 5/3 3/1 5/3 4/2 '
+  - '42: 11/7 7/5 '
+  - '44: 13/9 9/5 13/9 9/5'
+  - '43: 14/10 13/10 '
+  - '52: 21/16 16/14 '
+  - '66: 14/8 8/2 13/7 7/1 '
+  - '51: 21/16 14/13 '
+  - '52: 8/6 8/3 '
+  - '55: 16/11 11/6 13/8 8/3 '
+  - '32: 10/7 6/4 '
+  - '41: 4/0 1/0 '
+  - '11: 10/9 7/6 6/5 5/4 '
+  - '66: 6/0 6/0 6/0 5/0 '
+  - '61: 9/3 1/0 '
+  - '64: 5/0 4/0 '
+  - '54: 5/0 4/0 '
+  - '32: 3/0 2/0 '
+  - '44: 6/2 6/2 5/1 4/0 '
+  - '63: 4/0 3/0 '
+  - '65: 5/0 3/0 '
+  - '51: 3/0 2/1 '
+  - Concedes
+  - Wins 2 point
+  player1PointsAtEnd: 9
+  player2PointsAtEnd: 12

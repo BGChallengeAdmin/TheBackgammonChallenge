@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: WBIF World Individual Championship 2022 Giancarlo Ratto vs Bernhard Kaiser
+    Round 6
+  m_EditorClassIdentifier: 
+  title: WBIF World Individual Championship 2022 Giancarlo Ratto vs Bernhard Kaiser
+  id: 1789034
+  eventName: WBIF World Individual Championship 2022
+  round: Round 6
+  points: 13
+  player1Surname: Ratto
+  player1: Giancarlo Ratto
+  player2Surname: Kaiser
+  player2: Bernhard Kaiser
+  games:
+  - {fileID: 11400000, guid: c1a61f6e6ad832342b2b7addafc40a68, type: 2}
+  - {fileID: 11400000, guid: 705477cd38cf7b943ae48738694222b0, type: 2}
+  - {fileID: 11400000, guid: 673c4fb4a12796d4a8658c2b760f2814, type: 2}
+  - {fileID: 11400000, guid: 87e360f1ecbc60f478710def2df224d9, type: 2}
+  - {fileID: 11400000, guid: 5f80855f6ac448e48813428b662b1e94, type: 2}
+  - {fileID: 11400000, guid: cfc3d91d05430274ea8471eb18791d99, type: 2}
+  crawford: false

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: 2022 Summer Legends Kazuki Yokota vs Fernando Braconi Unknown
+  m_EditorClassIdentifier: 
+  title: 2022 Summer Legends Kazuki Yokota vs Fernando Braconi
+  id: 2145878
+  round: Unknown
+  points: 15
+  player1Surname: Yokota
+  player1: Kazuki Yokota
+  player2Surname: Braconi
+  player2: Fernando Braconi
+  games:
+  - {fileID: 11400000, guid: 44a27f114c8793446916992acfda06ba, type: 2}
+  - {fileID: 11400000, guid: 60d99bef632c7104abc2de357c274d89, type: 2}
+  - {fileID: 11400000, guid: a2a18f82ca126c548a646d815c859991, type: 2}
+  - {fileID: 11400000, guid: 5f10bdef06b6e1d4695552de96d11a54, type: 2}
+  - {fileID: 11400000, guid: 2619f534d13d8e44394cdb1d3c577dc2, type: 2}
+  - {fileID: 11400000, guid: 77cbe8d13aa8fad43a42d6835f48c03a, type: 2}
+  - {fileID: 11400000, guid: 802ffb5bde164294d9fd5191d5a7101c, type: 2}
+  - {fileID: 11400000, guid: 05f8284d70753724fa14dbaa6c21e1a2, type: 2}
+  - {fileID: 11400000, guid: f87aa16bd4b207c4090c8fc2bf293212, type: 2}
+  - {fileID: 11400000, guid: cf27e0f1fd995734aa04d9de3cb4a270, type: 2}
+  - {fileID: 11400000, guid: e3bde057c6383a245873cc6148cbdfae, type: 2}
+  - {fileID: 11400000, guid: b1b85f8a4fa76f24ab12b56741dbcf1e, type: 2}
+  - {fileID: 11400000, guid: 1bc840dc042cdf04da579bfe61376d47, type: 2}
+  - {fileID: 11400000, guid: a28136370b20dfe4d9eac22f51c132ca, type: 2}
+  - {fileID: 11400000, guid: cebd5c7823a318a4cac1e9688efef2a1, type: 2}
+  - {fileID: 11400000, guid: 0add2060427a41247ac46e941e1e5da6, type: 2}
+  crawford: false

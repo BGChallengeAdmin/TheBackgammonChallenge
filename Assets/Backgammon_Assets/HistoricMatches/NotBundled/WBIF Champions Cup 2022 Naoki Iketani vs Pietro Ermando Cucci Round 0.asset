@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: WBIF Champions Cup 2022 Naoki Iketani vs Pietro Ermando Cucci Round 0
+  m_EditorClassIdentifier: 
+  title: WBIF Champions Cup 2022 Naoki Iketani vs Pietro Ermando Cucci
+  id: 1928230
+  round: Round 0
+  points: 13
+  player1Surname: Iketani
+  player1: Naoki Iketani
+  player2Surname: Cucci
+  player2: Pietro Ermando Cucci
+  games:
+  - {fileID: 11400000, guid: 41c4cf9944d0fac40a1365bd071ab7f4, type: 2}
+  - {fileID: 11400000, guid: 7053722d54d500d43b443ff65ce2a812, type: 2}
+  - {fileID: 11400000, guid: 52a82d43e322fb041a61444572d9fbd9, type: 2}
+  - {fileID: 11400000, guid: 1b275af22fa4d2247841dc2efdec5c3a, type: 2}
+  - {fileID: 11400000, guid: a3ab822140ddf3d44af992f7ce261ba5, type: 2}
+  - {fileID: 11400000, guid: 2daa1abc292a9f34a99a9a4963c067da, type: 2}
+  - {fileID: 11400000, guid: 3819e2309af5b254792d273d42fe81fe, type: 2}
+  - {fileID: 11400000, guid: c972fdc394a9b424890761e0d9193a7a, type: 2}
+  - {fileID: 11400000, guid: 39315c77ebb6f6b43a6e50be32c22925, type: 2}
+  - {fileID: 11400000, guid: 8446722ed6c983e4cbff1a5056ff626e, type: 2}
+  - {fileID: 11400000, guid: 02134b7237f749343924c7243e77f90c, type: 2}
+  - {fileID: 11400000, guid: bfafdb2a9b4d59e439b2d3367c893381, type: 2}
+  - {fileID: 11400000, guid: 3ae91cc1678e01d41bf860817fa48414, type: 2}
+  crawford: false

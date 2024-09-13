@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: "WBIF World Individual Championship 2022 Naoki Iketani vs Fazli G\xC3\xBCcl\xC3\xBC
+    Round 0"
+  m_EditorClassIdentifier: 
+  title: "WBIF World Individual Championship 2022 Naoki Iketani vs Fazli G\xC3\xBCcl\xC3\xBC"
+  id: 1961958
+  round: Round 0
+  points: 13
+  player1Surname: Iketani
+  player1: Naoki Iketani
+  player2Surname: "G\xC3\xBCcl\xC3\xBC"
+  player2: "Fazli G\xC3\xBCcl\xC3\xBC"
+  games:
+  - {fileID: 11400000, guid: 20a05f0bfa0a833418c58b7549b28469, type: 2}
+  - {fileID: 11400000, guid: 5070ad880ff75b24fa89a831a9dbf47e, type: 2}
+  - {fileID: 11400000, guid: 63ab2f7025a38c543be10cfa23670e5c, type: 2}
+  - {fileID: 11400000, guid: 5c9ca3d48a35d4540a4ebedef9fbe94d, type: 2}
+  - {fileID: 11400000, guid: c165eca6287c20145af0430a23b88605, type: 2}
+  - {fileID: 11400000, guid: a42f828980b22d040a5f574049a3c128, type: 2}
+  - {fileID: 11400000, guid: 8e76a43b965003c45a6b773e65db6cc1, type: 2}
+  - {fileID: 11400000, guid: 5b52b2008bc7cce41b0d38e6cc868b2f, type: 2}
+  - {fileID: 11400000, guid: 3a274bf1d019f4b4fa5f78ca456ca1e0, type: 2}
+  crawford: false

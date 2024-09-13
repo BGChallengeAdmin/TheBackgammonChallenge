@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: US Open Super Jackpot Final Ed O'Laughlin vs Jacob Rice Final
+  m_EditorClassIdentifier: 
+  title: US Open Super Jackpot Final Ed O'Laughlin vs Jacob Rice
+  id: -485859663
+  eventName: US Open Super Jackpot Final
+  round: Final
+  points: 15
+  player1Surname: O'Laughlin
+  player1: Ed O'Laughlin
+  player2Surname: Rice
+  player2: Jacob Rice
+  games:
+  - {fileID: 11400000, guid: a0f48540ed2a448438f77f934e71dc9a, type: 2}
+  - {fileID: 11400000, guid: 66f9e2bc434a1e746b9bdb0f18a0ed95, type: 2}
+  - {fileID: 11400000, guid: 2069b23f7fa1c004aaa3f55165e992a2, type: 2}
+  - {fileID: 11400000, guid: 0019c6240b838a04bb36f3345bd351d7, type: 2}
+  - {fileID: 11400000, guid: f52deb467ec4f3e4fab36d91bbb36a85, type: 2}
+  - {fileID: 11400000, guid: bb76deebcb0cce947aef9aaaaef9d622, type: 2}
+  - {fileID: 11400000, guid: 11f286314f16d244487e85d582c89561, type: 2}
+  - {fileID: 11400000, guid: eb0f1e8ed02a313439dbf9d5b182da9b, type: 2}
+  - {fileID: 11400000, guid: 72f0bfc96c229914794fb09d9c35ca3a, type: 2}
+  - {fileID: 11400000, guid: dab65ec361c2b1a4883de1ede1fd7553, type: 2}
+  - {fileID: 11400000, guid: 3e1e962773379e049861bb393d0b717e, type: 2}
+  - {fileID: 11400000, guid: d63106565ad829345a3271482349a9f9, type: 2}
+  - {fileID: 11400000, guid: ea65caff56ed1374a942f06833caf3c8, type: 2}
+  - {fileID: 11400000, guid: 56f885e6a9c563b4dbe1f4d52df9513c, type: 2}
+  crawford: false

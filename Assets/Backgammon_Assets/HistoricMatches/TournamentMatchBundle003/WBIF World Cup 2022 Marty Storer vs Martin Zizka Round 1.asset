@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: WBIF World Cup 2022 Marty Storer vs Martin Zizka Round 1
+  m_EditorClassIdentifier: 
+  title: WBIF World Cup 2022 Marty Storer vs Martin Zizka
+  id: 1785863
+  eventName: WBIF World Cup 2022
+  round: Round 1
+  points: 13
+  player1Surname: Storer
+  player1: Marty Storer
+  player2Surname: Zizka
+  player2: Martin Zizka
+  games:
+  - {fileID: 11400000, guid: 39d77230762e438448aa70848996aeb7, type: 2}
+  - {fileID: 11400000, guid: 452e83759eff46b489e65a4cd749766e, type: 2}
+  - {fileID: 11400000, guid: 247c7cd6d48c8d8428b7d7b12a63db44, type: 2}
+  - {fileID: 11400000, guid: 57336afb170f35241a9a5d185eac0320, type: 2}
+  - {fileID: 11400000, guid: 41a6abd91f9e5f4429bb70653127cb0e, type: 2}
+  - {fileID: 11400000, guid: f22bab344094be94e8a3fcb3737e498b, type: 2}
+  - {fileID: 11400000, guid: 9ebcf273638883545bc8683fd97698bc, type: 2}
+  - {fileID: 11400000, guid: cdc422d7f1faa834e8ae90fcec1c7312, type: 2}
+  - {fileID: 11400000, guid: e3128516a65b8e741821a0138423504b, type: 2}
+  - {fileID: 11400000, guid: fc0e1b9824f708a44a910ff0ecf874b2, type: 2}
+  - {fileID: 11400000, guid: b9505dad97c1009488e64daf00f7f6c3, type: 2}
+  - {fileID: 11400000, guid: 52b060bc1f6345a4fad46dac85161d40, type: 2}
+  - {fileID: 11400000, guid: fee0b42c0c121e5418bf7c1752c74c26, type: 2}
+  - {fileID: 11400000, guid: 4f74c0cb99fd5544fae5db45b54b9198, type: 2}
+  - {fileID: 11400000, guid: da4e7a722859bfd4fb85da0f89bdcced, type: 2}
+  - {fileID: 11400000, guid: 0071d10357bea7e478919086b2a87272, type: 2}
+  - {fileID: 11400000, guid: 6a845bccb4088544bb7db332d629d3fd, type: 2}
+  - {fileID: 11400000, guid: 23170731ce153d44c80c73f2714d9f6e, type: 2}
+  crawford: false

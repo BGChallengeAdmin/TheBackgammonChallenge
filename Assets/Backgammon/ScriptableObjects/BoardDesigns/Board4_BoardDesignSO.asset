@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d19929d33b7c44783994bdb2a63f4a, type: 3}
+  m_Name: Board4_BoardDesignSO
+  m_EditorClassIdentifier: 
+  BoardMaterial: {fileID: 2100000, guid: 52c9083b299dfa3479caa56bb9f0a98c, type: 2}
+  EdgeMaterial: {fileID: 2100000, guid: 73b2c0235b19a624f810b26924156580, type: 2}
+  HomeMaterial: {fileID: 2100000, guid: 52c9083b299dfa3479caa56bb9f0a98c, type: 2}
+  PointBlackMaterial: {fileID: 2100000, guid: eb6bf4639bce09444b8262fda790edc8, type: 2}
+  PointWhiteMaterial: {fileID: 2100000, guid: da9e0fae10ab0244db4d1f72706bc0d4, type: 2}
+  CounterBlackMaterial: {fileID: 2100000, guid: a3ea7f43d36bb48439f64c88f65de98c, type: 2}
+  CounterWhiteMaterial: {fileID: 2100000, guid: 681e525d0bcd7c048882cf869c20ebc5, type: 2}

@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6343b2ba06dcbc429119dd1651b4b03, type: 3}
+  m_Name: Game 4
+  m_EditorClassIdentifier: 
+  player1PointsAtStart: 3
+  player2PointsAtStart: 1
+  format: 1
+  moves:
+  - ':'
+  - '32: 24/21 13/11 '
+  - '51: 13/8 24/23 '
+  - '32: 24/21 13/11 '
+  - '52: 13/8 23/21 '
+  - '65: 13/7 7/2 '
+  - '53: 8/3 24/21 '
+  - '62: 21/15 15/13 '
+  - '63: 8/2 6/3 '
+  - '62: 21/15 15/13 '
+  - '52: 13/8 6/4 '
+  - '31: 8/5 6/5 '
+  - '54: 8/3 8/4 '
+  - '32: 13/10 10/8 '
+  - '42: 8/4 4/2 '
+  - '11: 11/10 11/10 10/9 10/9 '
+  - '55: 13/8 13/8 8/3 6/1 '
+  - '21: 8/6 6/5 '
+  - '62: 21/15 3/1 '
+  - '65: 13/7 7/2 '
+  - '51: 15/10 8/7 '
+  - '41: 8/4* 5/4 '
+  - '61: 25/24 24/18 '
+  - Doubles
+  - Takes
+  - '53: 8/3 6/3 '
+  - '33: 18/15 10/7 8/5 7/4 '
+  - '64: 13/7 13/9 '
+  - Doubles
+  - Drops
+  - Wins 2 point
+  player1PointsAtEnd: 5
+  player2PointsAtEnd: 1

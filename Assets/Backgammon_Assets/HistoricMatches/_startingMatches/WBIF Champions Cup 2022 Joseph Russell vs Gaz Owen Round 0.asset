@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: WBIF Champions Cup 2022 Joseph Russell vs Gaz Owen Round 0
+  m_EditorClassIdentifier: 
+  title: WBIF Champions Cup 2022 Joseph Russell vs Gaz Owen
+  id: 1806996
+  eventName: WBIF Champions Cup 2022
+  round: Round 0
+  points: 13
+  player1Surname: Russell
+  player1: Joseph Russell
+  player2Surname: Owen
+  player2: Gaz Owen
+  games:
+  - {fileID: 11400000, guid: 6a7b2f3eef0bcb8499fcb9ec9a523793, type: 2}
+  - {fileID: 11400000, guid: 75050ede65feb9a4595ec9fb19e83c1b, type: 2}
+  - {fileID: 11400000, guid: 1245e246d68d27e42967588f73df4d6e, type: 2}
+  - {fileID: 11400000, guid: daeb8f6bad34400449092dafc4651029, type: 2}
+  - {fileID: 11400000, guid: 5ba88858a7eb3264aa0c016930ab0d8f, type: 2}
+  - {fileID: 11400000, guid: 0f8215d06c6da8e42b6933703c75f2d7, type: 2}
+  - {fileID: 11400000, guid: d3c60b634217e40498127ab647db51cb, type: 2}
+  - {fileID: 11400000, guid: 53a65bcd8c1a8ed4fb75a1d3ffb5fffc, type: 2}
+  - {fileID: 11400000, guid: 07407c250ad01cc40b525476148e0f11, type: 2}
+  - {fileID: 11400000, guid: fea0406eea94f124885865719893008a, type: 2}
+  crawford: false

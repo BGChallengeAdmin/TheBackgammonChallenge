@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6343b2ba06dcbc429119dd1651b4b03, type: 3}
+  m_Name: Game 5
+  m_EditorClassIdentifier: 
+  player1PointsAtStart: 4
+  player2PointsAtStart: 1
+  format: 1
+  moves:
+  - '41: 24/23 13/9 '
+  - '42: 8/4 6/4 '
+  - '54: 9/4 8/4 '
+  - '66: 24/18 24/18 13/7 13/7 '
+  - '32: 24/22 23/20 '
+  - Doubles
+  - Takes
+  - '63: 13/7 7/4 '
+  - '61: 20/14 14/13 '
+  - '22: 18/16 16/14 18/16 16/14'
+  - '54: 13/9 13/8 '
+  - '32: 13/11 13/10 '
+  - '42: 9/5 6/4 '
+  - '65: 11/5 10/5 '
+  - '54: 13/9 8/3 '
+  - '52: 7/5 7/2 '
+  - '63: 22/16 16/13 '
+  - '64: 14/10 14/8 '
+  - '21: 13/12 13/11 '
+  - '53: 8/5 8/3 '
+  - '32: 8/6 8/5 '
+  - '41: 10/6 8/7 '
+  - '52: 13/8 8/6 '
+  - '65: 7/1 5/0 '
+  - '51: 12/7 7/6 '
+  - '41: 4/0 1/0 '
+  - '54: 11/6 9/5 '
+  - '62: 6/0 2/0 '
+  - '62: 6/4 6/0 '
+  - '64: 6/0 4/0 '
+  - '21: 3/1 1/0 '
+  - '65: 6/0 5/0 '
+  - '21: 6/5 6/4 '
+  - '65: 6/0 5/0 '
+  - '51: 6/1 1/0 '
+  - '21: 3/1 1/0 '
+  - '42: 5/3 4/0 '
+  - '66: 6/0 5/0 4/0 '
+  - ':'
+  - Wins 2 point
+  player1PointsAtEnd: 4
+  player2PointsAtEnd: 3

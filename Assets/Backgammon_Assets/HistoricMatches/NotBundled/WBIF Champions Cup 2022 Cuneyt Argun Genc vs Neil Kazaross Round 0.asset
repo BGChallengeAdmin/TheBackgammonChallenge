@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: WBIF Champions Cup 2022 Cuneyt Argun Genc vs Neil Kazaross Round 0
+  m_EditorClassIdentifier: 
+  title: WBIF Champions Cup 2022 Cuneyt Argun Genc vs Neil Kazaross
+  id: 1805123
+  round: Round 0
+  points: 13
+  player1Surname: Genc
+  player1: Cuneyt Argun Genc
+  player2Surname: Kazaross
+  player2: Neil Kazaross
+  games:
+  - {fileID: 11400000, guid: 3df4d10de89050447884ce5fbe124b46, type: 2}
+  - {fileID: 11400000, guid: ac0dd9c869d14f04eb35f852f29649bc, type: 2}
+  - {fileID: 11400000, guid: b0749a32657b9fc4a87dbe710d7f109c, type: 2}
+  - {fileID: 11400000, guid: 5273bb3bea31ae14f8b33606e981b824, type: 2}
+  - {fileID: 11400000, guid: 762b1f69415ea2940a5104e8e5399eee, type: 2}
+  - {fileID: 11400000, guid: 84142234fad9d1943bf6729623b070ed, type: 2}
+  - {fileID: 11400000, guid: 9cdae2e72c638cb4cb5478b99c425401, type: 2}
+  - {fileID: 11400000, guid: aca7ca7b843b2a14280b6ae97ef97422, type: 2}
+  - {fileID: 11400000, guid: 999c78502b066614f830203f8c70501d, type: 2}
+  - {fileID: 11400000, guid: 623f756c32b931b4b8267da62da6dccd, type: 2}
+  crawford: false

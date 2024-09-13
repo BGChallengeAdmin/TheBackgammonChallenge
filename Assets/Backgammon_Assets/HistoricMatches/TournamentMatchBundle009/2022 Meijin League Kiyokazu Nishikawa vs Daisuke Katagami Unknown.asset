@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: 2022 Meijin League Kiyokazu Nishikawa vs Daisuke Katagami Unknown
+  m_EditorClassIdentifier: 
+  title: 2022 Meijin League Kiyokazu Nishikawa vs Daisuke Katagami
+  id: 698994475
+  eventName: 2022 Meijin League
+  round: Unknown
+  points: 25
+  player1Surname: Nishikawa
+  player1: Kiyokazu Nishikawa
+  player2Surname: Katagami
+  player2: Daisuke Katagami
+  games:
+  - {fileID: 11400000, guid: 4d77f2133c345614586afba281ddacaf, type: 2}
+  - {fileID: 11400000, guid: c5e02f4c1afea944b9f285930e0f015f, type: 2}
+  - {fileID: 11400000, guid: a1e171b857482cf4caed10f3304a777d, type: 2}
+  - {fileID: 11400000, guid: ab7423800f76b5b45917e2ea3076f047, type: 2}
+  - {fileID: 11400000, guid: 929668eb3439b4142bafcc43fd43b231, type: 2}
+  - {fileID: 11400000, guid: ef8c3a6b278eddc408993b523e282ff0, type: 2}
+  - {fileID: 11400000, guid: dad982852b413af47a9940e20d2e5947, type: 2}
+  - {fileID: 11400000, guid: 7643aa42bde2baa4b803fc5f04d1abc1, type: 2}
+  - {fileID: 11400000, guid: 884fe39b10b15c548a9dd44ed21fe701, type: 2}
+  - {fileID: 11400000, guid: aebf8c131686c2541b5b661135ca21a1, type: 2}
+  - {fileID: 11400000, guid: 51b5edf86a6c7bd4c81ad7e9072f5f3d, type: 2}
+  - {fileID: 11400000, guid: 9751ca8c48e025042bd3eb2bbc00f6e5, type: 2}
+  - {fileID: 11400000, guid: 0bcf10cba02bab64289a325aa46d0b60, type: 2}
+  - {fileID: 11400000, guid: a5baeec9dbcce3544aeced89e7d1ef31, type: 2}
+  - {fileID: 11400000, guid: f93696924ebcc0c41a17c3152e83c8e5, type: 2}
+  - {fileID: 11400000, guid: fbfe3fa5eafcf974c8526e673f6c0622, type: 2}
+  crawford: false

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: WBIF Champions Cup 2022 Martin-Frederic Kahn vs Zdenek Zizka Round 0
+  m_EditorClassIdentifier: 
+  title: WBIF Champions Cup 2022 Martin-Frederic Kahn vs Zdenek Zizka
+  id: 1857942
+  eventName: WBIF Champions Cup 2022
+  round: Round 0
+  points: 13
+  player1Surname: Kahn
+  player1: Martin-Frederic Kahn
+  player2Surname: Zizka
+  player2: Zdenek Zizka
+  games:
+  - {fileID: 11400000, guid: 262f51c3fa1542f468e368dc8d3736cd, type: 2}
+  - {fileID: 11400000, guid: 8cb3243bd8891bd4a8acfba5d3d43cac, type: 2}
+  - {fileID: 11400000, guid: 09245de0a13993c4f955d487674d639f, type: 2}
+  - {fileID: 11400000, guid: f96db8b68b4212f489dc5c4e2ee14b0c, type: 2}
+  - {fileID: 11400000, guid: 84cb4cae1e54ca640904bb638d1d9d60, type: 2}
+  - {fileID: 11400000, guid: 3e7312d85d4597e4cb1b4804516ce224, type: 2}
+  - {fileID: 11400000, guid: c4340ee2487823942bc70c059893aac6, type: 2}
+  crawford: false

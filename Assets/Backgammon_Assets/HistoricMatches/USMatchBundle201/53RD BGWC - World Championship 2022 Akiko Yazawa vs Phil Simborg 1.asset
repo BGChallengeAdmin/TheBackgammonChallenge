@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: 53RD BGWC - World Championship 2022 Akiko Yazawa vs Phil Simborg 1
+  m_EditorClassIdentifier: 
+  title: 53RD BGWC - World Championship 2022 Akiko Yazawa vs Phil Simborg
+  id: 0726978
+  eventName: 53RD BGWC - World Championship 2022
+  round: 1
+  points: 17
+  player1Surname: Yazawa
+  player1: Akiko Yazawa
+  player2Surname: Simborg
+  player2: Phil Simborg
+  games:
+  - {fileID: 11400000, guid: baa403a306e33f64b880b1f36fbc79d1, type: 2}
+  - {fileID: 11400000, guid: eb6785fbe422a714b82cc92c7cc67f67, type: 2}
+  - {fileID: 11400000, guid: b4e4d463dfde3ab4bbf02fcdb34ad15f, type: 2}
+  - {fileID: 11400000, guid: fb9e563f4ac1e7c40bd2946239d4145a, type: 2}
+  - {fileID: 11400000, guid: 92c5f4884d52f5c48b675847c803b2af, type: 2}
+  - {fileID: 11400000, guid: 66c045fe3afcfc042b6f4ec2ae9cc884, type: 2}
+  - {fileID: 11400000, guid: 60862639f585273439ff5af9c16a8aab, type: 2}
+  - {fileID: 11400000, guid: 263189de1b902b247862e295d6c925e0, type: 2}
+  - {fileID: 11400000, guid: 4a2d327da5f60f749afd97dcdb8eb090, type: 2}
+  - {fileID: 11400000, guid: 97aa9ae5498eb6a45b7dfc6ada1dedb1, type: 2}
+  - {fileID: 11400000, guid: 7de218a18a1f89746b65c11d41b252bb, type: 2}
+  - {fileID: 11400000, guid: f99e9af1338b37443b8f70b716a07a35, type: 2}
+  - {fileID: 11400000, guid: 76799b5ffcefac748aef4815b6b813fb, type: 2}
+  - {fileID: 11400000, guid: 6ad26ffdcc6f84d4da8e0db4d4ab69e7, type: 2}
+  - {fileID: 11400000, guid: 6c9606c33873e004d92b17584b158aae, type: 2}
+  - {fileID: 11400000, guid: 48c3588e70d51af4aa93e03671340060, type: 2}
+  - {fileID: 11400000, guid: e9cd371518b7d404e8c4c9c3f2bd78ac, type: 2}
+  - {fileID: 11400000, guid: 4e65d8c47a44674499329ec924286123, type: 2}
+  crawford: false

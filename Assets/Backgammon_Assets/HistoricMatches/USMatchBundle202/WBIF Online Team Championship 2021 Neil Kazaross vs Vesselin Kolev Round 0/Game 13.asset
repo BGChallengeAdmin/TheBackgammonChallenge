@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6343b2ba06dcbc429119dd1651b4b03, type: 3}
+  m_Name: Game 13
+  m_EditorClassIdentifier: 
+  player1PointsAtStart: 12
+  player2PointsAtStart: 9
+  format: 1
+  moves:
+  - ':'
+  - '32: 24/21 13/11 '
+  - '62: 24/18 6/4* '
+  - Doubles
+  - Drops
+  - Wins 1 point
+  player1PointsAtEnd: 12
+  player2PointsAtEnd: 10

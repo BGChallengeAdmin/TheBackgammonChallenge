@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: 10. Lions-Cup Superjackpot Dirk Schiemann vs Marcus Reinhard Final
+  m_EditorClassIdentifier: 
+  title: 10. Lions-Cup Superjackpot Dirk Schiemann vs Marcus Reinhard
+  id: 0828693
+  round: Final
+  points: 9
+  player1Surname: Schiemann
+  player1: Dirk Schiemann
+  player2Surname: Reinhard
+  player2: Marcus Reinhard
+  games:
+  - {fileID: 11400000, guid: ad8472db41e592648b9cc2eafe7ef2e0, type: 2}
+  - {fileID: 11400000, guid: eca23f8d727b854479c7248737532370, type: 2}
+  - {fileID: 11400000, guid: fc732a2a256395a468a32048f9c9be29, type: 2}
+  - {fileID: 11400000, guid: 5c896a0ae2e0c7f47b78f6232b3bc716, type: 2}
+  crawford: false

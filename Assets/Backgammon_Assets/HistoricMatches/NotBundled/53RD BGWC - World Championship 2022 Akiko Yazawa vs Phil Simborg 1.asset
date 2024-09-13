@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: 53RD BGWC - World Championship 2022 Akiko Yazawa vs Phil Simborg 1
+  m_EditorClassIdentifier: 
+  title: 53RD BGWC - World Championship 2022 Akiko Yazawa vs Phil Simborg
+  id: 0726463
+  round: 1
+  points: 17
+  player1Surname: Yazawa
+  player1: Akiko Yazawa
+  player2Surname: Simborg
+  player2: Phil Simborg
+  games:
+  - {fileID: 11400000, guid: b5e050df833a19b4f89409dd835d3eaa, type: 2}
+  - {fileID: 11400000, guid: a401a3941cbae2f4e8f937338b02663e, type: 2}
+  - {fileID: 11400000, guid: 4c4ed641e2663e74fa7510cc70a2ca03, type: 2}
+  - {fileID: 11400000, guid: 682d84d23e11c85408b397583080511c, type: 2}
+  - {fileID: 11400000, guid: 3616408e86dd7ea4ba3539108f2ad409, type: 2}
+  - {fileID: 11400000, guid: e763e933e30648e4ea161fdd532f2491, type: 2}
+  - {fileID: 11400000, guid: 84907c32e42d95f47bfae440b6ac3b7a, type: 2}
+  - {fileID: 11400000, guid: 1269474de36fe304c9cee113f83a1109, type: 2}
+  - {fileID: 11400000, guid: b836d2e11f38c604596776b2cfb4d94f, type: 2}
+  - {fileID: 11400000, guid: ba9f956125a48e846bfedf6bb3c06c08, type: 2}
+  - {fileID: 11400000, guid: ea2a40d74b337ce4db92371a302343b0, type: 2}
+  - {fileID: 11400000, guid: 6216dbb9af6860b439a0bf665589d315, type: 2}
+  - {fileID: 11400000, guid: deeeca59cba140440a771e1208806ad0, type: 2}
+  - {fileID: 11400000, guid: ce87c21bc8ae64c45a16c5915fa3ea7f, type: 2}
+  - {fileID: 11400000, guid: b4f00c6bf7fa60e48b7b4bfa8c8de480, type: 2}
+  - {fileID: 11400000, guid: b9de52f69c03dbe46bc02b2b402ca775, type: 2}
+  - {fileID: 11400000, guid: fd51a425538ca0447997334e686dbeba, type: 2}
+  - {fileID: 11400000, guid: 7519ec646c468bb4a88fa27ffa8c6668, type: 2}
+  crawford: false

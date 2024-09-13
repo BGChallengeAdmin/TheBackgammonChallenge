@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: Las Vegas Open SuperJackpot Final Paul Magriel vs Danilo Sahione Unknown
+  m_EditorClassIdentifier: 
+  title: Las Vegas Open SuperJackpot Final Paul Magriel vs Danilo Sahione
+  id: 6759785
+  round: Unknown
+  points: 17
+  player1Surname: Magriel
+  player1: Paul Magriel
+  player2Surname: Sahione
+  player2: Danilo Sahione
+  games:
+  - {fileID: 11400000, guid: 349209fb41613b14694151ee61412c40, type: 2}
+  - {fileID: 11400000, guid: 24c39c74a7de60d4aa5d89b236639452, type: 2}
+  - {fileID: 11400000, guid: 77e3be11d1a72684aa5afaf7bf608e84, type: 2}
+  - {fileID: 11400000, guid: fc9cf4286b563cd4aa7c3ca858e900b0, type: 2}
+  - {fileID: 11400000, guid: 777fb493472de1742befe11cfdd92a07, type: 2}
+  - {fileID: 11400000, guid: 6f1ecabf97f022d47884e560c183a055, type: 2}
+  - {fileID: 11400000, guid: 3feefdb1e8c62494998e3387d97c6693, type: 2}
+  - {fileID: 11400000, guid: 6608a2baeba6a9145825df0a7b7c07ae, type: 2}
+  - {fileID: 11400000, guid: 41744ca541b8a084680fd91e96336c64, type: 2}
+  - {fileID: 11400000, guid: bfc02cb938a148f49b66555b8bd39813, type: 2}
+  - {fileID: 11400000, guid: ac04df8728b9fcc40acf6e5d8d882d5c, type: 2}
+  - {fileID: 11400000, guid: d646674bf1b15ed4db81c3e838ff275e, type: 2}
+  - {fileID: 11400000, guid: 27f10adfb5b961d4c85e0f5685893a42, type: 2}
+  - {fileID: 11400000, guid: b7a03ea76904510408d85a09f8027bb8, type: 2}
+  - {fileID: 11400000, guid: fd7907ca733743f47bb8a2064be3c8f5, type: 2}
+  - {fileID: 11400000, guid: bf9ccdf06cf89b84295d8be9a7ff6482, type: 2}
+  - {fileID: 11400000, guid: 1fb86ef19d5ac42418635d8e4d815512, type: 2}
+  - {fileID: 11400000, guid: 21ad36d8730c1ae46ba64588e96c8313, type: 2}
+  - {fileID: 11400000, guid: b7b3a90ab2219f6499b6cf66235aad48, type: 2}
+  crawford: false

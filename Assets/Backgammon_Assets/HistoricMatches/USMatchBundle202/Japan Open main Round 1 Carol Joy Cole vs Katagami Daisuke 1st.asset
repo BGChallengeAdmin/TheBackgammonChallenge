@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: Japan Open main Round 1 Carol Joy Cole vs Katagami Daisuke 1st
+  m_EditorClassIdentifier: 
+  title: Japan Open main Round 1 Carol Joy Cole vs Katagami Daisuke
+  id: -348905646
+  eventName: Japan Open main Round 1
+  round: 1st
+  points: 15
+  player1Surname: Cole
+  player1: Carol Joy Cole
+  player2Surname: Daisuke
+  player2: Katagami Daisuke
+  games:
+  - {fileID: 11400000, guid: aee75444eff527848b0dc0f09d40627c, type: 2}
+  - {fileID: 11400000, guid: f8de9d29053c73a449fa9cce6371b2ec, type: 2}
+  - {fileID: 11400000, guid: 743b4883edec26c4da52bd8dec633086, type: 2}
+  - {fileID: 11400000, guid: 5e1eac53f7a0164489b5ca16b0836557, type: 2}
+  - {fileID: 11400000, guid: 7360590ca48cc1b438a561ebec86098f, type: 2}
+  - {fileID: 11400000, guid: 12d82d59e43b34b45993a69b4a635ada, type: 2}
+  - {fileID: 11400000, guid: 7072eb62c56582048a430204cfd3a68e, type: 2}
+  - {fileID: 11400000, guid: 541e1f6c2d2ff5e43818f982ea96c45c, type: 2}
+  - {fileID: 11400000, guid: c431b9fa6f5218941a5ed2009a38d2fb, type: 2}
+  - {fileID: 11400000, guid: 5b0db4ff5f20aea49b78e9b08eb01338, type: 2}
+  - {fileID: 11400000, guid: 5d1ff6f19d934ab47a516909265da9c9, type: 2}
+  - {fileID: 11400000, guid: 77c52435593c5584fb8e8313c70325d2, type: 2}
+  - {fileID: 11400000, guid: 703e2b54326c0c94e880806771944cf6, type: 2}
+  - {fileID: 11400000, guid: ff73366b5e11ace49aa96ff9907e5e03, type: 2}
+  - {fileID: 11400000, guid: 34d91f7c0d39c7b479a0d87715083a7b, type: 2}
+  - {fileID: 11400000, guid: b6fccaa486d106847b257e143a463f53, type: 2}
+  - {fileID: 11400000, guid: 37c0e60b90cd1e04b9c732ed7ab873a0, type: 2}
+  - {fileID: 11400000, guid: 3a11dacb80c5d40458c223a47b7660df, type: 2}
+  - {fileID: 11400000, guid: c27daed33eb8e774d8f56118b0ec2651, type: 2}
+  crawford: true

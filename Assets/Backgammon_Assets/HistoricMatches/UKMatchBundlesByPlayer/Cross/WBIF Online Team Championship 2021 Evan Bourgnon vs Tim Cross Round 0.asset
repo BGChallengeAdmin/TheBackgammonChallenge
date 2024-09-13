@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: WBIF Online Team Championship 2021 Evan Bourgnon vs Tim Cross Round 0
+  m_EditorClassIdentifier: 
+  title: WBIF Online Team Championship 2021 Evan Bourgnon vs Tim Cross
+  id: 1367732
+  round: Round 0
+  points: 13
+  player1Surname: Bourgnon
+  player1: Evan Bourgnon
+  player2Surname: Cross
+  player2: Tim Cross
+  games:
+  - {fileID: 11400000, guid: 15196b0b415b9d64a8cfb372e7f800d3, type: 2}
+  - {fileID: 11400000, guid: b95b3d4c9ef23a041bb2db7f6db6cff7, type: 2}
+  - {fileID: 11400000, guid: 417f40925408e204ba67dfa07cd4b9f3, type: 2}
+  - {fileID: 11400000, guid: 285fb80003f125042bc34196591cc845, type: 2}
+  - {fileID: 11400000, guid: 533818360277c7447bfe11a5aed71bb8, type: 2}
+  - {fileID: 11400000, guid: a159156b8e04e7a43a98069749ac5db1, type: 2}
+  - {fileID: 11400000, guid: f6fec314f56c0a54bbf24ad02886e9b5, type: 2}
+  - {fileID: 11400000, guid: a870c4161aea0f54e928021e745b950e, type: 2}
+  - {fileID: 11400000, guid: c0f279ddc5449e643baad4e1da1751d1, type: 2}
+  - {fileID: 11400000, guid: 99aa4d447b38c42418c15f95142bb58e, type: 2}
+  crawford: false

@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f800cdc312f53478b05c9e65cfc3af, type: 3}
+  m_Name: AI SETTINGS
+  m_EditorClassIdentifier: 
+  PlayerRankLowest: 1
+  PlayerRankHighest: 2
+  PlayerPoints: 5
+  PlayerPly: 2
+  PlayerNoise: 0.1
+  PlayerPreset: HARD
+  PointsMax: 35
+  PointsMin: 1
+  PlyMax: 3
+  PlyMin: 0
+  NoiseMax: 0.99
+  NoiseMin: 0
+  MatchesWon: 0
+  MatchesLost: 0
+  GamesWon: 0
+  GamesLost: 0
+  GamesPlayedEasy: 0
+  GamesWonEasy: 0
+  GamesLostEasy: 0
+  PointsWonEasy: 0
+  PointsLostEasy: 0
+  GamesPlayedMedium: 0
+  GamesWonMedium: 0
+  GamesLostMedium: 0
+  PointsWonMedium: 0
+  PointsLostMedium: 0
+  GamesPlayedHard: 0
+  GamesWonHard: 0
+  GamesLostHard: 0
+  PointsWonHard: 0
+  PointsLostHard: 0
+  GamesPlayedPerfect: 0
+  GamesWonPerfect: 0
+  GamesLostPerfect: 0
+  PointsWonPerfect: 0
+  PointsLostPerfect: 0
+  ContinueBoardState:
+    board:
+      points:
+      - counters: 2
+        occupier: 1
+      - counters: 0
+        occupier: 0
+      - counters: 0
+        occupier: 0
+      - counters: 0
+        occupier: 0
+      - counters: 0
+        occupier: 0
+      - counters: 5
+        occupier: 2
+      - counters: 0
+        occupier: 0
+      - counters: 3
+        occupier: 2
+      - counters: 0
+        occupier: 0
+      - counters: 0
+        occupier: 0
+      - counters: 0
+        occupier: 0
+      - counters: 5
+        occupier: 1
+      - counters: 5
+        occupier: 2
+      - counters: 0
+        occupier: 0
+      - counters: 0
+        occupier: 0
+      - counters: 0
+        occupier: 0
+      - counters: 3
+        occupier: 1
+      - counters: 0
+        occupier: 0
+      - counters: 5
+        occupier: 1
+      - counters: 0
+        occupier: 0
+      - counters: 0
+        occupier: 0
+      - counters: 0
+        occupier: 0
+      - counters: 0
+        occupier: 0
+      - counters: 2
+        occupier: 2
+      player1HomeCount: 0
+      player2HomeCount: 0
+      player1BarCount: 0
+      player2BarCount: 0
+    indexMoveInfo: 0
+    playingAs: 1
+  PlayerTurnID: 1

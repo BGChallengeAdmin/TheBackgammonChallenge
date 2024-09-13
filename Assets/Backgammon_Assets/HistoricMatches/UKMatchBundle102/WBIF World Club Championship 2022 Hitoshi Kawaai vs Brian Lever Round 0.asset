@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: WBIF World Club Championship 2022 Hitoshi Kawaai vs Brian Lever Round 0
+  m_EditorClassIdentifier: 
+  title: WBIF World Club Championship 2022 Hitoshi Kawaai vs Brian Lever
+  id: 2306033
+  eventName: WBIF World Club Championship 2022
+  round: Round 0
+  points: 13
+  player1Surname: Kawaai
+  player1: Hitoshi Kawaai
+  player2Surname: Lever
+  player2: Brian Lever
+  games:
+  - {fileID: 11400000, guid: c949c5f2759cc0f4196415e4c3fb7a52, type: 2}
+  - {fileID: 11400000, guid: 169add8ee9eb3e44cb03acf5801809bc, type: 2}
+  - {fileID: 11400000, guid: 32a8337b3473a5d46a733203b8b1d3a0, type: 2}
+  - {fileID: 11400000, guid: f504ff0f961a9bb4a9912902ad26a94e, type: 2}
+  - {fileID: 11400000, guid: 9908c14dc4a25044cb113d3287eff1de, type: 2}
+  - {fileID: 11400000, guid: 3b88bedeeaaf10d4898a1189aa0cebe2, type: 2}
+  - {fileID: 11400000, guid: 7ad550996dfedd4469f71f58164267ae, type: 2}
+  - {fileID: 11400000, guid: 5a95dffd42ccba04bb1812c6f072b292, type: 2}
+  - {fileID: 11400000, guid: 2c6acc1b808be504f909f32909ab058b, type: 2}
+  - {fileID: 11400000, guid: 9876597283d57984a99f3afdfac68899, type: 2}
+  crawford: false

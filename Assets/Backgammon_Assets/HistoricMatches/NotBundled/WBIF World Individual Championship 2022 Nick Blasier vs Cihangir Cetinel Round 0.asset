@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: WBIF World Individual Championship 2022 Nick Blasier vs Cihangir Cetinel
+    Round 0
+  m_EditorClassIdentifier: 
+  title: WBIF World Individual Championship 2022 Nick Blasier vs Cihangir Cetinel
+  id: 2102961
+  round: Round 0
+  points: 13
+  player1Surname: Blasier
+  player1: Nick Blasier
+  player2Surname: Cetinel
+  player2: Cihangir Cetinel
+  games:
+  - {fileID: 11400000, guid: 6e0a60e31229f8d478a1aed789ba53d2, type: 2}
+  - {fileID: 11400000, guid: 5dd88f9289d93f048b16f1a7afa5362a, type: 2}
+  - {fileID: 11400000, guid: de63fbe6dae30b842b2ff355c9e78500, type: 2}
+  - {fileID: 11400000, guid: 920cc37517381d14988dc2a37e0d8b84, type: 2}
+  - {fileID: 11400000, guid: 7642e264b798c6945a702621a915085a, type: 2}
+  - {fileID: 11400000, guid: dca4e6bd8bf071e4b920a34f1fe9d491, type: 2}
+  - {fileID: 11400000, guid: 80161119432d43441b3808fc55a926ad, type: 2}
+  - {fileID: 11400000, guid: c68e11f90e6bd664d956ff147d6dbafb, type: 2}
+  - {fileID: 11400000, guid: 10393196b35ec0d4fbf9a1c74aa11427, type: 2}
+  crawford: false

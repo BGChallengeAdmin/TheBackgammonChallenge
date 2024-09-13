@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: Las Vegas Open Final Kit Woolsey vs Yazawa Akiko Unknown
+  m_EditorClassIdentifier: 
+  title: Las Vegas Open Final Kit Woolsey vs Yazawa Akiko
+  id: -426879024
+  eventName: Las Vegas Open Final
+  round: Unknown
+  points: 17
+  player1Surname: Woolsey
+  player1: Kit Woolsey
+  player2Surname: Akiko
+  player2: Yazawa Akiko
+  games:
+  - {fileID: 11400000, guid: 07919d21396f1fc4aa47bdd2c7d74477, type: 2}
+  - {fileID: 11400000, guid: 81464d45fb007e04a952b914edaf2ceb, type: 2}
+  - {fileID: 11400000, guid: 8c473bc152138a1469bc4643993da691, type: 2}
+  - {fileID: 11400000, guid: 189d21c5748e7d7429d6faaff61c5a5c, type: 2}
+  - {fileID: 11400000, guid: c12142ceebb342f479b3ddd8e55d49ae, type: 2}
+  - {fileID: 11400000, guid: 63a56f9bc0f9e6345b6f6329829663ec, type: 2}
+  - {fileID: 11400000, guid: c9c88fe4486d37543b8d76a6656cd25c, type: 2}
+  - {fileID: 11400000, guid: 8b25870622954794597b0794161b50db, type: 2}
+  - {fileID: 11400000, guid: 54b542661407b154491543efc2cfeb84, type: 2}
+  - {fileID: 11400000, guid: 2f7009b4552352f4fa997273187a2f6d, type: 2}
+  - {fileID: 11400000, guid: 2fd484003b207c4449b2fb012be901c7, type: 2}
+  crawford: false

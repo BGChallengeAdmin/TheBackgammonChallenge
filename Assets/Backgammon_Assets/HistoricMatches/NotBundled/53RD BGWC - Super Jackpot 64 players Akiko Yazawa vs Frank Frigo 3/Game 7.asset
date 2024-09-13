@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6343b2ba06dcbc429119dd1651b4b03, type: 3}
+  m_Name: Game 7
+  m_EditorClassIdentifier: 
+  player1PointsAtStart: 6
+  player2PointsAtStart: 4
+  format: 1
+  moves:
+  - '42: 8/4 6/4 '
+  - '65: 24/18 18/13 '
+  - '52: 24/22 13/8 '
+  - '21: 13/11 11/10 '
+  - '51: 22/21 13/8 '
+  - '32: 6/4* 4/1* '
+  - '44: 25/21 25/21 6/2 6/2 '
+  - '63: 13/7 10/7 '
+  - '42: 13/9 8/6 '
+  - '51: 8/7 6/1 '
+  - '65: 9/3 8/3 '
+  - '11: 8/7 7/6 8/7 7/6'
+  - '62: 21/15 15/13 '
+  - '42: 13/9 9/7 '
+  - '54: 21/16 13/9 '
+  - '61: 13/7 6/5 '
+  - Doubles
+  - Drops
+  - Wins 1 point
+  player1PointsAtEnd: 7
+  player2PointsAtEnd: 4

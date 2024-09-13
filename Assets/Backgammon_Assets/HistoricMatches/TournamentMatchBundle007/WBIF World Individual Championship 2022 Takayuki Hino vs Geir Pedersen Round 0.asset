@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: WBIF World Individual Championship 2022 Takayuki Hino vs Geir Pedersen
+    Round 0
+  m_EditorClassIdentifier: 
+  title: WBIF World Individual Championship 2022 Takayuki Hino vs Geir Pedersen
+  id: 1852807
+  eventName: WBIF World Individual Championship 2022
+  round: Round 0
+  points: 13
+  player1Surname: Hino
+  player1: Takayuki Hino
+  player2Surname: Pedersen
+  player2: Geir Pedersen
+  games:
+  - {fileID: 11400000, guid: 2602ba4656d7a334585c8feb3a571b1e, type: 2}
+  - {fileID: 11400000, guid: 8493be8e72626524ea3c9c4d08447b1a, type: 2}
+  - {fileID: 11400000, guid: 294901a52ab556242a00bb4904bbc4a8, type: 2}
+  - {fileID: 11400000, guid: f441d7808389c1b488df37e70194c103, type: 2}
+  - {fileID: 11400000, guid: 6f497e423ec0bbe4cb7baba73a3079af, type: 2}
+  - {fileID: 11400000, guid: f945c96682467734685aa964a6807204, type: 2}
+  - {fileID: 11400000, guid: f0c7a0c9fdf2df34bbf49fd6cf3784d4, type: 2}
+  - {fileID: 11400000, guid: 5b4a24c77e0dcdc4397a62a2633cbb8a, type: 2}
+  - {fileID: 11400000, guid: 7d8f949d193eaf94d964e580c5513a96, type: 2}
+  - {fileID: 11400000, guid: 0a61f783592341a41a2241f7a5e7ba12, type: 2}
+  - {fileID: 11400000, guid: 7de8091b1ba1fee4992d2e40919f7325, type: 2}
+  - {fileID: 11400000, guid: eb181ba43480a7d4fa9b55a95c7c6d3b, type: 2}
+  - {fileID: 11400000, guid: 307e2fd43248b6e43b5bb1ca132a1483, type: 2}
+  - {fileID: 11400000, guid: e5ac9b3496f4b184b892ad65a6c231ed, type: 2}
+  - {fileID: 11400000, guid: b784486a74f307f44835a0f9d0d1e7c3, type: 2}
+  - {fileID: 11400000, guid: bf6046952c7631f468a4041abe2460ca, type: 2}
+  crawford: true

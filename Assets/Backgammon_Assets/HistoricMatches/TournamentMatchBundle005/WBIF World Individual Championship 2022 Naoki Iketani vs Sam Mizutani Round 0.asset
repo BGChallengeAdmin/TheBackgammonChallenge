@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: WBIF World Individual Championship 2022 Naoki Iketani vs Sam Mizutani Round
+    0
+  m_EditorClassIdentifier: 
+  title: WBIF World Individual Championship 2022 Naoki Iketani vs Sam Mizutani
+  id: 1889436
+  eventName: WBIF World Individual Championship 2022
+  round: Round 0
+  points: 13
+  player1Surname: Iketani
+  player1: Naoki Iketani
+  player2Surname: Mizutani
+  player2: Sam Mizutani
+  games:
+  - {fileID: 11400000, guid: 6f0772b754e7d654b8f1c78c86dae903, type: 2}
+  - {fileID: 11400000, guid: 0bde3eb21179b4648ad7f07d1b765eea, type: 2}
+  - {fileID: 11400000, guid: ea000df7669c2664cb795d457d6cc3ac, type: 2}
+  - {fileID: 11400000, guid: 3cb10da0fe78bc842a4aa9de42c92c53, type: 2}
+  - {fileID: 11400000, guid: ae4c3d634525d7c48b225b168980cfe8, type: 2}
+  - {fileID: 11400000, guid: b193cb98421d12d419f01358ff4d9040, type: 2}
+  - {fileID: 11400000, guid: 784292caf57355249becff61d74a9376, type: 2}
+  - {fileID: 11400000, guid: 05efaca65742653479b90e3b5b6f2829, type: 2}
+  - {fileID: 11400000, guid: de4642114a1696d4984a0cfefb6fb5dd, type: 2}
+  - {fileID: 11400000, guid: c343702a071e67a4b82c2464920dd275, type: 2}
+  - {fileID: 11400000, guid: 83dd3f51ec183b3468c599329f7c4f5e, type: 2}
+  - {fileID: 11400000, guid: 343ddcc9d52bc5b41b2db732c84e0040, type: 2}
+  - {fileID: 11400000, guid: 0ae42bb0616fbe245b515ac1a0dd3edd, type: 2}
+  crawford: true

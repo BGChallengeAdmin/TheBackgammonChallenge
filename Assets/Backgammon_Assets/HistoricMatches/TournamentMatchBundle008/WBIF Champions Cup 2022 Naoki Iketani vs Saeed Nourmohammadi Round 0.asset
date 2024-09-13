@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: WBIF Champions Cup 2022 Naoki Iketani vs Saeed Nourmohammadi Round 0
+  m_EditorClassIdentifier: 
+  title: WBIF Champions Cup 2022 Naoki Iketani vs Saeed Nourmohammadi
+  id: 1891612
+  eventName: WBIF Champions Cup 2022
+  round: Round 0
+  points: 13
+  player1Surname: Iketani
+  player1: Naoki Iketani
+  player2Surname: Nourmohammadi
+  player2: Saeed Nourmohammadi
+  games:
+  - {fileID: 11400000, guid: 9898201fe5d0e4040b54a85108759cff, type: 2}
+  - {fileID: 11400000, guid: f191501a86c4cf24fa03f2217ed1fa78, type: 2}
+  - {fileID: 11400000, guid: 4f93ccb6ce9af96419bc6b206fe2b888, type: 2}
+  - {fileID: 11400000, guid: 30c9291c30493eb46ab47b0d4a42453e, type: 2}
+  - {fileID: 11400000, guid: 79cd4ed05db997644903aac2e741f06a, type: 2}
+  - {fileID: 11400000, guid: de5beccc7fbbd5e44a2383e900834e28, type: 2}
+  - {fileID: 11400000, guid: 32975f930a96d724ba29c806d4a6ccbc, type: 2}
+  - {fileID: 11400000, guid: 24b68559ca77b5f4ea0e4daa05716210, type: 2}
+  - {fileID: 11400000, guid: 1e6980950456a7e4d817b89f6f2589ab, type: 2}
+  - {fileID: 11400000, guid: 16b4cb4390ea1ce49af35cf67b6960b8, type: 2}
+  - {fileID: 11400000, guid: 72323681c500a6a438a8566bfcebe2db, type: 2}
+  - {fileID: 11400000, guid: 9ecc0fbf5cc9198449d88a76e876f525, type: 2}
+  crawford: true

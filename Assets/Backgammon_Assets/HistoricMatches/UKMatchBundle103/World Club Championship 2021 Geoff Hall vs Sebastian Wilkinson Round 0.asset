@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: World Club Championship 2021 Geoff Hall vs Sebastian Wilkinson Round 0
+  m_EditorClassIdentifier: 
+  title: World Club Championship 2021 Geoff Hall vs Sebastian Wilkinson
+  id: 1364779
+  eventName: World Club Championship 2021
+  round: Round 0
+  points: 13
+  player1Surname: Hall
+  player1: Geoff Hall
+  player2Surname: Wilkinson
+  player2: Sebastian Wilkinson
+  games:
+  - {fileID: 11400000, guid: 899c1e22387e420478d25196638a005a, type: 2}
+  - {fileID: 11400000, guid: f4e45b58ee1e47f4d9c9123f7db2bea7, type: 2}
+  - {fileID: 11400000, guid: 0706d51d0a0e7e94bb5462e31aa578e1, type: 2}
+  - {fileID: 11400000, guid: 6ea70369b34f2164bbdbcafd1d9ffbee, type: 2}
+  - {fileID: 11400000, guid: 685e7ccfbd1714847943140fce755f1c, type: 2}
+  - {fileID: 11400000, guid: 54d4adbcf7f914845bdf54dffc12014d, type: 2}
+  - {fileID: 11400000, guid: 65c761a62a5bf994d8e864b361463353, type: 2}
+  - {fileID: 11400000, guid: 550b2717699dac4448dd01ccfbe8bf7b, type: 2}
+  crawford: false

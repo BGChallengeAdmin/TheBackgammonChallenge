@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: 53RD BGWC - Super Jackpot 64 players Kazuki Yokota vs Frank Frigo 1
+  m_EditorClassIdentifier: 
+  title: 53RD BGWC - Super Jackpot 64 players Kazuki Yokota vs Frank Frigo
+  id: 0729776
+  round: 1
+  points: 11
+  player1Surname: Yokota
+  player1: Kazuki Yokota
+  player2Surname: Frigo
+  player2: Frank Frigo
+  games:
+  - {fileID: 11400000, guid: e3642ed66f038a945afa4834e445c5e4, type: 2}
+  - {fileID: 11400000, guid: 4560b2cc042779b4aaf5eaccbfe6cdb6, type: 2}
+  - {fileID: 11400000, guid: 406bd54c09269e44db8c0d73045965f9, type: 2}
+  - {fileID: 11400000, guid: b78509c54fda5d646839a8110519cea1, type: 2}
+  - {fileID: 11400000, guid: 6518091ce7c3dab43b06a82b7bee3688, type: 2}
+  - {fileID: 11400000, guid: 66783d950ed565c48a1b8850c19e11ed, type: 2}
+  - {fileID: 11400000, guid: b0007d46193d58043aa230ab25b630cf, type: 2}
+  - {fileID: 11400000, guid: baa57dfd9fb5c5c4bb1253c43e972d29, type: 2}
+  - {fileID: 11400000, guid: edf9678f5147ea949b2308182c81a36c, type: 2}
+  - {fileID: 11400000, guid: f9f22aa6039006244b0960d5a14039c5, type: 2}
+  - {fileID: 11400000, guid: d913d0232de3f994aaf5e1447b72e8e6, type: 2}
+  - {fileID: 11400000, guid: 583f5443548ac9b40a3b100634653679, type: 2}
+  - {fileID: 11400000, guid: 44567343c72208e4ea4a9dbc425cc652, type: 2}
+  - {fileID: 11400000, guid: 06718e2379f47614c843044b72205239, type: 2}
+  crawford: true

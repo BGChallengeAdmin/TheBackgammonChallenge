@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: WBIF World Individual Championship 2022 Karl Frogner vs Nick Blasier Round
+    12
+  m_EditorClassIdentifier: 
+  title: WBIF World Individual Championship 2022 Karl Frogner vs Nick Blasier
+  id: 1719120
+  eventName: WBIF World Individual Championship 2022
+  round: Round 12
+  points: 13
+  player1Surname: Frogner
+  player1: Karl Frogner
+  player2Surname: Blasier
+  player2: Nick Blasier
+  games:
+  - {fileID: 11400000, guid: 77a232d655dd4d84990a93d58d04cbca, type: 2}
+  - {fileID: 11400000, guid: 3df29ac4900385a4aa424c8ef89087a5, type: 2}
+  - {fileID: 11400000, guid: ede6da92e5fd8fc48bb40fe2ae04e428, type: 2}
+  - {fileID: 11400000, guid: 3bb2f493a0121454883be6682bb7ae66, type: 2}
+  - {fileID: 11400000, guid: 7d0caf730dc050c4ab294a8d7d4e06fe, type: 2}
+  - {fileID: 11400000, guid: fa921fa931e815b449907cdfb5eb91ed, type: 2}
+  - {fileID: 11400000, guid: 6b561ab05a865be4e836373fe8e3d99c, type: 2}
+  - {fileID: 11400000, guid: 208f5f76181e5b142ba9ee89087c93d9, type: 2}
+  - {fileID: 11400000, guid: 4767b83f86cff0d429ef4fa6a12337d9, type: 2}
+  - {fileID: 11400000, guid: 110e708f24bf21b47a6929a584b38918, type: 2}
+  - {fileID: 11400000, guid: c962b7f14a024634fb8e2abc8c42e045, type: 2}
+  - {fileID: 11400000, guid: 862b820ba8db40c488f0b16e87c090ff, type: 2}
+  - {fileID: 11400000, guid: ea61a6887b8a82244a0c6dbf1f7ff47a, type: 2}
+  - {fileID: 11400000, guid: 405e292c88f18db479f816992c33cf33, type: 2}
+  crawford: false

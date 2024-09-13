@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: WBIF Champions Cup 2022 Iosebi Menabdishvili vs Naoki Iketani Round 0
+  m_EditorClassIdentifier: 
+  title: WBIF Champions Cup 2022 Iosebi Menabdishvili vs Naoki Iketani
+  id: 1798315
+  eventName: WBIF Champions Cup 2022
+  round: Round 0
+  points: 13
+  player1Surname: Menabdishvili
+  player1: Iosebi Menabdishvili
+  player2Surname: Iketani
+  player2: Naoki Iketani
+  games:
+  - {fileID: 11400000, guid: 1e4741cf210db1d468c88009fb129e16, type: 2}
+  - {fileID: 11400000, guid: d18e417d0d6e9e646a3123eae1d0b1bb, type: 2}
+  - {fileID: 11400000, guid: 5f5bb34d4e2f5d746b80c1d67230fecf, type: 2}
+  - {fileID: 11400000, guid: ef26c45c6f568cb48a10c8590d137231, type: 2}
+  - {fileID: 11400000, guid: 8da9afd6c689adf42be076bdc08733d9, type: 2}
+  - {fileID: 11400000, guid: 2ec087ff0b2591748a68c2d8963c9a65, type: 2}
+  - {fileID: 11400000, guid: 8b4b8509fd804614f845a3b36591898e, type: 2}
+  - {fileID: 11400000, guid: 4cc5e657a04588344952181ee0385a43, type: 2}
+  - {fileID: 11400000, guid: 6d8bdd631aa10fc4693945971bdc76f6, type: 2}
+  - {fileID: 11400000, guid: 23c96d6d90357da48b1ea50067cd2688, type: 2}
+  - {fileID: 11400000, guid: 70aaf2976f02093488b8fe90a6c51769, type: 2}
+  - {fileID: 11400000, guid: e39b0aebed6de7a4ba1c04c425933ba2, type: 2}
+  - {fileID: 11400000, guid: 76628fb3df6ffd9478b1534643f92483, type: 2}
+  crawford: false

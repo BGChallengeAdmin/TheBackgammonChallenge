@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: 2022 BGisBig! Masters Gaz Owen vs Rainer Birkle Round 0
+  m_EditorClassIdentifier: 
+  title: 2022 BGisBig! Masters Gaz Owen vs Rainer Birkle
+  id: 1908665
+  eventName: 2022 BGisBig! Masters
+  round: Round 0
+  points: 11
+  player1Surname: Owen
+  player1: Gaz Owen
+  player2Surname: Birkle
+  player2: Rainer Birkle
+  games:
+  - {fileID: 11400000, guid: b998e3e00da0e8646a26a88115b3a61e, type: 2}
+  - {fileID: 11400000, guid: 2265d5241f9b15a4db02b74a917d1419, type: 2}
+  - {fileID: 11400000, guid: 3f6f8fc885cc37e4281e7641703c7974, type: 2}
+  - {fileID: 11400000, guid: 9c62a9c2390773f429b4b893e678feea, type: 2}
+  - {fileID: 11400000, guid: 857aa5e2e1739e349aedb268ab1887e2, type: 2}
+  - {fileID: 11400000, guid: 7419ee671df52e341905e2ed9d494b50, type: 2}
+  - {fileID: 11400000, guid: fe54a2ebd93ba6b439fd4766bb26e370, type: 2}
+  - {fileID: 11400000, guid: 10f3b023f46e7ae4988b1dd15ec28e87, type: 2}
+  crawford: true

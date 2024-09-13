@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: "WBIF Champions Cup 2022 Aref Alipour vs Roland Sahl\xE9n Round 0"
+  m_EditorClassIdentifier: 
+  title: "WBIF Champions Cup 2022 Aref Alipour vs Roland Sahl\xE9n"
+  id: 1805541
+  eventName: WBIF Champions Cup 2022
+  round: Round 0
+  points: 13
+  player1Surname: Alipour
+  player1: Aref Alipour
+  player2Surname: "Sahl\xE9n"
+  player2: "Roland Sahl\xE9n"
+  games:
+  - {fileID: 11400000, guid: 16143b9062af47d4c9accbeaea9591f3, type: 2}
+  - {fileID: 11400000, guid: 4dc3197d4f0ac8a478b43fec6a9e14e7, type: 2}
+  - {fileID: 11400000, guid: 35c76f9672457824f99dfc16860598e4, type: 2}
+  - {fileID: 11400000, guid: 6c4f50cbf6893934a957f3213a03dcdd, type: 2}
+  - {fileID: 11400000, guid: 10ad15501ebfb9341a319b45ed1988d9, type: 2}
+  - {fileID: 11400000, guid: 35537677e717b934f876d94d0f6cea90, type: 2}
+  - {fileID: 11400000, guid: bba8e5e56939e5c4eb1649ceaa75efb1, type: 2}
+  crawford: false

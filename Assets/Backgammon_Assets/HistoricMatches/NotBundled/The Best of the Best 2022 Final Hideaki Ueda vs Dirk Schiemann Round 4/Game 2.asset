@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6343b2ba06dcbc429119dd1651b4b03, type: 3}
+  m_Name: Game 2
+  m_EditorClassIdentifier: 
+  player1PointsAtStart: 0
+  player2PointsAtStart: 2
+  format: 1
+  moves:
+  - ':'
+  - '21: 24/23 13/11 '
+  - '22: 13/11 13/11 6/4 6/4 '
+  - '32: 13/11 13/10 '
+  - '65: 24/18 18/13 '
+  - '22: 24/22 10/8 6/4 6/4 '
+  - '43: 13/9 9/6 '
+  - '66: 13/7 13/7 11/5 11/5 '
+  - '65: 13/7 7/2* '
+  - '53: 25/22 8/3 '
+  - '55: 13/8 13/8 11/6 11/6 '
+  - Doubles
+  - Drops
+  - Wins 1 point
+  player1PointsAtEnd: 0
+  player2PointsAtEnd: 3

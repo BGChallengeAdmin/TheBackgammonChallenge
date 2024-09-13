@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: World Club Championship 2021 Dirk Schiemann vs Sebastian Wilkinson Round
+    0
+  m_EditorClassIdentifier: 
+  title: World Club Championship 2021 Dirk Schiemann vs Sebastian Wilkinson
+  id: 1378424
+  round: Round 0
+  points: 13
+  player1Surname: Schiemann
+  player1: Dirk Schiemann
+  player2Surname: Wilkinson
+  player2: Sebastian Wilkinson
+  games:
+  - {fileID: 11400000, guid: dd3d0cf631fa3264aba6c48084aaf92a, type: 2}
+  - {fileID: 11400000, guid: 80d3bcd014ca9ac499e26cae4bb6226e, type: 2}
+  - {fileID: 11400000, guid: e1d99308800fb8e489f6b3334603f851, type: 2}
+  - {fileID: 11400000, guid: 2ce15f2de2a00364190f8c81ddef866b, type: 2}
+  - {fileID: 11400000, guid: b41e7e6e844269641af386c7ca2f804f, type: 2}
+  - {fileID: 11400000, guid: eefeb0ed7efc01949bc7140a41839275, type: 2}
+  - {fileID: 11400000, guid: 6744dc95ffa423d43b7c49269b7ddf46, type: 2}
+  - {fileID: 11400000, guid: b58ee12dc9f0c49458d1d899fdf6ad92, type: 2}
+  - {fileID: 11400000, guid: 717ddcbb5f8f2e04bba9e9f1ae59b826, type: 2}
+  - {fileID: 11400000, guid: c30b87f91843c40469b93cba656b3bf7, type: 2}
+  - {fileID: 11400000, guid: d8ce74e03fbd11147b03838a3c8453d6, type: 2}
+  - {fileID: 11400000, guid: ee10bc6e4d79d8948a3f3c57fddb4eac, type: 2}
+  - {fileID: 11400000, guid: 864d34ff6353f6e45a9f3b7cec56931c, type: 2}
+  - {fileID: 11400000, guid: e16e27ab099b1954a99e5200b580dbc5, type: 2}
+  - {fileID: 11400000, guid: 09d14a7d21e37f84da0b5dfddbafe9f0, type: 2}
+  - {fileID: 11400000, guid: 1a709bada7349f84482f3c7acec8d303, type: 2}
+  - {fileID: 11400000, guid: 5db989ce24dcb1f4c9534ff95eddce15, type: 2}
+  crawford: true

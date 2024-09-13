@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6343b2ba06dcbc429119dd1651b4b03, type: 3}
+  m_Name: Game 24
+  m_EditorClassIdentifier: 
+  player1PointsAtStart: 15
+  player2PointsAtStart: 14
+  format: 1
+  moves:
+  - ':'
+  - '63: 24/18 13/10 '
+  - '66: 24/18 24/18 13/7* 13/7 '
+  - '52: 25/23 10/5 '
+  - '51: 13/8 8/7 '
+  - '52: 13/8 23/21 '
+  - '33: 7/4* 7/4 6/3 6/3 '
+  - '54: 25/20 24/20 '
+  - '52: 18/13 18/16 '
+  - '51: 8/3 6/5 '
+  - '62: 16/10 10/8 '
+  - '21: 20/18* 6/5 '
+  - '61: 25/24 13/7* '
+  - '66: '
+  - '65: 24/18 18/13 '
+  - '51: 25/20 8/7 '
+  - '11: 8/7 8/7 3/2 3/2 '
+  - '65: 13/7 8/3 '
+  - '55: 13/8 13/8 13/8 8/3 '
+  - '52: 13/8 13/11 '
+  - Doubles
+  - Drops
+  - Wins 1 point
+  player1PointsAtEnd: 16
+  player2PointsAtEnd: 14

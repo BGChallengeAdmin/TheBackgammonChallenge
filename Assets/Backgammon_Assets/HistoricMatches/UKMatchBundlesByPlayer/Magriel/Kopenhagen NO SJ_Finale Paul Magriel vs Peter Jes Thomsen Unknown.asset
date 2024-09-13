@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d162b62d07caeb488fdb5df8a584a9b, type: 3}
+  m_Name: Kopenhagen NO SJ_Finale Paul Magriel vs Peter Jes Thomsen Unknown
+  m_EditorClassIdentifier: 
+  title: Kopenhagen NO SJ_Finale Paul Magriel vs Peter Jes Thomsen
+  id: 5889748
+  round: Unknown
+  points: 11
+  player1Surname: Magriel
+  player1: Paul Magriel
+  player2Surname: Thomsen
+  player2: Peter Jes Thomsen
+  games:
+  - {fileID: 11400000, guid: 9863358120bf049499ca9de34d21f8f3, type: 2}
+  - {fileID: 11400000, guid: 26aaaff5af52b8a43b252305f22d4088, type: 2}
+  - {fileID: 11400000, guid: cc2830a35d6913e4b8231ba7e206173f, type: 2}
+  - {fileID: 11400000, guid: 4198024c4a54a9f48a74479e8bd3e02c, type: 2}
+  - {fileID: 11400000, guid: 318f37565dc9e09449ccfab906685a46, type: 2}
+  - {fileID: 11400000, guid: 7de7fabbdad4fa24a9596936c5fca375, type: 2}
+  - {fileID: 11400000, guid: f8fcc0f7749ddb94a90dd6c19e85a3d8, type: 2}
+  - {fileID: 11400000, guid: 313f4098828e76245934a16d7ef1acd5, type: 2}
+  crawford: false

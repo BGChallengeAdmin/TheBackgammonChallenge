@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6343b2ba06dcbc429119dd1651b4b03, type: 3}
+  m_Name: Game 15
+  m_EditorClassIdentifier: 
+  player1PointsAtStart: 10
+  player2PointsAtStart: 12
+  format: 1
+  moves:
+  - '52: 13/8 13/11 '
+  - '64: 24/18 18/14* '
+  - '42: 25/21 13/11* '
+  - '53: 25/22 13/8 '
+  - '62: 21/15 15/13 '
+  - '31: 8/5 6/5 '
+  - '31: 8/5 6/5 '
+  - '51: 13/8 6/5 '
+  - '63: 11/5 6/3* '
+  - '63: 25/22* 22/16 '
+  - '52: 25/23 23/18 '
+  - '44: 13/9 8/4 8/4 9/5 '
+  - '65: 24/18 13/8 '
+  - '61: 16/10 5/4 '
+  - '66: 24/18 13/7 13/7 8/2 '
+  - '65: 10/4 6/1 '
+  - '52: 8/3 5/3 '
+  - '11: 4/3 3/2 2/1 24/23* '
+  - '66: '
+  - '64: 13/9 9/3 '
+  - '66: '
+  - '43: 13/9 9/6 '
+  - '22: 25/23 18/16 16/14 14/12 '
+  - '51: 6/1 4/3 '
+  - '43: 12/8 8/5 '
+  - '55: 8/3 8/3 6/1 6/1 '
+  - Doubles
+  - Drops
+  - Wins 1 point
+  player1PointsAtEnd: 11
+  player2PointsAtEnd: 12
