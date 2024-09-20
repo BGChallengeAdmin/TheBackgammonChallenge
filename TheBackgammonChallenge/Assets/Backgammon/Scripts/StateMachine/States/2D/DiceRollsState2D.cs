@@ -59,9 +59,9 @@ namespace Backgammon
                 // SHOW OPPONENT RANK 1 MOVE
                 if (Context.ShowOpponentRank1Move)
                 {
+                    // FALSE - RESET DICE ROLLS UI
                     Context.DiceRollsUI.SetActive(false);
                     Context.GameScreenUI.SetShowOpponentRank1Active(false);
-
                     ActiveState = GameStateMachine2D.EGameState2D.ObserveBoard;
                 }
 

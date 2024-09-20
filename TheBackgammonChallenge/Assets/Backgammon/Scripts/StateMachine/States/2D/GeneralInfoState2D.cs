@@ -19,9 +19,19 @@ namespace Backgammon
                 var text = "Sorry.\nSomething has gone wrong.\n\n" +
                     "Your game has been saved, please try again later.";
 
-                Context.GeneralInfoUI.SetGeneralText(text);
-
                 _delayTimer = _extendedTimeDelay;
+
+                // DEBUG - A.I. DATA STATE TIMEOUT
+
+                text = $"A.I. Data response\n\n";
+                text += Context.AIDataHandler.AIServerMessage();
+                Context.GameScreenUI.SetActive(false);
+                Context.GeneralInfoUI.SetDebugContinueButtonActive(true);
+                _delayTimer = -1;
+
+                // END DEBUG
+
+                Context.GeneralInfoUI.SetGeneralText(text);
             }
             else if (Context.BeginTurnDialog)
             {
@@ -249,7 +259,20 @@ namespace Backgammon
 
                 if (Context.AIDataRequestBailOutCounter > 0)
                 {
-                    Context.ExitFromStateMachine = true;
+                    //Context.ExitFromStateMachine = true;
+
+                    // DEBUG - A.I. DATA TIMEOUT
+                    Context.GeneralInfoUI.SetActive(true);
+                    _delayTimer = -1;
+                    if (!Context.GeneralInfoUI.IfDebugContinue) return;
+
+                    Context.GameScreenUI.SetActive(true);
+                    Context.GeneralInfoUI.SetActive(false);
+                    Context.GeneralInfoUI.SetDebugContinueButtonActive(false);
+                    Context.AIDataRequestBailOutCounter = 0;
+                    ActiveState = GameStateMachine2D.EGameState2D.AIData;
+
+                    // END DEBUG
                 }
                 else if (Context.BeginTurnDialog)
                 {

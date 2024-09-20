@@ -94,7 +94,7 @@ namespace Backgammon
 
                 if (result == "Doubles")
                 {
-                    Context.Debug_debugObject.DebugMessage($"PLAYER DOUBLES");
+                    Context.Debug_debugObject.DebugMessage($"{(Context.IsPlayersTurn ? "PLAYER" : "OPPONENT")} DOUBLES");
 
                     ActiveState = GameStateMachine2D.EGameState2D.DoublingData;
                     goto BailOut;
@@ -104,14 +104,14 @@ namespace Backgammon
                     Context.AIIndexTurn -= 2;
                     Context.DoublingTakesOrDrops = true;
                     ActiveState = GameStateMachine2D.EGameState2D.DoublingTakesOrDrops;
-                    Context.Debug_debugObject.DebugMessage($"PLAYER TAKES");
+                    Context.Debug_debugObject.DebugMessage($"{(Context.IsPlayersTurn ? "PLAYER" : "OPPONENT")} TAKES");
                     goto BailOut;
                 }
                 else if (result == "Drops")
                 {
                     Context.DoublingTakesOrDrops = false;
                     ActiveState = GameStateMachine2D.EGameState2D.DoublingTakesOrDrops;
-                    Context.Debug_debugObject.DebugMessage($"PLAYER DROPS");
+                    Context.Debug_debugObject.DebugMessage($"{(Context.IsPlayersTurn ? "PLAYER" : "OPPONENT")} DROPS");
                     Context.AIGameWasWon = true;
                     goto BailOut;
                 }
@@ -320,6 +320,8 @@ namespace Backgammon
 
                         if (Context.AIIndexTurn < 2) rank = 1;
 
+                        //rank = 2;
+
                         var aiRankedMove = Context.AIRankedMoves[rank - 1].movePart;
                         var blot = false;
                         var blottedToCounter = 0;
@@ -339,6 +341,11 @@ namespace Backgammon
 
                             move += " " + fromTo.from + "/" + fromTo.to + (blot ? "*" : string.Empty);
                         }
+                    }
+                    else 
+                    {
+                        // NOTE: REQUIRES RESET
+                        Context.OpponentMatchedRankThisTurn = 0;
                     }
 
                     Context.AIGameData.Moves[Context.IndexTurn] = dice + move;

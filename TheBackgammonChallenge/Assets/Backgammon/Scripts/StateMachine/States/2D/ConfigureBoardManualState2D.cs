@@ -149,6 +149,7 @@ namespace Backgammon
 
             if (Context.ConfigureBoardManualUI.IfClickedExit)
             {
+                Game2D.IfManualSetupBoard = false;
                 Context.ConfigureBoardManualUI.IfClickedExit = false;
                 Context.ExitFromStateMachine = true;
             }

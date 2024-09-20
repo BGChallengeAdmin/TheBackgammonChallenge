@@ -22,17 +22,15 @@ namespace Backgammon
 
             if (!Context.DoublingUI.IfClicked) return;
 
-            if (Context.DoublingUI.IfClickedYes)
-                Context.DoublingUI.SetOfferedDoublesText(Context.AIDoublingData);
+            Context.DoublingUI.SetOfferedDoublesText(Context.AIDoublingData);
 
             if (!Context.DoublingUI.IfClickedConfirm) return;
 
             ActiveState = GameStateMachine2D.EGameState2D.RollDice;
 
-            if (Main.Instance.IfPlayerVsAI)
-            {
-                if (Context.IsPlayersTurn) ActiveState = GameStateMachine2D.EGameState2D.TurnEnd;
-            }
+            // PLAYER OFFERED A.I. DOUBLE
+            if (Main.Instance.IfPlayerVsAI && Context.IsPlayersTurn && Context.DoublingUI.IfClickedYes)
+                    ActiveState = GameStateMachine2D.EGameState2D.TurnEnd;
         }
 
         public override void ExitState()

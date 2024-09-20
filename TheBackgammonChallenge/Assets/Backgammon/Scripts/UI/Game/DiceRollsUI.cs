@@ -301,6 +301,9 @@ namespace Backgammon
             _opponentDice2Image.gameObject.SetActive(false);
             _opponentDice3Image.gameObject.SetActive(false);
             _opponentDice4Image.gameObject.SetActive(false);
+
+            _diceEffects1.SetActive(false);
+            _diceEffects2.SetActive(false);
         }
 
         internal void ResetImageSizes()

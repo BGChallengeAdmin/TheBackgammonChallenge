@@ -14,27 +14,28 @@ namespace Backgammon
             {
                 if (Context.ClickedPlayerMoveAnalysis)
                 {
-                    //Context.ObserveAnalysisManager.SetMarkersToPoints(Context.PlayerMovesInfo);
                     Context.ObserveAnalysisManager.SetPointPositionsToPoints(Context.PlayerMovesInfo);
                 }
                 else if (Context.ClickedProMoveAnalysis)
                 {
-                    //Context.ObserveAnalysisManager.SetMarkersToPoints(Context.RecordedMovesInfo);
                     Context.ObserveAnalysisManager.SetPointPositionsToPoints(Context.RecordedMovesInfo);
                 }
                 else if (Context.ClickedTopRankedMoveAnalysis && Context.AITurnWasAnalysed)
                 {
-                    //Context.ObserveAnalysisManager.SetMarkersToPoints(Context.TopRankedMovesInfo);
                     Context.ObserveAnalysisManager.SetPointPositionsToPoints(Context.TopRankedMovesInfo);
                 }
                 else if (Context.ClickedOpponentMoveAnalysis)
                 {
-                    //Context.ObserveAnalysisManager.SetMarkersToPoints(Context.RecordedMovesInfo);
                     Context.ObserveAnalysisManager.SetPointPositionsToPoints(Context.OpponentMovesInfo, true);
                 }
                 else if (Context.ShowOpponentRank1Move && Context.AITurnWasAnalysed)
                 {
-                    //Context.ObserveAnalysisManager.SetMarkersToPoints(Context.TopRankedMovesInfo);
+                    var blackDice = (Context.IsPlayersTurn && Context.IfPlayerIsBlack) ||
+                            (!Context.IsPlayersTurn && !Context.IfPlayerIsBlack);
+                    
+                    Context.DiceRollsUI.SetActive(true);
+                    Context.DiceRollsUI.SetOpponentDiceFaceValues(!blackDice, Context.PreviousDice1, Context.PreviousDice2);
+                    
                     Context.ObserveAnalysisManager.SetPointPositionsToPoints(Context.TopRankedMovesInfo, true);
                 }
             }
@@ -54,6 +55,7 @@ namespace Backgammon
                 ActiveState = GameStateMachine2D.EGameState2D.TurnEnd;
             else if (Context.ShowOpponentRank1Move)
             {
+                Context.DiceRollsUI.SetActive(false);
                 Game2D.Context.ShowOpponentRank1Move = false;
                 ActiveState = GameStateMachine2D.EGameState2D.RollDice;
             }

@@ -41,7 +41,7 @@ namespace Backgammon
         [SerializeField] GameWonUI _gameWonUI = null;
         [SerializeField] GeneralInfoUI _generalInfoUI = null;
         [SerializeField] ChallengeProgressionUI _challengeProgressionUI = null;
-        [SerializeField] ConfigureBoardManual _configureBoardManualUI = null;
+        [SerializeField] ConfigureBoardManualUI _configureBoardManualUI = null;
 
         [Header("DEBUG")]
         [SerializeField] bool _debugSetFirstOrSecond = false;
@@ -87,6 +87,7 @@ namespace Backgammon
             if (Context is not null)
             {
                 if (Context.GameScreenUI is not null) Context.GameScreenUI.SetActive(false);
+                if (Context.RollForGoesFirstUI is not null) Context.RollForGoesFirstUI.SetActive(false);
                 if (Context.BeforeCommenceUI is not null) Context.BeforeCommenceUI.SetActive(false);
                 if (Context.DoublingUI is not null) Context.DoublingUI.SetActive(false);
                 if (Context.DiceRollsUI is not null) Context.DiceRollsUI.SetActive(false);

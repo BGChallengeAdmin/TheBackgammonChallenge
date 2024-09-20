@@ -524,6 +524,12 @@ namespace Backgammon
             return aiDataFromServer.probabilities;
         }
 
+        public string AIServerMessage()
+        {
+            if (serverMessage is null) return "NULL";
+            else return serverMessage;
+        }
+
         public Move[] AIResponseMoves()
         {
             return aiDataFromServer.move;

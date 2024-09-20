@@ -61,6 +61,9 @@ namespace Backgammon
             Context.CounterMoveIndex = 0;
             Context.CountersToMoveIndex = 0;
 
+            Context.PreviousDice1 = Context.Dice1;
+            Context.PreviousDice2 = Context.Dice2;
+
             // ANALYSIS
             Context.BoardHasBeenRestored = false;
             Context.ClickedPlayerMoveAnalysis = false;

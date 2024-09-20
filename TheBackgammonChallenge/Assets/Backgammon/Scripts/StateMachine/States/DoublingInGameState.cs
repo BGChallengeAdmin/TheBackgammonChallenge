@@ -14,8 +14,7 @@ namespace Backgammon
         {
             if (!Context.DoublingUI.IfClicked) return;
 
-            if (Context.DoublingUI.IfClickedYes)
-                Context.DoublingUI.SetOfferedDoublesText(Context.AIDoublingData);
+            Context.DoublingUI.SetOfferedDoublesText(Context.AIDoublingData);
             
             if (!Context.DoublingUI.IfClickedConfirm) return;
             

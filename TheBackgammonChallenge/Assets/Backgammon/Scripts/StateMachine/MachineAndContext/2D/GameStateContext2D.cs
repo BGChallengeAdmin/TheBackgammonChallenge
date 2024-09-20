@@ -35,7 +35,7 @@ namespace Backgammon
                             BeforeCommenceUI beforeCommenceUI, DoublingUI doublingUI, DiceRollsUI diceRollsUI,
                             AnalysisOrContinueUI analysisOrContinueUI, AnalysisUI analysisUI, ObserveBoardUI observeBoardUI,
                             TurnEndsUI turnEndsUI, GameWonUI gameWonUI, GeneralInfoUI generalInfoUI,
-                            ChallengeProgressionUI challengeProgressionUI, ConfigureBoardManual configureBoardManual)
+                            ChallengeProgressionUI challengeProgressionUI, ConfigureBoardManualUI configureBoardManual)
         {
             _defaultBackground = defaultBackground;
             _gameScreenUI = gameScreenUI;
@@ -97,7 +97,7 @@ namespace Backgammon
         private GameWonUI _gameWonUI;
         private GeneralInfoUI _generalInfoUI;
         private ChallengeProgressionUI _challengeProgressionUI;
-        private ConfigureBoardManual _configureBoardManualUI;
+        private ConfigureBoardManualUI _configureBoardManualUI;
 
         internal Transform DefaultBackground { get => _defaultBackground; }
         internal GameScreenUI GameScreenUI { get => _gameScreenUI; }
@@ -112,7 +112,7 @@ namespace Backgammon
         internal GameWonUI GameWonUI { get => _gameWonUI; }
         internal GeneralInfoUI GeneralInfoUI { get => _generalInfoUI; }
         internal ChallengeProgressionUI ChallengeProgressionUI { get => _challengeProgressionUI; }
-        internal ConfigureBoardManual ConfigureBoardManualUI { get => _configureBoardManualUI; }
+        internal ConfigureBoardManualUI ConfigureBoardManualUI { get => _configureBoardManualUI; }
         internal FadeInFadeOutImage FadeInFadeOutBlack { get => _defaultBackground.GetComponentInChildren<FadeInFadeOutImage>(); }
 
         // MATCH CONFIG
@@ -164,6 +164,8 @@ namespace Backgammon
         public MoveInfo[] RecordedMovesInfo;
         public MoveInfo[] OpponentMovesInfo;
         public MoveInfo[] TopRankedMovesInfo;
+        public int PreviousDice1 = 0;
+        public int PreviousDice2 = 0;
 
         public PlayablePosition2D PointFrom = null;
         public PlayablePosition2D PointTo = null;

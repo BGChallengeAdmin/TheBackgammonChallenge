@@ -13,8 +13,6 @@ namespace Backgammon
             Context.DoublingUI.SetActive(true);
 
             var player = Context.IfPlayer1Turn ? Context.SelectedMatch.Player1 : Context.SelectedMatch.Player2;
-            if (Main.Instance.IfPlayerVsAI)
-                player = Context.IsPlayersTurn ? Context.SelectedMatch.Player1 : Context.SelectedMatch.Player2;
 
             if (Context.DoublingTakesOrDrops)
             {
