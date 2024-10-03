@@ -56,6 +56,7 @@ namespace Backgammon
                 else
                 {
                     Context.PlayoutProMoves = true;
+                    Context.GeneralInfoStateSwitch = GeneralInfoState2D.EGeneralInfoState2D.PlayoutProMoves;
                     ActiveState = GameStateMachine2D.EGameState2D.GeneralInfo;
                 }
             }

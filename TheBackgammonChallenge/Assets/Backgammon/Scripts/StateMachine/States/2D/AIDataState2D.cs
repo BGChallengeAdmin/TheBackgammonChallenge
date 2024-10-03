@@ -39,6 +39,8 @@ namespace Backgammon
                 _stopwatch.Start();
             }
             
+            // TODO: IF FAILS TO CONNECT - DISCONNECT
+            // DOES FAILURE CAUSE APP TO HANG??
             Context.AIDataHandler.Send();
 
             // NORMAL GAME PLAY - OR A.I. PLAYER TURN
@@ -111,7 +113,11 @@ namespace Backgammon
                         {
                             Context.AIDataRequestBailOutCounter = 0;
                         }
-                        else ActiveState = GameStateMachine2D.EGameState2D.GeneralInfo;
+                        else
+                        {
+                            Context.GeneralInfoStateSwitch = GeneralInfoState2D.EGeneralInfoState2D.AIDataRequestFailed;
+                            ActiveState = GameStateMachine2D.EGameState2D.GeneralInfo;
+                        }
                     }
 
                     Context.AIDataRequestBailOutCounter += 1;

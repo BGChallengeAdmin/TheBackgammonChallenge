@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using static Backgammon.GeneralInfoState2D;
 
 namespace Backgammon
 {
@@ -136,17 +137,14 @@ namespace Backgammon
         public bool IfPlayer1GoesFirst = true;
 
         // TURN CONFIG
-        public bool BeginTurnDialog = false;
+        public EGeneralInfoState2D GeneralInfoStateSwitch = EGeneralInfoState2D.None;
         public bool PlayerIsUnableToMove = false;
-        public bool PlayerIsBlockedFromMoving = false;
+        public bool PlayerIsBlockedFromMovingFromBar = false;
         public bool PlayerOfferedDoubles = false;
         public bool AIOfferedDoubles = false;
         public bool AIPlayerAcceptsDoubles = false;
         public bool DoublingTakesOrDrops = false;
 
-        public bool PlayerMoveEvaluated = true;
-        public bool PlayerProMoveEvaluated = true;
-        public bool OpponentMoveEvaluated = true;
         public bool PlayerMatchedProMove = false;
         public bool ShowOpponentRank1Move = false;
 
@@ -158,14 +156,14 @@ namespace Backgammon
 
         public int Dice1;
         public int Dice2;
-        public int TotalMovesThisTurn = 0;
+        public int PreviousDice1 = 0;
+        public int PreviousDice2 = 0;
         public int MovesAvailable = 0;
+        public int TotalMovesThisTurn = 0;
         public MoveInfo[] PlayerMovesInfo;
         public MoveInfo[] RecordedMovesInfo;
         public MoveInfo[] OpponentMovesInfo;
         public MoveInfo[] TopRankedMovesInfo;
-        public int PreviousDice1 = 0;
-        public int PreviousDice2 = 0;
 
         public PlayablePosition2D PointFrom = null;
         public PlayablePosition2D PointTo = null;
@@ -191,6 +189,7 @@ namespace Backgammon
         public bool AITurnWasAnalysed = false;
         public float LostEquity = 0f;
 
+        // STATS
         public int TotalValidPlayerMovesThisGame = 0;
         public int TotalValidPlayerMatchesThisGame = 0;
         public int TotalValidOpponentMovesThisGame = 0;
@@ -255,6 +254,43 @@ namespace Backgammon
         public DebugPrefab Debug_debugObject;
 
         // ------------------------------------------- DATA STRUCTURES ------------------------------------------
+
+        public struct GameTurn
+        {
+            public bool IfPlayer1Turn;
+            public bool IsPlayersTurn;
+
+            public bool PlayerIsUnableToMove;
+            public bool PlayerOfferedDoubles;
+            public bool PlayerAcceptsDoubles;
+
+            public int Dice1;
+            public int Dice2;
+            public int MovesAvailable;
+            public MoveInfo[] PlayerMovesInfo;
+            public MoveInfo[] TopRankedMovesInfo;
+            public BoardState TurnBeginBoardState;
+            public BoardState PlayerBoardState;
+
+            public bool CapturedAIDoublingData;
+            public bool CapturedAIMoveData;
+            public bool AIDataAvailable;
+            public Move AITopRankedMove;
+            public Move[] AIRankedMoves;
+            public Probabilities AIDoublingData;
+
+            public bool PlayerMoveEvaluated;
+            public int TotalValidPlayerMovesThisGame;
+            public int PlayerMatchedRankThisTurn;
+            public int PlayerTopRankedThisGame;
+            public int PlayerSecondRankedThisGame;
+            public int PlayerScoreThisGame;
+
+            public bool UndoPlayerMove;
+            public bool ReplayPlayerMove;
+            public bool PlayerConcedes;
+            public bool GameWon;
+        }
 
         public struct MoveInfo
         {

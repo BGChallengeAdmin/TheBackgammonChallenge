@@ -1,6 +1,3 @@
-using static Backgammon.GameStateContext2D;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Backgammon
@@ -41,7 +38,7 @@ namespace Backgammon
                 if (Context.OpponentMatchedRankThisTurn == 1) Context.OpponentTopRankedThisGame += 1;
                 else if (Context.OpponentMatchedRankThisTurn == 2) Context.OpponentSecondRankedThisGame += 1;
 
-                Context.OpponentMoveEvaluated = false;
+                Context.GeneralInfoStateSwitch = GeneralInfoState2D.EGeneralInfoState2D.EvaluateOpponentMoves;
                 ActiveState = GameStateMachine2D.EGameState2D.GeneralInfo;
             }
         }

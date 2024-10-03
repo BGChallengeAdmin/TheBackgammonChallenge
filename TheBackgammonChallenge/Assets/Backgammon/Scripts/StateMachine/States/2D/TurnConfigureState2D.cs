@@ -24,7 +24,6 @@ namespace Backgammon
 
                 if (!Context.IsPlayersTurn)
                 {
-
                     if (Context.PlayerOfferedDoubles)
                         ActiveState = GameStateMachine2D.EGameState2D.TurnBegin;
                     else if (!Context.CapturedAIDoublingData)

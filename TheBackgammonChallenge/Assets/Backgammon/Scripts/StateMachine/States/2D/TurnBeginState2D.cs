@@ -48,6 +48,7 @@ namespace Backgammon
             {
                 UnityEngine.Debug.Log($"PLAYER WINS");
                 Context.GameWon = true;
+                Context.GeneralInfoStateSwitch = GeneralInfoState2D.EGeneralInfoState2D.GameWon;
                 ActiveState = GameStateMachine2D.EGameState2D.GeneralInfo;
                 goto BailOut;
             }
@@ -68,9 +69,10 @@ namespace Backgammon
 
                 ActiveState = GameStateMachine2D.EGameState2D.TurnEnd;
 
-                if (Context.PlayerIsBlockedFromMoving)
+                if (Context.PlayerIsBlockedFromMovingFromBar)
                 {
                     Context.PlayerIsUnableToMove = true;
+                    Context.GeneralInfoStateSwitch = GeneralInfoState2D.EGeneralInfoState2D.PlayerUnableToMove;
                     ActiveState = GameStateMachine2D.EGameState2D.GeneralInfo;
                 }
 
@@ -87,7 +89,7 @@ namespace Backgammon
 
             Concedes:;
 
-            // TODO: TEST MOVES / DOUBLES
+            // TEST MOVES / DOUBLES
             if (moveParts.Length == 1)
             {
                 var result = moveParts[0];
@@ -118,6 +120,7 @@ namespace Backgammon
                 else if (result == "Concedes") 
                 {
                     Context.PlayerConcedes = true;
+                    Context.GeneralInfoStateSwitch = GeneralInfoState2D.EGeneralInfoState2D.PlayerConcedes;
                     ActiveState = GameStateMachine2D.EGameState2D.GeneralInfo;
                     Context.Debug_debugObject.DebugMessage($"PLAYER CONCEDES");
                     Context.AIGameWasWon = true;
@@ -182,6 +185,8 @@ namespace Backgammon
             if (moves.Length == 0)
             {
                 UnityEngine.Debug.Log($"THERE IS NO MOVE DATA - PLAYER WAS BLOCKED FROM MOVING");
+
+                Context.GeneralInfoStateSwitch = GeneralInfoState2D.EGeneralInfoState2D.PlayerUnableToMove; 
                 Context.PlayerIsUnableToMove = true;
 
                 if (Context.IfFastForwarding)
@@ -426,7 +431,7 @@ namespace Backgammon
 
         private bool TestIfBlockedFromMovingFromBar(bool playerTurn)
         {
-            Context.PlayerIsBlockedFromMoving = false;
+            Context.PlayerIsBlockedFromMovingFromBar = false;
 
             if (playerTurn) 
             {
@@ -455,7 +460,7 @@ namespace Backgammon
                 Context.OpponentMatchedRankThisTurn = 0;
             }
 
-            Context.PlayerIsBlockedFromMoving = true;
+            Context.PlayerIsBlockedFromMovingFromBar = true;
             return true;
         }
 

@@ -104,9 +104,13 @@ namespace Backgammon
         private void OnDestroy()
         {
             isAlive = false;
-            if (socketConnection != null) socketConnection.Close();
-            if (clientReceiveThread != null && clientReceiveThread.IsAlive) clientReceiveThread.Abort();
+            DisconnectFromTcpServer();
             ServerConnected = false;
+
+            //isAlive = false;
+            //if (socketConnection != null) socketConnection.Close();
+            //if (clientReceiveThread != null && clientReceiveThread.IsAlive) clientReceiveThread.Abort();
+            //ServerConnected = false;
         }
 
         // HANDLE SERVER CONNECTION
@@ -142,7 +146,7 @@ namespace Backgammon
 
             debug_dataHandler.DebugMessage("BEGIN DISCONNECT...");
 
-            if (socketConnection.Connected)
+            if (socketConnection is not null && socketConnection.Connected)
             {
                 try 
                 {
@@ -163,7 +167,7 @@ namespace Backgammon
 
         public void ListenForData()
         {
-            // SWITCH PORTS ON EACH CONNECT - BALANCE THE LOAD
+            // SWITCH PORTS ON EACH CONNECT - LOAD BALANCE
 
             serverConnection = serverConnections.ToArray()[serverConnectionCounter++ % serverConnections.Count];
 

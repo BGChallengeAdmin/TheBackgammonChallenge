@@ -7,14 +7,17 @@ namespace Backgammon
         public override void EnterState() 
         {
             Context.RollForGoesFirstUI.SetActive(true);
-            Context.RollForGoesFirstUI.RollOffForGoesFirst(Context.IfPlayer1GoesFirst && Context.IfPlayingAsPlayer1);
+
+            var goesFirst = (Context.IfPlayer1GoesFirst && Context.IfPlayingAsPlayer1) ||
+                            (!Context.IfPlayer1GoesFirst && !Context.IfPlayingAsPlayer1);
+
+            Context.RollForGoesFirstUI.RollOffForGoesFirst(goesFirst);
         }
 
         public override void UpdateState() 
         {
             if (Context.RollForGoesFirstUI.Animating) return;
 
-            //Context.RollForGoesFirstUI.SetActive(false);
             ActiveState = GameStateMachine2D.EGameState2D.BeforeCommence;
         }
 

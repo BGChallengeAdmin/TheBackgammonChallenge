@@ -58,8 +58,9 @@ namespace Backgammon
                 _languageSelectText.text = languageSO.titleLanguageSelectTitle;
                 _backButtonText.text = languageSO.Back;
                 _exitButtonText.text = languageSO.titleMenuExitApp;
-                _versionNumberText.text = "version " + Application.version;
             }
+
+            _versionNumberText.text = "version " + Application.version;
 
             //_aiButton.interactable = false;
             _backButton.interactable = false;

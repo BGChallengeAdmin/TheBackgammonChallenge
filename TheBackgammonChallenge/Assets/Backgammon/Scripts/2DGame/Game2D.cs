@@ -83,7 +83,7 @@ namespace Backgammon
 
         private void OnDisable()
         {
-            // ENSURE ALL UI IS CLOSED DOWN
+            // ENSURE ALL UI AND DATA IS CLOSED DOWN
             if (Context is not null)
             {
                 if (Context.GameScreenUI is not null) Context.GameScreenUI.SetActive(false);
