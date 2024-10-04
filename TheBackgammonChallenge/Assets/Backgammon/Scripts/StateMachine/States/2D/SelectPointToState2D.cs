@@ -48,7 +48,8 @@ namespace Backgammon
             }
             else if (Context.PointsManager.IfChangingSelectedPointFrom)
             {
-                EnterState();
+                _bailOutAndReEnterState = true;
+                goto bailOut;
             }
             else if (Context.PointsManager.IfPointToSelected)
             {
@@ -63,6 +64,14 @@ namespace Backgammon
                 Context.CountersToMoveIndex += 1;
 
                 ActiveState = GameStateMachine2D.EGameState2D.MoveCounters;
+            }
+
+            bailOut:;
+
+            if (_bailOutAndReEnterState)
+            {
+                _bailOutAndReEnterState = false;
+                EnterState();
             }
         }
 
@@ -83,5 +92,7 @@ namespace Backgammon
         public override GameStateMachine2D.EGameState2D GetStateKey() { return StateKey; }
 
         public override GameStateMachine2D.EGameState2D GetActiveState() { return ActiveState; }
+
+        private bool _bailOutAndReEnterState = false;
     }
 }

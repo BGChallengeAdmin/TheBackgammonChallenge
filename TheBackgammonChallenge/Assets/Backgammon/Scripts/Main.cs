@@ -125,6 +125,9 @@ namespace Backgammon
                             _playerScoresHandler.ResetPlayerScoreData();
                         }
 
+                        // ESTABLISH INTERNET CONNECTIVITY
+                        //_aiDataHandler.EstablishInternetConnection();
+
                         // LOAD THE PLAYER SCORE FILE
                         if (!_playerScoresHandler.ScoreFileLoaded && !IfFirstPlaythrough)
                         {
@@ -1099,6 +1102,7 @@ namespace Backgammon
         internal bool IfMatchedPlay;
         internal bool IfPlayerVsPro = false;
         internal bool IfPlayerVsAI = false;
+        internal bool IfAIDataConnectionAvailable = false;
 
         internal bool IfClickedContinuePro;
         internal bool IfClickedContinueAI;

@@ -2467,6 +2467,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167497837}
   m_CullTransparentMesh: 1
+--- !u!1001 &168222689
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1642003417}
+    m_Modifications:
+    - target: {fileID: 2822651094609124447, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+      propertyPath: objName
+      value: debug_pingData
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822651094609124447, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+      propertyPath: showMessage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017576340031204370, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+      propertyPath: m_Name
+      value: debug_pingData
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871223470196244405, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871223470196244405, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871223470196244405, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871223470196244405, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871223470196244405, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871223470196244405, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871223470196244405, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871223470196244405, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871223470196244405, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871223470196244405, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+--- !u!4 &168222690 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7871223470196244405, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+  m_PrefabInstance: {fileID: 168222689}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &168222691 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2822651094609124447, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+  m_PrefabInstance: {fileID: 168222689}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8ef76f1c43006f42ad68fa3c34a6c52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &169008758
 GameObject:
   m_ObjectHideFlags: 0
@@ -25130,6 +25211,7 @@ Transform:
   - {fileID: 669281841}
   - {fileID: 90087665}
   - {fileID: 1881575671}
+  - {fileID: 168222690}
   m_Father: {fileID: 823012180}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1643899715
@@ -27471,6 +27553,7 @@ MonoBehaviour:
   debug_dataSent: {fileID: 669281842}
   debug_doublingResponse: {fileID: 90087666}
   debug_dataResponse: {fileID: 1881575672}
+  debug_pingData: {fileID: 168222691}
   _useLoadBalancing: 1
   _use12344: 1
   _use12345: 1
