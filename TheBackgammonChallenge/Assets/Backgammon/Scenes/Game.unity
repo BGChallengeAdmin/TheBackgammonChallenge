@@ -1326,6 +1326,10 @@ PrefabInstance:
       propertyPath: objName
       value: debug_doublingResponse
       objectReference: {fileID: 0}
+    - target: {fileID: 2822651094609124447, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+      propertyPath: showMessage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4017576340031204370, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
       propertyPath: m_Name
       value: debug_doublingResponse
@@ -2481,7 +2485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2822651094609124447, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
       propertyPath: showMessage
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4017576340031204370, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
       propertyPath: m_Name
@@ -16857,7 +16861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2822651094609124447, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
       propertyPath: showMessage
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4017576340031204370, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
       propertyPath: m_Name
@@ -25266,6 +25270,10 @@ PrefabInstance:
       propertyPath: objName
       value: debug_showLogin
       objectReference: {fileID: 0}
+    - target: {fileID: 2822651094609124447, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
+      propertyPath: showMessage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4017576340031204370, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
       propertyPath: m_Name
       value: debug_showLogin
@@ -26796,7 +26804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2822651094609124447, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
       propertyPath: showMessage
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4017576340031204370, guid: 817aaca3e04aa8a42a7ea5072909415b, type: 3}
       propertyPath: m_Name

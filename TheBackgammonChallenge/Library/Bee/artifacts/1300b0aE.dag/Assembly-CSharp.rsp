@@ -400,6 +400,7 @@
 "Assets/Backgammon/Scripts/Data/PlayerScoreData.cs"
 "Assets/Backgammon/Scripts/Data/PlayerScoresHandler.cs"
 "Assets/Backgammon/Scripts/Data/WorldPlayerInfoHandler.cs"
+"Assets/Backgammon/Scripts/Debug/DebugOutputLogFile.cs"
 "Assets/Backgammon/Scripts/Debug/DebugPrefab.cs"
 "Assets/Backgammon/Scripts/Debug/DebugTextToUI.cs"
 "Assets/Backgammon/Scripts/DLC/AssetPackInfoControllerNew.cs"

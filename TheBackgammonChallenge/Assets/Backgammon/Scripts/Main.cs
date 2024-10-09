@@ -56,6 +56,8 @@ namespace Backgammon
             //appState = AppState.MatchTypeSelectIntro_In;
             //appState = AppState.Game_In;
 
+            DebugPrefab.Init();
+
             #region TODOforApple
             // CONFIGURE CAMERA FOR APPROX. 4:3 ASPECT RATION
             //camera = FindObjectOfType<Camera>();

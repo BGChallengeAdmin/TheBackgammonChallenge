@@ -7,7 +7,6 @@ using System.Threading;
 using UnityEngine;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Net;
 
 namespace Backgammon
 {
@@ -156,6 +155,7 @@ namespace Backgammon
 
         private void ReconnectToServer()
         {
+            debug_dataHandler.DebugMessage($"RECONNECTING TO SERVER");
             isAlive = false;
             ConnectToTcpServer();
         }
