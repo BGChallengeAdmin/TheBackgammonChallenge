@@ -29,8 +29,6 @@ namespace Backgammon
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         public static void OnRuntimeMethodLoad()
         {
-            Debug.Log("ANALYTICS DISABLED");
-
             UnityEngine.Analytics.Analytics.initializeOnStartup = false;
             UnityEngine.Analytics.Analytics.deviceStatsEnabled = false;
             UnityEngine.Analytics.Analytics.limitUserTracking = true;

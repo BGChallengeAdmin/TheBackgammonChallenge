@@ -24,6 +24,12 @@ namespace Backgammon
 
         public void TransitionToNextState(EState stateKey)
         {
+            DebugPrefab.DebugMessageStatic($"");
+            DebugPrefab.DebugMessageStatic($"BASE STATE CHANGE");
+            DebugPrefab.DebugMessageStatic($"CURRENT STATE: {CurrentState.StateKey}");
+            DebugPrefab.DebugMessageStatic($"NEXT STATE: {stateKey}");
+            DebugPrefab.DebugMessageStatic($"");
+
             _isTransitioningState = true;
             CurrentState.ExitState();
             CurrentState = States[stateKey];

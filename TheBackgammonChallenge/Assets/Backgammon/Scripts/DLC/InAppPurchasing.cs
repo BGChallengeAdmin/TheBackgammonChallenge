@@ -22,11 +22,18 @@ namespace Backgammon
         private static Queue<string> unlockedContent;
         private bool purchaseResponse;
 
+        private DebugPrefab debug_gameAssetManager;
+
         // ------------------------------------------------------- INITIALIZE ---------------------------------------------------
+
+        public void SetDebugObject(DebugPrefab debugPrefab)
+        {
+            debug_gameAssetManager = debugPrefab;
+        }
 
         public void InitializePurchasing(List<string> _assetBundles)
         {
-            Debug.Log($"UNITY IAP INITIALIZE");
+            debug_gameAssetManager.DebugMessage($"UNITY IAP INITIALIZE");
 
             unlockedContent = new Queue<string>();
             assetBundles = new List<string>(_assetBundles);
@@ -58,7 +65,7 @@ namespace Backgammon
 
         public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
         {
-            Debug.Log("In-App Purchasing successfully initialized");
+            debug_gameAssetManager.DebugMessage("In-App Purchasing successfully initialized");
             m_StoreController = controller;
             InitializeValidator();
 
@@ -75,7 +82,7 @@ namespace Backgammon
             }
             else
             {
-                Debug.Log("CURRENT STORE NOT SUPPORTED: " + StandardPurchasingModule.Instance().appStore);
+                debug_gameAssetManager.DebugMessage("CURRENT STORE NOT SUPPORTED: " + StandardPurchasingModule.Instance().appStore);
             }
         }
 
@@ -102,7 +109,7 @@ namespace Backgammon
 
         public void OnInitializeFailed(InitializationFailureReason error)
         {
-            Debug.Log($"In-App Purchasing initialize failed: {error}");
+            debug_gameAssetManager.DebugMessage($"In-App Purchasing initialize failed: {error}");
         }
 
         // ------------------------------------------------------ PURCHASING ---------------------------------------------------
@@ -127,11 +134,11 @@ namespace Backgammon
             {
                 //Add the purchased product to the players inventory
                 UnlockContent(product);
-                Debug.Log("Valid receipt, unlocking content.");
+                debug_gameAssetManager.DebugMessage("Valid receipt, unlocking content.");
             }
             else
             {
-                Debug.Log("Invalid receipt, not unlocking content.");
+                debug_gameAssetManager.DebugMessage("Invalid receipt, not unlocking content.");
                 PurchaseResponse = true;
             }
 
@@ -153,7 +160,7 @@ namespace Backgammon
                 //If the purchase is deemed invalid, the validator throws an IAPSecurityException.
                 catch (IAPSecurityException reason)
                 {
-                    Debug.Log($"Invalid receipt: {reason}");
+                    debug_gameAssetManager.DebugMessage($"Invalid receipt: {reason}");
                     return false;
                 }
             }
@@ -163,12 +170,12 @@ namespace Backgammon
 
         public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
         {
-            Debug.Log($"Purchase failed - Product: '{product.definition.id}', PurchaseFailureReason: {failureReason}");
+            debug_gameAssetManager.DebugMessage($"Purchase failed - Product: '{product.definition.id}', PurchaseFailureReason: {failureReason}");
         }
 
         public void OnPurchaseFailed(Product product, PurchaseFailureDescription failureDescription)
         {
-            Debug.Log($"Purchase failed - Product: '{product.definition.id}', PurchaseFailureReason: {failureDescription}");
+            debug_gameAssetManager.DebugMessage($"Purchase failed - Product: '{product.definition.id}', PurchaseFailureReason: {failureDescription}");
         }
 
         // ---------------------------------------------------- DELIVER CONTENT -------------------------------------------------
@@ -177,7 +184,7 @@ namespace Backgammon
         {
             unlockedContent.Enqueue(product.definition.id);
 
-            Debug.Log("UNLOCKED CONTENT COUNT " + unlockedContent.Count);
+            debug_gameAssetManager.DebugMessage("UNLOCKED CONTENT COUNT " + unlockedContent.Count);
 
             PurchaseResponse = true;
 
@@ -248,7 +255,7 @@ namespace Backgammon
                 if (productCatalog != null)
                 {
                     productCatalogItemCollection = productCatalog.allProducts;
-                    Debug.Log("COLLECTION COUNT " + productCatalogItemCollection.Count);
+                    debug_gameAssetManager.DebugMessage("COLLECTION COUNT " + productCatalogItemCollection.Count);
                     return productCatalogItemCollection;
                 }
                 else return null;
@@ -362,8 +369,7 @@ namespace Backgammon
 
         public void OnInitializeFailed(InitializationFailureReason error, string message)
         {
-            //throw new System.NotImplementedException();
-            Debug.Log($"IAP INITIALIZATION FAILED");
+            debug_gameAssetManager.DebugMessage($"IAP INITIALIZATION FAILED");
         }
 
         public string ProductBaseID { get => productIdBase; }

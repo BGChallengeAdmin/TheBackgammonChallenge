@@ -15,33 +15,33 @@ public class DebugOutputLogFile
 
     public void Init()
     {
-        Debug.Log($"***** INIT DEBUG LOG FILE *****");
-
         playerDebugLogDirectory = Application.persistentDataPath + playerAppDataDirectory;
         playerDebugLogFilepath = Path.Combine(playerDebugLogDirectory, playerAppDebugLogFilename);
         playerDebugLogFilepath = playerDebugLogDirectory + playerAppDebugLogFilename;
+        
+        CreateDebugLogFolder();
 
+        writer = new StreamWriter(playerDebugLogFilepath, true);
         debugLogQueue = new Queue();
-
-        Debug.Log($"FILE EXISTS {CreateDebugLogFile()}");
-
+        
         for (int bs = 0; bs < 5; bs++)
             WriteToDebugLogFile($" ");
 
         WriteToDebugLogFile($"INIT DEBUG LOG FILE");
     }
 
-    private bool CreateDebugLogFile()
+    internal void OnDestroy()
+    {
+        if (writer is not null)
+            writer.Close();
+    }
+
+    private bool CreateDebugLogFolder()
     {
         // TEST IF DIRECTORY EXISTS
         if (!Directory.Exists(playerDebugLogDirectory))
         {
             Directory.CreateDirectory(playerDebugLogDirectory);
-
-            if (Directory.Exists(playerDebugLogDirectory))
-            {
-                DebugLogFileLoaded = CreateDebugLogFileInDirectory();
-            }
         }
         else
         {
@@ -62,6 +62,8 @@ public class DebugOutputLogFile
         return File.Exists(playerDebugLogFilepath);
     }
 
+    TextWriter writer;
+
     public void WriteToDebugLogFile(string logMessage)
     {
         var _logMessage = System.DateTime.Now.ToString();
@@ -69,13 +71,14 @@ public class DebugOutputLogFile
 
         debugLogQueue.Enqueue(_logMessage);
 
-        using TextWriter writer = new StreamWriter(playerDebugLogFilepath, true);
+        //writer = new StreamWriter(playerDebugLogFilepath, true);
+        //using TextWriter writer = new StreamWriter(playerDebugLogFilepath, true);
         while (debugLogQueue.Count > 0)
         {
             var timedLogMessage = System.DateTime.Now.ToString();
             timedLogMessage += debugLogQueue.Dequeue();
 
-            writer.Write(timedLogMessage);
+            if (writer is not null) writer.Write(timedLogMessage);
         }
     }
 }

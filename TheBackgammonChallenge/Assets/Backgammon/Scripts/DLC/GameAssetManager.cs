@@ -17,6 +17,9 @@ namespace Backgammon
 
         private string assetBaseIDAsProduct;
 
+        [Header("DEBUG")]
+        [SerializeField] DebugPrefab debug_gameAssetManager;
+
         [Header("Asset Packs List")]
         public List<string> installtimeAssetPackNameList;
         public List<string> fastfollowAssetPackNameList;
@@ -38,17 +41,18 @@ namespace Backgammon
             assetBundles = new Dictionary<string, AssetBundle>();
 
             inAppPurchasing = InAppPurchasing.Instance;
+            inAppPurchasing.SetDebugObject(debug_gameAssetManager);
             inAppPurchasing.InitializePurchasing(GetAssetPackNameList());
 
             assetBaseIDAsProduct = inAppPurchasing.ProductBaseID;
 
-            Debug.Log("*********** IAP INITIALIZED");
+            debug_gameAssetManager.DebugMessage("*********** G_A_M INITIALIZED");
         }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         public static void OnRuntimeMethodLoad()
         {
-            Debug.Log("ANALYTICS DISABLED");
+            //debug_gameAssetManager.DebugMessage("ANALYTICS DISABLED");
 
             UnityEngine.Analytics.Analytics.initializeOnStartup = false;
             UnityEngine.Analytics.Analytics.deviceStatsEnabled = false;
@@ -89,7 +93,7 @@ namespace Backgammon
 
         public bool LoadAllUnlockedContent()
         {
-            Debug.Log("LOAD ALL ASSETS FROM TITLE MENU");
+            debug_gameAssetManager.DebugMessage("LOAD ALL ASSETS FROM TITLE MENU");
 
             var contentUnlocked = false;
 
@@ -111,7 +115,7 @@ namespace Backgammon
             {
                 if (bundle != null && bundle.gameObject.name == assetPackName)
                 {
-                    Debug.Log($"G_A_M UNLOCK {assetPackName}");
+                    debug_gameAssetManager.DebugMessage($"G_A_M UNLOCK {assetPackName}");
                     bundle.gameObject.SetActive(true);
                     break;
                 }
@@ -133,7 +137,7 @@ namespace Backgammon
 
             foreach (var content in UnlockedContent)
             {
-                Debug.Log($"CONTENT {content}");
+                debug_gameAssetManager.DebugMessage($"CONTENT {content}");
             }
 
             InAppPurchaseResponse = true;

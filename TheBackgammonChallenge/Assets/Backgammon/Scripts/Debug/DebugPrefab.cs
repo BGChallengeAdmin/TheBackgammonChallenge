@@ -15,6 +15,11 @@ namespace Backgammon
             debugOutputLogFile.Init();
         }
 
+        public static void DebugMessageStatic(string message)
+        {
+            debugOutputLogFile.WriteToDebugLogFile(message);
+        }
+
         public void DebugMessage(string message)
         {
             if (!showMessage) return;
@@ -22,6 +27,12 @@ namespace Backgammon
             Debug.Log($"{objName} - {message}");
 
             debugOutputLogFile.WriteToDebugLogFile(message);
+        }
+
+        private void OnDestroy()
+        {
+            if (debugOutputLogFile is not null)
+                debugOutputLogFile.OnDestroy();
         }
 
         public bool ShowMesssage { set => showMessage = value; }

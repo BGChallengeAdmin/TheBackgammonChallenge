@@ -44,6 +44,8 @@ namespace Backgammon
         private List<ServerConnection> serverConnections;
         private int serverConnectionCounter = 0;
 
+        private float serverPingHeartbeat = 60f;
+
         private List<OpenDNSConnections> dNSConnections;
         #endregion
 
@@ -112,8 +114,8 @@ namespace Backgammon
 
         void Start()
         {
-            StartInternetConnectionHeartbeat();
-            //EstablishInternetConnection();
+            //StartInternetConnectionHeartbeat();
+            HAS_INTERNET_CONNECTION = true;
 
             serverTimeout += ReconnectToServer;
             resendAIMessage += SendAIMessage;
@@ -294,7 +296,7 @@ namespace Backgammon
 
             EstablishInternetConnection();
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(serverPingHeartbeat);
 
             StartInternetConnectionHeartbeat();
         }

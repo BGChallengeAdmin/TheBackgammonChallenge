@@ -39,6 +39,7 @@ namespace Backgammon
         [SerializeField] BoardDesignSO[] _boardDesignsSOArray = null;
 
         [Header("DEBUG")]
+        [SerializeField] DebugPrefab debug_showLogin = null;
         [SerializeField] DebugTextToUI debug_textToUI = null;
 
         void Awake()
@@ -133,7 +134,7 @@ namespace Backgammon
                         // LOAD THE PLAYER SCORE FILE
                         if (!_playerScoresHandler.ScoreFileLoaded && !IfFirstPlaythrough)
                         {
-                            Debug.Log("LOADED SCORES SUCCESSFULLY " + _playerScoresHandler.AttemptToLoadPlayerData());
+                            debug_showLogin.DebugMessage("LOADED SCORES SUCCESSFULLY " + _playerScoresHandler.AttemptToLoadPlayerData());
                         }
 
                         // GENRATE A NEW AI_USER_ID - NEW GAME NO VALUE OR DEFAULT IS BEING USED
@@ -177,7 +178,7 @@ namespace Backgammon
                     break;
                 case AppState.Login_Out:
                     {
-                        Debug.Log("LOGIN COMPLETE");
+                        debug_showLogin.DebugMessage("LOGIN COMPLETE");
 
                         Enable3DBackground(USING_3D_BACKGROUND);
 
