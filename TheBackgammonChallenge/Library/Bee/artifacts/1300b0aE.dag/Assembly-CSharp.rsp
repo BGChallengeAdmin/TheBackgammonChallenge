@@ -403,6 +403,7 @@
 "Assets/Backgammon/Scripts/Debug/DebugOutputLogFile.cs"
 "Assets/Backgammon/Scripts/Debug/DebugPrefab.cs"
 "Assets/Backgammon/Scripts/Debug/DebugTextToUI.cs"
+"Assets/Backgammon/Scripts/Debug/DebugToolkitUI.cs"
 "Assets/Backgammon/Scripts/DLC/AssetPackInfoControllerNew.cs"
 "Assets/Backgammon/Scripts/DLC/AssetPackListControllerNew.cs"
 "Assets/Backgammon/Scripts/DLC/DownloadMatchInfoContainer.cs"

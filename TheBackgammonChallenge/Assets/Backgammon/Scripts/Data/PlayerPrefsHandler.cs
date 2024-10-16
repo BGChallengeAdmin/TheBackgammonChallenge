@@ -447,6 +447,11 @@ namespace Backgammon
             LoadAppData();
         }
 
+        internal void SetUseDebugPlayerPrefs(bool useDebugLogging)
+        {
+            debug_loadPlayerPrefsData.ShowMesssage = useDebugLogging;
+        }
+
         // SCORE INFO
 
         public GameScoreInfo.ScoreInfo ScoreInfo;

@@ -11,7 +11,7 @@ namespace Backgammon
         [SerializeField] DebugPrefab debug_loadScoresData;
 
         private string playerScoresDirectoryAbs = string.Empty;
-        private string playerScoresDirectory = "/BackgammonChallenge";
+        private string playerScoresDirectory = "/BackgammonChallenge/PlayerScoreData";
 
         // PLAYER SCORES
         private string playerScoresFilename = "/PlayerScoresFile.txt";
@@ -49,6 +49,11 @@ namespace Backgammon
             readJSONFromAIScoreDataFile = new ReadJSONFromAIScoreFile();
 
             //Debug.Log(playerScoresDirectoryAbs);
+        }
+
+        internal void SetUseDebugPlayerData(bool useDebugLogging)
+        {
+            debug_loadScoresData.ShowMesssage = useDebugLogging;
         }
 
         internal bool AttemptToLoadPlayerData()
@@ -723,7 +728,7 @@ namespace Backgammon
         public bool ScoreFileLoaded
         {
             get { return doesScoresFileExist; }
-            private set { doesScoresFileExist = value; }
+            set { doesScoresFileExist = value; }
         }
 
         public int NumberOfPlayerScoreMatches

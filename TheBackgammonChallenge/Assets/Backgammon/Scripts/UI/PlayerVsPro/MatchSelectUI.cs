@@ -144,6 +144,9 @@ namespace Backgammon
                 sortedListTextLower = inputText.Substring(0, 1).ToLower() + inputText.Substring(1).ToLower();
             }
 
+            // ENABLE DEBUG TOOLKIT
+            if (inputText == "USING_DEBUG_TOOLKIT") Main.Instance.IfUsingDebugToolkit = true;
+
             matchReplayDLCs = null;
 
             // RESET TO START OF LIST

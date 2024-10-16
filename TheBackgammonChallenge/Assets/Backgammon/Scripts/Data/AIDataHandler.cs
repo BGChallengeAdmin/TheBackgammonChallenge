@@ -7,6 +7,7 @@ using System.Threading;
 using UnityEngine;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Unity.VisualScripting;
 
 namespace Backgammon
 {
@@ -55,6 +56,7 @@ namespace Backgammon
         [SerializeField] bool _use12345 = false;
 
         private bool HAS_INTERNET_CONNECTION = false;
+        private bool INTERNET_HEARTBEAT_REQUIRED = false;
 
         public AIData aiDataToSend;
         public static AIDataFromServer aiDataFromServer;
@@ -135,6 +137,19 @@ namespace Backgammon
             //ServerConnected = false;
         }
 
+        internal void SetUseDebugAIDataHandler(bool useDebugLogging)
+        {
+            debug_dataHandler.ShowMesssage = useDebugLogging;
+        }
+
+        internal void SetUseDebugObjects(bool dataSent, bool dataReceived, bool doublingDataReceived, bool pingServer)
+        {
+            debug_dataSent.ShowMesssage = dataSent;
+            debug_dataResponse.ShowMesssage = dataReceived;
+            debug_doublingResponse.ShowMesssage = doublingDataReceived;
+            debug_pingData.ShowMesssage = pingServer;
+        }
+
         // HANDLE SERVER CONNECTION
 
         private void ConnectToTcpServer()
@@ -182,8 +197,11 @@ namespace Backgammon
                 }
             }
 
-            if (clientReceiveThread.IsAlive) clientReceiveThread.Abort();
-            clientReceiveThread.Join();
+            if (clientReceiveThread is not null)
+            {
+                if (clientReceiveThread.IsAlive) clientReceiveThread.Abort();
+                clientReceiveThread.Join();
+            }
 
             ServerConnected = false;
         }
@@ -280,10 +298,34 @@ namespace Backgammon
 
         // TEST PING SERVERS - ESTABLISH INTERNET CONNECTION
 
-        private void StartInternetConnectionHeartbeat()
+        internal void StartInternetConnectionHeartbeat(float serverConnectionHeartbeat)
         {
             StopCoroutine(InternetConnectionHearbeatCoroutine());
+            StopCoroutine(EstablishInterentConnectionCoroutine());
+
+            INTERNET_HEARTBEAT_REQUIRED = true;
+
+            debug_pingData.ShowMesssage = true;
+            serverPingHeartbeat = serverConnectionHeartbeat;
+
+            debug_dataHandler.DebugMessage($"STARTED INTERNET CONNECTION HEARTBEAT EVERY {serverPingHeartbeat} SECONDS");
+            debug_pingData.DebugMessage($"STARTED INTERNET CONNECTION HEARTBEAT EVERY {serverPingHeartbeat} SECONDS");
+
             StartCoroutine(InternetConnectionHearbeatCoroutine());
+        }
+
+        internal void StopInternetConnectionHeartbeat()
+        {
+            INTERNET_HEARTBEAT_REQUIRED = false;
+
+            StopCoroutine(InternetConnectionHearbeatCoroutine());
+            StopCoroutine(EstablishInterentConnectionCoroutine());
+
+            debug_dataHandler.DebugMessage($"STOPPED INTERNET CONNECTION HEARTBEAT");
+            debug_pingData.DebugMessage($"STOPPED INTERNET CONNECTION HEARTBEAT");
+
+            HAS_INTERNET_CONNECTION = true;
+            debug_pingData.ShowMesssage = false;
         }
 
         private IEnumerator InternetConnectionHearbeatCoroutine()
@@ -298,7 +340,8 @@ namespace Backgammon
 
             yield return new WaitForSeconds(serverPingHeartbeat);
 
-            StartInternetConnectionHeartbeat();
+            if (INTERNET_HEARTBEAT_REQUIRED)
+                StartInternetConnectionHeartbeat(serverPingHeartbeat);
         }
 
         internal void EstablishInternetConnection()
@@ -322,7 +365,7 @@ namespace Backgammon
 
                 debug_dataHandler.DebugMessage($"NO PING RECEIVED");
                 debug_pingData.DebugMessage($"NO PING RECEIVED");
-                yield return new WaitForSeconds(.005f);
+                yield return new WaitForSeconds(.05f);
             }
 
             debug_dataHandler.DebugMessage($"PING RECEIVED ON: {serverConnection.IPAddress} : {serverConnection.port}!!!");
@@ -378,6 +421,9 @@ namespace Backgammon
             // TEST FORMATTING TO ENSURE FULL MESSAGE IS RECEIVED
             if (dataBuffer != null && dataBuffer != string.Empty)
             {
+                debug_dataHandler.DebugMessage($"PING DATA BUFFER: {dataBuffer}");
+                debug_pingData.DebugMessage($"PING DATA BUFFER: {dataBuffer}");
+                
                 aiServerDataBuffer.LoadString(dataBuffer);
 
                 debug_dataHandler.DebugMessage($"PING SERVER MESSAGE: {aiServerDataBuffer}");

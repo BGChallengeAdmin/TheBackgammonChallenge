@@ -39,12 +39,19 @@ namespace Backgammon
             DontDestroyOnLoad(this.gameObject);
 
             assetBundles = new Dictionary<string, AssetBundle>();
-
             inAppPurchasing = InAppPurchasing.Instance;
+            assetBaseIDAsProduct = inAppPurchasing.ProductBaseID;
+
             inAppPurchasing.SetDebugObject(debug_gameAssetManager);
             inAppPurchasing.InitializePurchasing(GetAssetPackNameList());
 
-            assetBaseIDAsProduct = inAppPurchasing.ProductBaseID;
+            debug_gameAssetManager.DebugMessage("*********** G_A_M INITIALIZED");
+        }
+
+        internal void Init()
+        {
+            inAppPurchasing.SetDebugObject(debug_gameAssetManager);
+            inAppPurchasing.InitializePurchasing(GetAssetPackNameList());
 
             debug_gameAssetManager.DebugMessage("*********** G_A_M INITIALIZED");
         }
@@ -120,6 +127,11 @@ namespace Backgammon
                     break;
                 }
             }
+        }
+
+        internal void SetUseDebugGameAssetManager(bool useDebugLogging)
+        {
+            debug_gameAssetManager.ShowMesssage = useDebugLogging;
         }
 
         // ----------------------------------------------- PRODUCT PURCHASING ------------------------------------------

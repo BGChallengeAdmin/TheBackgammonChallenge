@@ -20,13 +20,18 @@ namespace Backgammon
             debugOutputLogFile.WriteToDebugLogFile(message);
         }
 
+        public static void DeleteOutputFile()
+        {
+            debugOutputLogFile.DeleteOutputFile();
+        }
+
         public void DebugMessage(string message)
         {
             if (!showMessage) return;
 
             Debug.Log($"{objName} - {message}");
 
-            debugOutputLogFile.WriteToDebugLogFile(message);
+            debugOutputLogFile.WriteToDebugLogFile($"{objName} - {message}");
         }
 
         private void OnDestroy()

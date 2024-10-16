@@ -62,6 +62,17 @@ public class DebugOutputLogFile
         return File.Exists(playerDebugLogFilepath);
     }
 
+    public void DeleteOutputFile()
+    {
+        if (File.Exists(playerDebugLogFilepath))
+        {
+            if (writer is not null) writer.Close();
+            File.Delete(playerDebugLogFilepath);
+        }
+
+        Init();
+    }
+
     TextWriter writer;
 
     public void WriteToDebugLogFile(string logMessage)

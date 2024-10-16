@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Backgammon
 {
@@ -41,6 +42,8 @@ namespace Backgammon
         [Header("DEBUG")]
         [SerializeField] DebugPrefab debug_showLogin = null;
         [SerializeField] DebugTextToUI debug_textToUI = null;
+        [SerializeField] bool _usingDebugToolkit = false;
+        [SerializeField] DebugToolkitUI _debugToolkitUI = null;
 
         void Awake()
         {
@@ -48,6 +51,8 @@ namespace Backgammon
             {
                 instance = this;
             }
+
+            IfUsingDebugToolkit = _usingDebugToolkit;
 
             _defaultBackground.gameObject.SetActive(true);
 
@@ -74,6 +79,8 @@ namespace Backgammon
 
         private void Start()
         {
+            // NOTE: INITIALIZE ON START UP -
+            // REINITIALIZED ON LOGIN SCREEN FOR DEBUG TOOLKIT
             _playerPrefsHandler.Init();
 
             // CONFIGURE LOCALIZATION AND LANGUAGE
@@ -91,6 +98,9 @@ namespace Backgammon
                     {
                         logoSplashUI.gameObject.SetActive(true);
 
+                        _playerPrefsHandler.Init();
+
+                        gameAssetManager.Init();
                         gameAssetManager.LoadAllUnlockedContent();
 
                         timer = timeSplash;
@@ -295,10 +305,136 @@ namespace Backgammon
                             break;
                         }
 
+                        if (matchTypeSelectIntroUI.IfDebugToolkit)
+                        {
+                            appState = AppState.DebugToolkitUI_In;
+                            break;
+                        }
+
                         appState = AppState.TitleMenu_In;
                     }
                     break;
                 #endregion
+                // -------------------------------------------- DEBUG TOOLKIT UI ------------------------------------------
+                //
+                #region DEBUG_TOOLKIT_UI
+                case AppState.DebugToolkitUI_In:
+                    {
+                        _debugToolkitUI.SetActive(true);
+
+                        appState = AppState.DebugToolkitUI;
+                    }
+                    break;
+                    case AppState.DebugToolkitUI:
+                    {
+                        // LEFT PANEL
+
+                        if (_debugToolkitUI.ClickedServerHeartbeat)
+                        {
+                            if (_debugToolkitUI.UseServerHeartbeat) 
+                                _aiDataHandler.StartInternetConnectionHeartbeat(_debugToolkitUI.GetServerHeartbeatRate());
+                            else _aiDataHandler.StopInternetConnectionHeartbeat();
+
+                            _debugToolkitUI.ClickedServerHeartbeat = false;
+                        }
+
+                        // RIGHT PANEL
+                        //APP
+
+                        if (_debugToolkitUI.ClickedDebugGameAssetManager)
+                        {
+                            gameAssetManager.SetUseDebugGameAssetManager(_debugToolkitUI.UseDebugGameAssetManager);
+                            _debugToolkitUI.ClickedDebugGameAssetManager = false;
+                        }
+
+                        if (_debugToolkitUI.ClickedDebugLogin)
+                        {
+                            if (_debugToolkitUI.UseDebugLogin) debug_showLogin.ShowMesssage = true;
+                            else debug_showLogin.ShowMesssage = false;
+
+                            _debugToolkitUI.ClickedDebugLogin = false;
+                        }
+
+                        if (_debugToolkitUI.ClickedDebugPlayerPrefs)
+                        {
+                            _playerPrefsHandler.SetUseDebugPlayerPrefs(_debugToolkitUI.UseDebugPlayerPrefs);
+                            _debugToolkitUI.ClickedDebugPlayerPrefs = false;
+                        }
+
+                        if (_debugToolkitUI.ClickedDebugPlayerData)
+                        {
+                            _playerScoresHandler.ScoreFileLoaded = false;
+                            _playerScoresHandler.SetUseDebugPlayerData(_debugToolkitUI.UseDebugPlayerData);
+                            _debugToolkitUI.ClickedDebugPlayerData = false;
+                        }
+
+                        if (_debugToolkitUI.ClickedDebugReportState)
+                        {
+                            _2DGame.SetUseDebugReportState(_debugToolkitUI.UseDebugReportState);
+                            _debugToolkitUI.ClickedDebugReportState = false;
+                        }
+
+                        if (_debugToolkitUI.ClickedDebugGameObject)
+                        {
+                            _2DGame.SetUseDebugGameObject(_debugToolkitUI.UseDebugGameObject);
+                            _debugToolkitUI.ClickedDebugGameObject = false;
+                        }
+
+                        //DATA
+                        if (_debugToolkitUI.ClickedDebugAIDataHandler)
+                        {
+                            _aiDataHandler.SetUseDebugAIDataHandler(_debugToolkitUI.UseDebugAIDataHandler);
+                            _debugToolkitUI.ClickedDebugAIDataHandler = false;
+                        }
+
+                        if (_debugToolkitUI.ClickedDebugAIDataSent ||
+                            _debugToolkitUI.ClickedDebugAIDataReceived ||
+                            _debugToolkitUI.ClickedDebugAIDoublingDataReceived ||
+                            _debugToolkitUI.ClickedDebugAIPingServer
+                            )
+                        {
+                            _aiDataHandler.SetUseDebugObjects(
+                                _debugToolkitUI.UseDebugAIDataSent,
+                                _debugToolkitUI.UseDebugAIDataReceived,
+                                _debugToolkitUI.UseDebugAIDoublingDataReceived,
+                                _debugToolkitUI.UseDebugAIPingServer
+                                );
+
+                            _debugToolkitUI.ClickedDebugAIDataSent = false;
+                            _debugToolkitUI.ClickedDebugAIDataReceived = false;
+                            _debugToolkitUI.ClickedDebugAIDoublingDataReceived = false;
+                            _debugToolkitUI.ClickedDebugAIPingServer = false;
+                        }
+
+                        // BUTTONS
+
+                        if (_debugToolkitUI.ClickedRestartApp)
+                        {
+                            _debugToolkitUI.ClickedRestartApp = false;
+                            appState = AppState.LogoSplash_In;
+                            _debugToolkitUI.SetActive(false);
+                            break;
+                        }
+
+                        if (_debugToolkitUI.ClickedDeleteOutputFile)
+                        {
+                            _debugToolkitUI.ClickedDeleteOutputFile = false;
+                            DebugPrefab.DeleteOutputFile();
+                        }
+
+                        if (!_debugToolkitUI.ClickedContinue) return;
+
+                        appState = AppState.DebugToolkitUI_Out;
+                    } 
+                    break;
+                    case AppState.DebugToolkitUI_Out:
+                    {
+                        _debugToolkitUI.SetActive(false);
+
+                        appState = AppState.MatchTypeSelectIntro_In;
+                    } 
+                    break;
+                    #endregion
                 // ---------------------------------------------- BOARD DESIGNER ------------------------------------------
                 //
                 #region 3DBoardDesigner
@@ -1083,6 +1219,9 @@ namespace Backgammon
             //PlayStatistics_Out,
             //PlayStatistics,
             //
+            DebugToolkitUI_In,
+            DebugToolkitUI,
+            DebugToolkitUI_Out,
             ExitApp_In,
             ExitApp_Out
         }
@@ -1100,6 +1239,8 @@ namespace Backgammon
 
         // ----------------------------------------------- GAME STATE ------------------------------------------------------
         internal static bool signalCommenceGame = false;
+
+        internal bool IfUsingDebugToolkit = false;
 
         internal bool IfDemoIsInPlay;
         internal bool IfMatchedPlay;

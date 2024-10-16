@@ -30,6 +30,9 @@ namespace Backgammon
         [SerializeField] Image _defaultBackground1 = null;
         [SerializeField] Image _defaultBackground2 = null;
 
+        [Header("DEBUG")]
+        [SerializeField] GameObject _debugToolkitButtonContainer = null;
+
         private LanguageScriptableObject languageSO = null;
 
         private void OnEnable()
@@ -41,9 +44,13 @@ namespace Backgammon
             IfConfigureBoard = false;
             IfChangeLanguage = false;
             IfBack = false;
+            IfDebugToolkit = false;
             IfExit = false;
 
             UpdatedConfirmed = false;
+
+            // DISABLE DEBUG U.I. IF NOT IN USE
+            _debugToolkitButtonContainer.SetActive(Main.Instance.IfUsingDebugToolkit);
 
             // CONFIGURE LANGUAGE BY REGION
             languageSO = Main.Instance.WorldRegionObj.LanguageSO;
@@ -124,6 +131,12 @@ namespace Backgammon
             IfClicked = true;
         }
 
+        public void OnClickedDebugToolkit()
+        {
+            IfDebugToolkit = true;
+            IfClicked = true;
+        }
+
         public void OnClickedExit()
         {
             IfExit = true;
@@ -136,6 +149,7 @@ namespace Backgammon
         private bool _ifSettings = false;
         private bool _ifChangeLanguage = false;
         private bool _ifBack = false;
+        private bool _ifDebugToolkit = false;
         private bool _ifExit = false;
         private bool _ifClicked = false;
 
@@ -181,6 +195,12 @@ namespace Backgammon
         {
             get => _ifBack;
             private set => _ifBack = value;
+        }
+
+        public bool IfDebugToolkit
+        {
+            get => _ifDebugToolkit;
+            private set => _ifDebugToolkit = value;
         }
 
         public bool IfExit

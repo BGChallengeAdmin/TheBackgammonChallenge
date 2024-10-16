@@ -310,6 +310,16 @@ namespace Backgammon
             this.gameObject.SetActive(false);
         }
 
+        internal void SetUseDebugReportState(bool useDebugLogging)
+        {
+            _debugReportState.ShowMesssage = useDebugLogging;
+        }
+
+        internal void SetUseDebugGameObject(bool useDebugLogging)
+        {
+            _debugObject.ShowMesssage = useDebugLogging;
+        }
+
         #endregion
 
         // -------------------------------------------- GAME STATE ----------------------------------------------
