@@ -7,6 +7,7 @@ public class DebugToolkitUI : MonoBehaviour
 {
     [Header("LEFT PANEL")]
     [SerializeField] Toggle ServerHeartbeatToggle;
+    [SerializeField] Toggle MaintainServerHeartbeatToggle;
     [SerializeField] TMP_InputField ServerHearbeatInputField;
 
     [Header("RIGHT PANEL")]
@@ -36,7 +37,10 @@ public class DebugToolkitUI : MonoBehaviour
     [Header("ACCESSORS")]
     //LEFT PANEL
     public bool ClickedServerHeartbeat = false;
+    public bool ClickedMaintainServerHeartbeat = false;
+
     public bool UseServerHeartbeat = false;
+    public bool UseMaintainServerHeartbeat = false;
     
     // RIGHT PANEL
     //APP
@@ -80,6 +84,7 @@ public class DebugToolkitUI : MonoBehaviour
 
             // LEFT PANEL
             ServerHeartbeatToggle.onValueChanged.AddListener(delegate { OnClickedServerHeartbeat(); });
+            MaintainServerHeartbeatToggle.onValueChanged.AddListener(delegate { OnClickedMaintainServerHeartbeat(); });
 
             // RIGHT PANEL
             //APP
@@ -110,6 +115,7 @@ public class DebugToolkitUI : MonoBehaviour
         {
             // LEFT PANEL
             ServerHeartbeatToggle.onValueChanged.RemoveAllListeners();
+            MaintainServerHeartbeatToggle.onValueChanged.RemoveAllListeners();
 
             //RIGHT PANEL
             //APP
@@ -142,6 +148,7 @@ public class DebugToolkitUI : MonoBehaviour
 
         // lEFT PANEL
         ClickedServerHeartbeat = false;
+        ClickedMaintainServerHeartbeat = false;
 
         // RIGHT PANEL
         //APP
@@ -175,6 +182,14 @@ public class DebugToolkitUI : MonoBehaviour
         debug_debugToolkit.DebugMessage($"DEBUGGING TOOLKIT: HEARTBEAT - {(ServerHeartbeatToggle.isOn ? "ENABLED" : "DISABLED")}");
         
         DebugGameAIPingServerToggle.isOn = UseServerHeartbeat;
+    }
+
+    private void OnClickedMaintainServerHeartbeat()
+    {
+        ClickedMaintainServerHeartbeat = true;
+        UseMaintainServerHeartbeat = MaintainServerHeartbeatToggle.isOn;
+
+        debug_debugToolkit.DebugMessage($"DEBUGGING TOOLKIT: MAINTAIN HEARTBEAT - {(MaintainServerHeartbeatToggle.isOn ? "ENABLED" : "DISABLED")}");
     }
 
     public float GetServerHeartbeatRate()

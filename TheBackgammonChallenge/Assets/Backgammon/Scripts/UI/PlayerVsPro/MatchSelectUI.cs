@@ -145,7 +145,8 @@ namespace Backgammon
             }
 
             // ENABLE DEBUG TOOLKIT
-            if (inputText == "USING_DEBUG_TOOLKIT") Main.Instance.IfUsingDebugToolkit = true;
+            if (inputText == "DEBUG_TOOLKIT_ON") Main.Instance.IfUsingDebugToolkit = true;
+            else if (inputText == "DEBUG_TOOLKIT_OFF") Main.Instance.IfUsingDebugToolkit = false;
 
             matchReplayDLCs = null;
 

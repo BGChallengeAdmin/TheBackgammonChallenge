@@ -5,9 +5,6 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using UnityEngine;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Unity.VisualScripting;
 
 namespace Backgammon
 {
@@ -57,6 +54,7 @@ namespace Backgammon
 
         private bool HAS_INTERNET_CONNECTION = false;
         private bool INTERNET_HEARTBEAT_REQUIRED = false;
+        private bool MAINTAIN_HEARTBEAT = false;
 
         public AIData aiDataToSend;
         public static AIDataFromServer aiDataFromServer;
@@ -128,6 +126,7 @@ namespace Backgammon
         private void OnDestroy()
         {
             isAlive = false;
+            StopInternetConnectionHeartbeat();
             DisconnectFromTcpServer();
             ServerConnected = false;
 
@@ -300,7 +299,7 @@ namespace Backgammon
 
         internal void StartInternetConnectionHeartbeat(float serverConnectionHeartbeat)
         {
-            StopCoroutine(InternetConnectionHearbeatCoroutine());
+            StopCoroutine(InternetConnectionHearbeatCoroutine(null));
             StopCoroutine(EstablishInterentConnectionCoroutine());
 
             INTERNET_HEARTBEAT_REQUIRED = true;
@@ -311,14 +310,19 @@ namespace Backgammon
             debug_dataHandler.DebugMessage($"STARTED INTERNET CONNECTION HEARTBEAT EVERY {serverPingHeartbeat} SECONDS");
             debug_pingData.DebugMessage($"STARTED INTERNET CONNECTION HEARTBEAT EVERY {serverPingHeartbeat} SECONDS");
 
-            StartCoroutine(InternetConnectionHearbeatCoroutine());
+            StartCoroutine(InternetConnectionHearbeatCoroutine(() => !ServerConnected));
+        }
+
+        internal void MaintainInternetConnectionHeartbeat(bool enable)
+        {
+            MAINTAIN_HEARTBEAT = enable;
         }
 
         internal void StopInternetConnectionHeartbeat()
         {
             INTERNET_HEARTBEAT_REQUIRED = false;
 
-            StopCoroutine(InternetConnectionHearbeatCoroutine());
+            StopCoroutine(InternetConnectionHearbeatCoroutine(null));
             StopCoroutine(EstablishInterentConnectionCoroutine());
 
             debug_dataHandler.DebugMessage($"STOPPED INTERNET CONNECTION HEARTBEAT");
@@ -328,11 +332,9 @@ namespace Backgammon
             debug_pingData.ShowMesssage = false;
         }
 
-        private IEnumerator InternetConnectionHearbeatCoroutine()
+        private IEnumerator InternetConnectionHearbeatCoroutine(System.Func<bool> serverDisconnected)
         {
-            yield return new WaitForSeconds(.05f);
-
-            if (ServerConnected) yield return new WaitForSeconds(.5f);
+            yield return new WaitUntil(serverDisconnected);
 
             HAS_INTERNET_CONNECTION = false;
 
@@ -340,7 +342,7 @@ namespace Backgammon
 
             yield return new WaitForSeconds(serverPingHeartbeat);
 
-            if (INTERNET_HEARTBEAT_REQUIRED)
+            if (INTERNET_HEARTBEAT_REQUIRED || MAINTAIN_HEARTBEAT)
                 StartInternetConnectionHeartbeat(serverPingHeartbeat);
         }
 
@@ -502,8 +504,7 @@ namespace Backgammon
                 NetworkStream stream = socketConnection.GetStream();
                 if (stream.CanWrite)
                 {
-                    //string clientMessage = JsonUtility.ToJson(aiDataToSend);
-                    string clientMessage = JsonConvert.SerializeObject(aiDataToSend);
+                    string clientMessage = JsonUtility.ToJson(aiDataToSend);
                     byte[] clientMessageAsByteArray = Encoding.UTF8.GetBytes(clientMessage);                
                     stream.Write(clientMessageAsByteArray, 0, clientMessageAsByteArray.Length);
 
@@ -580,60 +581,6 @@ namespace Backgammon
             }
             else return false;
         }
-
-        // NEWTONSOFT JSON - DESERIALIZE AND VALIDATE
-        private void ValidateJson(string srvMsg)
-        {
-            Debug.Log($"VALIDATE OBJECT");
-
-            List<string> errors = new List<string>();
-            var settings = new JsonSerializerSettings { Error = (se, ev) =>
-            {
-                errors.Add(ev.ErrorContext.Error.Message);
-                ev.ErrorContext.Handled = true;
-            } };
-            AIDataFromServer srvBfr = JsonConvert.DeserializeObject<AIDataFromServer>(srvMsg, settings);
-
-            foreach (var e in errors)
-                Debug.Log(e);
-
-            Debug.Log($"SVR_MSG: {srvMsg}");
-            Debug.Log($"SVR_BFR: {srvBfr.move[0].probabilities.redWin}");
-
-            DebugLogServerResponse(srvBfr);
-
-            var valid = false;
-
-            if (srvMsg != null && srvMsg != string.Empty)
-            {
-                // TEST CASE FOR NO A.I. MOVES
-                if (srvBfr.type != "Error" &&
-                   (srvBfr.comment == " No move possible " ||
-                    srvBfr.comment.Replace(" ", string.Empty) == "Nomovepossible") &&
-                    srvBfr.move[0] is null)
-                    valid = true;
-
-                // TEST FULL FORMATTING OF MOVE OR PROBABILITY REQUESTS
-                var dataBufferChars = srvMsg.ToCharArray();
-                var length = dataBufferChars.Length;
-                var end = dataBufferChars[length - 3].ToString() + dataBufferChars[length - 2].ToString();
-
-                if (end != "]}" && end != "}}") valid = false;
-            }
-            else valid = false;
-
-            Debug.Log($"VALID -> {valid}");
-        }
-
-        private void DebugLogServerResponse(AIDataFromServer json)
-        {
-            Debug.Log($"");
-            JToken jt = JToken.Parse(JsonConvert.SerializeObject(json));
-            Debug.Log($"{jt.ToString()}");
-            Debug.Log($"");
-        }
-
-        // END - NEWTONSOFT
 
         string[] response = new string[9];
         public Move AIResponse()

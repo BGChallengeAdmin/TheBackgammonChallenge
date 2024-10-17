@@ -338,6 +338,12 @@ namespace Backgammon
                             _debugToolkitUI.ClickedServerHeartbeat = false;
                         }
 
+                        if (_debugToolkitUI.ClickedMaintainServerHeartbeat)
+                        {
+                            _aiDataHandler.MaintainInternetConnectionHeartbeat(_debugToolkitUI.UseMaintainServerHeartbeat);
+                            _debugToolkitUI.ClickedMaintainServerHeartbeat = false;
+                        }
+
                         // RIGHT PANEL
                         //APP
 
