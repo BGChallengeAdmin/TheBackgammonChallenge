@@ -192,17 +192,17 @@ public class DebugToolkitUI : MonoBehaviour
         debug_debugToolkit.DebugMessage($"DEBUGGING TOOLKIT: MAINTAIN HEARTBEAT - {(MaintainServerHeartbeatToggle.isOn ? "ENABLED" : "DISABLED")}");
     }
 
-    public float GetServerHeartbeatRate()
+    public int GetServerHeartbeatRate()
     {
-        float rate;
+        int rate;
         var input = ServerHearbeatInputField.text;
 
-        if (float.TryParse(input, out rate)){ }
+        if (int.TryParse(input, out rate)){ }
         else
         {
             // NOT A FLOAT - DELETE CONTENT
             ServerHearbeatInputField.text = string.Empty;
-            rate = 60f;
+            rate = 2;
         }
 
         debug_debugToolkit.DebugMessage($"DEBUGGING TOOLKIT: HEARTBEAT RATE - {rate}");

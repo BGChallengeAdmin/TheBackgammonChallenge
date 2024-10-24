@@ -23,8 +23,8 @@ namespace Backgammon
             ConstructDataToSend();
 
             // SEND DATA COROUTINE
-            Context.AIDataHandler.SetAIData(aiDataToSend);
-            Context.AIDataHandler.Send();
+            Context.AIDataHandler.SendAIData(aiDataToSend, true);
+            //Context.AIDataHandler.Send();
 
             _delayTimer = _delayTime;
         }

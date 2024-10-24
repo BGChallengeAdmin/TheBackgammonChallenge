@@ -12,7 +12,9 @@ public class RollForGoesFirstUI : MonoBehaviour
     [Header("TRANSFORMS")]
     [SerializeField] Transform _playerDiceContainer;
     [SerializeField] Transform _opponentDiceContainer;
-    
+    [SerializeField] Transform _leftSidePointsContainer;
+    [SerializeField] Transform _rightSidePointsContainer;
+
     [Header("DICE IMAGES")]
     [SerializeField] Image _playerDiceImage;
     [SerializeField] Image _opponentDiceImage;
@@ -40,6 +42,9 @@ public class RollForGoesFirstUI : MonoBehaviour
     // CONFIG.
     internal void Init(float counterScale)
     {
+        _playerDiceContainer.position = _rightSidePointsContainer.position;
+        _opponentDiceContainer.position = _leftSidePointsContainer.position;
+
         _playerIsBlack = Game2D.Context.IfPlayerIsBlack;
         SetAsBlackOrWhite(_playerIsBlack, counterScale);
     }
@@ -68,8 +73,8 @@ public class RollForGoesFirstUI : MonoBehaviour
         _opponentDiceEffects.transform.localPosition = Vector3.zero;
 
         var scale = counterScale * .012f;
-        _playerDiceEffects.transform.localScale = new Vector3(scale, scale, scale);
-        _opponentDiceEffects.transform.localScale = new Vector3(scale, scale, scale);
+        _playerDiceEffects.SetScale(scale);
+        _opponentDiceEffects.SetScale(scale);
 
         _playerDiceEffects.SetActive(false);
         _opponentDiceEffects.SetActive(false);

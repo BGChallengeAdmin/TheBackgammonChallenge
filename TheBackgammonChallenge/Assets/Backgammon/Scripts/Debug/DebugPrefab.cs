@@ -1,3 +1,4 @@
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 namespace Backgammon
@@ -29,9 +30,10 @@ namespace Backgammon
         {
             if (!showMessage) return;
 
-            Debug.Log($"{objName} - {message}");
+            var output = $"{objName} - {message}";
 
-            debugOutputLogFile.WriteToDebugLogFile($"{objName} - {message}");
+            Debug.Log(output);
+            debugOutputLogFile.WriteToDebugLogFile(output);
         }
 
         private void OnDestroy()

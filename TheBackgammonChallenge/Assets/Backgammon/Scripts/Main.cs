@@ -329,18 +329,18 @@ namespace Backgammon
                     {
                         // LEFT PANEL
 
-                        if (_debugToolkitUI.ClickedServerHeartbeat)
-                        {
-                            if (_debugToolkitUI.UseServerHeartbeat) 
-                                _aiDataHandler.StartInternetConnectionHeartbeat(_debugToolkitUI.GetServerHeartbeatRate());
-                            else _aiDataHandler.StopInternetConnectionHeartbeat();
+                        //if (_debugToolkitUI.ClickedServerHeartbeat)
+                        //{
+                        //    if (_debugToolkitUI.UseServerHeartbeat) 
+                        //        _aiDataHandler.StartInternetConnectionHeartbeat(_debugToolkitUI.GetServerHeartbeatRate());
+                        //    else _aiDataHandler.StopInternetConnectionHeartbeat();
 
-                            _debugToolkitUI.ClickedServerHeartbeat = false;
-                        }
+                        //    _debugToolkitUI.ClickedServerHeartbeat = false;
+                        //}
 
                         if (_debugToolkitUI.ClickedMaintainServerHeartbeat)
                         {
-                            _aiDataHandler.MaintainInternetConnectionHeartbeat(_debugToolkitUI.UseMaintainServerHeartbeat);
+                            _aiDataHandler.SetUseDebugResetConnecitons(_debugToolkitUI.GetServerHeartbeatRate());
                             _debugToolkitUI.ClickedMaintainServerHeartbeat = false;
                         }
 

@@ -21570,7 +21570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -509.99994, y: 0}
+  m_AnchoredPosition: {x: -510, y: 0}
   m_SizeDelta: {x: -1260, y: -160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1275579461
@@ -24350,6 +24350,8 @@ MonoBehaviour:
   _diceEffectWhitePrefab: {fileID: 506642333087124283, guid: 056ef48d7d5c0134eb63798202d42d82, type: 3}
   _playerDiceContainer: {fileID: 884534926}
   _opponentDiceContainer: {fileID: 224784650}
+  _leftSidePointsContainer: {fileID: 1272524575}
+  _rightSidePointsContainer: {fileID: 2035176888}
   _playerDiceImage: {fileID: 1492449140}
   _opponentDiceImage: {fileID: 987022260}
   _diceBlackSprites:

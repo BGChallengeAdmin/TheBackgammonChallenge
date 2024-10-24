@@ -12,7 +12,7 @@ namespace Backgammon
             ConstructDataToSend();
             
             // SEND DATA COROUTINE
-            Context.AIDataHandler.SetAIData(aiDataToSend);
+            Context.AIDataHandler.SendAIData(aiDataToSend);
             Context.AIDataHandler.Send();
 
             // DEFAULT TO DICE ROLLS

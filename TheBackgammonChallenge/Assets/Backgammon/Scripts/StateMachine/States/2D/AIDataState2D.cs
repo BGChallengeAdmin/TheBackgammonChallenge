@@ -30,18 +30,18 @@ namespace Backgammon
 
             ConstructDataToSend();
 
-            // SEND DATA COROUTINE ON SEND
-            Context.AIDataHandler.SetAIData(_aiDataToSend);
-
             if (_benchmarking)
             {
                 _stopwatch.Reset();
                 _stopwatch.Start();
             }
-            
+
+            // SEND DATA COROUTINE ON SEND
+            Context.AIDataHandler.SendAIData(_aiDataToSend);
+                        
             // TODO: IF FAILS TO CONNECT - DISCONNECT
             // DOES FAILURE CAUSE APP TO HANG??
-            Context.AIDataHandler.Send();
+            //Context.AIDataHandler.Send();
 
             // NORMAL GAME PLAY - OR A.I. PLAYER TURN
             if (!Main.Instance.IfPlayerVsAI || 

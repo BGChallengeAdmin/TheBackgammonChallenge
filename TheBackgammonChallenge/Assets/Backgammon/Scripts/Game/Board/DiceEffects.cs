@@ -11,14 +11,22 @@ namespace Backgammon
         private void Awake()
         {
             rb = this.gameObject.GetComponent<Rigidbody>();
-
-            setScale = transform.localScale;
-            animationScale = new Vector3(setScale.x * 0.6f, setScale.x * 0.6f, setScale.x * 0.6f);
         }
 
         internal void SetActive(bool active)
         {
             this.gameObject.SetActive(active);
+        }
+
+        internal void SetScale(float setScale)
+        {
+            var setScaleX = this.transform.localScale.x;
+            animationScale = new Vector3(setScaleX * 0.6f, setScaleX * 0.6f, setScaleX * 0.6f);
+
+            this.transform.localScale = new Vector3(setScale, setScale, setScale);
+            blankFace.gameObject.transform.localScale = new Vector3(setScale, setScale, setScale);
+            
+            _setScale = this.transform.localScale;
         }
 
         public void SetDiceFaceBlank(bool _setBlank)
@@ -36,7 +44,7 @@ namespace Backgammon
             rb.AddTorque(torqueVec);
         }
 
-        private Vector3 setScale;
+        private Vector3 _setScale;
         private Vector3 animationScale;
         private float animationRatio;
         private float animationDirection = 1f;
@@ -45,7 +53,7 @@ namespace Backgammon
         {
             animationRatio += speedVec * animationDirection;
 
-            transform.localScale = Vector3.Lerp(setScale, animationScale, animationRatio);
+            transform.localScale = Vector3.Lerp(_setScale, animationScale, animationRatio);
 
             if (animationRatio <= 0)
             {
@@ -66,7 +74,7 @@ namespace Backgammon
             rb.angularVelocity = Vector3.zero;
             transform.position = gameObject.GetComponentInParent<RectTransform>().transform.position;
             transform.rotation = Quaternion.identity;
-            transform.localScale = setScale;
+            transform.localScale = _setScale;
 
             animationRatio = 0;
             animationDirection = 1f;

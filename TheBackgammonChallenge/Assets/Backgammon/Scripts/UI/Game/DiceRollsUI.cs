@@ -42,12 +42,12 @@ namespace Backgammon
 
         private void Awake()
         {
-            var verticalAdjst = new Vector3(0f, _playerDiceContainer.position.y, 0f);
+        //    var verticalAdjst = new Vector3(0f, _playerDiceContainer.position.y, 0f);
 
-            _playerDiceContainer.position = _rightSidePointsContainer.position + verticalAdjst;
-            _opponentDiceContainer.position = _leftSidePointsContainer.position + verticalAdjst;
+        //    _playerDiceContainer.position = _rightSidePointsContainer.position + verticalAdjst;
+        //    _opponentDiceContainer.position = _leftSidePointsContainer.position + verticalAdjst;
 
-            _playerDiceRollsButtonText.gameObject.transform.localPosition = _playerDiceContainer.localPosition + new Vector3(0f, -100f, 0f);
+        //    _playerDiceRollsButtonText.gameObject.transform.localPosition = _playerDiceContainer.localPosition + new Vector3(0f, -100f, 0f);
 
             _playerTapToRollButton.onClick.AddListener(() => OnClickTapToRoll());
         }
@@ -77,6 +77,13 @@ namespace Backgammon
             var scale = counterScale * .012f;
             _playerDiceContainer.localScale = new Vector3(scale, scale, scale);
             _opponentDiceContainer.localScale = new Vector3(scale, scale, scale);
+
+            var verticalAdjst = new Vector3(0f, _playerDiceContainer.position.y, 0f);
+
+            _playerDiceContainer.position = _rightSidePointsContainer.position + verticalAdjst;
+            _opponentDiceContainer.position = _leftSidePointsContainer.position + verticalAdjst;
+
+            _playerDiceRollsButtonText.gameObject.transform.localPosition = _playerDiceContainer.localPosition + new Vector3(0f, -100f, 0f);
         }
 
         internal void SetAsBlackOrWhite(bool blackOrWhite, float counterScale)
@@ -98,8 +105,8 @@ namespace Backgammon
             _diceEffects2.transform.localPosition =  new Vector3(80f, 0f, 0f); 
 
             var scale = counterScale * .012f;
-            _diceEffects1.transform.localScale = new Vector3(scale, scale, scale);
-            _diceEffects2.transform.localScale = new Vector3(scale, scale, scale);
+            _diceEffects1.SetScale(scale);
+            _diceEffects2.SetScale(scale);
 
             _diceEffects1.SetActive(false);
             _diceEffects2.SetActive(false);
@@ -110,20 +117,32 @@ namespace Backgammon
         {
             _playerTapToRollButton.gameObject.SetActive(true);
 
-            var randomSeed = 25;
-            _randomVec1 = new Vector3(1f + (Random.Range(-randomSeed, randomSeed) * .1f),
-                                    1f + (Random.Range(-randomSeed, randomSeed) * .1f),
-                                    1f + (Random.Range(-randomSeed, randomSeed) * .1f));
+            var min = 5f;
+            var max = 25f;
+            
+            _randomVec1 = new Vector3((PositiveNegative() * RandomRange(min, max) * .1f),
+                                      (PositiveNegative() * RandomRange(min, max) * .1f),
+                                      (PositiveNegative() * RandomRange(min, max) * .1f));
 
-            _randomVec2 = new Vector3(1f + (Random.Range(-randomSeed, randomSeed) * .1f),
-                                    1f + (Random.Range(-randomSeed, randomSeed) * .1f),
-                                    1f + (Random.Range(-randomSeed, randomSeed) * .1f));
+            _randomVec2 = new Vector3((PositiveNegative() * RandomRange(min, max) * .1f),
+                                      (PositiveNegative() * RandomRange(min, max) * .1f),
+                                      (PositiveNegative() * RandomRange(min, max) * .1f));
             
             _diceEffects1.SetActive(true);
             _diceEffects2.SetActive(true);
 
             _diceEffects1.ResetDice();
             _diceEffects2.ResetDice();
+        }
+
+        private float PositiveNegative()
+        {
+            return (Random.Range(0, 2) == 1 ? 1 : -1);
+        }
+
+        private float RandomRange(float min, float max)
+        {
+            return Random.Range(min, (max + 1));
         }
 
         private void OnClickTapToRoll()
@@ -341,7 +360,7 @@ namespace Backgammon
         private float _diceEffectTimer = 2.5f;
 
         private Vector3 _torqueVec = new Vector3(3f, 3f, 3f);
-        private Vector3 _speedVec = new Vector3(6f, 6f, 6f);
+        private Vector3 _speedVec = new Vector3(4f, 4f, 4f);
         private Vector3 _randomVec1;
         private Vector3 _randomVec2;
 
