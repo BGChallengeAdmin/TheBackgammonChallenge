@@ -6,17 +6,18 @@ namespace Backgammon
 
         public override void EnterState()
         {
-            var text = (Context.IfPlayer1GoesFirst ? Context.SelectedMatch.Player1 : Context.SelectedMatch.Player2) + " goes first.";
+            // NOTE: USING AS BACKGROUND
+            //var text = (Context.IfPlayer1GoesFirst ? Context.SelectedMatch.Player1 : Context.SelectedMatch.Player2) + " goes first.";
 
-            Context.BeforeCommenceUI.SetActive(true);
-            Context.BeforeCommenceUI.SetCommenceText(text);
+            //Context.BeforeCommenceUI.SetActive(true);
+            //Context.BeforeCommenceUI.SetCommenceText(text);
         }
 
         public override void UpdateState()
         {
-            if (!Context.BeforeCommenceUI.CommenceClicked) return;
+            //if (!Context.BeforeCommenceUI.CommenceClicked) return;
             
-            Context.BeforeCommenceUI.SetActive(false);
+            //Context.BeforeCommenceUI.SetActive(false);
 
             if (Context.BeforeCommenceUI.FastForwardUserInput > 0)
             {
@@ -24,6 +25,8 @@ namespace Backgammon
                 ActiveState = GameStateMachine.EGameState.ConfigureBoard;
             }
             else  ActiveState = GameStateMachine.EGameState.TurnBegin;
+
+            UnityEngine.Debug.Log($"BEFORE COMMENCE -> {ActiveState.ToString()}");
 
             //_delayTimer -= Time.deltaTime;
 

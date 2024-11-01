@@ -34,6 +34,8 @@ public class DebugOutputLogFile
     {
         if (writer is not null)
             writer.Close();
+
+        Debug.Log($"CLOSED WRITER");
     }
 
     private bool CreateDebugLogFolder()

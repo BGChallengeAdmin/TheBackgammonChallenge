@@ -8,8 +8,8 @@ namespace Backgammon
         {
             Context.Debug_reportState.DebugMessage($"ENTER STATE: CONFIGURE BOARD");
 
-            Context.BoardMaterialsManager.ConfigureBoardDimsToScreenSize();
-            Context.PointsManager.ConfigurePointsDimsToScreenSize();
+            //Context.BoardMaterialsManager.ConfigureBoardDimsToScreenSize();
+            //Context.PointsManager.ConfigurePointsDimsToScreenSize();
 
             Context.HomeManager.Init(Context.IfPlayFromLhs);
 

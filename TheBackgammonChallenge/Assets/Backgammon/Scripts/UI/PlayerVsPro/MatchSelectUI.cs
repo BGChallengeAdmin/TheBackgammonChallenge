@@ -467,6 +467,11 @@ namespace Backgammon
             }
         }
 
+        public static void SetMatch(Backgammon_Asset.MatchData match)
+        {
+            Match = match;
+        }
+
         public bool ifBack;
         public static Backgammon_Asset.MatchData Match = null;
 

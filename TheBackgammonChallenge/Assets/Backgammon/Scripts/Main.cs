@@ -37,6 +37,7 @@ namespace Backgammon
         [Header("GAME")]
         [SerializeField] Game2D _2DGame = null;
         [SerializeField] Game _3DGame = null;
+        [SerializeField] Backgammon_Asset.MatchReplayDLC _defaultMatchData = null;
         [SerializeField] BoardDesignSO[] _boardDesignsSOArray = null;
 
         [Header("DEBUG")]
@@ -1055,14 +1056,21 @@ namespace Backgammon
 
         private void Enable3DBackground(bool enable)
         {
-            var match = new Backgammon_Asset.MatchData();
+            var match = _defaultMatchData.Match(0);
 
             // CONFIGURE MATCH CONTEXT
             if (enable)
             {
                 Debug.Log($"CONFIGURE MATCH CONTEXT");
-                match = FindObjectsByType<Backgammon_Asset.MatchData>(sortMode: FindObjectsSortMode.None).FirstOrDefault();
-                MatchSelectUI.SetContinueMatchByID(match.ID);
+
+                var matchList = FindObjectsByType<Backgammon_Asset.MatchData>(sortMode: FindObjectsSortMode.None);
+                if (matchList.Length > 0)
+                {
+                    Debug.Log($"FOUND {matchList.Length} MATCHES");
+                    match = matchList[UnityEngine.Random.Range(0, matchList.Length)];
+                }
+
+                if (match != null) MatchSelectUI.SetMatch(match);
             }
 
             // CONFIGURE GAME CONTEXT
@@ -1081,7 +1089,7 @@ namespace Backgammon
 
             //_3DGame.ResetBoardLayout();
 
-            if (enable) Debug.Log($"DIABLE BACKGROUNDS");
+            if (enable) Debug.Log($"DISABLE BACKGROUNDS");
             _defaultBackground.gameObject.SetActive(!enable);
             matchTypeSelectIntroUI.EnableDefaultBackground(!enable);
 

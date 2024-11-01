@@ -38,11 +38,7 @@ namespace Backgammon
 
             // SEND DATA COROUTINE ON SEND
             Context.AIDataHandler.SendAIData(_aiDataToSend);
-                        
-            // TODO: IF FAILS TO CONNECT - DISCONNECT
-            // DOES FAILURE CAUSE APP TO HANG??
-            //Context.AIDataHandler.Send();
-
+            
             // NORMAL GAME PLAY - OR A.I. PLAYER TURN
             if (!Main.Instance.IfPlayerVsAI || 
                 (Main.Instance.IfPlayerVsAI && Context.IsPlayersTurn && !Context.IfFastForwarding))

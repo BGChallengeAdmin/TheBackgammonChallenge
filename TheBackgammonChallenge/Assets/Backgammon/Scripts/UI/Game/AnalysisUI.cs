@@ -35,9 +35,9 @@ namespace Backgammon
 
         private void Awake()
         {
-            _analysisPanelTransform.GetComponent<RectTransform>().sizeDelta =
-                new Vector2((_analysisPanelScreenWidthPercent * Screen.width),
-                            (_analysisPanelScreenHeightPercent * Screen.height));
+            //_analysisPanelTransform.GetComponent<RectTransform>().sizeDelta =
+            //    new Vector2((_analysisPanelScreenWidthPercent * Screen.width),
+            //                (_analysisPanelScreenHeightPercent * Screen.height));
 
             _analysisPanelTransform.localPosition = _leftPointsTransform.localPosition;
 

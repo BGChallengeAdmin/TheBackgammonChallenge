@@ -119,13 +119,14 @@ namespace Backgammon
             _context.IfPlayer1GoesFirst = _context.SelectedMatch.Game(_context.IndexGame).GetPlayerMove(0) == ":" ? false : true;
 
             // UI
-            _gameScreenUI.SetActive(true);
-            _gameScreenUI.Reset();
-            _gameScreenUI.SetPlayerName("YOU");
-            _gameScreenUI.SetProPlayerName(_context.IfPlayingAsPlayer1 ? 
-                                        _context.SelectedMatch.Player1Surname : _context.SelectedMatch.Player2Surname);
-            _gameScreenUI.SetOpponentName(_context.IfPlayingAsPlayer1 ? 
-                                        _context.SelectedMatch.Player2Surname : _context.SelectedMatch.Player1Surname);
+            // NOTE: USING AS BACKGROUND
+            //_gameScreenUI.SetActive(true);
+            //_gameScreenUI.Reset();
+            //_gameScreenUI.SetPlayerName("YOU");
+            //_gameScreenUI.SetProPlayerName(_context.IfPlayingAsPlayer1 ? 
+            //                            _context.SelectedMatch.Player1Surname : _context.SelectedMatch.Player2Surname);
+            //_gameScreenUI.SetOpponentName(_context.IfPlayingAsPlayer1 ? 
+            //                            _context.SelectedMatch.Player2Surname : _context.SelectedMatch.Player1Surname);
 
             _observeAnalysisManager.Init();
             _challengeProgressionUI.Init();
@@ -134,7 +135,7 @@ namespace Backgammon
             _defaultBackground.gameObject.SetActive(false);
 
             // FAST FORWARD
-            _context.FastForwardTurnIndex = 0; //22 - 41
+            _context.FastForwardTurnIndex = Context.SelectedGame.Moves.Length - 1; //22 - 41
 
             if (_context.FastForwardTurnIndex >= Context.SelectedGame.Moves.Length) _context.FastForwardTurnIndex -= 5;
             if (Context.FastForwardTurnIndex > Context.IndexTurn) Context.IfFastForwarding = true;
@@ -142,9 +143,9 @@ namespace Backgammon
             _stateMachine.Init(_context);
 
             // BOARD MATERIALS - ENSURE CONTEXT IS INITIALIZED - ALL PREFABS CREATED
-            _boardMaterialsManager.Init(Main.Instance.BoardDesignSO);
+            //_boardMaterialsManager.Init(Main.Instance.BoardDesignSO);
 
-            //ResetBoardLayout();
+            ResetBoardLayout();
         }
 
         internal void ResetBoardLayout()

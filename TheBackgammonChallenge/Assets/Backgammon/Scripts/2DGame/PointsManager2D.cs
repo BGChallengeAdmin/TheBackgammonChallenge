@@ -37,6 +37,9 @@ namespace Backgammon
 
             _blackPointsRenderers = new List<MeshRenderer>();
             _whitePointsRenderers = new List<MeshRenderer>();
+
+            _pointContainerWidth = _pointsLeftContainer.rect.width;
+            _pointContainerHeight = _pointsLeftContainer.rect.height;
         }
 
         internal void ConfigurePointsDimsToScreenSize()
