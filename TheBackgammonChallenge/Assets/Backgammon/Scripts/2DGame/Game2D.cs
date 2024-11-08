@@ -186,6 +186,7 @@ namespace Backgammon
             // UI
             _gameScreenUI.SetActive(true);
             _gameScreenUI.SetToAILayout(Main.Instance.IfPlayerVsAI);
+
             _gameScreenUI.Reset();
             _gameScreenUI.SetPlayerName("YOU");
             _gameScreenUI.SetPlayerCounterIcon(_context.IfPlayerIsBlack ? _context.CountersManager.DefaultBlackCounterImage :
@@ -193,11 +194,11 @@ namespace Backgammon
             _gameScreenUI.SetProPlayerName(_context.IfPlayingAsPlayer1 ?
                                         _context.SelectedMatch.Player1Surname : _context.SelectedMatch.Player2Surname);
             _gameScreenUI.SetProPlayerCounterIcon(_context.IfPlayerIsBlack ? _context.CountersManager.DefaultBlackCounterImage :
-                                                                          _context.CountersManager.DefaultWhiteCounterImage);
+                                                                        _context.CountersManager.DefaultWhiteCounterImage);
             _gameScreenUI.SetOpponentName(_context.IfPlayingAsPlayer1 ?
                                         _context.SelectedMatch.Player2Surname : _context.SelectedMatch.Player1Surname);
             _gameScreenUI.SetOpponentCounterIcon(!_context.IfPlayerIsBlack ? _context.CountersManager.DefaultBlackCounterImage :
-                                                                          _context.CountersManager.DefaultWhiteCounterImage);
+                                                                            _context.CountersManager.DefaultWhiteCounterImage);
             _gameScreenUI.SetMatchGameValues(_context.IndexGame + 1, _context.SelectedMatch.GameCount, _context.SelectedMatch.Points);
 
             var playerPoints = Context.IfPlayingAsPlayer1 ? Context.SelectedMatch.Game(Context.IndexGame).Player1PointsAtStart :

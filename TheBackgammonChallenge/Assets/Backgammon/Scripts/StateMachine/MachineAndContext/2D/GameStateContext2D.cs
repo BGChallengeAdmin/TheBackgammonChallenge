@@ -315,6 +315,7 @@ namespace Backgammon
             public int OpponentBarCount;
             public int OpponentHomeCount;
             public int[] Points;
+            public bool HasBeenSet;
 
             static char[] _conversionValues = new char[31] {'0',
                                                             'A', 'B', 'C', 'D', 'E',
@@ -431,6 +432,8 @@ namespace Backgammon
 
             public bool CompareBoardState(BoardState state, bool showDebug = false)
             {
+                if (!state.HasBeenSet) return false;
+
                 var matched = true;
 
                 if (PlayerBarCount != state.PlayerBarCount)
@@ -510,15 +513,12 @@ namespace Backgammon
                 OpponentBarCount = 0;
                 OpponentHomeCount = 0;
                 Points = new int[24];
+                HasBeenSet = true;
             }
 
             public void ResetToNewGame()
             {
-                PlayerBarCount = 0;
-                PlayerHomeCount = 0;
-                OpponentBarCount = 0;
-                OpponentHomeCount = 0;
-                Points = new int[24];
+                Reset();
 
                 // NOTE: FROM POINT 1 - PLAYER IS POSITIVE COUNTER VALUES
                 Points[0] = -2;

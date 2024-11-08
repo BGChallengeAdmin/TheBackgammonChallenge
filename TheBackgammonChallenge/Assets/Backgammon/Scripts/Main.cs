@@ -1,7 +1,7 @@
+using Backgammon_Asset;
 using System;
-using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Backgammon
 {
@@ -42,6 +42,7 @@ namespace Backgammon
 
         [Header("DEBUG")]
         [SerializeField] DebugPrefab debug_showLogin = null;
+        [SerializeField] DebugPrefab debug_3DBackground = null;
         [SerializeField] DebugTextToUI debug_textToUI = null;
         [SerializeField] bool _usingDebugToolkit = false;
         [SerializeField] DebugToolkitUI _debugToolkitUI = null;
@@ -191,8 +192,6 @@ namespace Backgammon
                     {
                         debug_showLogin.DebugMessage("LOGIN COMPLETE");
 
-                        Enable3DBackground(USING_3D_BACKGROUND);
-
                         appState = AppState.HostIntro_In;
                         appState = AppState.MatchTypeSelectIntro_In;
                     }
@@ -239,6 +238,11 @@ namespace Backgammon
                             matchTypeSelectIntroUI.CheckNewVersionUpdate(true, CurrentVersionNumber);
                         }
 
+                        if (USING_3D_BACKGROUND && Game.IfGameConcluded)
+                        {
+                            Enable3DBackground(USING_3D_BACKGROUND);
+                        }
+
                         appState = AppState.MatchTypeSelectIntro;
                     }
                     break;
@@ -252,6 +256,11 @@ namespace Backgammon
                             matchTypeSelectIntroUI.UpdatedConfirmed = true;
                             CurrentVersionNumber = Application.version.ToString();
                             _playerPrefsHandler.SaveAppData();
+                        }
+
+                        if (USING_3D_BACKGROUND && Game.IfGameConcluded)
+                        {
+                            Enable3DBackground(USING_3D_BACKGROUND);
                         }
 
                         if (!matchTypeSelectIntroUI.IfClicked)
@@ -498,6 +507,11 @@ namespace Backgammon
                     break;
                 case AppState.TitleMenu:
                     {
+                        if (USING_3D_BACKGROUND && Game.IfGameConcluded)
+                        {
+                            Enable3DBackground(USING_3D_BACKGROUND);
+                        }
+
                         if (!titleMenuUI.ifClicked)
                             break;
 
@@ -601,6 +615,11 @@ namespace Backgammon
                     break;
                 case AppState.MatchSelect:
                     {
+                        if (USING_3D_BACKGROUND && Game.IfGameConcluded)
+                        {
+                            Enable3DBackground(USING_3D_BACKGROUND);
+                        }
+
                         if (!(matchSelectUI.ifBack || MatchSelectUI.Match != null))
                             break;
 
@@ -635,6 +654,11 @@ namespace Backgammon
                     break;
                 case AppState.MatchIntro:
                     {
+                        if (USING_3D_BACKGROUND && Game.IfGameConcluded)
+                        {
+                            Enable3DBackground(USING_3D_BACKGROUND);
+                        }
+
                         if (!(matchWinnerIntroUI.ifAccept || matchWinnerIntroUI.ifBack))
                             break;
 
@@ -761,6 +785,11 @@ namespace Backgammon
                     break;
                 case AppState.MatchAISelectPoints:
                     {
+                        if (USING_3D_BACKGROUND && Game.IfGameConcluded)
+                        {
+                            Enable3DBackground(USING_3D_BACKGROUND);
+                        }
+
                         if (!_aiSetPoints.IfCommence && !_aiSetPoints.IfBack) return;
                         
                         appState = AppState.MatchAISelectPoints_Out;
@@ -795,6 +824,11 @@ namespace Backgammon
                     break;
                 case AppState.MatchAIConfigureSettingsMain:
                     {
+                        if (USING_3D_BACKGROUND && Game.IfGameConcluded)
+                        {
+                            Enable3DBackground(USING_3D_BACKGROUND);
+                        }
+
                         if (!_aiConfigMainSettings.IfStart && !_aiConfigMainSettings.IfBack && 
                             !_aiConfigMainSettings.ManualSetupBoard) return;
 
@@ -1013,6 +1047,8 @@ namespace Backgammon
                     {
                         //SaveAppData();
 
+                        DebugPrefab.CloseLogFile();
+
 #if UNITY_EDITOR
                         UnityEditor.EditorApplication.isPlaying = false;
 #endif
@@ -1052,22 +1088,37 @@ namespace Backgammon
 
         // --------------------------------------------- 3D BACKGROUND ----------------------------------------------------
 
-        private bool USING_3D_BACKGROUND = false;
+        private bool USING_3D_BACKGROUND = true;
 
         private void Enable3DBackground(bool enable)
         {
             var match = _defaultMatchData.Match(0);
 
+            // IF DISABLE BOARD
+            if (!enable)
+            {
+                _3DGame.SetGameDisabled();
+            }
+
             // CONFIGURE MATCH CONTEXT
             if (enable)
             {
-                Debug.Log($"CONFIGURE MATCH CONTEXT");
+                debug_3DBackground.DebugMessage($"CONFIGURE MATCH CONTEXT");
 
-                var matchList = FindObjectsByType<Backgammon_Asset.MatchData>(sortMode: FindObjectsSortMode.None);
-                if (matchList.Length > 0)
+                var matchList = FindObjectsByType<Backgammon_Asset.MatchReplayDLC>(sortMode: FindObjectsSortMode.None);
+                var matchDataList = new List<MatchData>();
+
+                foreach(var matchReplay in matchList)
                 {
-                    Debug.Log($"FOUND {matchList.Length} MATCHES");
-                    match = matchList[UnityEngine.Random.Range(0, matchList.Length)];
+                    foreach (var matchToAdd in matchReplay.MatchData)
+                        matchDataList.Add(matchToAdd);
+                }
+                    
+                if (matchDataList.Count > 0)
+                {
+                    debug_3DBackground.DebugMessage($"FOUND {matchDataList.Count} MATCHES");
+                    match = matchDataList[UnityEngine.Random.Range(0, matchDataList.Count)];
+                    debug_3DBackground.DebugMessage($"USING: {match.name}");
                 }
 
                 if (match != null) MatchSelectUI.SetMatch(match);
@@ -1076,24 +1127,34 @@ namespace Backgammon
             // CONFIGURE GAME CONTEXT
             if (enable)
             {
-                Debug.Log($"CONFIGURE GAME CONTEXT");
+                debug_3DBackground.DebugMessage($"CONFIGURE GAME CONTEXT");
                 GameListUI.IndexGame = UnityEngine.Random.Range(0, match.GameCount - 1);
                 GameListUI._game = match.Game(GameListUI.IndexGame);
                 GameListUI._playingAs = Game.PlayingAs.PLAYER_1;
             }
 
             // SET ACTIVE AND ENABLE CONTEXT
-            if (enable) Debug.Log($"SET 3D BACKGROUND ACTIVE");
-            _3DGame.gameObject.SetActive(enable);
-            if (enable) _3DGame.ResetGameContext();
+            if (enable)
+            {
+                debug_3DBackground.DebugMessage($"SET 3D BACKGROUND ACTIVE");
+                _3DGame.ResetGameContext();
+                Game.Context.BoardMaterialsManager.Init(Main.Instance.BoardDesignSO);
+                _3DGame.gameObject.SetActive(enable);
+            }
 
-            //_3DGame.ResetBoardLayout();
-
-            if (enable) Debug.Log($"DISABLE BACKGROUNDS");
+            if (enable) debug_3DBackground.DebugMessage($"DISABLE BACKGROUNDS");
+            
             _defaultBackground.gameObject.SetActive(!enable);
-            matchTypeSelectIntroUI.EnableDefaultBackground(!enable);
 
-            if (!enable) Debug.Log($"3D BACKGROUND DISABLED");
+            matchTypeSelectIntroUI.EnableDefaultBackground(!enable);
+            titleMenuUI.EnableDefaultBackground(!enable);
+            matchSelectUI.EnableDefaultBackground(!enable);
+            matchWinnerIntroUI.EnableDefaultBackground(!enable);
+
+            _aiSetPoints.EnableDefaultBackground(!enable);
+            _aiConfigMainSettings.EnableDefaultBackground(!enable);
+
+            if (!enable) debug_3DBackground.DebugMessage($"3D BACKGROUND DISABLED");
         }
 
 

@@ -28,6 +28,11 @@ namespace Backgammon
             debug_home.ShowMesssage = true;
         }
 
+        private void OnDestroy()
+        {
+            debug_home.ShowMesssage = false;
+        }
+
         public void OnMouseDown()
         {
             if (!_isInteractive) return;

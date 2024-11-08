@@ -52,6 +52,12 @@ namespace Backgammon
                 var index = 0;
                 var diceUsed = step / Dice1;
 
+                // BEARING OFF - STEP < DICE VALUE
+                if ((step % Dice1) > 0)
+                {
+                    diceUsed += 1; 
+                }
+
                 // FIND THE INDEX OF THE FIRST NON '0'
                 for (int i = 0; i < 4; i++)
                 {

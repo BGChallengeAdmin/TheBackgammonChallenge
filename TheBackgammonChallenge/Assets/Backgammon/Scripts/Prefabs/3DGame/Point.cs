@@ -50,6 +50,11 @@ namespace Backgammon
             ResetCounters();
         }
 
+        private void OnDestroy()
+        {
+            debug_point.ShowMesssage = false;
+        }
+
         public void OnMouseDown()
         {
             if (!_isInteractive) return;

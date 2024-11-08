@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d19929d33b7c44783994bdb2a63f4a, type: 3}
   m_Name: Default_BoardDesignSO
   m_EditorClassIdentifier: 
-  BoardMaterial: {fileID: 2100000, guid: bc45e77ff25ec5a479e2f6f7f7b15493, type: 2}
-  EdgeMaterial: {fileID: 2100000, guid: 17d39fff9dbc4724cb48ada83786ce5e, type: 2}
-  HomeMaterial: {fileID: 2100000, guid: 3cbb4de7b98b334408b08329499eab39, type: 2}
-  PointBlackMaterial: {fileID: 2100000, guid: a09c554380bbc0243a1b8b7796e47c36, type: 2}
-  PointWhiteMaterial: {fileID: 2100000, guid: 071da6231714aef49b8cd6ec1182b6fd, type: 2}
-  CounterBlackMaterial: {fileID: 2100000, guid: 98bafd95db1fd4b459812cee1866bc37, type: 2}
-  CounterWhiteMaterial: {fileID: 2100000, guid: 035d52a41d4f3764e93feeb1a8ac20fd, type: 2}
+  BoardMaterial: {fileID: 2100000, guid: 1e2e66f6fe2fb1c46948e3d3a1d3452a, type: 2}
+  EdgeMaterial: {fileID: 2100000, guid: 2a09a4f824a2df5468f3271190330eb8, type: 2}
+  HomeMaterial: {fileID: 2100000, guid: c54520f9d058ba249930b719c5b2d3d1, type: 2}
+  PointBlackMaterial: {fileID: 2100000, guid: ea1782e3d5066c64db4713e7dced4502, type: 2}
+  PointWhiteMaterial: {fileID: 2100000, guid: df7be30140374834896149eacfa1df46, type: 2}
+  CounterBlackMaterial: {fileID: 2100000, guid: ea1782e3d5066c64db4713e7dced4502, type: 2}
+  CounterWhiteMaterial: {fileID: 2100000, guid: df7be30140374834896149eacfa1df46, type: 2}

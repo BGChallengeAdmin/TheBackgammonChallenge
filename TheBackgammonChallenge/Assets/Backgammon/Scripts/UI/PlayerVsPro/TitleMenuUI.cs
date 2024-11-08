@@ -15,6 +15,10 @@ namespace Backgammon
         [SerializeField] private Button StatisticsButton;
         [SerializeField] private Button ExitAppButton;
 
+        [Header("BACKGROUND IMAGE")]
+        [SerializeField] private Image _backgroundImage1;
+        [SerializeField] private Image _backgroundImage2;
+
         [Header("DEBUG UI")]
         [SerializeField] private GameObject turnSelectContainer;
         [SerializeField] private Slider turnSelectSlider;
@@ -458,6 +462,12 @@ namespace Backgammon
                     Main.Instance.IfRandomSingleTurn = true;
                 }
             }
+        }
+
+        public void EnableDefaultBackground(bool enable)
+        {
+            _backgroundImage1.enabled = enable;
+            _backgroundImage2.enabled = enable;
         }
 
         public void OnClickExitApp()

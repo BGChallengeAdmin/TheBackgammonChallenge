@@ -86,7 +86,7 @@ namespace Backgammon
 
         private void ConstructDataToSend()
         {
-            // NOTE: "red" IS WHO'S ON - POSITIVE VALUES ON TEH POINTS
+            // NOTE: "red" IS WHO'S ON - POSITIVE VALUES ON THE POINTS
 
             aiDataBoardHelper = AIDataHandler.GetAIDataBoardHelper;
 
@@ -148,81 +148,6 @@ namespace Backgammon
             aiDataPositionHelper = AIDataHandler.GetAIDataPositionHelper;
             aiDataPositionHelper.matchLength = Context.SelectedMatch.Points.ToString();
             aiDataPositionHelper.whosOn = "red";
-            aiDataPositionHelper.crawford = Context.SelectedMatch.Crawford == "true" ? true : false;
-
-            aiDataPositionHelper.board = aiDataBoardHelper;
-            aiDataPositionHelper.dice = aiDataDiceHelper;
-            aiDataPositionHelper.score = aiDataScoreHelper;
-
-            // BUILD DATA TO SEND
-            aiDataToSend.position = aiDataPositionHelper;
-        }
-
-        private void ConstructDataToSend1()
-        {
-            // NOTE: "red" IS WHO'S ON - POSITIVE VALUES ON THE POINTS
-
-            aiDataBoardHelper = AIDataHandler.GetAIDataBoardHelper;
-
-            // CUBE
-            aiDataBoardHelper.cube = Context.DoublingManager.CubeValue;
-            aiDataBoardHelper.cubeowner = Context.DoublingManager.CubeOwner == Game2D.PlayingAs.NONE ? "none" :
-                                          (Context.DoublingManager.CubeOwner == Context.PlayingAs) ? "red" : "green";
-
-            // POINTS
-            // NOTE: ACTIVE PLAYER IS ALWAYS '+' POINTS VALUES - FROM THEIR 24
-            var points = new int[24];
-
-            for (int p = 24; p > 0; p--)
-            {
-                var point = Context.IsPlayersTurn ?
-                                    Context.PointsManager.GetPlayerPointByID(p) :
-                                    Context.PointsManager.GetOpponentPointByID(p);
-
-                if (point.Counters == 0) continue;
-
-                points[24 - p] = point.Counters * (point.Owner == Context.PlayingAs ? 1 : -1);
-            }
-
-            for (int p = 1; p <= 24; p++)
-            {
-                var point = Context.PointsManager.GetPlayerPointByID(p);
-
-                if (point.Counters == 0) continue;
-
-                points[p - 1] = point.Counters * ((point.Owner == Game2D.PlayingAs.PLAYER_1 && Context.IfPlayingAsPlayer1) ? 1 : -1);
-            }
-
-            aiDataBoardHelper.points = points;
-
-            // BAR
-            aiDataBarHelper = AIDataHandler.GetAIDataBarHelper;
-            aiDataBarHelper.red = Context.BarManager.PlayerBar.Counters;
-            aiDataBarHelper.green = Context.BarManager.OpponentBar.Counters;
-            aiDataBoardHelper.bar = aiDataBarHelper;
-
-            // HOME
-            aiDataOffHelper = AIDataHandler.GetAIDataOffHelper;
-            aiDataOffHelper.red = Context.HomeManager.PlayerHome.Counters;
-            aiDataOffHelper.green = Context.HomeManager.OpponentHome.Counters;
-            aiDataBoardHelper.off = aiDataOffHelper;
-
-            // DICE
-            aiDataDiceHelper = AIDataHandler.GetAIDataDiceHelper;
-            aiDataDiceHelper.red = 0;
-            aiDataDiceHelper.green = 0;
-
-            // GAME SCORE
-            aiDataScoreHelper = AIDataHandler.GetAIDataScoreHelper;
-            aiDataScoreHelper.red = Context.IfPlayingAsPlayer1 ? Context.SelectedMatch.Game(Context.IndexGame).Player1PointsAtStart :
-                                                                 Context.SelectedMatch.Game(Context.IndexGame).Player2PointsAtStart;
-            aiDataScoreHelper.green = Context.IfPlayingAsPlayer1 ? Context.SelectedMatch.Game(Context.IndexGame).Player2PointsAtStart :
-                                                                 Context.SelectedMatch.Game(Context.IndexGame).Player1PointsAtStart;
-
-            // MATCH SCORE
-            aiDataPositionHelper = AIDataHandler.GetAIDataPositionHelper;
-            aiDataPositionHelper.matchLength = Context.SelectedMatch.Points.ToString();
-            aiDataPositionHelper.whosOn = Context.IsPlayersTurn ? "red" : "green";
             aiDataPositionHelper.crawford = Context.SelectedMatch.Crawford == "true" ? true : false;
 
             aiDataPositionHelper.board = aiDataBoardHelper;

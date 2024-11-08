@@ -20,6 +20,10 @@ namespace Backgammon
 
         [SerializeField] private GameObject demoMatchHighlight;
 
+        [Header("BACKGROUND IMAGE")]
+        [SerializeField] private Image _backgroundImage1;
+        [SerializeField] private Image _backgroundImage2;
+
         private float timer = 0f;
         private int m_NUM_MATCHES_PER_PAGE;
 
@@ -470,6 +474,12 @@ namespace Backgammon
         public static void SetMatch(Backgammon_Asset.MatchData match)
         {
             Match = match;
+        }
+
+        public void EnableDefaultBackground(bool enable)
+        {
+            _backgroundImage1.enabled = enable;
+            _backgroundImage2.enabled = enable;
         }
 
         public bool ifBack;

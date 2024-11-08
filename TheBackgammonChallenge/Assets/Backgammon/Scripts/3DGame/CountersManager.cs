@@ -57,6 +57,8 @@ namespace Backgammon
                 _whiteCountersRenderers.Add(white.GetComponentInChildren<MeshRenderer>());
             }
 
+            _activeCounter = null;
+
             debug_counterManager.DebugMessage($"*** COUNTERS CREATED ***");
         }
 

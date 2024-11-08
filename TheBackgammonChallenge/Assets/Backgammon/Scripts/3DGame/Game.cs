@@ -128,9 +128,9 @@ namespace Backgammon
             //_gameScreenUI.SetOpponentName(_context.IfPlayingAsPlayer1 ? 
             //                            _context.SelectedMatch.Player2Surname : _context.SelectedMatch.Player1Surname);
 
-            _observeAnalysisManager.Init();
-            _challengeProgressionUI.Init();
-
+            //_observeAnalysisManager.Init();
+            //_challengeProgressionUI.Init();
+            
             // INIT UI (ABOVE) BEFORE SHOWING SCREEN
             _defaultBackground.gameObject.SetActive(false);
 
@@ -145,7 +145,7 @@ namespace Backgammon
             // BOARD MATERIALS - ENSURE CONTEXT IS INITIALIZED - ALL PREFABS CREATED
             //_boardMaterialsManager.Init(Main.Instance.BoardDesignSO);
 
-            ResetBoardLayout();
+            //ResetBoardLayout();
         }
 
         internal void ResetBoardLayout()
@@ -203,6 +203,15 @@ namespace Backgammon
             _countersManager.gameObject.SetActive(active);
             _diceManager.gameObject.SetActive(active);
             _observeAnalysisManager.gameObject.SetActive(active);
+        }
+
+        internal void SetGameDisabled()
+        {
+            SetGameActive(false);
+            IfGameConcluded = true;
+            _context.ExitFromStateMachine = true;
+
+            Debug.Log($"EXIT 3D GAME");
         }
 
         public PlayerId playingAs = PlayerId.None;
@@ -338,7 +347,7 @@ namespace Backgammon
 
         internal static bool IfGameInPlay = false;
         internal static bool IfUpdatingBoard;
-        internal static bool IfGameConcluded = false;
+        internal static bool IfGameConcluded = true;
         internal static bool IfExitAIGame = false;
 
         internal bool AIMatchWon;

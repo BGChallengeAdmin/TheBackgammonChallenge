@@ -22,8 +22,9 @@ namespace Backgammon
 
                 Context.PlayerOfferedDoubles = false;
 
-                if (Context.OpponentMatchedRankThisTurn != 1 && Context.OpponentMatchedRankThisTurn != 0)
-                    Context.GameScreenUI.SetShowOpponentRank1Active(true);
+                // NOTE: DISABLED REPLAY PRO MOVE IF NOT #RANK 1
+                //if (Context.OpponentMatchedRankThisTurn != 1 && Context.OpponentMatchedRankThisTurn != 0)
+                //    Context.GameScreenUI.SetShowOpponentRank1Active(true);
             }
             else
             {

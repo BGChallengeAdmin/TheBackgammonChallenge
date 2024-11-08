@@ -27,6 +27,7 @@ namespace Backgammon
         [SerializeField] Image _proPlayerCounterImage;
 
         [Header("OPPONENT")]
+        [SerializeField] Transform _opponentTopMatchedObjectTransform;
         [SerializeField] TMP_Text _opponentNameText;
         [SerializeField] TMP_Text _opponentTopMatchedText;
         [SerializeField] TMP_Text _opponentMatchPointsText;
@@ -200,6 +201,9 @@ namespace Backgammon
             var proPlayerStatPos = _proPlayerStatsPanel.transform.localPosition;
             _playerStatsPanel.transform.localPosition = new Vector3((active ? 0 : -1 * proPlayerStatPos.x), proPlayerStatPos.y, 0);
             _proPlayerStatsPanel.gameObject.SetActive(!active);
+
+            // ENABLE PRO MATCHING
+            _opponentTopMatchedObjectTransform.gameObject.SetActive(active);
         }
 
         internal void SetAIDataDelayActive(bool active)

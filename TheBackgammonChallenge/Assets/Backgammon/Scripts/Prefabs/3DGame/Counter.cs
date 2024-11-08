@@ -199,8 +199,8 @@ namespace Backgammon
 
         private Vector3 _targetPosition;
         private Vector3 _aboveTargetPosition;
-        private float _movementSpeed = 0.55f;
-        private float _movementOverSpeed = 5.0f;
+        private float _movementSpeed = 0.35f;
+        private float _movementOverSpeed = 1f;
         private bool _isMoving = false;
         private bool _isMovingOver = false;
 

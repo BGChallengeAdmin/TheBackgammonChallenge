@@ -26,8 +26,9 @@ namespace Backgammon
                 {
                     if (Context.PlayerOfferedDoubles)
                         ActiveState = GameStateMachine2D.EGameState2D.TurnBegin;
-                    else if (!Context.CapturedAIDoublingData)
-                        ActiveState = GameStateMachine2D.EGameState2D.DoublingData;
+                    else if (!Context.CapturedAIDoublingData && 
+                            Context.DoublingManager.CubeOwner != Game2D.PlayingAs.PLAYER_1)
+                                ActiveState = GameStateMachine2D.EGameState2D.DoublingData;
                     else if (!Context.CapturedAIMoveData)
                     {
                         Context.AIDataRequestBailOutCounter = 0;

@@ -18,24 +18,24 @@ public class DebugOutputLogFile
         playerDebugLogDirectory = Application.persistentDataPath + playerAppDataDirectory;
         playerDebugLogFilepath = Path.Combine(playerDebugLogDirectory, playerAppDebugLogFilename);
         playerDebugLogFilepath = playerDebugLogDirectory + playerAppDebugLogFilename;
-        
+
         CreateDebugLogFolder();
 
         writer = new StreamWriter(playerDebugLogFilepath, true);
         debugLogQueue = new Queue();
-        
+
         for (int bs = 0; bs < 5; bs++)
             WriteToDebugLogFile($" ");
 
         WriteToDebugLogFile($"INIT DEBUG LOG FILE");
+
+        TestFileLength();
     }
 
     internal void OnDestroy()
     {
         if (writer is not null)
             writer.Close();
-
-        Debug.Log($"CLOSED WRITER");
     }
 
     private bool CreateDebugLogFolder()
@@ -62,6 +62,16 @@ public class DebugOutputLogFile
         }
 
         return File.Exists(playerDebugLogFilepath);
+    }
+
+    private void TestFileLength()
+    {
+        var fileLength = new FileInfo(playerDebugLogFilepath).Length;
+
+        if (fileLength >= 250000)
+        {
+            DeleteOutputFile();
+        }
     }
 
     public void DeleteOutputFile()

@@ -41,6 +41,9 @@ namespace Backgammon
         [SerializeField] Button _startMatchButton = null;
         [SerializeField] Button _backButton = null;
 
+        [Header("BACKGROUND IMAGE")]
+        [SerializeField] private Image _backgroundImage1;
+
         private void Awake()
         {
             _setPointsButtonText = _setPointsButton.gameObject.GetComponentInChildren<Text>();
@@ -539,6 +542,10 @@ namespace Backgammon
             Main.Instance.IfPlayerVsHistoricAI = _ifHistoricDiceRolls;
             Main.Instance.IfMatchedPlay = true;
             Main.Instance.IfPlayerVsAI = true;
+        }
+        public void EnableDefaultBackground(bool enable)
+        {
+            _backgroundImage1.enabled = enable;
         }
 
         // ----------------------------------------- FIELDS -----------------------------------------

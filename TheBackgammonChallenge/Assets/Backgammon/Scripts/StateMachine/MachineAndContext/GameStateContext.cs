@@ -186,6 +186,9 @@ namespace Backgammon
         public bool IfFastForwarding = false;
         public int FastForwardTurnIndex = 0;
 
+        // EXIT
+        public bool ExitFromStateMachine = false;
+
         // ------------------------------------------- DATA STRUCTURES ------------------------------------------
 
         public struct MoveInfo

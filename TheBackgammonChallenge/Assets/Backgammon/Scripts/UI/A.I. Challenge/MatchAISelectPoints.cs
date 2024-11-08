@@ -25,6 +25,9 @@ namespace Backgammon
         [Header("MATCH PLAYED FOR")]
         [SerializeField] private TMP_Text _matchPlayedForText = null;
 
+        [Header("BACKGROUND IMAGE")]
+        [SerializeField] private Image _backgroundImage1;
+
         private LanguageScriptableObject languageSO = null;
         private bool _ifBack = false;
         private bool _ifCommence = false;
@@ -179,6 +182,10 @@ namespace Backgammon
             Main.Instance.IfPlayerVsAI = true;
 
             IfCommence = true;
+        }
+        public void EnableDefaultBackground(bool enable)
+        {
+            _backgroundImage1.enabled = enable;
         }
 
         // ----------------------------------------------- GETTERS && SETTERS -----------------------------------------------

@@ -21,6 +21,11 @@ namespace Backgammon
             debug_bar.ShowMesssage = true;
         }
 
+        private void OnDestroy()
+        {
+            debug_bar.ShowMesssage = false;
+        }
+
         // ------------------------------------------ COUNTER METHODS -------------------------------------------
 
         internal override void PushCounter(Counter counter)

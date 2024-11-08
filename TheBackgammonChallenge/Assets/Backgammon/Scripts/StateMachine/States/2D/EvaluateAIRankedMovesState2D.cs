@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Backgammon
 {
     public class EvaluateAIRankedMovesState2D : GameState2D
@@ -21,8 +23,10 @@ namespace Backgammon
 
             if (Context.IsPlayersTurn)
                 ActiveState = GameStateMachine2D.EGameState2D.EvaluatePlayer;
-            else
+            else if (Main.Instance.IfPlayerVsAI)
                 ActiveState = GameStateMachine2D.EGameState2D.EvaluateOpponent;
+            else
+                ActiveState = GameStateMachine2D.EGameState2D.TurnEnd;
         }
 
         public override void UpdateState() { }

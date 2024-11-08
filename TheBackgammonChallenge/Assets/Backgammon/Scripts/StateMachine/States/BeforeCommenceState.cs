@@ -25,9 +25,7 @@ namespace Backgammon
                 ActiveState = GameStateMachine.EGameState.ConfigureBoard;
             }
             else  ActiveState = GameStateMachine.EGameState.TurnBegin;
-
-            UnityEngine.Debug.Log($"BEFORE COMMENCE -> {ActiveState.ToString()}");
-
+                        
             //_delayTimer -= Time.deltaTime;
 
             //if (_delayTimer <= 0)

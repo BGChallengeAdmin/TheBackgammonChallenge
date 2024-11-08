@@ -13,8 +13,12 @@ namespace Backgammon
 
         public override void UpdateState()
         {
+            // EXIT GAME / STATE MACHINE
+            if (Context.ExitFromStateMachine)
+                ActiveState = GameStateMachine.EGameState.ExitGame;
+
             // TEST FOR A.I. DATA
-            if (!Context.AIDataAvailable)
+            if (!Context.AIDataAvailable && !Context.IfFastForwarding)
             {
                 Context.AIDataAvailable = Context.AIDataHandler.IfNewData();
 
@@ -30,7 +34,7 @@ namespace Backgammon
                 (!Context.IsPlayersMakingMoves && Context.CounterMoveIndex < Context.CountersToMoveIndex))
             {
                 // DEBUG - COMMENT LINE -> ALL COUNTERS MOVE ON TURN
-                if (!Context.IfFastForwarding)
+                //if (!Context.IfFastForwarding)
                     if (Context.CountersManager.TestIfActiveCounterMoving()) return;
 
                 Counter counter;
@@ -73,15 +77,13 @@ namespace Backgammon
                         Context.BarManager.PlayerBar.PushCounter(blot);
                     }
                 }
-
+                
                 if (move.pointTo == 25) counter.SetCounterToMoveToBar(Context.PointTo.GetCounterOffsetPosition());
                 else if (move.pointTo == 0) counter.SetCounterToMoveToHome(Context.PointTo.GetCounterOffsetPosition());
-                else if (Context.IfFastForwarding) counter.SetCounterToMoveToPositionInstant(Context.PointTo.GetCounterOffsetPosition());
+                //else if (Context.IfFastForwarding) counter.SetCounterToMoveToPositionInstant(Context.PointTo.GetCounterOffsetPosition());
                 else counter.SetCounterToMoveToPosition(Context.PointTo.GetCounterOffsetPosition());
 
                 Context.PointTo.PushCounter(counter);
-
-                //UnityEngine.Debug.Log($"{Context.CounterMoveIndex}: {move.pointFrom}/{move.pointTo} {(move.ifBlot ? "*" : "")}");
 
                 // SET WHICH DICE PLAYED
                 var dice1PrePlayed = Context.DiceManager.Dice1Played;
@@ -112,8 +114,6 @@ namespace Backgammon
             // HANDLE EXIT
             if (!Context.CountersManager.TestIfActiveCounterMoving())
             {
-                Debug.Log($"MOVE END -> {Context.DiceManager.DiceAvailable}");
-
                 if (Context.CounterMoveIndex == Context.CountersToMoveIndex)
                 {
                     ActiveState = GameStateMachine.EGameState.EvaluateOpponent;
@@ -138,7 +138,7 @@ namespace Backgammon
             }
         }
 
-        public override void ExitState() {}
+        public override void ExitState() { }
 
         public override GameStateMachine.EGameState GetStateKey() { return StateKey; }
 

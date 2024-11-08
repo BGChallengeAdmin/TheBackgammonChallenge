@@ -12,6 +12,10 @@ namespace Backgammon
         [SerializeField]
         private Text textLine2 = null;
 
+        [Header("BACKGROUND IMAGE")]
+        [SerializeField] private Image _backgroundImage1;
+        [SerializeField] private Image _backgroundImage2;
+
         Backgammon_Asset.MatchData match;
         public GameObject game;
         private Game gameScript;
@@ -55,6 +59,12 @@ namespace Backgammon
             MatchSelectUI.Match = null;
 
             ifBack = true;
+        }
+
+        public void EnableDefaultBackground(bool enable)
+        {
+            _backgroundImage1.enabled = enable;
+            _backgroundImage2.enabled = enable;
         }
 
         public bool ifAccept;

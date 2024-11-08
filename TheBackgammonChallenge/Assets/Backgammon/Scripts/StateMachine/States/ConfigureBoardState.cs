@@ -31,8 +31,6 @@ namespace Backgammon
             if (Context.CountersManager.TestIfAnyCountersMoving()) return;
 
             ActiveState = GameStateMachine.EGameState.BeforeCommence;
-
-            UnityEngine.Debug.Log($"CONFIGURE BOARD -> {ActiveState.ToString()}");
         }
 
         public override void ExitState() 

@@ -8,9 +8,9 @@ namespace Backgammon
 
 		public override void EnterState()
         {
-            UnityEngine.Debug.Log($"");
-            UnityEngine.Debug.Log($"{(Context.IsPlayersTurn ? "PLAYER" : "PRO")} TURN");
-            UnityEngine.Debug.Log($"");
+            //UnityEngine.Debug.Log($"");
+            //UnityEngine.Debug.Log($"{(Context.IsPlayersTurn ? "PLAYER" : "PRO")} TURN");
+            //UnityEngine.Debug.Log($"");
 
             // IF PLAYING A.I. CAPTURE DATA AND RETURN
 
@@ -50,9 +50,15 @@ namespace Backgammon
 			{
 				var result = moveParts[0];
 
+                if (Context.IfFastForwarding)
+                {
+                    ActiveState = GameStateMachine.EGameState.TurnEnd;
+                    goto BailOut;
+                }
+
 				if (result == "Doubles")
 				{
-					UnityEngine.Debug.Log($"PLAYER DOUBLES");
+					//UnityEngine.Debug.Log($"PLAYER DOUBLES");
    
                     ActiveState = GameStateMachine.EGameState.DoublingData;
                     goto BailOut;
@@ -61,14 +67,14 @@ namespace Backgammon
 				{
 					Context.DoublingTakesOrDrops = true;
 					ActiveState = GameStateMachine.EGameState.DoublingTakesOrDrops;
-					UnityEngine.Debug.Log($"PLAYER TAKES");
+					//UnityEngine.Debug.Log($"PLAYER TAKES");
                     goto BailOut;
                 }
                 else if (result == "Drops")
                 {
                     Context.DoublingTakesOrDrops = false;
                     ActiveState = GameStateMachine.EGameState.DoublingTakesOrDrops;
-                    UnityEngine.Debug.Log($"PLAYER DROPS");
+                    //UnityEngine.Debug.Log($"PLAYER DROPS");
                     goto BailOut;
                 }
                 else if (result == "Concedes") { UnityEngine.Debug.Log($"PLAYER CONCEDES"); }
@@ -123,9 +129,14 @@ namespace Backgammon
             // TEST WHEN THERE IS NO MOVE DATA
             if (moves.Length == 0)
             {
-                UnityEngine.Debug.Log($"THERE IS NO MOVE DATA - PLAYER WAS BLOCKED FROM MOVING");
+                //UnityEngine.Debug.Log($"THERE IS NO MOVE DATA - PLAYER WAS BLOCKED FROM MOVING");
                 Context.PlayerIsUnableToMove = true;
-                ActiveState = GameStateMachine.EGameState.RollDice;
+
+                if (Context.IfFastForwarding)
+                    ActiveState = GameStateMachine.EGameState.TurnEnd;
+                else
+                    ActiveState = GameStateMachine.EGameState.RollDice;
+
 
                 goto BailOut;
             }
