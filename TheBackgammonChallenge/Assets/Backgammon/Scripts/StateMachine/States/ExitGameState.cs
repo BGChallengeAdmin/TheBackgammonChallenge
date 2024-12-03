@@ -16,7 +16,7 @@ namespace Backgammon
 
         public override void UpdateState() { }
 
-        public override void ExitState()  { }
+        public override void ExitState() { }
 
         public override GameStateMachine.EGameState GetStateKey() { return StateKey; }
 

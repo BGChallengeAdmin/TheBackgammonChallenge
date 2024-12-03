@@ -29,7 +29,7 @@ namespace Backgammon
 
         LanguageScriptableObject languageSO;
 
-        void OnEnable()
+        protected void OnEnable()
         {
             ifBack = false;
             Match = null;
@@ -88,7 +88,7 @@ namespace Backgammon
             }
         }
 
-        private void Update()
+        protected void Update()
         {
             // JAMES - HIGHLIGHT UPDATE - ONLY ON FIRST PAGE - I.E. DEMO IS AT TOP
             if (Main.Instance.IfFirstPlaythrough && indexOption01 < m_NUM_MATCHES_PER_PAGE)

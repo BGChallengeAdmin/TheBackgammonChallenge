@@ -31,7 +31,7 @@ namespace Backgammon
         [SerializeField] Color _defaultBlackColour = Color.black;
         [SerializeField] Color _defaultWhiteColour = Color.white;
 
-        private void Awake()
+        protected void Awake()
         {
             _points = new Point2DPrefab[24];
 
@@ -223,7 +223,7 @@ namespace Backgammon
             point.PushCounter(counter);
         }
 
-        private void OnDestroy()
+        protected void OnDestroy()
         {
             if (_points is not null)
                 foreach (Point2DPrefab point in _points)

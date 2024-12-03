@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Backgammon
 {
     public class MoveCountersState : GameState

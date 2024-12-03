@@ -44,7 +44,7 @@ namespace Backgammon
         [Header("BACKGROUND IMAGE")]
         [SerializeField] private Image _backgroundImage1;
 
-        private void Awake()
+        protected void Awake()
         {
             _setPointsButtonText = _setPointsButton.gameObject.GetComponentInChildren<Text>();
             _setDiceButtonText = _setDiceButton.gameObject.GetComponentInChildren<Text>();
@@ -91,7 +91,7 @@ namespace Backgammon
             }
         }
 
-        private void OnEnable()
+        protected void OnEnable()
         {
             IfStart = false;
             IfBack = false;
@@ -139,7 +139,7 @@ namespace Backgammon
             OnClickSetDiceButton();
         }
 
-        private void OnDisable()
+        protected void OnDisable()
         {
             _easyButton.onClick.RemoveAllListeners();
             _mediumButton.onClick.RemoveAllListeners();
@@ -543,6 +543,7 @@ namespace Backgammon
             Main.Instance.IfMatchedPlay = true;
             Main.Instance.IfPlayerVsAI = true;
         }
+        
         public void EnableDefaultBackground(bool enable)
         {
             _backgroundImage1.enabled = enable;

@@ -8,7 +8,7 @@ namespace Backgammon
         [SerializeField] LanguageScriptableObject[] _languageSOArray = null;
         [SerializeField] Sprite[] _worldFlagSprites = null;
 
-        private void Awake()
+        protected void Awake()
         {
             _languageSOByNameDict = new Dictionary<string, LanguageScriptableObject>();
             _flagIndexByNameDict = new Dictionary<string, int>();

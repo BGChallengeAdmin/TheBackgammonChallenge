@@ -1,0 +1,368 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ae845047ec73a4184e20445a2e8235, type: 3}
+  m_Name: German
+  m_EditorClassIdentifier: 
+  shortCode: de_DE
+  longName: German
+  selectLanguageTitle: "Sprache ausw\xE4hlen"
+  selectLanguageText: Deutsch
+  hostIntroTitle: Willkommen zur Challenge
+  hostIntroText1: "Unsere App ist Ihr Schl\xFCssel zur Beherrschung des alten Backgammon-Spiels.
+    Mit modernster Technologie und unvergleichlichen Funktionen lernen Sie sehr schnell,
+    wie ein Profi zu spielen. Es gibt zwei M\xF6glichkeiten zu spielen:"
+  hostIntroText2: PRO-HERAUSFORDERUNG
+  hostIntroText3: "Bei dieser Herausforderung wurden Turnierspiele h\xF6chster Qualit\xE4t
+    digital reproduziert  Unser Team bietet Ihnen eine unterhaltsame M\xF6glichkeit,
+    Ihre Turnierf\xE4higkeiten zu \xFCben und zu verbessern. Je \xF6fter Sie \u201EPro
+    Challenge\u201C spielen, desto besser sind Sie auf Ihr n\xE4chstes gro\xDFes
+    Turnier vorbereitet."
+  hostIntroText4: K.I. HERAUSFORDERUNG
+  hostIntroText5: "Diese Herausforderung gibt Ihnen die M\xF6glichkeit, die BGBlitz-KI
+    zu spielen.  Es bietet vier Schwierigkeitsstufen, die Ihrem Fachwissen entsprechen,
+    und kann so eingestellt werden, dass einzelne Spiele oder Spiele in voller L\xE4nge
+    gespielt werden. Aber was diese Herausforderung einzigartig macht, ist die K.I.
+    ist so programmiert, dass er Entscheidungen zur Verdopplung von W\xFCrfeln trifft. 
+    Sie werden nie wissen, ob Sie einen Top-Profi oder einen KI-Spieler spielen."
+  hostIntroPrompt: "Tippen Sie auf den Bildschirm, um Ihren Spielstil auszuw\xE4hlen
+    ..."
+  titleMenuTitle: "Hauptmen\xFC"
+  titleLanguageSelectTitle: "Sprache ausw\xE4hlen"
+  titleMenuDownload: Laden Sie neue Spiele herunter
+  titleMenuNewMatch: "W\xE4hlen Sie Neues Spiel"
+  titleMenuRandomGame: Spielen Sie ein Zufallsspiel
+  titleMenuContinueMatch: Spiel fortsetzen
+  titleMenuPlayDemo: Demo spielen
+  titleMenuStatistics: Statistiken
+  titleMenuSettings: Einstellungen
+  titleMenuExitApp: App beenden
+  matchSelectIntroTitle: "W\xC4HLEN SIE DEN SPIELSTIL"
+  matchSelectIntroDescription: "\xDCbe deine Bewegungen gegen die Profis oder spiele
+    die KI."
+  matchSelectIntroPracticeButton: Fordern Sie die Profis heraus
+  matchSelectIntroAIButton: Spielen Sie die KI.
+  matchSelectTitle: "W\xE4hlen Sie eine \xDCbereinstimmung aus"
+  matchSelectHeader: GEWINNER ist FETT
+  matchSelectSearch: Suchen
+  matchSelectMatchStats: Spielstatistiken
+  matchSelectPlayAI: Spielen Sie die KI.
+  matchAISelectSplashTitle: Stellen Sie den Schwierigkeitsgrad ein
+  matchAISelectSplashDescription: "Richten Sie die KI ein. um auf dem Niveau zu spielen,
+    das Ihnen gef\xE4llt"
+  matchAISelectSplashText1: Verwenden Sie die Voreinstellungen, um die KI einzustellen.
+    Stellen Sie die Werte ein oder stellen Sie die Werte selbst ein.
+  matchAISelectSplashText2: "Rang 1 (am st\xE4rksten) \u2013 Rang 5 (am schw\xE4chsten)"
+  matchAISelectSplashText3: Rang 1 = 20 Punkte, Rang 2 = 10 Punkte, Rang 3 = 5 Punkte,
+  matchAISelectSplashText4: Rang 4 = 2 Punkte, Rang 5 = 1 Punkt
+  matchAISelectSplashText5: "Durch Auswahl der \u201EErweiterten Optionen\u201C k\xF6nnen
+    Sie die St\xE4rke der KI \xE4ndern. wird bei der Entscheidung \xFCber seine Z\xFCge
+    sein. Durch mehr Suchbewegungen und weniger L\xE4rm werden die Rang-1-Bewegungen
+    noch st\xE4rker."
+  matchAISelectSplashText6: "Das \xC4ndern der \u201E\xDCbereinstimmungsl\xE4nge\u201C
+    wirkt sich darauf aus, wie die K.I. bietet Doppelspiele, und bei einer \u201Ezuf\xE4lligen\u201C
+    Auswahl k\xF6nnen Sie gegen einen Weltmeister oder einen kompletten Anf\xE4nger
+    spielen. Behalten Sie also die Einstellungen im Auge, um Ihr Spielniveau zu ermitteln."
+  matchAISelectSplashText7: "BGBlitz spielt immer nur die W\xFCrfel, die ihm gegeben
+    werden! Die K.I. werde niemals schummeln. Alle W\xFCrfelw\xFCrfe sind v\xF6llig
+    zuf\xE4llig und werden nur an die KI gesendet. nachdem sie gerollt wurden. Dies
+    gilt auch f\xFCr die Verdoppelung."
+  matchAISelectSplashChallengeText: Finden Sie Ihre Lieblingseinstellungen, um sich
+    selbst herauszufordern!
+  matchAIPointsTitle: "SETZEN SIE DIE PUNKTE F\xDCR DAS SPIEL"
+  matchAIPointsDescription: Spielen Sie ein Einzelspiel oder ein 5-Punkte-Spiel
+  matchAIPointsSingleGame: "Spielen Sie ein einzelnes Spiel f\xFCr 1 Punkt"
+  matchAIPointsMatch: Spielen Sie ein 5-Punkte-Spiel
+  matchAIDiceTypeTitle: "W\xC4HLEN SIE DIE ART DES W\xDCRFELS"
+  matchAIDiceTypeHeader: "Verwenden Sie historische W\xFCrfel aus Ihren heruntergeladenen
+    Spielen oder Zufallsw\xFCrfel"
+  matchAIDiceTypeNormal: "Zuf\xE4llig"
+  matchAIDiceTypeNormalDescription: "Zuf\xE4llig generierte W\xFCrfelw\xFCrfe"
+  matchAIDiceTypeHistoric: Historisch
+  matchAIDiceTypeHistoricDescription: "W\xFCrfelw\xFCrfe aus historischen Spielen"
+  matchAIDiceTypeManual: Handbuch
+  matchAIDiceTypeManualDescription: Ihre eigenen manuell generierten Rollen
+  matchAIDiceTypeDiceRolls: "W\xFCrfelrollen"
+  matchAIHistoricDiceTitle: "W\xC4HLEN SIE DAS SPIEL UND DEN SPIELER AUS"
+  matchAIHistoricDiceMatchDescription: "W\xE4hlen Sie Ihr Match"
+  matchAIHistoricDicePlayerDescription: "W\xE4hlen Sie aus, welche Spielerw\xFCrfelw\xFCrfe
+    Sie verwenden m\xF6chten"
+  matchAIHistoricDiceWinner: (GEWINNER)
+  matchAISelectTitle: STELLEN SIE DEN SCHWIERIGKEITSGRAD EIN
+  matchAISelectDescription: "W\xE4hlen Sie Ihre Einstellungen anhand der Voreinstellungen
+    aus"
+  matchAISelectCommence: Beginnen
+  matchAISelectEASY: Einfach
+  matchAISelectMEDIUM: Mittel
+  matchAISelectHARD: Schwer
+  matchAISelectPERFECT: Perfekt
+  matchAISelectEASYDesc: "Spielt wie ein Anf\xE4nger und macht einige Fehler"
+  matchAISelectMEDIUMDesc: "St\xE4rkeres Gameplay und Pl\xE4ne f\xFCr die Zukunft"
+  matchAISelectHARDDesc: "Wei\xDF, wie man spielt und stellt Sie vor eine Herausforderung"
+  matchAISelectPERFECTDesc: "Du wirst verlieren \u2013 du wirst viel verlieren!"
+  matchAISelectRandomDesc: Eine Mischung aus allen anderen Einstellungen
+  matchAISelectRankDescription: "W\xE4hlen Sie den Rang f\xFCr die Bewegungen der
+    KI aus. wird benutzen"
+  matchAISelectRandom: "Zuf\xE4llig"
+  matchAISelectAdvancedOptions: Erweiterte Optionen
+  matchAISelectPlyDescription: K.I. suchen (geht weiter)
+  matchAISelectPlyDescriptionAdv: "Sie k\xF6nnen die KI einstellen. um mehr Z\xFCge
+    im Voraus zu berechnen (0\u20133), wobei mehr Z\xFCge zu einem st\xE4rkeren Spielverlauf
+    f\xFChren."
+  matchAISelectNoiseDescription: "L\xE4rm (seltsames Verhalten)"
+  matchAISelectNoiseDescriptionAdv: "F\xFCgen Sie etwas Rauschen zwischen 0 und 0,99
+    hinzu, damit die K.I. spiele eher wie ein Mensch. Je h\xF6her die Zahl, desto
+    mehr Fehler werden gemacht."
+  matchAISelectMatchPlayedForDescription: "Stellen Sie den Wert auf 1 ein, um ein
+    einzelnes Spiel zu spielen, oder auf 5 und h\xF6her f\xFCr k\xFCrzere Spiele"
+  matchAISelectMatchPlayedForHistoric: "Es wurde um das urspr\xFCngliche Spiel gespielt"
+  matchAISelectPlayASingleGame: Spielen Sie ein einzelnes Spiel
+  matchAISelectPlayA5PointMatch: Spielen Sie ein 5-Punkte-Spiel
+  matchAISelectUsingHistoricDice: "Verwendung historischer W\xFCrfel"
+  matchAISelectUsingRandomDice: "Verwenden von Zufallsw\xFCrfeln"
+  matchStatsTitle: Spielstatistiken
+  matchStatsLastGamePlayed: Letztes gespieltes Spiel
+  matchStatsPlayingAs: Spielen als
+  matchStatsHighestGame: "H\xF6chstes Spiel"
+  matchStatsOverallCompletion: ' Gesamtabschluss'
+  matchStatsMovesMatched: "\xDCbereinstimmende Bewegungen"
+  matchStatsAIMovesMatched: "K.I. \xDCbereinstimmende Bewegungen"
+  gameListTitleText: "Tippen Sie, um einen Spieler auszuw\xE4hlen"
+  gameListMatchPlayedFor: Spiel gespielt
+  gameListDemoText1Line1: Willkommen bei der Backgammon-Challenge.
+  gameListDemoText1Line2: "F\xFCr diese Spiele-App wurde eine neue M\xF6glichkeit
+    erfunden, aufgezeichnete Backgammon-Spiele zu nutzen."
+  gameListDemoText1Line3: "Es ist eine einzigartige M\xF6glichkeit, Ihre Spielf\xE4higkeiten
+    mit den besten Spielern der Welt zu messen."
+  gameListDemoText2Line1: "F\xFCr dieses Spiel haben wir ein Spiel aus einem Match
+    zwischen zwei gro\xDFartigen Spielern, Joe Dwek und Phillip Martyn, nachgestellt."
+  gameListDemoText2Line2: ' Sie werden nacheinander jeden dieser Weltklassespieler
+    herausfordern.'
+  gameListDemoText2Line3: "Welchen Spieler m\xF6chtest du zuerst herausfordern?"
+  gameListDemoText2Line4: Klicken
+  gameListDemoText2Line5: "um einen Spieler auszuw\xE4hlen."
+  playerSelectSelectPlayer: " W\xE4hlen Sie Ihren Spieler aus"
+  pauseChangeGame: "Spiel \xE4ndern"
+  pauseChangePlayer: Wechselspieler
+  pauseMatchData: Daten abgleichen
+  pauseMainMenu: "Hauptmen\xFC"
+  pauseDiceOptions: "W\xFCrfeloptionen"
+  pauseAISettings: K.I. Einstellungen
+  pauseDiceOptionsHeader: "W\xE4hlen Sie Optionen f\xFCr die KI aus. W\xFCrfelrollen."
+  pauseDiceOptionsManual: "Geben Sie die KI manuell ein. W\xFCrfelrollen"
+  pauseDiceOptionsManualText: "Legen Sie die Werte mit den Aufw\xE4rts- und Abw\xE4rtspfeilen
+    fest. Klicken Sie auf \u201EWeiter\u201C, um mit der KI zu beginnen. drehen"
+  pauseDiceOptionsReRoll: "ReRolle die K.I. W\xFCrfelrollen"
+  pauseDiceOptionsReRollText: "Tippen Sie auf die W\xFCrfel, um sie erneut zu w\xFCrfeln.
+    Klicken Sie dann auf \u201EWeiter\u201C, um mit der KI zu beginnen. drehen"
+  pauseDiceOptionsBothText: "Tippen Sie auf die W\xFCrfel, um erneut zu w\xFCrfeln,
+    oder stellen Sie die Werte mit den Aufw\xE4rts- und Abw\xE4rtspfeilen ein. Klicken
+    Sie auf \u201EWeiter\u201C, um mit der KI zu beginnen. drehen"
+  pauseChangeGameTitle: "W\xE4hlen Sie ein Spiel aus"
+  pauseChangeGameContinueMatch: Spiel fortsetzen
+  pauseChangeAISettings: "\xC4ndern Sie die KI. Einstellungen"
+  pauseChangePlayerTitle: "M\xF6chten Sie zu Ihrem Gegner wechseln?"
+  pauseChangePlayerRestartGame: Starten Sie das Spiel neu
+  pauseChangePlayerRestartMatch: Starten Sie das Spiel neu
+  gameReviewIsUnableToMove: kann sich nicht bewegen
+  gameReviewTapToContinue: Tippen Sie, um fortzufahren
+  gameReviewAIAnlaysis: K.I. Analyse
+  gameReviewYourMove: Deine Bewegung
+  gameReviewBGBlitzMove: BGBlitz zieht um
+  gameReviewProsMove: Pro's Move
+  gameReviewTopRankedMove: Bestbewertete KI Umzug
+  gameReviewProsOriginalMove: "Der urspr\xFCngliche Schachzug von Pro"
+  gameReviewYouHaveA: Du hast ein
+  gameStatsTitle: Daten abgleichen
+  gameStatsHowYoureDoing: Wie machst du dieses Match
+  gameStatsMovesMadeThisMatch: "In diesem Spiel gespielte Z\xFCge:"
+  gameStatsMovesMadeThisGame: "In diesem Spiel gespielte Z\xFCge:"
+  gameStatsMovesMatched: 'Sie haben Folgendes gefunden:'
+  gameStatsProMatched: 'Pro abgestimmt:'
+  endGameWouldYouLikeAnotherMove: "M\xF6chten Sie einen weiteren Zug spielen?"
+  endGameWouldYouLikeAnotherGame: "M\xF6chtest du das n\xE4chste Spiel spielen?"
+  endGameWouldYouLikeAnotherMatch: "M\xF6chtest du ein weiteres Spiel spielen?"
+  endGameStatistics: ' --- Spielstatistik ---'
+  endMatchStatistics: ' --- Spielstatistiken ---'
+  endMatchOfTheProMoves: der Bewegungen des Profis.
+  endMatchAndProMatched: "und der Pro stimmte \xFCberein:"
+  endMatchInATotalOf: 'Insgesamt:'
+  endMatchYouHaveWon: Du hast gewonnen
+  endMatchYouHaveLost: Du hast verloren
+  endYouAreCurrentlyPlayingAt: Du spielst gerade bei
+  endNoRankingGivenUnder10Moves: "Keine Leistungsbewertung unter 10 Z\xFCgen"
+  endUnranked: Ohne Rang
+  endBeginner: "Anf\xE4nger"
+  endIntermediate: Dazwischenliegend
+  endExceptional: "Au\xDFergew\xF6hnlich"
+  endMaster: Meister
+  endInternational: International
+  diceRollsTapToRoll: ZUM ROLLEN AUF DEN BILDSCHIRM TIPPEN...
+  diceRollsNoMoreValidMoves: "Keine Bewegungen verf\xFCgbar"
+  diceRollsDemoHeader: ist dran
+  diceRollsDemoTapToRoll: "Tippen Sie auf den Bildschirm, um seinen Wurf zu \xFCbernehmen..."
+  diceRollsMakeYourMove: Mach deinen Zug
+  diceRollsIsBlockedFromMoving: ist an der Bewegung gehindert.
+  doublingOffer: "M\xF6chten Sie Double anbieten?"
+  doublingIsOffering: bietet
+  doublingWasThisAGoodDoubld: War das ein gutes Angebot?
+  doublingShouldTheyAccept: Sollten sie akzeptieren?
+  doublingDouble: Doppelt
+  doublingOffersDouble: bietet Doppelzimmer
+  doublingTakesDouble: nimmt das Doppelte
+  doublingDropsDouble: "l\xE4sst Double fallen"
+  doublingNoAIData: "Keine KI. Derzeit verf\xFCgbare Daten."
+  doublingAIEvalShould: "hat ein \u201Ezu gutes\u201C Eigenkapital und h\xE4tte halten
+    sollen,"
+  doublingAIEvalMatchEquity: "hat eine Match Equity > 1. Es w\xE4re besser, um den
+    Gammon zu spielen, als den W\xFCrfel abzugeben."
+  doublingAIEvalMoreInfo: Mehr Info
+  doublingAIEvalToWin: Gewinnen =
+  doublingAIEvalToWinGammon: Gammon gewinnen =
+  doublingAIEvalToWinBackGammon: Backgammon gewinnen =
+  doublingCORRECT: RICHTIG
+  doublingINCORRECT: FALSCH
+  doublingTOOGOOD: "ZU GUT \u2013 Halten Sie f\xFCr Gammon"
+  turnEndReviewYourScore: Ihr Partitur
+  turnEndReviewProScore: Pro Partitur
+  turnEndReviewMatched: Passen
+  turnEndReviewNoMatched: Keine Passen
+  turnEndReviewRank1: Rang 1 bewegt sich
+  turnEndReviewRank: RANG
+  turnEndReviewUnranked: UNBEWERTUNG
+  turnEndReviewYourLastMoveRanked: Ihr letzter Zug wurde bewertet
+  analysisTitle: K.I. ANALYSE
+  analysisYourRank: Dein Rang
+  analysisProRank: Pro-Rang
+  analysisShowYourMove: ZEIG DEINE BEWEGUNG
+  analysisShowProMove: ZEIGEN SIE PRO BEWEGUNGEN
+  analysisShowAIMove: TOP-BEWEGUNG
+  analysisUnranked: UNBEWERTUNG
+  statsTitle: K.I. Statistiken
+  statsHeader: Wie es dir bisher ergangen ist
+  statsStatistics: Statistiken
+  statsResetData: "Daten zur\xFCcksetzen"
+  statsTotalMovesPlayed: "Insgesamt gespielte Z\xFCge:"
+  statsProMovesEquals: Pro Moves =
+  statsYouHave: 'Du hast:'
+  statsAvailableMatches: "verf\xFCgbare \xDCbereinstimmungen ="
+  graphButtonLabelText: GRAPH
+  tableButtonLabelText: TISCH
+  movesMatchedLabelText: "\xDCbereinstimmende Bewegungen"
+  rank1AIMatchedLabelText: Rang 1 K.I. Passend
+  rank1ProAIMatchedLabelText: Pro Rang 1 K.I. Passend
+  averageLabelText: DEIN DURCHSCHNITT
+  movesMadeLabelText: BEWEGUNGEN GEMACHT
+  percentageLabelText: PROZENTSATZ
+  playerNameLabelText: Spielername
+  MovesMatchedLabelText: PASSENDE BEWEGUNGEN
+  MovesMatchPerLabelText: "\xDCBEREINSTIMMUNG VERSCHIEBEN %"
+  AIMatchesLabelText: "K.I. STREICHH\xD6LZER"
+  AIMatchPerLabelText: K.I. PASSEN %
+  ProAIMatchesLabelText: "PRO K.I. STREICHH\xD6LZER"
+  ProAIMatchPerLabelText: PRO K.I. PASSEN %
+  YourRankingLabelText: IHRE RANGLISTE
+  resetPartial: Teilweiser Reset
+  resetFull: "Vollst\xE4ndiger Reset"
+  resetLine1: "Sind Sie sicher, dass Sie Ihre App-Daten zur\xFCcksetzen m\xF6chten?"
+  resetLine2: "setzt nur die \u201EAktuellen Statistiken\u201C zur\xFCck."
+  resetLine3: "l\xF6scht alle Ihre Spiel-, Spiel- und Fortschrittsdaten."
+  resetLine4: "Das kann nicht r\xFCckg\xE4ngig gemacht werden!"
+  resetConfirmText: ' Bist du dir sicher?'
+  downloadsTitle: Laden Sie neue Spiele herunter
+  downloadsPurchase: Kaufen
+  downloadsRestorePurchases: "Eink\xE4ufe wiederherstellen"
+  downloadsInfoPopupTitle: 'DIESES BUNDLE FUNKTIONIERT:'
+  demoStart1: "Du hast ausgew\xE4hlt"
+  demoStart2: Wer spielt
+  demoGoesFirst1: In diesem Spiel
+  demoGoesFirst2: geht zuerst.
+  demoRollDice1: Wenn es
+  demoRollDice2: "Wenn du an der Reihe bist, beginnst du mit dem W\xFCrfeln."
+  demoSelectFrom1: s Rolle war
+  demoSelectFrom2: "Wie w\xFCrdest du sie spielen?"
+  demoSelectFrom3: Tippen Sie auf a
+  demoSelectFrom4: "St\xFCck, um es zu bewegen. Zum Abbrechen erneut tippen."
+  demoSelectFromOut1: ' Rechts ist die Rolle abgebildet'
+  demoSelectFromOut2: gemacht in diesem aufgezeichneten Spiel.
+  demoSelectFromOut3: "Bevor wir zeigen, wie er es gespielt hat, pr\xFCfen Sie, ob
+    Sie seinen urspr\xFCnglichen Zug mitmachen oder sogar \xFCbertreffen k\xF6nnen."
+  demoReviewIn1: hat auch diese Position gespielt, die Sie
+  demoReviewIn2: Aber wie vergleichen Sie beide, wer den besten Zug gemacht hat?
+  demoReview: "Die eingebaute K.I. vergleicht in jeder Runde beide S\xE4tze von Z\xFCgen
+    und bewertet das Ergebnis."
+  demoAnalysis: "Nach jedem Zug k\xF6nnen Sie Ihren Zug und den Zug des Profis analysieren
+    und den \u201ETop-Rang-Zug\u201C der KI sehen."
+  demoDoublingIn: "W\xE4hrend jedes Spiels werden die Profispieler Doppelwetten anbieten
+    und annehmen oder fallen lassen, aber Sie haben auch die M\xF6glichkeit, eine
+    Doppelwette anzubieten."
+  demoDoublingOut: Dies hat keinen Einfluss auf das Spielgeschehen, zeigt Ihnen jedoch
+    an, ob es sich um ein gutes Double handelte, und wird in Ihren Statistiken vermerkt.
+  demoEnd1: "Herzlichen Gl\xFCckwunsch, DEMO abgeschlossen!"
+  demoEnd2: "Vergessen Sie nicht, die \u201ESpieldaten\u201C und \u201EK.I.\u201C
+    zu nutzen. Funktionen der Statistik."
+  demoEnd3: "Hier k\xF6nnen Sie sehen, wie oft es Ihnen im Vergleich zum Profispieler
+    gelungen ist, einen Top-Zug zu machen."
+  demoEnd4: "Eine gro\xDFartige M\xF6glichkeit, selbst zu sehen, wie schnell sich
+    Ihr Spiel entwickelt."
+  demoEnd5: "Viel Spa\xDF bei Ihrer Backgammon-Herausforderung!!"
+  ChanceOfLosing: Chance zu verlieren
+  ByGammon: Von Gammon
+  ByBackGammon: Von Backgammon
+  Menu: Speisekarte
+  Back: "Zur\xFCck"
+  Confirm: "Best\xE4tigen"
+  Start: Start
+  CONTINUE: WEITERMACHEN
+  Continue: Weitermachen
+  Concede: Geben Sie zu
+  Yes: Ja
+  No: Nein
+  Close: " Schlie\xDFen"
+  Points: Punkte
+  points: punkte
+  Using: verwenden
+  Its: Es ist
+  The: Der
+  the: Die
+  Details: ' Einzelheiten'
+  should: sollen
+  and: Und
+  You: Du
+  Pro: Profi
+  WinsThe: ' Gewinnt die'
+  LosesThe: Verliert die
+  ConcedesThe: Gibt zu
+  For: "f\xFCr"
+  pointMatch: Punktspiel
+  Games: Spiele
+  Game: Spiel
+  Matches: das Match
+  Match: Spiel
+  move: bewegen
+  moves: bewegen
+  level: Niveau
+  MATCHED: PASSEND
+  DIDNTMATCH: "Stimmt nicht \xFCberein"
+  SMove: '''s Umzug'
+  ToWin: gewinnen
+  BLACK: SCHWARZ
+  WHITE: WEISS
+  UNDO: "l\xF6sen"
+  RANK: RANG
+  a: A
+  an: ein
+  AI: K.I.
+  ComingSoon: "Demn\xE4chst"
+  CrafordRuleInPlay: Crawford-Regel im Spiel
+  CrafordRuleNotInPlay: Die Crawford-Regel ist nicht im Spiel
+  movesFirst: bewegt sich zuerst
+  YouHaveChosenToConcedeTheGame: 'Sie haben sich entschieden, das Spiel zu kassieren:'

@@ -13,10 +13,18 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638610506208580163
-    m_Hash: 437376079
+      ticks: 638683862131868396
+    m_Hash: 375975148
 m_EmbeddedPackageManifests:
-  m_ManifestsStatus: {}
+  m_ManifestsStatus:
+    D:/TBGC/TheBackgammonChallenge/TheBackgammonChallenge/Packages/com.merry-yellow.code-assist/package.json:
+      m_FilePath: D:/TBGC/TheBackgammonChallenge/TheBackgammonChallenge/Packages/com.merry-yellow.code-assist/package.json
+      m_PathExists: 1
+      m_ContentTrackingEnabled: 1
+      m_ModificationDate:
+        serializedVersion: 2
+        ticks: 638683861200751852
+      m_Hash: 4251217072
 m_LocalPackages:
   m_LocalFileStatus: []
 m_ProjectPath: D:/TBGC/TheBackgammonChallenge/TheBackgammonChallenge/Packages
@@ -3248,6 +3256,76 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.0.0
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+  fingerprint: 
+- packageId: com.merry-yellow.code-assist@file:D:\TBGC\TheBackgammonChallenge\TheBackgammonChallenge\Packages\com.merry-yellow.code-assist
+  testable: 1
+  isDirectDependency: 1
+  version: 1.2.6
+  source: 3
+  resolvedPath: D:\TBGC\TheBackgammonChallenge\TheBackgammonChallenge\Packages\com.merry-yellow.code-assist
+  assetPath: Packages/com.merry-yellow.code-assist
+  name: com.merry-yellow.code-assist
+  displayName: Code Assist
+  author:
+    name: Merry Yellow
+    email: merryyellow@outlook.com
+    url: https://code-assist.netlify.app/
+  category: 
+  type: tool
+  description: Code Assist improves your coding experience with Visual Studio by
+    adding more features for Unity projects. Coding Unity scripts becomes easier
+    and more efficient and with fewer bugs.
+  status: 0
+  errors: []
+  versions:
+    all: []
+    compatible: []
+    recommended: 
+    deprecated: []
+  dependencies: []
+  resolvedDependencies: []
+  keywords:
+  - Productivity
+  - Functionality
+  - Script
+  - CSharp
+  - Scripting
+  - Code Editor
+  - IDE
+  - Visual Studio
+  - Tool
+  - Code
+  - Utility
+  - Coding
+  - C#
+  - Workflow
+  - Generative AI
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 0
+  repository:
+    type: 
+    url: 
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0

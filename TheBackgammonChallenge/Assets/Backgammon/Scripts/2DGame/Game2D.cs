@@ -44,7 +44,7 @@ namespace Backgammon
         [SerializeField] ConfigureBoardManualUI _configureBoardManualUI = null;
 
         [Header("DEBUG")]
-        [SerializeField] bool _debugSetFirstOrSecond = false;
+        [SerializeField] bool _debugSetWhoGoesFirstOrSecondBool = false;
         [SerializeField] bool _debugSetPlayerGoesFirst = false;
         [SerializeField] bool _resetDebugDice = false;
         [SerializeField] int _debugDice1 = 0;
@@ -55,19 +55,43 @@ namespace Backgammon
         [SerializeField] DebugPrefab _debugReportState = null;
         [SerializeField] DebugPrefab _debugObject = null;
 
-        private void Awake()
+        #region GameState
+
+        private static GameStateContext2D _context;
+        public static GameStateContext2D Context { get => _context; }
+        public GameStateMachine2D GameStateMachine { get => _stateMachine; }
+
+        internal static bool IfGameInPlay = false;
+        internal static bool IfUpdatingBoard;
+        internal static bool IfGameConcluded = false;
+        internal static bool IfExitAIGame = false;
+        internal static bool IfManualSetupBoard = false;
+        internal bool IfGameToContinue = false;
+        internal bool IfAIGameToContinue = false;
+
+        internal bool AIMatchWon;
+        internal static bool AIIfUsingHistoricDice;
+        internal static bool AIHistoricPlayingAsPlayer1;
+        internal static bool AIHistoricReplayAsOpponent;
+
+        internal static float TimeFactor;
+        internal static int IndexTurn;
+
+        #endregion
+
+        protected void Awake()
         {
             ValidateConstraints();
         }
 
-        private void OnEnable()
+        protected void OnEnable()
         {
             _context = new GameStateContext2D(this, _boardMaterialsManager, _barManager, _homeManager,
                                             _doublingManager, _pointsManager, _countersManager,
                                             _diceManager, _observeAnalysisManager);
         }
 
-        private void Update()
+        protected void Update()
         {
             if (_resetDebugDice)
             {
@@ -81,7 +105,7 @@ namespace Backgammon
             if (_debugDice2 != 0) _context.Dice2 = _debugDice2;
         }
 
-        private void OnDisable()
+        protected void OnDisable()
         {
             // ENSURE ALL UI AND DATA IS CLOSED DOWN
             if (Context is not null)
@@ -153,8 +177,8 @@ namespace Backgammon
             _context.PlayingAs = GameListUI._playingAs2D;
             _context.OpponentAs = GameListUI._playingAs2D == PlayingAs.PLAYER_1 ? PlayingAs.PLAYER_2 : PlayingAs.PLAYER_1;
             _context.IfPlayingAsPlayer1 = GameListUI._playingAs2D == PlayingAs.PLAYER_1 ? true : false;
-            _context.IfPlayFromLhs = true;
-            _context.IfPlayerIsBlack = true;
+            _context.IfPlayFromLhs = SettingsUI.playingFrom == SettingsUI.PlayingFrom.LHS;
+            _context.IfPlayerIsBlack = SettingsUI.playerColor == PlayerColour.BLACK;
 
             // GAME
             _context.IndexTurn = 0;
@@ -163,15 +187,18 @@ namespace Backgammon
             _context.IsPlayersTurn = _context.IfPlayingAsPlayer1;
             _context.IfPlayer1GoesFirst = _context.SelectedMatch.Game(_context.IndexGame).GetPlayerMove(0) == ":" ? false : true;
 
-            // AI GAME
+            // AI GAME START
             if (Main.Instance.IfPlayerVsAI)
             {
                 // 50 / 50 THAT PLAYER GOES FIRST -> SET VALUE TO PREVENT SKIPPING FIRST TURN
-                _context.AIGameData.Moves[0] = Random.Range(0, 2) == 1 ? "11: 1/1 1/1" : ":";
-                if (_debugSetFirstOrSecond) _context.AIGameData.Moves[0] = _debugSetPlayerGoesFirst ? "11: 1/1 1/1" : ":";
-                _context.IfPlayer1GoesFirst = _context.AIGameData.Moves[0] == ":" ? false : true;
-                _context.IfPlayer1Turn = _context.IfPlayer1GoesFirst;
-                _context.IsPlayersTurn = _context.IfPlayer1GoesFirst;
+                //_context.AIGameData.Moves[0] = Random.Range(0, 2) == 1 ? "11: 1/1 1/1" : ":";
+                //if (_debugSetWhoGoesFirstOrSecondBool) _context.AIGameData.Moves[0] = _debugSetPlayerGoesFirst ? "11: 1/1 1/1" : ":";
+                //_context.IfPlayer1GoesFirst = _context.AIGameData.Moves[0] == ":" ? false : true;
+                //_context.IfPlayer1Turn = _context.IfPlayer1GoesFirst;
+                //_context.IsPlayersTurn = _context.IfPlayer1GoesFirst;
+
+                SetStartingPlayerToRandom();
+                if (_debugSetWhoGoesFirstOrSecondBool) SetStartingPlayerWhoGoesFirst(_debugSetPlayerGoesFirst);
 
                 if (IfAIGameToContinue)
                 {
@@ -321,31 +348,21 @@ namespace Backgammon
             _debugObject.ShowMesssage = useDebugLogging;
         }
 
-        #endregion
+        internal static void SetStartingPlayerToRandom()
+        {
+            _context.AIGameData.Moves[0] = Random.Range(0, 2) == 1 ? "11: 1/1 1/1" : ":";
+            _context.IfPlayer1GoesFirst = _context.AIGameData.Moves[0] == ":" ? false : true;
+            _context.IfPlayer1Turn = _context.IfPlayer1GoesFirst;
+            _context.IsPlayersTurn = _context.IfPlayer1GoesFirst;
+        }
 
-        // -------------------------------------------- GAME STATE ----------------------------------------------
-
-        #region GameState
-
-        private static GameStateContext2D _context;
-        public static GameStateContext2D Context { get => _context; }
-        public GameStateMachine2D GameStateMachine { get => _stateMachine; }
-
-        internal static bool IfGameInPlay = false;
-        internal static bool IfUpdatingBoard;
-        internal static bool IfGameConcluded = false;
-        internal static bool IfExitAIGame = false;
-        internal static bool IfManualSetupBoard = false;
-        internal bool IfGameToContinue = false;
-        internal bool IfAIGameToContinue = false;
-
-        internal bool AIMatchWon;
-        internal static bool AIIfUsingHistoricDice;
-        internal static bool AIHistoricPlayingAsPlayer1;
-        internal static bool AIHistoricReplayAsOpponent;
-
-        internal static float TimeFactor;
-        internal static int IndexTurn;
+        internal static void SetStartingPlayerWhoGoesFirst(bool playerOrPro)
+        {
+            _context.AIGameData.Moves[0] = playerOrPro ? "11: 1/1 1/1" : ":";
+            _context.IfPlayer1GoesFirst = _context.AIGameData.Moves[0] == ":" ? false : true;
+            _context.IfPlayer1Turn = _context.IfPlayer1GoesFirst;
+            _context.IsPlayersTurn = _context.IfPlayer1GoesFirst;
+        }
 
         #endregion
 

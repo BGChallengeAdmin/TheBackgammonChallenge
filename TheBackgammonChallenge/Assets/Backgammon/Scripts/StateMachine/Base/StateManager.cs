@@ -6,7 +6,7 @@ namespace Backgammon
 {
     public abstract class StateManager<EState> : MonoBehaviour where EState : Enum
     {
-        void Update()
+        protected void Update()
         {
             if (CurrentState is null) return;
 

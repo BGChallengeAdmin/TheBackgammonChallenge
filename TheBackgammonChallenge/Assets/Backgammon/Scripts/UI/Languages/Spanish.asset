@@ -1,0 +1,365 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ae845047ec73a4184e20445a2e8235, type: 3}
+  m_Name: Spanish
+  m_EditorClassIdentifier: 
+  shortCode: es_ES
+  longName: Spanish
+  selectLanguageTitle: Seleccione el idioma
+  selectLanguageText: "Espa\xF1ola"
+  hostIntroTitle: Bienvenida al reto
+  hostIntroText1: "Nuestra aplicaci\xF3n es tu pasaporte para dominar el antiguo
+    juego de Backgammon. Con tecnolog\xEDa de vanguardia y funciones incomparables,
+    aprender\xE1 r\xE1pidamente a jugar como un profesional. Hay dos formas de jugar:"
+  hostIntroText2: "DESAF\xCDO PRO"
+  hostIntroText3: "En este desaf\xEDo se han reproducido digitalmente partidos del
+    torneo de m\xE1xima calidad.  por nuestro equipo para brindarte una forma divertida
+    de practicar y mejorar tus habilidades en el torneo. Cuanto m\xE1s juegues al
+    'Pro Challenge', mejor preparado estar\xE1s para tu pr\xF3ximo gran torneo."
+  hostIntroText4: "AI. DESAF\xCDO"
+  hostIntroText5: "Este desaf\xEDo te brinda la oportunidad de jugar BGBlitz A.I. 
+    Ofrece cuatro niveles de dificultad para adaptarse a su experiencia y se puede
+    configurar para jugar juegos individuales o partidos completos. Pero lo que hace
+    que este desaf\xEDo sea \xFAnico es la A.I. est\xE1 programado para tomar decisiones
+    de duplicar el cubo.  Nunca sabr\xE1s si est\xE1s jugando contra un gran profesional
+    o un A.I."
+  hostIntroPrompt: Toca la pantalla para seleccionar tu estilo de juego...
+  titleMenuTitle: "Men\xFA principal"
+  titleLanguageSelectTitle: "Selecci\xF3n de idioma"
+  titleMenuDownload: Descargar nuevos partidos
+  titleMenuNewMatch: Seleccionar nueva coincidencia
+  titleMenuRandomGame: Jugar juego aleatorio
+  titleMenuContinueMatch: Continuar partido
+  titleMenuPlayDemo: Jugar demo
+  titleMenuStatistics: "Estad\xEDsticas"
+  titleMenuSettings: Ajustes
+  titleMenuExitApp: "Salir de la aplicaci\xF3n"
+  matchSelectIntroTitle: "SELECCIONA QU\xC9 ESTILO DE JUEGO"
+  matchSelectIntroDescription: Practica tus movimientos contra los profesionales
+    o juega el A.I.
+  matchSelectIntroPracticeButton: "Desaf\xEDa a los profesionales"
+  matchSelectIntroAIButton: Juega la A.I.
+  matchSelectTitle: Seleccione un partido
+  matchSelectHeader: "El ganador est\xE1 en negrita"
+  matchSelectSearch: Buscar
+  matchSelectMatchStats: "Estad\xEDsticas del partido"
+  matchSelectPlayAI: Juega la I.A.
+  matchAISelectSplashTitle: Establecer el nivel de dificultad
+  matchAISelectSplashDescription: Configura la A.I. para jugar al nivel que quieras
+  matchAISelectSplashText1: Utilice los ajustes preestablecidos para configurar la
+    A.I. nivel o establezca los valores usted mismo.
+  matchAISelectSplashText2: "Rango 1 (m\xE1s fuerte) - Rango 5 (m\xE1s d\xE9bil)"
+  matchAISelectSplashText3: Rango 1 = 20 pts, Rango 2 = 10 pts, Rango 3 = 5 pts,
+  matchAISelectSplashText4: Rango 4 = 2 puntos, Rango 5 = 1 punto
+  matchAISelectSplashText5: "Seleccionar las 'Opciones avanzadas' te permite cambiar
+    la fuerza de la I.A. ser\xE1 a la hora de decidir sus movimientos. M\xE1s movimientos
+    de b\xFAsqueda y menos ruido har\xE1n que los movimientos de rango 1 sean a\xFAn
+    m\xE1s fuertes."
+  matchAISelectSplashText6: "Cambiar la 'Duraci\xF3n del partido' afectar\xE1 la
+    forma en que la A.I. ofrece dobles, y una selecci\xF3n 'Aleatoria' podr\xEDa
+    permitirte jugar contra un maestro mundial o un completo principiante, as\xED
+    que mantente atento a la configuraci\xF3n para encontrar tu nivel de juego."
+  matchAISelectSplashText7: "\xA1BGBlitz s\xF3lo jugar\xE1 los dados que se le entreguen!
+    La IA nunca har\xE1 trampa. Todas las tiradas de dados son completamente aleatorias
+    y solo se env\xEDan al A.I. despu\xE9s de haberlos enrollado. Esto incluye la
+    duplicaci\xF3n."
+  matchAISelectSplashChallengeText: "\xA1Encuentra tus configuraciones favoritas
+    para desafiarte a ti mismo!"
+  matchAIPointsTitle: ESTABLECER LOS PUNTOS PARA EL PARTIDO
+  matchAIPointsDescription: Juega un solo juego o un partido de 5 puntos.
+  matchAIPointsSingleGame: Juega un solo juego por 1 punto.
+  matchAIPointsMatch: Juega un partido de 5 puntos
+  matchAIDiceTypeTitle: SELECCIONA EL TIPO DE DADOS
+  matchAIDiceTypeHeader: "Usa dados hist\xF3ricos de tus juegos descargados o usa
+    dados aleatorios"
+  matchAIDiceTypeNormal: Aleatorio
+  matchAIDiceTypeNormalDescription: Tiradas de dados generadas aleatoriamente
+  matchAIDiceTypeHistoric: "Hist\xF3rico"
+  matchAIDiceTypeHistoricDescription: "Tiradas de dados de partidos hist\xF3ricos"
+  matchAIDiceTypeManual: Manual
+  matchAIDiceTypeManualDescription: Tus propios rollos generados manualmente
+  matchAIDiceTypeDiceRolls: Tiradas de dados
+  matchAIHistoricDiceTitle: "SELECCIONA QU\xC9 PARTIDO Y JUGADOR"
+  matchAIHistoricDiceMatchDescription: Elige tu pareja
+  matchAIHistoricDicePlayerDescription: "Elige qu\xE9 tiradas de dados de jugadores
+    quieres usar"
+  matchAIHistoricDiceWinner: (GANADOR)
+  matchAISelectTitle: ESTABLECE EL NIVEL DE DIFICULTAD
+  matchAISelectDescription: "Seleccione su configuraci\xF3n usando los ajustes preestablecidos"
+  matchAISelectCommence: Comenzar
+  matchAISelectEASY: "F\xE1cil"
+  matchAISelectMEDIUM: Medio
+  matchAISelectHARD: "Dif\xEDcil"
+  matchAISelectPERFECT: Perfecto
+  matchAISelectEASYDesc: Juega como un principiante y comete bastantes errores.
+  matchAISelectMEDIUMDesc: "Jugabilidad m\xE1s s\xF3lida y planes futuros"
+  matchAISelectHARDDesc: "Sabe jugar y te dar\xE1 un desaf\xEDo."
+  matchAISelectPERFECTDesc: "Vas a perder, \xA1vas a perder mucho!"
+  matchAISelectRandomDesc: Una mezcla de cualquiera de las otras configuraciones.
+  matchAISelectRankDescription: "Seleccione el rango para los movimientos de la A.I.
+    utilizar\xE1"
+  matchAISelectRandom: Aleatorio
+  matchAISelectAdvancedOptions: Opciones avanzadas
+  matchAISelectPlyDescription: AI. buscar (avanza)
+  matchAISelectPlyDescriptionAdv: "Puedes configurar la A.I. para calcular m\xE1s
+    movimientos adelante 0 - 3, con m\xE1s movimientos conduciendo a un juego m\xE1s
+    fuerte."
+  matchAISelectNoiseDescription: "Ruido (comportamiento extra\xF1o)"
+  matchAISelectNoiseDescriptionAdv: "A\xF1ade algo de ruido 0 - 0,99 para que la
+    I.A. Juega m\xE1s como un humano. Cuanto mayor sea el n\xFAmero, m\xE1s errores
+    cometer\xE1."
+  matchAISelectMatchPlayedForDescription: "Establecer en 1 para jugar un solo juego,
+    o 5 y m\xE1s para partidos m\xE1s cortos"
+  matchAISelectMatchPlayedForHistoric: "El partido original se jug\xF3 por"
+  matchAISelectPlayASingleGame: Juega un solo juego
+  matchAISelectPlayA5PointMatch: Juega un partido de 5 puntos
+  matchAISelectUsingHistoricDice: "Usando dados hist\xF3ricos"
+  matchAISelectUsingRandomDice: Usando dados aleatorios
+  matchStatsTitle: "Estad\xEDsticas del partido"
+  matchStatsLastGamePlayed: "\xDAltimo juego jugado"
+  matchStatsPlayingAs: jugando como
+  matchStatsHighestGame: "Juego m\xE1s alto"
+  matchStatsOverallCompletion: "Finalizaci\xF3n general"
+  matchStatsMovesMatched: Movimientos emparejados
+  matchStatsAIMovesMatched: AI. Movimientos emparejados
+  gameListTitleText: Toca para seleccionar un jugador
+  gameListMatchPlayedFor: Partido jugado por
+  gameListDemoText1Line1: "Bienvenido al Desaf\xEDo de Backgammon."
+  gameListDemoText1Line2: "Se ha inventado una nueva forma de utilizar las partidas
+    de backgammon grabadas para esta aplicaci\xF3n de juego."
+  gameListDemoText1Line3: "Es una forma \xFAnica de comparar tus habilidades de juego
+    con las de los mejores jugadores del mundo."
+  gameListDemoText2Line1: Para este juego, hemos reproducido un juego de un partido
+    entre dos grandes jugadores, Joe Dwek y Phillip Martyn.
+  gameListDemoText2Line2: "Estar\xE1s desafiando a cada uno de estos jugadores de
+    clase mundial por turnos."
+  gameListDemoText2Line3: "\xBFQu\xE9 jugador te gustar\xEDa desafiar primero?"
+  gameListDemoText2Line4: Hacer clic
+  gameListDemoText2Line5: Para seleccionar un jugador.
+  playerSelectSelectPlayer: Selecciona tu jugador
+  pauseChangeGame: Cambiar juego
+  pauseChangePlayer: Cambiar de jugador
+  pauseMatchData: Datos de coincidencia
+  pauseMainMenu: "Men\xFA principal"
+  pauseDiceOptions: Opciones de dados
+  pauseAISettings: AI. Ajustes
+  pauseDiceOptionsHeader: Seleccione opciones para la A.I. tiradas de dados.
+  pauseDiceOptionsManual: Ingrese manualmente la A.I. tiradas de dados
+  pauseDiceOptionsManualText: 'Establezca los valores con las flechas hacia arriba
+    y hacia abajo: haga clic en continuar para comenzar la prueba de I.A. doblar'
+  pauseDiceOptionsReRoll: Vuelve a lanzar la A.I. tiradas de dados
+  pauseDiceOptionsReRollText: Toque los dados para volver a tirar y luego haga clic
+    en Continuar para comenzar la prueba de I.A. doblar
+  pauseDiceOptionsBothText: Toque los dados para volver a tirarlos o establezca los
+    valores con las flechas hacia arriba y hacia abajo. Haga clic en Continuar para
+    comenzar la prueba de I.A. doblar
+  pauseChangeGameTitle: Seleccione un juego
+  pauseChangeGameContinueMatch: Continuar partido
+  pauseChangeAISettings: Cambiar la IA Ajustes
+  pauseChangePlayerTitle: "\xBFTe gustar\xEDa cambiar a tu oponente?"
+  pauseChangePlayerRestartGame: Reiniciar el juego
+  pauseChangePlayerRestartMatch: Reiniciar el partido
+  gameReviewIsUnableToMove: es incapaz de moverse
+  gameReviewTapToContinue: Pulse para continuar
+  gameReviewAIAnlaysis: "AI. An\xE1lisis"
+  gameReviewYourMove: Su movimiento
+  gameReviewBGBlitzMove: Movimientos del BGBlitz
+  gameReviewProsMove: Movimiento profesional
+  gameReviewTopRankedMove: I.A mejor clasificada Mover
+  gameReviewProsOriginalMove: Movimiento original de Pro
+  gameReviewYouHaveA: Usted tiene un
+  gameStatsTitle: Datos de coincidencia
+  gameStatsHowYoureDoing: "\xBFC\xF3mo est\xE1s haciendo este partido?"
+  gameStatsMovesMadeThisMatch: 'Movimientos jugados en este partido:'
+  gameStatsMovesMadeThisGame: 'Movimientos jugados este juego:'
+  gameStatsMovesMatched: 'Has emparejado:'
+  gameStatsProMatched: 'Pro emparejado:'
+  endGameWouldYouLikeAnotherMove: "\xBFTe gustar\xEDa jugar otro movimiento?"
+  endGameWouldYouLikeAnotherGame: "\xBFTe gustar\xEDa jugar el pr\xF3ximo juego?"
+  endGameWouldYouLikeAnotherMatch: "\xBFTe gustar\xEDa jugar otro partido?"
+  endGameStatistics: "--- Estad\xEDsticas del juego ---"
+  endMatchStatistics: "--- Estad\xEDsticas del partido ---"
+  endMatchOfTheProMoves: de los movimientos del Pro.
+  endMatchAndProMatched: 'y el Pro emparejado:'
+  endMatchInATotalOf: 'En un total de:'
+  endMatchYouHaveWon: Usted ha ganado
+  endMatchYouHaveLost: Usted ha perdido
+  endYouAreCurrentlyPlayingAt: "Actualmente est\xE1s jugando en"
+  endNoRankingGivenUnder10Moves: "No se proporciona clasificaci\xF3n de rendimiento
+    en 10 movimientos"
+  endUnranked: Sin clasificar
+  endBeginner: Principiante
+  endIntermediate: Intermedio
+  endExceptional: Excepcional
+  endMaster: Maestro
+  endInternational: Internacional
+  diceRollsTapToRoll: TOQUE LA PANTALLA PARA RODAR...
+  diceRollsNoMoreValidMoves: No hay movimientos disponibles
+  diceRollsDemoHeader: es el turno
+  diceRollsDemoTapToRoll: Toque la pantalla para tomar su Roll...
+  diceRollsMakeYourMove: Hacer su movimiento
+  diceRollsIsBlockedFromMoving: tiene bloqueado el movimiento.
+  doublingOffer: "\xBFQuieres ofrecer Doble?"
+  doublingIsOffering: esta ofreciendo
+  doublingWasThisAGoodDoubld: "\xBFFue esta una buena oferta?"
+  doublingShouldTheyAccept: "\xBFDeber\xEDan aceptar?"
+  doublingDouble: Doble
+  doublingOffersDouble: ofertas Doble
+  doublingTakesDouble: toma doble
+  doublingDropsDouble: gotas doble
+  doublingNoAIData: sin IA datos disponibles en este momento.
+  doublingAIEvalShould: "tiene un patrimonio 'demasiado bueno' y deber\xEDa haberlo
+    mantenido,"
+  doublingAIEvalMatchEquity: "tiene equidad de partido > 1. Ser\xEDa mejor jugar
+    para el Gammon que entregar el cubo."
+  doublingAIEvalMoreInfo: "M\xE1s informaci\xF3n"
+  doublingAIEvalToWin: Para ganar =
+  doublingAIEvalToWinGammon: Para ganar Gammon =
+  doublingAIEvalToWinBackGammon: Para ganar Backgammon =
+  doublingCORRECT: CORRECTO
+  doublingINCORRECT: INCORRECTO
+  doublingTOOGOOD: Demasiado bueno - Espera por Gammon
+  turnEndReviewYourScore: Tu Marcar Un Gol
+  turnEndReviewProScore: Pro Marcar Un Gol
+  turnEndReviewMatched: igualar
+  turnEndReviewNoMatched: Sin coincidencia
+  turnEndReviewRank1: Movimientos de rango #1
+  turnEndReviewRank: ' RANGO'
+  turnEndReviewUnranked: SIN CLASIFICAR
+  turnEndReviewYourLastMoveRanked: "Tu \xFAltimo movimiento clasificado"
+  analysisTitle: "AI. AN\xC1LISIS"
+  analysisYourRank: Su rango
+  analysisProRank: Rango profesional
+  analysisShowYourMove: MUESTRA TU MOVIMIENTO
+  analysisShowProMove: MOSTRAR MOVIMIENTO PRO
+  analysisShowAIMove: MOVIMIENTO MEJOR CLASIFICADO
+  analysisUnranked: SIN CLASIFICAR
+  statsTitle: "AI. Estad\xEDsticas"
+  statsHeader: "C\xF3mo lo has hecho hasta ahora"
+  statsStatistics: "Estad\xEDsticas"
+  statsResetData: Reiniciar datos
+  statsTotalMovesPlayed: 'Total de movimientos jugados:'
+  statsProMovesEquals: Movimientos profesionales =
+  statsYouHave: 'Tienes:'
+  statsAvailableMatches: Partidos disponibles =
+  graphButtonLabelText: GRAFICO
+  tableButtonLabelText: MESA
+  movesMatchedLabelText: Movimientos emparejados
+  rank1AIMatchedLabelText: Rango 1 I.A. emparejado
+  rank1ProAIMatchedLabelText: Rango profesional 1 I.A. emparejado
+  averageLabelText: SU PROMEDIO
+  movesMadeLabelText: MOVIMIENTOS REALIZADOS
+  percentageLabelText: PORCENTAJE
+  playerNameLabelText: Nombre del jugador
+  MovesMatchedLabelText: MOVIMIENTOS IGUALADOS
+  MovesMatchPerLabelText: MOVER PARTIDO %
+  AIMatchesLabelText: AI. PARTIDOS
+  AIMatchPerLabelText: AI. IGUALAR %
+  ProAIMatchesLabelText: IA PRO PARTIDOS
+  ProAIMatchPerLabelText: IA PRO IGUALAR %
+  YourRankingLabelText: "TU CLASIFICACI\xD3N"
+  resetPartial: Restablecimiento parcial
+  resetFull: Restablecimiento completo
+  resetLine1: "\xBFEst\xE1 seguro de que desea restablecer los datos de su aplicaci\xF3n?"
+  resetLine2: "solo restablecer\xE1 las 'Estad\xEDsticas recientes'."
+  resetLine3: "borrar\xE1 todos sus datos de Partido, Juego y Progreso."
+  resetLine4: "\xA1Esto no se puede deshacer!"
+  resetConfirmText: Estas seguro
+  downloadsTitle: Descargar nuevos partidos
+  downloadsPurchase: Compra
+  downloadsRestorePurchases: Restaurar las compras
+  downloadsInfoPopupTitle: "ESTE PAQUETE CARACTER\xCDSTICAS:"
+  demoStart1: Usted ha seleccionado
+  demoStart2: quien esta jugando
+  demoGoesFirst1: En este juego
+  demoGoesFirst2: va primero
+  demoRollDice1: cuando es
+  demoRollDice2: "Es tu turno, t\xFA comienzas la tirada de dados."
+  demoSelectFrom1: el rollo era
+  demoSelectFrom2: "\xBFC\xF3mo los jugar\xEDas?"
+  demoSelectFrom3: Toque en un
+  demoSelectFrom4: pieza para moverla. Toca de nuevo para cancelar.
+  demoSelectFromOut1: se muestra a la derecha es el rollo
+  demoSelectFromOut2: hecho en este juego grabado.
+  demoSelectFromOut3: "Antes de mostrar c\xF3mo lo jug\xF3, vea si puede igualar
+    o incluso mejorar su movimiento original."
+  demoReviewIn1: "tambi\xE9n ha jugado esta posici\xF3n, que usted"
+  demoReviewIn2: "Pero, \xBFc\xF3mo se comparan ambos, qui\xE9n hizo el mejor movimiento?"
+  demoReview: La IA incorporada compara ambos conjuntos de movimientos en cada turno
+    y clasifica el resultado.
+  demoAnalysis: "Despu\xE9s de cada movimiento, puede analizar su movimiento, el
+    movimiento del Pro y ver el 'Movimiento mejor clasificado' de la IA."
+  demoDoublingIn: "Durante cada juego, los jugadores profesionales ofrecer\xE1n y
+    aceptar\xE1n o soltar\xE1n dobles, pero tambi\xE9n tendr\xE1s la oportunidad
+    de ofrecer un doble."
+  demoDoublingOut: "Esto no afectar\xE1 el juego, pero te permitir\xE1 saber si fue
+    un buen doble para ofrecer y se registrar\xE1 en tus estad\xEDsticas."
+  demoEnd1: Felicidades, DEMO completo!
+  demoEnd2: "No olvides hacer uso de los 'Datos del juego' y 'A.I. Caracter\xEDsticas
+    de las estad\xEDsticas."
+  demoEnd3: "Ah\xED es donde podr\xE1s ver con qu\xE9 frecuencia lograste hacer un
+    movimiento mejor clasificado en comparaci\xF3n con el jugador profesional."
+  demoEnd4: "Una excelente manera de ver por ti mismo qu\xE9 tan r\xE1pido se est\xE1
+    desarrollando tu juego."
+  demoEnd5: "\xA1Disfruta de tu Desaf\xEDo de Backgammon!"
+  ChanceOfLosing: Posibilidad de perder
+  ByGammon: Por gammon
+  ByBackGammon: Por backgammon
+  Menu: "Men\xFA"
+  Back: "Atr\xE1s"
+  Confirm: Confirmar
+  Start: Comenzar
+  CONTINUE: CONTINUAR
+  Continue: Continuar
+  Concede: Conceder
+  Yes: "S\xED"
+  No: No
+  Close: Concluir
+  Points: Puntos
+  points: puntos
+  Using: usando
+  Its: Es
+  The: El
+  the: el
+  Details: Detalles
+  should: "Deber\xEDa"
+  and: Y
+  You: "T\xFA"
+  Pro: Pro
+  WinsThe: Gana el
+  LosesThe: Pierde el
+  ConcedesThe: Concede el
+  For: para
+  pointMatch: coincidencia de puntos
+  Games: Juegos
+  Game: Juego
+  Matches: Partidos
+  Match: Partido
+  move: mover
+  moves: moverse
+  level: nivel
+  MATCHED: IGUALADO
+  DIDNTMATCH: "NO COINCIDI\xD3"
+  SMove: movimiento de
+  ToWin: ganar
+  BLACK: NEGRO
+  WHITE: BLANCO
+  UNDO: DESHACER
+  RANK: RANGO
+  a: uno
+  an: un
+  AI: AI.
+  ComingSoon: Muy pronto
+  CrafordRuleInPlay: La regla de Crawford en juego
+  CrafordRuleNotInPlay: "La regla de Crawford no est\xE1 en juego"
+  movesFirst: se mueve primero
+  YouHaveChosenToConcedeTheGame: 'Has elegido conceder el juego:'

@@ -20,7 +20,6 @@ namespace Backgammon
         [Header("INACTIVE BUTTONS")]
         [SerializeField] private Button _aiButton = null;
         [SerializeField] private Button _backButton = null;
-        [SerializeField] private Button _settingsButton = null;
 
         [Header("UPDATE POPUP")]
         [SerializeField] private GameObject _updatePopupObj = null;
@@ -69,9 +68,7 @@ namespace Backgammon
 
             _versionNumberText.text = "version " + Application.version;
 
-            //_aiButton.interactable = false;
             _backButton.interactable = false;
-            _settingsButton.interactable = false;
         }
 
         // APP VERSION UPDATE

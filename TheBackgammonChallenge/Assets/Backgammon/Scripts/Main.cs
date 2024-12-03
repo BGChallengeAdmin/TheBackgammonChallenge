@@ -28,7 +28,7 @@ namespace Backgammon
         [SerializeField] MatchAISelectPoints _aiSetPoints = null;
         [SerializeField] MatchAIConfigureSettingsMain _aiConfigMainSettings = null;
 
-        [Header("UI")]
+        [Header("DEFAULT UI")]
         [SerializeField] Transform _defaultBackground = null;
 
         [Header("GAME ASSETS")]
@@ -44,10 +44,36 @@ namespace Backgammon
         [SerializeField] DebugPrefab debug_showLogin = null;
         [SerializeField] DebugPrefab debug_3DBackground = null;
         [SerializeField] DebugTextToUI debug_textToUI = null;
-        [SerializeField] bool _usingDebugToolkit = false;
         [SerializeField] DebugToolkitUI _debugToolkitUI = null;
+        [SerializeField] bool _usingDebugToolkit = false;
 
-        void Awake()
+        [Header("APP STATE")]
+        [SerializeField] bool USING_3D_BACKGROUND = true;
+
+        public string CurrentVersionNumber = "0.0.1";
+        public bool IfFirstPlaythrough = true;
+        public string LanguageShortCode = string.Empty;
+        public string AIUserID = null;
+
+        internal bool IfUsingDebugToolkit = false;
+
+        internal bool IfDemoIsInPlay;
+        internal bool IfMatchedPlay;
+        internal bool IfPlayerVsPro = false;
+        internal bool IfPlayerVsAI = false;
+        internal bool IfAIDataConnectionAvailable = false;
+
+        internal bool IfClickedContinuePro;
+        internal bool IfClickedContinueAI;
+
+        internal bool IfPlayerVsHistoricAI;
+        internal bool IfRandomSingleTurn;
+        internal bool IfSelectSpecificMove;
+
+        internal bool IfGamePaused;
+        internal bool ifDebugging2D = false;
+
+        protected void Awake()
         {
             if (instance == null)
             {
@@ -67,10 +93,6 @@ namespace Backgammon
             DebugPrefab.Init();
 
             #region TODOforApple
-            // CONFIGURE CAMERA FOR APPROX. 4:3 ASPECT RATION
-            //camera = FindObjectOfType<Camera>();
-            //if (camera.aspect < 1.6f) camera.orthographicSize = 640f / camera.aspect;
-
             // HIDE HOME BUTTON (WHITE BAR) ON iOS
             //if (Application.platform == RuntimePlatform.IPhonePlayer)
             //{
@@ -79,7 +101,7 @@ namespace Backgammon
             #endregion
         }
 
-        private void Start()
+        protected void Start()
         {
             // NOTE: INITIALIZE ON START UP -
             // REINITIALIZED ON LOGIN SCREEN FOR DEBUG TOOLKIT
@@ -89,7 +111,7 @@ namespace Backgammon
             _worldRegionHandler.TrySetLanguageSOFromShortCode(LanguageShortCode);
         }
 
-        private void Update()
+        protected void Update()
         {
             switch (appState)
             {
@@ -321,6 +343,31 @@ namespace Backgammon
                             break;
                         }
 
+                        appState = AppState.TitleMenu_In;
+                    }
+                    break;
+                #endregion
+                // -------------------------------------------------- SETTINGS ---------------------------------------------
+                //
+                #region Settings
+                case AppState.Settings_In:
+                    {
+                        settingsUI.gameObject.SetActive(true);
+                        appState = AppState.Settings;
+                    }
+                    break;
+                case AppState.Settings:
+                    {
+                        if (!settingsUI.Back)
+                            break;
+
+                        appState = AppState.Settings_Out;
+                    }
+                    break;
+                case AppState.Settings_Out:
+                    {
+                        settingsUI.gameObject.SetActive(false);
+                        _playerPrefsHandler.SaveAppData();
                         appState = AppState.TitleMenu_In;
                     }
                     break;
@@ -733,8 +780,6 @@ namespace Backgammon
                 #region Continue
                 case AppState.Continue_In:
                     {
-                        //_2DGame.gameObject.SetActive(true);
-
                         SetGameTimeFactor(SettingsUI.replaySpeed);
 
                         signalCommenceGame = true;
@@ -746,14 +791,15 @@ namespace Backgammon
                             appState = AppState.TitleMenu_In;
                             Debug.Log($"BAIL OUT");
                         }
-                        else 
+                        else
+                        {
+                            if (USING_3D_BACKGROUND) Enable3DBackground(false);
                             appState = AppState.Game;
+                        }
                     }
                     break;
                 case AppState.Continue_AI_In:
                     {
-                        //_2DGame.gameObject.SetActive(true);
-
                         SetGameTimeFactor(SettingsUI.replaySpeed);
 
                         signalCommenceGame = true;
@@ -766,7 +812,11 @@ namespace Backgammon
                             Debug.Log($"BAIL OUT");
                         }
                         else
+                        {
+                            if (USING_3D_BACKGROUND) Enable3DBackground(false);
                             appState = AppState.Game;
+                        }
+
                     }
                     break;
                 #endregion
@@ -1088,8 +1138,6 @@ namespace Backgammon
 
         // --------------------------------------------- 3D BACKGROUND ----------------------------------------------------
 
-        private bool USING_3D_BACKGROUND = true;
-
         private void Enable3DBackground(bool enable)
         {
             var match = _defaultMatchData.Match(0);
@@ -1111,17 +1159,23 @@ namespace Backgammon
                 foreach(var matchReplay in matchList)
                 {
                     foreach (var matchToAdd in matchReplay.MatchData)
-                        matchDataList.Add(matchToAdd);
+                        if (matchToAdd.Title == "AI" || matchToAdd.Title == "DEMO") continue;
+                        else matchDataList.Add(matchToAdd);
                 }
                     
                 if (matchDataList.Count > 0)
                 {
                     debug_3DBackground.DebugMessage($"FOUND {matchDataList.Count} MATCHES");
                     match = matchDataList[UnityEngine.Random.Range(0, matchDataList.Count)];
-                    debug_3DBackground.DebugMessage($"USING: {match.name}");
+                    debug_3DBackground.DebugMessage($"USING: {match.name} {match.ID} {match.Title}");
                 }
 
                 if (match != null) MatchSelectUI.SetMatch(match);
+                else
+                {
+                    USING_3D_BACKGROUND = false;
+                    return;
+                }
             }
 
             // CONFIGURE GAME CONTEXT
@@ -1137,7 +1191,7 @@ namespace Backgammon
             if (enable)
             {
                 debug_3DBackground.DebugMessage($"SET 3D BACKGROUND ACTIVE");
-                _3DGame.ResetGameContext();
+                _3DGame.ResetGameContext(); // START THE GAME
                 Game.Context.BoardMaterialsManager.Init(Main.Instance.BoardDesignSO);
                 _3DGame.gameObject.SetActive(enable);
             }
@@ -1159,11 +1213,6 @@ namespace Backgammon
 
 
         // ----------------------------------------------- APP STATE ------------------------------------------------------
-
-        public string CurrentVersionNumber = "0.0.1";
-        public bool IfFirstPlaythrough = true;
-        public string LanguageShortCode = string.Empty;
-        public string AIUserID = null;
 
         public enum AppState
         {
@@ -1251,8 +1300,8 @@ namespace Backgammon
             // GENERAL
             //
             Settings_In,
-            //Settings_Out,
-            //Settings,
+            Settings_Out,
+            Settings,
             //
             ConfigureBoard_In,
             ConfigureBoard_Out,
@@ -1297,6 +1346,7 @@ namespace Backgammon
             DebugToolkitUI_In,
             DebugToolkitUI,
             DebugToolkitUI_Out,
+            //
             ExitApp_In,
             ExitApp_Out
         }
@@ -1315,23 +1365,6 @@ namespace Backgammon
         // ----------------------------------------------- GAME STATE ------------------------------------------------------
         internal static bool signalCommenceGame = false;
 
-        internal bool IfUsingDebugToolkit = false;
-
-        internal bool IfDemoIsInPlay;
-        internal bool IfMatchedPlay;
-        internal bool IfPlayerVsPro = false;
-        internal bool IfPlayerVsAI = false;
-        internal bool IfAIDataConnectionAvailable = false;
-
-        internal bool IfClickedContinuePro;
-        internal bool IfClickedContinueAI;
-
-        internal bool IfPlayerVsHistoricAI;
-        internal bool IfRandomSingleTurn;
-        internal bool IfSelectSpecificMove;
-
-        internal bool IfGamePaused;
-        internal bool ifDebugging2D = false;
         private void SetGameTimeFactor(SettingsUI.ReplaySpeed replaySpeed)
         {
             switch (replaySpeed)

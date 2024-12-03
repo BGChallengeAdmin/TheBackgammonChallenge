@@ -519,6 +519,7 @@
 "Assets/Backgammon/Scripts/UI/PlayerVsPro/MatchSelectUI.cs"
 "Assets/Backgammon/Scripts/UI/PlayerVsPro/MatchWinnerIntroUI.cs"
 "Assets/Backgammon/Scripts/UI/PlayerVsPro/TitleMenuUI.cs"
+"Assets/Backgammon/Scripts/UI/Widgets/ButtonHighlight.cs"
 "Assets/Backgammon/Scripts/UI/Widgets/FadeInFadeOutImage.cs"
 "Assets/Backgammon/Scripts/UI/Widgets/MatchSelectOptionButton.cs"
 "Assets/Backgammon_Assets/Scripts/Data/GameData.cs"

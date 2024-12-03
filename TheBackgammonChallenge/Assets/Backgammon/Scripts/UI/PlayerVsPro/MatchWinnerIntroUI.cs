@@ -1,3 +1,5 @@
+using System.Reflection.Emit;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,27 +7,25 @@ namespace Backgammon
 {
     public class MatchWinnerIntroUI : MonoBehaviour
     {
-        [SerializeField]
-        private Text headerText = null;
-        [SerializeField]
-        private Text textLine1 = null;
-        [SerializeField]
-        private Text textLine2 = null;
+        [Header("TEXT FIELDS")]
+        [SerializeField] private Text headerText = null;
+        [SerializeField] private Text textLine1 = null;
+        [SerializeField] private Text textLine2 = null;
 
         [Header("BACKGROUND IMAGE")]
         [SerializeField] private Image _backgroundImage1;
         [SerializeField] private Image _backgroundImage2;
 
+        [Header("CHANGE GAME")]
+        [SerializeField] Transform _changeGameOptions;
+        [SerializeField] Button _gameDownButton;
+        [SerializeField] Button _gameUpButton;
+        [SerializeField] TextMeshProUGUI _gameNumberSelectedText;
+
         Backgammon_Asset.MatchData match;
-        public GameObject game;
-        private Game gameScript;
+        int gameNumber = GameListUI.IndexGame;
 
-        private void Start()
-        {
-            gameScript = game.GetComponent<Game>();
-        }
-
-        void OnEnable()
+        protected void OnEnable()
         {
             match = MatchSelectUI.Match;
 
@@ -37,6 +37,12 @@ namespace Backgammon
 
             ifAccept = false;
             ifBack = false;
+
+            _gameDownButton.onClick.AddListener(() => ChangeGameNumber(false));
+            _gameUpButton.onClick.AddListener(() => ChangeGameNumber(true));
+
+            SetGameNumber(GameListUI.IndexGame);
+            TestIfPlayerCanChangeGameNumber();
         }
 
         public void OnAccept()
@@ -44,7 +50,7 @@ namespace Backgammon
             GameListUI.playingAs =  match.Winner() == 1 ? PlayerId.Player1 : PlayerId.Player2;
             GameListUI._playingAs = match.Winner() == 1 ? Game.PlayingAs.PLAYER_1 : Game.PlayingAs.PLAYER_2;
             GameListUI._playingAs2D = match.Winner() == 1 ? Game2D.PlayingAs.PLAYER_1 : Game2D.PlayingAs.PLAYER_2;
-            gameScript.playingAs = GameListUI.playingAs;
+            GameListUI.IndexGame = gameNumber;
 
             if (MatchSelectUI.Match.Game(GameListUI.IndexGame).NumberOfMoves == 0)
             {
@@ -54,17 +60,40 @@ namespace Backgammon
             ifAccept = true;
         }
 
-        public void OnBack()
+        private void TestIfPlayerCanChangeGameNumber()
         {
-            MatchSelectUI.Match = null;
+            // WHICH GAME HAS THE PLAYER SEEN UP TO
 
-            ifBack = true;
+            _changeGameOptions.gameObject.SetActive(true);
+        }
+
+        private void ChangeGameNumber(bool increment)
+        {
+            gameNumber += (increment ? 1 : -1);
+
+            if (gameNumber < 0) gameNumber = 0;
+            else if (gameNumber >= match.GameCount) gameNumber = match.GameCount - 1;
+            
+            SetGameNumber(gameNumber);
+        }
+
+        private void SetGameNumber(int gameNumber)
+        {
+            _gameNumberSelectedText.text = (gameNumber + 1).ToString();
+            GameListUI.IndexGame = gameNumber;
         }
 
         public void EnableDefaultBackground(bool enable)
         {
             _backgroundImage1.enabled = enable;
             _backgroundImage2.enabled = enable;
+        }
+
+        public void OnBack()
+        {
+            MatchSelectUI.Match = null;
+
+            ifBack = true;
         }
 
         public bool ifAccept;

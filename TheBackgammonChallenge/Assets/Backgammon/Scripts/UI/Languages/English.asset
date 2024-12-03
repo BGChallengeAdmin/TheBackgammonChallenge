@@ -1,0 +1,352 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ae845047ec73a4184e20445a2e8235, type: 3}
+  m_Name: English
+  m_EditorClassIdentifier: 
+  shortCode: en_GB
+  longName: English
+  selectLanguageTitle: Select Language
+  selectLanguageText: English
+  hostIntroTitle: Welcome to the Challenge
+  hostIntroText1: 'Our app is your passport to mastering the ancient game of Backgammon. 
+    With cutting-edge technology and unparalleled features you''ll very quickly learn
+    to play like a pro.  There are two ways to play: '
+  hostIntroText2: PRO CHALLENGE
+  hostIntroText3: 'In this challenge, top quality tournament matches have been digitally
+    reproduced  by our team to give you an enjoyable way to practice and improve
+    your tournament skills. The more you play ''Pro Challenge'' the better prepared
+    you''ll be for your next big Tournament. '
+  hostIntroText4: AI CHALLENGE
+  hostIntroText5: 'This challenge gives you the opportunity to play the BGBlitz A.I. 
+    It offers four difficulty levels to match your expertise, and can be set to play
+    single games or full length matches. But what makes this challenge unique is
+    the A.I. is programmed to make doubling cube decisions.  You''ll never know if
+    your playing a top pro, or an A.I. '
+  hostIntroPrompt: Tap Screen to Select your Play Style...
+  titleMenuTitle: Main Menu
+  titleLanguageSelectTitle: Language Select
+  titleMenuDownload: Download New Matches
+  titleMenuNewMatch: Select New Match
+  titleMenuRandomGame: Play Random Game
+  titleMenuContinueMatch: Continue Match
+  titleMenuPlayDemo: Play Demo
+  titleMenuStatistics: Statistics
+  titleMenuSettings: Settings
+  titleMenuExitApp: Exit App
+  matchSelectIntroTitle: SELECT WHICH STYLE OF PLAY
+  matchSelectIntroDescription: Practice your moves against the Pro's or play the
+    A.I.
+  matchSelectIntroPracticeButton: Challenge the Pros
+  matchSelectIntroAIButton: Play the A.I.
+  matchSelectTitle: Select a Match
+  matchSelectHeader: WINNER is in BOLD
+  matchSelectSearch: Search
+  matchSelectMatchStats: Match Stats
+  matchSelectPlayAI: Play the A.I.
+  matchAISelectSplashTitle: SET THE DIFFICULTY LEVEL
+  matchAISelectSplashDescription: Setup the A.I. to play at the level you like
+  matchAISelectSplashText1: Use the pre-sets to set the A.I. level or set the values
+    yourself.
+  matchAISelectSplashText2: Rank 1 (strongest) - Rank 5 (weakest)
+  matchAISelectSplashText3: Rank 1 = 20 pts, Rank 2 = 10 pts, Rank 3 = 5 pts,
+  matchAISelectSplashText4: Rank 4 = 2 pts, Rank 5 = 1pt
+  matchAISelectSplashText5: Selecting the 'Advanced Options' lets you change how
+    strong the A.I. will be when deciding its moves. More search moves and lower
+    noise will make the Rank 1 moves even stronger.
+  matchAISelectSplashText6: Changing the 'Match Length' will affect how the A.I.
+    offers doubles, and a 'Random' selection could see you playing a world master
+    or complete beginner, so keep an eye on the settings to find your level of game
+    play.
+  matchAISelectSplashText7: BGBlitz will only ever play the dice it is given! The
+    A.I. will never cheat. All dice rolls are completely random and are only sent
+    to the A.I. after they have been rolled. This includes for doubling.
+  matchAISelectSplashChallengeText: Find your favourite settings to Challenge yourself!
+  matchAIPointsTitle: SET THE POINTS FOR THE MATCH
+  matchAIPointsDescription: Play a single game or 5 point match
+  matchAIPointsSingleGame: Play a single game for 1 point
+  matchAIPointsMatch: Play a 5 points match
+  matchAIDiceTypeTitle: SELECT THE TYPE OF DICE
+  matchAIDiceTypeHeader: Use historic dice from your downloaded games, or use Random
+    dice
+  matchAIDiceTypeNormal: Random
+  matchAIDiceTypeNormalDescription: Random Generated Dice Rolls
+  matchAIDiceTypeHistoric: Historic
+  matchAIDiceTypeHistoricDescription: Dice Rolls from Historic Matches
+  matchAIDiceTypeManual: Manual
+  matchAIDiceTypeManualDescription: Your Own Manually Generated Rolls
+  matchAIDiceTypeDiceRolls: Dice Rolls
+  matchAIHistoricDiceTitle: SELECT WHICH MATCH AND PLAYER
+  matchAIHistoricDiceMatchDescription: Choose your match
+  matchAIHistoricDicePlayerDescription: Choose which Players Dice rolls you want
+    to use
+  matchAIHistoricDiceWinner: (WINNER)
+  matchAISelectTitle: SET THE DIFFICULTY LEVEL
+  matchAISelectDescription: Select your settings using the pre-sets
+  matchAISelectCommence: Commence
+  matchAISelectEASY: Easy
+  matchAISelectMEDIUM: Medium
+  matchAISelectHARD: Hard
+  matchAISelectPERFECT: Perfect
+  matchAISelectEASYDesc: Plays like a beginner and makes quite a few mistakes
+  matchAISelectMEDIUMDesc: 'Stronger gameplay and plans ahead '
+  matchAISelectHARDDesc: Knows how to play and will give you a challenge
+  matchAISelectPERFECTDesc: You are going to lose - you are going to lose a lot!
+  matchAISelectRandomDesc: A mixture of any of the other settings
+  matchAISelectRankDescription: Select the Rank for moves the A.I. will use
+  matchAISelectRandom: Random
+  matchAISelectAdvancedOptions: Advanced Options
+  matchAISelectPlyDescription: A.I. search (moves ahead)
+  matchAISelectPlyDescriptionAdv: You can set the A.I. to calculate more moves ahead
+    0 - 3, with more moves leading to stronger game play.
+  matchAISelectNoiseDescription: Noise (strange behaviour)
+  matchAISelectNoiseDescriptionAdv: Add some noise 0 - 0.99 to have the A.I. play
+    more like a human. The higher the number the more mistakes it will make.
+  matchAISelectMatchPlayedForDescription: Set to 1 to play a single game, or 5 and
+    above for shorter matches
+  matchAISelectMatchPlayedForHistoric: The original match was played for
+  matchAISelectPlayASingleGame: Play a single game
+  matchAISelectPlayA5PointMatch: Play a 5 points match
+  matchAISelectUsingHistoricDice: Using Historic Dice
+  matchAISelectUsingRandomDice: Using Random Dice
+  matchStatsTitle: Match Stats
+  matchStatsLastGamePlayed: Last Game Played
+  matchStatsPlayingAs: Playing As
+  matchStatsHighestGame: Highest Game
+  matchStatsOverallCompletion: Overall Completion
+  matchStatsMovesMatched: Moves Matched
+  matchStatsAIMovesMatched: A.I. Moves Matched
+  gameListTitleText: Tap to select a player
+  gameListMatchPlayedFor: Match played for
+  gameListDemoText1Line1: Welcome to The Backgammon Challenge.
+  gameListDemoText1Line2: A new way to make use of recorded backgammon matches has
+    been invented for this game app.
+  gameListDemoText1Line3: It's a unique way to match your playing skills against
+    the best players in the world.
+  gameListDemoText2Line1: For this game we have reporoduced a game from a match between
+    two great players, Joe Dwek and Phillip Martyn.
+  gameListDemoText2Line2: You'll be challenging each of these world class players
+    in turn.
+  gameListDemoText2Line3: Which player would you like to challenge first?
+  gameListDemoText2Line4: Click
+  gameListDemoText2Line5: to select a player.
+  playerSelectSelectPlayer: Select your player
+  pauseChangeGame: Change Game
+  pauseChangePlayer: Change Player
+  pauseMatchData: Match Data
+  pauseMainMenu: Main Menu
+  pauseDiceOptions: Dice Options
+  pauseAISettings: A.I. Settings
+  pauseDiceOptionsHeader: Select options for the A.I. dice rolls.
+  pauseDiceOptionsManual: Manually input the A.I. dice rolls
+  pauseDiceOptionsManualText: Set the values with the up and down arrows - Click
+    continue to begin the A.I. turn
+  pauseDiceOptionsReRoll: ReRoll the A.I. dice rolls
+  pauseDiceOptionsReRollText: Tap the dice to Reroll then - Click continue to begin
+    the A.I. turn
+  pauseDiceOptionsBothText: Tap the dice to re-roll or set the values with the up
+    and down arrows - Click continue to begin the A.I. turn
+  pauseChangeGameTitle: Select A Game
+  pauseChangeGameContinueMatch: Continue Match
+  pauseChangeAISettings: Change A.I. Settings
+  pauseChangePlayerTitle: Would you like to change to your opponent
+  pauseChangePlayerRestartGame: Restart the Game
+  pauseChangePlayerRestartMatch: Restart the Match
+  gameReviewIsUnableToMove: is unable to move
+  gameReviewTapToContinue: Tap to continue
+  gameReviewAIAnlaysis: A.I. Analysis
+  gameReviewYourMove: Your Move
+  gameReviewBGBlitzMove: BGBlitz moves
+  gameReviewProsMove: Pro's Move
+  gameReviewTopRankedMove: Top Ranked A.I. Move
+  gameReviewProsOriginalMove: Pro's original move
+  gameReviewYouHaveA: You have a
+  gameStatsTitle: Match Data
+  gameStatsHowYoureDoing: How you're doing this match
+  gameStatsMovesMadeThisMatch: 'Moves Played This Match:'
+  gameStatsMovesMadeThisGame: 'Moves Played This Game:'
+  gameStatsMovesMatched: 'You have matched:'
+  gameStatsProMatched: 'Pro Matched:'
+  endGameWouldYouLikeAnotherMove: Would you like to play another move?
+  endGameWouldYouLikeAnotherGame: Would you like to play the next game?
+  endGameWouldYouLikeAnotherMatch: Would you like to play another match?
+  endGameStatistics: --- Game Statistics ---
+  endMatchStatistics: --- Match Statistics ---
+  endMatchOfTheProMoves: of the Pro's moves.
+  endMatchAndProMatched: 'and the Pro matched:'
+  endMatchInATotalOf: 'In a total of:'
+  endMatchYouHaveWon: You have won
+  endMatchYouHaveLost: You have lost
+  endYouAreCurrentlyPlayingAt: You are currently playing at
+  endNoRankingGivenUnder10Moves: No performance ranking given under 10 moves
+  endUnranked: Unranked
+  endBeginner: Beginner
+  endIntermediate: Intermediate
+  endExceptional: Exceptional
+  endMaster: Master
+  endInternational: International
+  diceRollsTapToRoll: TAP SCREEN TO ROLL...
+  diceRollsNoMoreValidMoves: No Moves Available
+  diceRollsDemoHeader: '''s turn'
+  diceRollsDemoTapToRoll: Tap screen to take his Roll...
+  diceRollsMakeYourMove: Make your move
+  diceRollsIsBlockedFromMoving: is Blocked from moving.
+  doublingOffer: Do you want to offer Double?
+  doublingIsOffering: is offering
+  doublingWasThisAGoodDoubld: Was this a good offer?
+  doublingShouldTheyAccept: Should they accept?
+  doublingDouble: Double
+  doublingOffersDouble: offers Double
+  doublingTakesDouble: takes Double
+  doublingDropsDouble: drops Double
+  doublingNoAIData: No A.I. data available at the moment.
+  doublingAIEvalShould: has 'too good' equity and should have held,
+  doublingAIEvalMatchEquity: has match equity > 1. It would be better to play for
+    the Gammon than hand over the cube.
+  doublingAIEvalMoreInfo: More Info
+  doublingAIEvalToWin: To win =
+  doublingAIEvalToWinGammon: To win Gammon =
+  doublingAIEvalToWinBackGammon: To win Backgammon =
+  doublingCORRECT: CORRECT
+  doublingINCORRECT: INCORRECT
+  doublingTOOGOOD: TOO GOOD - Hold for Gammon
+  turnEndReviewYourScore: Your Score
+  turnEndReviewProScore: Pro Score
+  turnEndReviewMatched: Match
+  turnEndReviewNoMatched: No Match
+  turnEndReviewRank1: Rank #1 moves
+  turnEndReviewRank: RANK
+  turnEndReviewUnranked: UNRANKED
+  turnEndReviewYourLastMoveRanked: Your last move ranked
+  analysisTitle: A.I. ANALYSIS
+  analysisYourRank: Your Rank
+  analysisProRank: Pro Rank
+  analysisShowYourMove: SHOW YOUR MOVE
+  analysisShowProMove: SHOW PRO MOVE
+  analysisShowAIMove: TOP RANKED MOVE
+  analysisUnranked: UNRANKED
+  statsTitle: A.I. Statistics
+  statsHeader: How you've done so far
+  statsStatistics: Statistics
+  statsResetData: Reset Data
+  statsTotalMovesPlayed: 'Total Moves Played:'
+  statsProMovesEquals: Pro Moves =
+  statsYouHave: 'You have:'
+  statsAvailableMatches: available Matches =
+  graphButtonLabelText: GRAPH
+  tableButtonLabelText: TABLE
+  movesMatchedLabelText: Moves Matched
+  rank1AIMatchedLabelText: Rank 1 A.I. Matched
+  rank1ProAIMatchedLabelText: Pro Rank 1 A.I. Matched
+  averageLabelText: YOUR AVERAGE
+  movesMadeLabelText: MOVES MADE
+  percentageLabelText: PERCENTAGE
+  playerNameLabelText: Player Name
+  MovesMatchedLabelText: MOVES MATCHED
+  MovesMatchPerLabelText: MOVE MATCH %
+  AIMatchesLabelText: A.I. MATCHES
+  AIMatchPerLabelText: A.I. MATCH %
+  ProAIMatchesLabelText: PRO A.I. MATCHES
+  ProAIMatchPerLabelText: PRO A.I. MATCH %
+  YourRankingLabelText: YOUR RANKING
+  resetPartial: Partial Reset
+  resetFull: Full Reset
+  resetLine1: Are you sure you want to Reset your App data?
+  resetLine2: will only reset the 'Recent Stats'.
+  resetLine3: will clear all of your Match, Game, and Progress data.
+  resetLine4: This cannot be undone!
+  resetConfirmText: Are you sure?
+  downloadsTitle: Download New Matches
+  downloadsPurchase: Purchase
+  downloadsRestorePurchases: Restore Purchases
+  downloadsInfoPopupTitle: 'THIS BUNDLE FEATURES:'
+  demoStart1: You have selected
+  demoStart2: who is playing
+  demoGoesFirst1: In this game
+  demoGoesFirst2: goes first.
+  demoRollDice1: When it's
+  demoRollDice2: '''s turn, you start the dice roll.'
+  demoSelectFrom1: s roll was
+  demoSelectFrom2: How would you play them?
+  demoSelectFrom3: Tap on a
+  demoSelectFrom4: piece to move it. Tap again to cancel.
+  demoSelectFromOut1: shown on the right is the roll
+  demoSelectFromOut2: made in this recorded game.
+  demoSelectFromOut3: Before we show how he played it, see if you can match or even
+    better his original move.
+  demoReviewIn1: has also played this position, which you
+  demoReviewIn2: But how do you both compare, who made the best move?
+  demoReview: The in-built A.I. compares both sets of moves each turn and Ranks the
+    outcome.
+  demoAnalysis: After each move you can analyse your move, the Pro's move, and see
+    the A.I.'s 'Top Ranked Move'.
+  demoDoublingIn: During each game the Pro players will offer and accept or drop
+    doubles, but you will also have the chance to offer a double.
+  demoDoublingOut: This won't affect gameplay, but it will let you know if it it
+    was a good double to offer and will be recorded in your stats.
+  demoEnd1: Congratulations, DEMO complete!
+  demoEnd2: Don't forget to make use of the 'Game data' and 'A.I. Stats' features.
+  demoEnd3: That's where you'll be able to see how often you managed to make a top
+    ranked move compared to the pro player.
+  demoEnd4: A great way to see for yourself how quickly your game is developing.
+  demoEnd5: Enjoy your Backgammon Challenge!!
+  ChanceOfLosing: Chance of losing
+  ByGammon: By Gammon
+  ByBackGammon: By Backgammon
+  Menu: Menu
+  Back: Back
+  Confirm: Confirm
+  Start: Start
+  CONTINUE: CONTINUE
+  Continue: Continue
+  Concede: Concede
+  Yes: Yes
+  No: No
+  Close: Close
+  Points: Points
+  points: points
+  Using: using
+  Its: It's
+  The: The
+  the: the
+  Details: Details
+  should: should
+  and: and
+  You: You
+  Pro: Pro
+  WinsThe: 'Wins the '
+  LosesThe: Loses the
+  ConcedesThe: Concedes the
+  For: for
+  pointMatch: point Match
+  Games: Games
+  Game: Game
+  Matches: Matches
+  Match: Match
+  move: move
+  moves: moves
+  level: level
+  MATCHED: MATCHED
+  DIDNTMATCH: DIDN'T MATCH
+  SMove: '''s move'
+  ToWin: to win
+  BLACK: BLACK
+  WHITE: WHITE
+  UNDO: UNDO
+  RANK: RANK
+  a: a
+  an: an
+  AI: A.I.
+  ComingSoon: Coming Soon
+  CrafordRuleInPlay: Crawford rule in play
+  CrafordRuleNotInPlay: Crawford rule not in play
+  movesFirst: moves first
+  YouHaveChosenToConcedeTheGame: 'You have chosen to concede the game:'

@@ -15,7 +15,7 @@ namespace Backgammon
             _counterDepth = mesh.bounds.size.z;
         }
 
-        private void FixedUpdate()
+        protected void FixedUpdate()
         {
             if (_isMoving || _isRotating)
             {

@@ -33,8 +33,6 @@ namespace Backgammon
 
             Context.DiceManager.Init(scaledCounterSize);
 
-            Context.ConfigureBoardManualUI.Init(scaledCounterSize);
-
             Context.RollForGoesFirstUI.Init(scaledCounterSize);
 
             Context.AnalysisOrContinueUI.Init();

@@ -35,12 +35,12 @@ namespace Backgammon
         [SerializeField] GeneralInfoUI _generalInfoUI = null;
         [SerializeField] ChallengeProgressionUI _challengeProgressionUI = null;
 
-        private void Awake()
+        protected void Awake()
         {
             ValidateConstraints();
         }
 
-        private void Update()
+        protected void Update()
         {
             //if (Input.GetKeyDown("r"))
             //{
@@ -69,7 +69,7 @@ namespace Backgammon
             //}
         }
 
-        private void OnDisable()
+        protected void OnDisable()
         {
             // ENSURE ALL UI IS CLOSED DOWN
             //if (Context.GameScreenUI is not null) Context.GameScreenUI.SetActive(false);

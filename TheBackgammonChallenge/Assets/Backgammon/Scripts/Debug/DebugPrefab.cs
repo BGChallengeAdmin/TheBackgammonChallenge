@@ -23,9 +23,10 @@ namespace Backgammon
             }
         }
 
-        public static void DebugMessageStatic(string message)
+        public static void DebugMessageStatic(string message, bool outputToConsole = false)
         {
             debugOutputLogFile.WriteToDebugLogFile(message);
+            if (outputToConsole) Debug.Log(message);
         }
 
         public static void DeleteOutputFile()
@@ -43,7 +44,7 @@ namespace Backgammon
             debugOutputLogFile.WriteToDebugLogFile(output);
         }
 
-        private void OnDestroy()
+        protected void OnDestroy()
         {
             if (debugOutputLogFile is not null && showMessage)
             {

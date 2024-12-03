@@ -12,6 +12,9 @@ public class ConfigureBoardManualUI : MonoBehaviour
     [SerializeField] Button _resetButton = null;
     [SerializeField] Button _exitButton = null;
     [SerializeField] Button _doneButton = null;
+    [SerializeField] Button _selectGoesFirstRandomButton = null;
+    [SerializeField] Button _selectGoesFirstPlayerButton = null;
+    [SerializeField] Button _selectGoesFirstBGBlitzButton = null;
 
     [Header("TRANSFORMS")]
     [SerializeField] Transform _counterSelectTransform = null;
@@ -19,7 +22,11 @@ public class ConfigureBoardManualUI : MonoBehaviour
     [SerializeField] Transform _resetSelectTransform = null;
     [SerializeField] Transform _doneSelectTransform = null;
 
-    private void OnEnable()
+    private ButtonHighlight _setGoesFirstRandomHighlight;
+    private ButtonHighlight _setGoesFirstPlayerHighlight;
+    private ButtonHighlight _setGoesFirstBGBlitzHighlight;
+
+    protected void OnEnable()
     {
         _ifClickedUndo = false;
         _ifClickedDone = false;
@@ -34,13 +41,23 @@ public class ConfigureBoardManualUI : MonoBehaviour
         _exitButton.onClick.AddListener(() => OnClickExit());
         _doneButton.onClick.AddListener(() => OnClickDone());
 
+        _selectGoesFirstRandomButton.onClick.AddListener(() => OnClickGoesFirstRandom());
+        _selectGoesFirstPlayerButton.onClick.AddListener(() => OnClickGoesFirstPlayer());
+        _selectGoesFirstBGBlitzButton.onClick.AddListener(() => OnClickGoesFirstBGBlitz());
+
+        _setGoesFirstRandomHighlight = _selectGoesFirstRandomButton.GetComponent<ButtonHighlight>();
+        _setGoesFirstPlayerHighlight = _selectGoesFirstPlayerButton.GetComponent<ButtonHighlight>();
+        _setGoesFirstBGBlitzHighlight = _selectGoesFirstBGBlitzButton.GetComponent<ButtonHighlight>();
+        
+        OnClickGoesFirstRandom();
+
         SetBothCountersDeselected();
 
         if (Game2D.Context.IfPlayerIsBlack) OnSelectBlackCounters();
         else OnSelectWhiteCounters();
     }
 
-    private void OnDisable()
+    protected void OnDisable()
     {
         _blackCountersButton.onClick.RemoveAllListeners();
         _whiteCountersButton.onClick.RemoveAllListeners();
@@ -49,25 +66,10 @@ public class ConfigureBoardManualUI : MonoBehaviour
         _resetButton.onClick.RemoveAllListeners();
         _exitButton.onClick.RemoveAllListeners();
         _doneButton.onClick.RemoveAllListeners();
-    }
 
-    internal void Init(float scaledCounterSize)
-    {
-        var counterRect = _counterSelectTransform.GetComponent<RectTransform>();
-        counterRect.sizeDelta = new Vector2(4.6f * scaledCounterSize, 2 * scaledCounterSize);
-        counterRect.localPosition = new Vector3(-9 * scaledCounterSize, counterRect.localPosition.y, 0f);
-
-        var placementRect = _placementSelectTransform.GetComponent<RectTransform>();
-        placementRect.sizeDelta = new Vector2(4 * scaledCounterSize, 1.4f * scaledCounterSize);
-        placementRect.localPosition = new Vector3(-4 * scaledCounterSize, placementRect.localPosition.y, 0f);
-
-        var resetRect = _resetSelectTransform.GetComponent<RectTransform>();
-        resetRect.sizeDelta = new Vector2(4 * scaledCounterSize, 1.4f * scaledCounterSize);
-        resetRect.localPosition = new Vector3(4 * scaledCounterSize, resetRect.localPosition.y, 0f);
-
-        var doneRect = _doneSelectTransform.GetComponent<RectTransform>();
-        doneRect.sizeDelta = new Vector2(4 * scaledCounterSize, 2f * scaledCounterSize);
-        doneRect.localPosition = new Vector3(9 * scaledCounterSize, doneRect.localPosition.y, 0f);
+        _selectGoesFirstRandomButton.onClick.RemoveAllListeners();
+        _selectGoesFirstPlayerButton.onClick.RemoveAllListeners();
+        _selectGoesFirstBGBlitzButton.onClick.RemoveAllListeners();
     }
 
     internal void SetActive(bool active)
@@ -157,6 +159,37 @@ public class ConfigureBoardManualUI : MonoBehaviour
     {
         _ifClickedDone = true;
     }
+
+    private void OnClickGoesFirstRandom() 
+    {
+        SetAllButtonHighlightsOff();
+        _setGoesFirstRandomHighlight.SetColourOrDefault(Color.cyan);
+
+        Game2D.SetStartingPlayerToRandom();
+    }
+
+    private void OnClickGoesFirstPlayer() 
+    {
+        SetAllButtonHighlightsOff();
+        _setGoesFirstPlayerHighlight.SetColourOrDefault(Color.cyan);
+
+        Game2D.SetStartingPlayerWhoGoesFirst(true);
+    }
+
+    private void OnClickGoesFirstBGBlitz()
+    {
+        SetAllButtonHighlightsOff();
+        _setGoesFirstBGBlitzHighlight.SetColourOrDefault(Color.cyan);
+
+        Game2D.SetStartingPlayerWhoGoesFirst(false);
+    }
+
+    private void SetAllButtonHighlightsOff()
+    {
+        _setGoesFirstRandomHighlight.SetColourOrDefault();
+        _setGoesFirstPlayerHighlight.SetColourOrDefault();
+        _setGoesFirstBGBlitzHighlight.SetColourOrDefault();
+    }    
 
     private bool _placingPlayerCounters = true;
     private bool _lastPlacedPlayerCounters = true;
