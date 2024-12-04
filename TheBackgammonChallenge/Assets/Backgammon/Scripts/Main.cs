@@ -1212,6 +1212,13 @@ namespace Backgammon
         }
 
 
+        // ------------------------------------------------- HELPER -------------------------------------------------------
+        
+        internal void IncrementHistoricDiceRolls()
+        {
+            _aiConfigMainSettings.IncrementHistoricDiceRolls();
+        }
+        
         // ----------------------------------------------- APP STATE ------------------------------------------------------
 
         public enum AppState

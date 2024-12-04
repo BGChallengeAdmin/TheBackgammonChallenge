@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,6 +17,15 @@ namespace Backgammon
         [SerializeField] private DebugPrefab debug_dataResponse = null;
         [SerializeField] private DebugPrefab debug_pingData = null;
 
+        [Header("SERVER PORTS")]
+        [SerializeField] bool _useLoadBalancing = false;
+        [SerializeField] bool _use12344 = true;
+        [SerializeField] bool _use12345 = false;
+
+        public AIData aiDataToSend;
+        public static AIDataFromServer aiDataFromServer;
+        private AIDataFromServer aiServerDataBuffer;
+        
         #region private members 	
         private static TcpClient socketConnection;
         private static Thread clientReceiveThread;
@@ -39,17 +47,11 @@ namespace Backgammon
         private AIDataBarHelper aiDataBarHelper;
         private AIDataOffHelper aiDataOffHelper;
 
-        private ServerConnection serverConnection;
         private List<ServerConnection> serverConnections;
+        private ServerConnection serverConnection;
         private int serverConnectionCounter = 0;
 
         private float serverPingHeartbeat = 60f;
-        #endregion
-
-        [Header("SERVER PORTS")]
-        [SerializeField] bool _useLoadBalancing = false;
-        [SerializeField] bool _use12344 = true;
-        [SerializeField] bool _use12345 = false;
 
         private bool ESTABLISHING_INTERNET_CONNECTION = false;
         private bool HAS_INTERNET_CONNECTION = false;
@@ -60,12 +62,9 @@ namespace Backgammon
 
         private bool INTERNET_HEARTBEAT_REQUIRED = false;
         private bool MAINTAIN_HEARTBEAT = false;
+        #endregion
 
-        public AIData aiDataToSend;
-        public static AIDataFromServer aiDataFromServer;
-        private AIDataFromServer aiServerDataBuffer;
-
-        private void Awake()
+        protected void Awake()
         {
             aiDataToSend = new AIData();
             aiDataPositionHelper = GetAIDataPositionHelper;
@@ -81,7 +80,7 @@ namespace Backgammon
             SetupServerConnecitons();
         }
 
-        void Start()
+        protected void Start()
         {
             serverTimeout += ReconnectToServer;
             resendAIMessage += SendAIMessage;
@@ -94,7 +93,7 @@ namespace Backgammon
             TestServerConnections();
         }
 
-        private void OnDestroy()
+        protected void OnDestroy()
         {
             StopAllCoroutines();
 
@@ -109,22 +108,11 @@ namespace Backgammon
             //ServerConnected = false;
         }
 
-        internal void SetUseDebugAIDataHandler(bool useDebugLogging)
+        private void SetDefaultServerConnections()
         {
-            debug_dataHandler.ShowMesssage = useDebugLogging;
-        }
-
-        internal void SetUseDebugObjects(bool dataSent, bool dataReceived, bool doublingDataReceived, bool pingServer)
-        {
-            debug_dataSent.ShowMesssage = dataSent;
-            debug_dataResponse.ShowMesssage = dataReceived;
-            debug_doublingResponse.ShowMesssage = doublingDataReceived;
-            debug_pingData.ShowMesssage = pingServer;
-        }
-
-        internal void SetUseDebugResetConnecitons(int reconnectAttempts)
-        {
-            RESET_INTERNET_CONNECTION_COUNTER_ATTEMPTS = reconnectAttempts;
+            serverConnections.Clear();
+            serverConnections.Add(new ServerConnection("65.21.184.121", 12344));
+            serverConnections.Add(new ServerConnection("65.21.184.121", 12345));
         }
 
         // ESTABLISH SERVER CONNECTIONS
@@ -142,9 +130,7 @@ namespace Backgammon
             debug_dataHandler.DebugMessage($"SETUP SERVER CONNECTIONS");
 
             // INITIALIZED TO USE BOTH - ESTABLISH IF BOTH ARE ACTIVE
-            serverConnections.Clear();
-            serverConnections.Add(new ServerConnection("65.21.184.121", 12344));
-            serverConnections.Add(new ServerConnection("65.21.184.121", 12345));
+            SetDefaultServerConnections();
 
             _useLoadBalancing = false;
             _use12344 = false;
@@ -203,8 +189,7 @@ namespace Backgammon
                 _use12344 = true;
                 _use12345 = true;
 
-                serverConnections.Add(new ServerConnection("65.21.184.121", 12344));
-                serverConnections.Add(new ServerConnection("65.21.184.121", 12345));
+                SetDefaultServerConnections();
             }
             else if (_use12345)
             {
@@ -213,7 +198,7 @@ namespace Backgammon
 
                 serverConnections.Add(new ServerConnection("65.21.184.121", 12345));
             }
-            else
+            else if (_use12344)
             {
                 _useLoadBalancing = false;
                 _use12345 = false;
@@ -788,6 +773,25 @@ namespace Backgammon
 
         #endregion
 
+        // DEBUG
+        internal void SetUseDebugAIDataHandler(bool useDebugLogging)
+        {
+            debug_dataHandler.ShowMesssage = useDebugLogging;
+        }
+
+        internal void SetUseDebugObjects(bool dataSent, bool dataReceived, bool doublingDataReceived, bool pingServer)
+        {
+            debug_dataSent.ShowMesssage = dataSent;
+            debug_dataResponse.ShowMesssage = dataReceived;
+            debug_doublingResponse.ShowMesssage = doublingDataReceived;
+            debug_pingData.ShowMesssage = pingServer;
+        }
+
+        internal void SetUseDebugResetConnecitons(int reconnectAttempts)
+        {
+            RESET_INTERNET_CONNECTION_COUNTER_ATTEMPTS = reconnectAttempts;
+        }
+
         // DATA STRUCTURES
         #region DATA_STRUCTURES
 
@@ -821,6 +825,7 @@ namespace Backgammon
 
         public bool UseLoadBalancing { set => _useLoadBalancing = value; }
 
+        [System.Serializable]
         private struct ServerConnection
         {
             public string IPAddress { get; private set; }

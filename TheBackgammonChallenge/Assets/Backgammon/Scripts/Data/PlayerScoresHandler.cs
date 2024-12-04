@@ -609,7 +609,7 @@ namespace Backgammon
 
         public MatchScoreData GetPlayerMatchScore(string matchKey)
         {
-            // NOTE matchReference = matchScores.name + " " + matchScores.ID
+            // NOTE: matchReference = matchScores.name + " " + matchScores.ID
             MatchScoreData matchScoreData = null;
 
             if (_playerScoreDict.ContainsKey(matchKey))
@@ -621,6 +621,8 @@ namespace Backgammon
         public GameScoreData GetPlayerGameScore(string _matchID, string _gameID)
         {
             GameScoreData gameScoreData = null;
+
+            gameScoreData = GetPlayerMatchScore(_matchID).gameScoresDict[_gameID];
 
             return gameScoreData;
         }

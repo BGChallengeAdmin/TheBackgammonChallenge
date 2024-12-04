@@ -451,7 +451,11 @@ namespace Backgammon
             selectedGameIndex = randomGame;
             selectedGame = gamesArray[selectedGameIndex];
 
-            ConfigureAISettingsToGame();
+            Game2D.AIIfUsingHistoricDice = _ifHistoricDiceRolls;
+            Game2D.AIHistoricIndexTurn = 0;
+            Game2D.AIHistoricGame = selectedGame == null ? selectedGame = gamesArray[0] : selectedGame;
+
+            //ConfigureAISettingsToGame();
         }
 
         public void IncrementHistoricDiceRolls()
@@ -460,7 +464,7 @@ namespace Backgammon
                 selectedGame = gamesArray[++selectedGameIndex];
             else SelectRandomHistoricDiceRolls();
 
-            ConfigureAISettingsToGame();
+            //ConfigureAISettingsToGame();
         }
 
         // MANUAL SETUP

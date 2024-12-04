@@ -1,3 +1,4 @@
+using Backgammon_Asset;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -71,6 +72,8 @@ namespace Backgammon
 
         internal bool AIMatchWon;
         internal static bool AIIfUsingHistoricDice;
+        internal static GameData AIHistoricGame;
+        internal static int AIHistoricIndexTurn;
         internal static bool AIHistoricPlayingAsPlayer1;
         internal static bool AIHistoricReplayAsOpponent;
 

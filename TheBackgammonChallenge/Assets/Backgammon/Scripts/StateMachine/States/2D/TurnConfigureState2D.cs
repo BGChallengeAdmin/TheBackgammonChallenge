@@ -49,15 +49,44 @@ namespace Backgammon
             ActiveState = StateKey;
         }
 
+        int historicIndexTurn = 0;
+
         private int[] GetDiceInfoForTurn(int aiIndexTurn)
         {
-            // TODO: IF USING HISTORIC DICE
+            // HISTORIC DICE ARE HANDLED BY MatchAIConfigureSettingsMain.cs
 
-            return new int[] 
+            var diceInfo1 = ConvertDice(Random.Range(0, 601));
+            var diceInfo2 = ConvertDice(Random.Range(0, 601));
+
+            if (Game2D.AIIfUsingHistoricDice)
             {
-                ConvertDice(Random.Range(0, 601)),
-                ConvertDice(Random.Range(0, 601)) 
-            };
+                var game = Game2D.AIHistoricGame;
+                diceInfo1 = 0; diceInfo2 = 0;
+
+                while (diceInfo1 == 0 && diceInfo2 == 0)
+                {
+                    if (historicIndexTurn >= game.NumberOfMoves - 2)
+                    {
+                        Main.Instance.IncrementHistoricDiceRolls();
+                        game = Game2D.AIHistoricGame;
+                        historicIndexTurn = 0;
+                    }
+
+                    string[] moveParts = game.Moves[++historicIndexTurn].Split(':');
+
+                    if (moveParts.Length > 2)
+                    {
+                        string dice = moveParts[0];
+                        if (dice.Length > 0)
+                        {
+                            diceInfo1 = int.Parse(dice[0].ToString());
+                            diceInfo2 = int.Parse(dice[1].ToString());
+                        }
+                    }
+                }
+            }
+
+            return new int[] { diceInfo1, diceInfo2 };
         }
 
         private int ConvertDice(int random)

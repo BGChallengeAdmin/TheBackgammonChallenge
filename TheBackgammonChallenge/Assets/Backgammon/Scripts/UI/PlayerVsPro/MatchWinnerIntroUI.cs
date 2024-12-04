@@ -1,4 +1,3 @@
-using System.Reflection.Emit;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,7 +22,8 @@ namespace Backgammon
         [SerializeField] TextMeshProUGUI _gameNumberSelectedText;
 
         Backgammon_Asset.MatchData match;
-        int gameNumber = GameListUI.IndexGame;
+        int gameIndex = GameListUI.IndexGame;
+        int maxGameIndex = 1;
 
         protected void OnEnable()
         {
@@ -38,11 +38,19 @@ namespace Backgammon
             ifAccept = false;
             ifBack = false;
 
-            _gameDownButton.onClick.AddListener(() => ChangeGameNumber(false));
-            _gameUpButton.onClick.AddListener(() => ChangeGameNumber(true));
+            _gameDownButton.onClick.AddListener(() => ChangeGameIndex(false));
+            _gameUpButton.onClick.AddListener(() => ChangeGameIndex(true));
 
-            SetGameNumber(GameListUI.IndexGame);
-            TestIfPlayerCanChangeGameNumber();
+            maxGameIndex = match.GameCount;
+
+            SetGameIndex(GameListUI.IndexGame);
+            TestIfPlayerCanChangeGameIndex();
+        }
+
+        protected void OnDisable()
+        {
+            _gameDownButton.onClick.RemoveAllListeners();
+            _gameUpButton.onClick.RemoveAllListeners();
         }
 
         public void OnAccept()
@@ -50,7 +58,7 @@ namespace Backgammon
             GameListUI.playingAs =  match.Winner() == 1 ? PlayerId.Player1 : PlayerId.Player2;
             GameListUI._playingAs = match.Winner() == 1 ? Game.PlayingAs.PLAYER_1 : Game.PlayingAs.PLAYER_2;
             GameListUI._playingAs2D = match.Winner() == 1 ? Game2D.PlayingAs.PLAYER_1 : Game2D.PlayingAs.PLAYER_2;
-            GameListUI.IndexGame = gameNumber;
+            GameListUI.IndexGame = gameIndex;
 
             if (MatchSelectUI.Match.Game(GameListUI.IndexGame).NumberOfMoves == 0)
             {
@@ -60,27 +68,47 @@ namespace Backgammon
             ifAccept = true;
         }
 
-        private void TestIfPlayerCanChangeGameNumber()
+        private void TestIfPlayerCanChangeGameIndex()
         {
             // WHICH GAME HAS THE PLAYER SEEN UP TO
+            // NOTE: matchReference = matchScores.name + " " + matchScores.ID
+            var matchKey = match.name + " " + match.ID;
+            var playerMatchScore = Main.Instance.PlayerScoresObj.GetPlayerMatchScore(matchKey);
 
-            _changeGameOptions.gameObject.SetActive(true);
+            _changeGameOptions.gameObject.SetActive(false);
+
+            if (playerMatchScore is null)
+            {
+                maxGameIndex = gameIndex;
+            }
+            else
+            {
+                foreach (var game in playerMatchScore.gameScoresDict.Values)
+                {
+                    if (game.indexTurnPlayed < game.numberOfTurns && game.index > 1)
+                    {
+                        _changeGameOptions.gameObject.SetActive(true);
+                        maxGameIndex = game.index;
+                        break;
+                    }
+                }
+            }
         }
 
-        private void ChangeGameNumber(bool increment)
+        private void ChangeGameIndex(bool increment)
         {
-            gameNumber += (increment ? 1 : -1);
+            gameIndex += (increment ? 1 : -1);
 
-            if (gameNumber < 0) gameNumber = 0;
-            else if (gameNumber >= match.GameCount) gameNumber = match.GameCount - 1;
+            if (gameIndex < 0) gameIndex = 0;
+            else if (gameIndex >= maxGameIndex) gameIndex = maxGameIndex - 1;
             
-            SetGameNumber(gameNumber);
+            SetGameIndex(gameIndex);
         }
 
-        private void SetGameNumber(int gameNumber)
+        private void SetGameIndex(int gameIndex)
         {
-            _gameNumberSelectedText.text = (gameNumber + 1).ToString();
-            GameListUI.IndexGame = gameNumber;
+            _gameNumberSelectedText.text = (gameIndex + 1).ToString();
+            GameListUI.IndexGame = gameIndex;
         }
 
         public void EnableDefaultBackground(bool enable)

@@ -167,6 +167,8 @@ namespace Backgammon
             _targetRotation = Quaternion.Euler(45f * (targetPosition.z > 0 ? -1 : 1), 0f, 0f);
             _isRotating = true;
             _isRotatingToHome = true;
+
+            _isMovingOver = true;
         }
 
         internal void SetCounterToMoveToEdge()
