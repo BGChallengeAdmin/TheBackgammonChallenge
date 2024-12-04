@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace Backgammon
@@ -111,8 +112,8 @@ namespace Backgammon
         private void SetDefaultServerConnections()
         {
             serverConnections.Clear();
-            serverConnections.Add(new ServerConnection("65.21.184.121", 12344));
-            serverConnections.Add(new ServerConnection("65.21.184.121", 12345));
+            serverConnections.Add(new ServerConnection("65.109.236.16", 12344));
+            serverConnections.Add(new ServerConnection("65.109.236.16", 12345));
         }
 
         // ESTABLISH SERVER CONNECTIONS
