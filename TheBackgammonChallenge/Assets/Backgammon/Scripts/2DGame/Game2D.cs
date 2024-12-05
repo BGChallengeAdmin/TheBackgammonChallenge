@@ -263,7 +263,8 @@ namespace Backgammon
             _context.Debug_reportState = _debugReportState;
             _context.Debug_debugObject = _debugObject;
 
-            // A.I. DEBUG - A.I. PLAYS AGAINST ITSELF
+            // A.I. DEBUG - A.I. PLAYS AGAINST ITSELF - DEFAULT SHOULD BENO FAST FORWARD IN A.I.
+            if (Main.Instance.IfPlayerVsAI) Context.IfFastForwarding = false;
             if (_debugAIPlaysItself) Context.IfFastForwarding = _debugAIPlaysItself;
             //
 

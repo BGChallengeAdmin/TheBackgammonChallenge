@@ -816,7 +816,6 @@ namespace Backgammon
                             if (USING_3D_BACKGROUND) Enable3DBackground(false);
                             appState = AppState.Game;
                         }
-
                     }
                     break;
                 #endregion
@@ -991,6 +990,8 @@ namespace Backgammon
                             }
                             break;
                         }
+
+                        Game2D.AIIfUsingHistoricDice = false;
 
                         // DEFAULT TO MAIN MENU
                         appState = AppState.MatchTypeSelectIntro_In;

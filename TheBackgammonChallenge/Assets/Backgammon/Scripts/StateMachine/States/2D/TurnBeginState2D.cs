@@ -636,7 +636,7 @@ namespace Backgammon
             saveObject.GameName = Context.SelectedGame.name;
             saveObject.PlayingAs = Context.PlayingAs == Game2D.PlayingAs.PLAYER_1 ? 1 : 2;
 
-            saveObject.MatchIndex = !Main.Instance.IfFirstPlaythrough ? int.Parse(Context.SelectedMatch.ID) : 0;
+            saveObject.MatchIndex = (Context.SelectedMatch.ID != "DEMO") ? int.Parse(Context.SelectedMatch.ID) : 0;
             saveObject.GameIndex = Context.IndexGame;
             saveObject.TurnIndex = Main.Instance.IfPlayerVsAI ? Context.AIIndexTurn : Context.IndexTurn;
 

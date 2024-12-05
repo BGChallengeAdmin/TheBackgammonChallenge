@@ -42,7 +42,7 @@ namespace Backgammon
 
         private string _preset = string.Empty;
 
-        private void OnEnable()
+        protected void OnEnable()
         {
             IfBack = false;
             IfCommence = false;
