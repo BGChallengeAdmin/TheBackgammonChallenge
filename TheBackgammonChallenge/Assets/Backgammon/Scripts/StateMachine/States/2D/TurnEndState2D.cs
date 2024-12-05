@@ -54,6 +54,7 @@ namespace Backgammon
             Context.IfPlayer1Turn = !Context.IfPlayer1Turn;
 
             // TURN CONFIG
+            Context.AIDiceHaveBeenRolled = false;
             Context.PlayerIsUnableToMove = false;
             Context.PlayerMatchedProMove = false;
 

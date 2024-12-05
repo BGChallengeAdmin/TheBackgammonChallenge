@@ -210,8 +210,6 @@ namespace Backgammon
             SetGameActive(false);
             IfGameConcluded = true;
             _context.ExitFromStateMachine = true;
-
-            Debug.Log($"EXIT 3D GAME");
         }
 
         public PlayerId playingAs = PlayerId.None;

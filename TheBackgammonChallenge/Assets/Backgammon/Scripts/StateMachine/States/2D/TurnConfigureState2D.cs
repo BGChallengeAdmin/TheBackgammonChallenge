@@ -17,10 +17,15 @@ namespace Backgammon
             if (Main.Instance.IfPlayerVsAI)
             {
                 // NEED TO SET DICE FOR PLAYER AND A.I. DATA
-                var dice = GetDiceInfoForTurn(Context.AIIndexTurn);
-                
-                Context.Dice1 = dice[0];
-                Context.Dice2 = dice[1];
+                if (!Context.AIDiceHaveBeenRolled)
+                {
+                    var dice = GetDiceInfoForTurn(Context.AIIndexTurn);
+
+                    Context.Dice1 = dice[0];
+                    Context.Dice2 = dice[1];
+
+                    Context.AIDiceHaveBeenRolled = true;
+                }
 
                 if (!Context.IsPlayersTurn)
                 {
@@ -61,9 +66,9 @@ namespace Backgammon
             if (Game2D.AIIfUsingHistoricDice)
             {
                 var game = Game2D.AIHistoricGame;
-                diceInfo1 = 0; diceInfo2 = 0;
+                string diceString = string.Empty;
 
-                while (diceInfo1 == 0 && diceInfo2 == 0)
+                do
                 {
                     if (historicIndexTurn >= game.NumberOfMoves - 2)
                     {
@@ -74,16 +79,17 @@ namespace Backgammon
 
                     string[] moveParts = game.Moves[++historicIndexTurn].Split(':');
 
-                    if (moveParts.Length > 2)
+                    if (moveParts.Length >= 2)
                     {
-                        string dice = moveParts[0];
-                        if (dice.Length > 0)
+                        diceString = moveParts[0];
+
+                        if (diceString.Length > 0)
                         {
-                            diceInfo1 = int.Parse(dice[0].ToString());
-                            diceInfo2 = int.Parse(dice[1].ToString());
+                            diceInfo1 = int.Parse(diceString[0].ToString());
+                            diceInfo2 = int.Parse(diceString[1].ToString());
                         }
                     }
-                }
+                } while (diceString == string.Empty);
             }
 
             return new int[] { diceInfo1, diceInfo2 };

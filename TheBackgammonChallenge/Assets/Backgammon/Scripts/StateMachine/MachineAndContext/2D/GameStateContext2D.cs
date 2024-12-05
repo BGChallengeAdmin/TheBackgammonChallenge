@@ -131,6 +131,7 @@ namespace Backgammon
         // GAME CONFIG
         public int IndexTurn = 0;
         public int AIIndexTurn = 0;
+        public bool AIDiceHaveBeenRolled = false;
         public bool IsPlayersTurn = true;
         public bool IsPlayersMakingMoves = true;
         public bool IfPlayer1Turn = true;
