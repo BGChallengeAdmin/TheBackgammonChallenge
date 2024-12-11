@@ -81,7 +81,7 @@ public class RollForGoesFirstUI : MonoBehaviour
     }
 
     // ANIMATIONS
-    internal void RollOffForGoesFirst(bool playerGoesFirst)
+    internal void RollOffForGoesFirst(bool playerGoesFirst, int playerDice, int opponentDice)
     {
         Animating = true;
         _playerGoesFirst = playerGoesFirst;
@@ -95,10 +95,10 @@ public class RollForGoesFirstUI : MonoBehaviour
                                 1f + (Random.Range(-randomSeed, randomSeed) * .1f),
                                 1f + (Random.Range(-randomSeed, randomSeed) * .1f));
 
-        StartCoroutine(DiceRollEffectCoroutine());
+        StartCoroutine(DiceRollEffectCoroutine(playerDice, opponentDice));
     }
 
-    private IEnumerator DiceRollEffectCoroutine()
+    private IEnumerator DiceRollEffectCoroutine(int playerDice, int opponentDice)
     {
         SetDiceImagesBlank();
 
@@ -125,18 +125,6 @@ public class RollForGoesFirstUI : MonoBehaviour
         _opponentDiceEffects.SetActive(false);
 
         _diceEffectTimer = _diceEffectTime;
-
-        var playerDice = Random.Range((_playerGoesFirst ? 2 : 1), (_playerGoesFirst ? 7 : 6));
-        var opponentDice = 0;
-
-        if (_playerGoesFirst)
-        {
-            opponentDice = Random.Range(1, playerDice);
-        }
-        else
-        {
-            opponentDice = Random.Range(playerDice + 1, 7);
-        }
 
         SetPlayerDiceFaceValues(_playerIsBlack, playerDice);
         SetOpponentDiceFaceValues(!_playerIsBlack, opponentDice);

@@ -85,8 +85,8 @@ namespace Backgammon
             _defaultBackground.gameObject.SetActive(true);
 
             // JAMES - TURN SPLASH ON / OFF
-            //appState = AppState.LogoSplash_In;
-            appState = AppState.Login_In;
+            appState = AppState.LogoSplash_In;
+            //appState = AppState.Login_In;
             //appState = AppState.MatchTypeSelectIntro_In;
             //appState = AppState.Game_In;
 
@@ -962,7 +962,13 @@ namespace Backgammon
                         _2DGame.ExitGame();
                         _playerPrefsHandler.SaveAppData();
 
-                        if (Game2D.Context.IfPlayNextGame)
+                        if (Game2D.Context.IfSelectedAnotherGame)
+                        {
+                            GameListUI.IndexTurn = 0;
+                            appState = AppState.Game_In;
+                            break;
+                        }
+                        else if (Game2D.Context.IfPlayNextGame)
                         {
                             // PRO AND A.I. MATCHES WERE NOT COMPLETED ON POINTS
 

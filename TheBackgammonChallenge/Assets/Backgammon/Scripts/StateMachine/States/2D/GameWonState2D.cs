@@ -120,7 +120,8 @@ namespace Backgammon
             playerInfoText += $"You had\n {Context.PlayerTopRankedThisGame} Rank #1 for {(Context.PlayerTopRankedThisGame * 3)} Pts.";
             playerInfoText += $"\n{Context.PlayerSecondRankedThisGame} Rank #2 for {(Context.PlayerSecondRankedThisGame * 2)} Pts.";
             playerInfoText += $"\nFor a total of {Context.PlayerScoreThisGame} / {(Context.TotalValidPlayerMovesThisGame * 3)} possible Pts.";
-            Context.GameWonUI.SetPlayerGameWonInfoText(playerInfoText);
+            
+            Context.GameWonUI.SetGameWonRightInfoText(playerInfoText);
         }
 
         private void SetPlayerProStatsPanel()
@@ -130,7 +131,8 @@ namespace Backgammon
             playerProInfoText += $"\n{Context.ProSecondRankedThisGame} Rank #2 for {(Context.ProSecondRankedThisGame * 2)} Pts.";
             playerProInfoText += $"\nFor a total of {Context.ProScoreThisGame} / {(Context.TotalValidPlayerMovesThisGame * 3)} possible Pts.";
 
-            Context.GameWonUI.SetPlayerProGameWonInfoText(playerProInfoText);
+            if (!Main.Instance.IfPlayerVsAI)
+                Context.GameWonUI.SetGameWonLeftInfoText(playerProInfoText);
         }
 
         private void SetOpponentStatsPanel()
@@ -142,7 +144,9 @@ namespace Backgammon
             var opponentInfoText = $"{opponent} had \n\n{Context.OpponentTopRankedThisGame} Rank #1 for {(Context.OpponentTopRankedThisGame * 3)} Pts.";
             opponentInfoText += $"\n{Context.OpponentSecondRankedThisGame} Rank#2 for {(Context.OpponentSecondRankedThisGame * 2)} Pts.";
             opponentInfoText += $"\nFor a total of {points}/{possible} possible Pts.";
-            Context.GameWonUI.SetOpponentGameWonInfoText(opponentInfoText);
+
+            if (Main.Instance.IfPlayerVsAI)
+                Context.GameWonUI.SetGameWonLeftInfoText(opponentInfoText);
         }
 
         public override GameStateMachine2D.EGameState2D GetStateKey() { return StateKey; }

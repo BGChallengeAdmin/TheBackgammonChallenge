@@ -258,11 +258,12 @@ namespace Backgammon
                     {
                         // TEST FOR FORCED MOVES
                         var playerRank = Context.PlayerMatchedRankThisTurn;
+                        var comingInFromBar = Context.PlayerMovesInfo.Length == 1 && Context.PlayerMovesInfo[0].pointFrom == 25;
+                        var singleRankedMove = Context.AIRankedMoves.Length == 1;
+                        var singlePossibleMove = Context.TotalMovesThisTurn == 1;
                         var forcedMove = false;
 
-                        if ((Context.PlayerMovesInfo.Length == 1 && Context.PlayerMovesInfo[0].pointFrom == 25 ||
-                            Context.AIRankedMoves.Length == 1 || Context.TotalMovesThisTurn == 1) &&
-                            !Context.IfBearingOff)
+                        if ((comingInFromBar || singleRankedMove || singlePossibleMove) && !Context.IfBearingOff)
                         {
                             forcedMove = true;
                         }
@@ -316,10 +317,12 @@ namespace Backgammon
                     {
                         // TEST FOR FORCED MOVES
                         var playerRank = Context.PlayerMatchedRankThisTurn;
+                        var comingInFromBar = Context.PlayerMovesInfo.Length == 1 && Context.PlayerMovesInfo[0].pointFrom == 25;
+                        var singleRankedMove = Context.AIRankedMoves.Length == 1;
+                        var singlePossibleMove = Context.TotalMovesThisTurn == 1;
                         var forcedMove = false;
 
-                        if (Context.PlayerMovesInfo.Length == 1 && Context.PlayerMovesInfo[0].pointFrom == 25 ||
-                            Context.AIRankedMoves.Length == 1 || Context.TotalMovesThisTurn == 1)
+                        if ((comingInFromBar || singleRankedMove || singlePossibleMove) && !Context.IfBearingOff)
                         {
                             forcedMove = true;
                         }
@@ -391,8 +394,8 @@ namespace Backgammon
                     break;
                 case EGeneralInfoState2D.PlayerConcedes:
                     {
-                        var player = Context.IfPlayer1Turn ? Context.SelectedMatch.Player1 : Context.SelectedMatch.Player2;
-                        var concedes = Context.IsPlayersTurn ? "concede" : "concedes";
+                        var player = Context.ConcedeTheGame ? "You" : (Context.IfPlayer1Turn ? Context.SelectedMatch.Player1 : Context.SelectedMatch.Player2);
+                        var concedes = Context.ConcedeTheGame ? "concede" : "concedes";
                         var gameOrMatch = Context.IndexGame + 1 <= Context.SelectedMatch.GameCount;
 
                         Context.GeneralInfoUI.SetGeneralText($"{player} {concedes} the {(gameOrMatch ? "Game" : "Match")}");
@@ -616,6 +619,7 @@ namespace Backgammon
                         break;
                     case EGeneralInfoState2D.PlayerConcedes:
                         {
+                            if (Context.ConcedeTheGame) Context.ExitFromStateMachine = true;
                             ActiveState = GameStateMachine2D.EGameState2D.TurnEnd;
                         }
                         break;

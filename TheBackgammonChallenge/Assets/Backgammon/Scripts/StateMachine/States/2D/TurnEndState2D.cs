@@ -24,7 +24,18 @@ namespace Backgammon
         {
             // EXIT GAME / STATE MACHINE
             if (Context.ExitFromStateMachine)
+            {
+                if (Context.ConcedeTheGame)
+                {
+                    var wonMatchByPoints = (Context.SelectedGame.Player1PointsAtEnd >= Context.SelectedMatch.Points) ||
+                                          (Context.SelectedGame.Player2PointsAtEnd >= Context.SelectedMatch.Points);
+
+                    Context.IfPlayNextGame = !wonMatchByPoints;
+                    Context.IfPlayAnotherMatch = wonMatchByPoints;
+                }
+
                 ActiveState = GameStateMachine2D.EGameState2D.ExitGame;
+            }
 
             Context.DiceRollsUI.SetActive(false);
 

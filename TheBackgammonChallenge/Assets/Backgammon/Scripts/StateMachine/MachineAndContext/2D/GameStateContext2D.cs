@@ -247,6 +247,7 @@ namespace Backgammon
         public bool GameWonByGammon = false;
         public bool GameWonByBackGammon = false;
         public bool AIGameWasWon = false;
+        public bool IfSelectedAnotherGame = false;
         public bool IfPlayNextGame = false;
         public bool IfPlayAnotherMatch = false;
 

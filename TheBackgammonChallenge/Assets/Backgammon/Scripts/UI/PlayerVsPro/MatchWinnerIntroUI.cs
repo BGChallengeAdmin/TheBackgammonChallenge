@@ -32,7 +32,7 @@ namespace Backgammon
             if (match != null)
             {
                 textLine1.text = "You are playing as " + (match.Winner() == 1? match.Player1 : match.Player2) + " the winner of the match.";
-                textLine2.text = "Using their dice rolls aim to match their moves or better them to win the match.";
+                textLine2.text = "Using " + (match.Winner() == 1? match.Player1 : match.Player2) + "'s dice rolls, aim to match or better his moves.";
             }
 
             ifAccept = false;

@@ -86,6 +86,11 @@ namespace Backgammon
                 goto BailOut;
             }
 
+            if (Context.IsPlayersTurn && Context.ConcedeTheGame)
+            {
+                moveParts = new string[] { "Concedes" };
+            }
+
             Concedes:;
 
             // TEST MOVES / DOUBLES
@@ -323,8 +328,6 @@ namespace Backgammon
                         var rank = aiRank <= Context.AIRankedMoves.Length ? aiRank : Context.AIRankedMoves.Length;
 
                         if (Context.AIIndexTurn < 2) rank = 1;
-
-                        //rank = 2;
 
                         var aiRankedMove = Context.AIRankedMoves[rank - 1].movePart;
                         var blot = false;

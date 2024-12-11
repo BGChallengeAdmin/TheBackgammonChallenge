@@ -38,8 +38,9 @@ namespace Backgammon
                 if (Context.OpponentMatchedRankThisTurn == 1) Context.OpponentTopRankedThisGame += 1;
                 else if (Context.OpponentMatchedRankThisTurn == 2) Context.OpponentSecondRankedThisGame += 1;
 
-                Context.GeneralInfoStateSwitch = GeneralInfoState2D.EGeneralInfoState2D.EvaluateOpponentMoves;
-                ActiveState = GameStateMachine2D.EGameState2D.GeneralInfo;
+                // NOTE: OPPONENET EVAULATION IS NOT SHOWN TO PLAYER
+                //Context.GeneralInfoStateSwitch = GeneralInfoState2D.EGeneralInfoState2D.EvaluateOpponentMoves;
+                //ActiveState = GameStateMachine2D.EGameState2D.GeneralInfo;
             }
         }
 

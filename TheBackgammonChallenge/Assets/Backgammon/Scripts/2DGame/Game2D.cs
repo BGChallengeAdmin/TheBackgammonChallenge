@@ -193,13 +193,6 @@ namespace Backgammon
             // AI GAME START
             if (Main.Instance.IfPlayerVsAI)
             {
-                // 50 / 50 THAT PLAYER GOES FIRST -> SET VALUE TO PREVENT SKIPPING FIRST TURN
-                //_context.AIGameData.Moves[0] = Random.Range(0, 2) == 1 ? "11: 1/1 1/1" : ":";
-                //if (_debugSetWhoGoesFirstOrSecondBool) _context.AIGameData.Moves[0] = _debugSetPlayerGoesFirst ? "11: 1/1 1/1" : ":";
-                //_context.IfPlayer1GoesFirst = _context.AIGameData.Moves[0] == ":" ? false : true;
-                //_context.IfPlayer1Turn = _context.IfPlayer1GoesFirst;
-                //_context.IsPlayersTurn = _context.IfPlayer1GoesFirst;
-
                 SetStartingPlayerToRandom();
                 if (_debugSetWhoGoesFirstOrSecondBool) SetStartingPlayerWhoGoesFirst(_debugSetPlayerGoesFirst);
 
@@ -241,9 +234,6 @@ namespace Backgammon
 
             _analysisUI.Init();
             _analysisUI.SetToAILayout(Main.Instance.IfPlayerVsAI);
-
-            _gameWonUI.Init();
-            _gameWonUI.SetToAILayout(Main.Instance.IfPlayerVsAI);
 
             _challengeProgressionUI.Init();
 

@@ -40,6 +40,15 @@ namespace Backgammon
             if (Context.ExitFromStateMachine)
                 ActiveState = GameStateMachine2D.EGameState2D.ExitGame;
 
+            // TEST FOR CONCEDES
+            if (Context.IsPlayersTurn && Context.ConcedeTheGame)
+            {
+                Context.PlayerConcedes = true;
+                Context.GeneralInfoStateSwitch = GeneralInfoState2D.EGeneralInfoState2D.PlayerConcedes;
+                ActiveState = GameStateMachine2D.EGameState2D.GeneralInfo;
+                Context.Debug_debugObject.DebugMessage($"PLAYER CONCEDES");
+            }
+
             // TEST FOR DOUBLING
             if (Context.DoublingManager.DoublingWasClicked)
             {

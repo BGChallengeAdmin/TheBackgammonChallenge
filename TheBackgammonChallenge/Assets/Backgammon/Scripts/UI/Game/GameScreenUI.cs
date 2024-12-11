@@ -13,6 +13,8 @@ namespace Backgammon
 
         [Header("PLAYER INFO")]
         [Header("PLAYER")]
+        [SerializeField] RectTransform _playerInfoTransform;
+        [SerializeField] Transform _playerMatchScoreTransform;
         [SerializeField] TMP_Text _playerNameText;
         [SerializeField] TMP_Text _playerTopMatchedText;
         [SerializeField] TMP_Text _playerMatchPointsText;
@@ -20,6 +22,7 @@ namespace Backgammon
         [SerializeField] Image _playerCounterImage;
 
         [Header("PRO PLAYER")]
+        [SerializeField] RectTransform _proPlayerInfoTransform;
         [SerializeField] TMP_Text _proPlayerNameText;
         [SerializeField] TMP_Text _proPlayerTopMatchedText;
         [SerializeField] TMP_Text _proPlayerMatchPointsText;
@@ -27,6 +30,7 @@ namespace Backgammon
         [SerializeField] Image _proPlayerCounterImage;
 
         [Header("OPPONENT")]
+        [SerializeField] RectTransform _opponentInfoTransform;
         [SerializeField] Transform _opponentTopMatchedObjectTransform;
         [SerializeField] TMP_Text _opponentNameText;
         [SerializeField] TMP_Text _opponentTopMatchedText;
@@ -40,6 +44,7 @@ namespace Backgammon
         [SerializeField] Transform _opponentAnimationDefaultTransform;
 
         [Header("GAME TURN")]
+        [SerializeField] RectTransform matchDetailsInfoTransform;
         [SerializeField] TMP_Text _gameTurnText;
         [SerializeField] TMP_Text _matchGameText;
 
@@ -47,6 +52,11 @@ namespace Backgammon
         [SerializeField] Button _menuButton;
         [SerializeField] Button _menuCloseButton;
         [SerializeField] Button _changeGameButton;
+        [SerializeField] Button _changeGameUpButton;
+        [SerializeField] Button _changeGameDownButton;
+        [SerializeField] TMP_Text _changeGameIndexLabel;
+        [SerializeField] Button _changeGameConfirmButton;
+        [SerializeField] Button _changeGameCancelButton;
         [SerializeField] Button _undoMoveButton;
         [SerializeField] Button _concedeGameButton;
         [SerializeField] Button _concedeConfirmButton;
@@ -55,6 +65,7 @@ namespace Backgammon
         [SerializeField] Button _exitConfirmButton;
         [SerializeField] Button _exitCancelButton;
         [SerializeField] Transform _menuOptionsContainer;
+        [SerializeField] Transform _changeGameOptionsContainer;
         [SerializeField] Transform _concedeOptionsContainer;
         [SerializeField] Transform _exitOptionsContainer;
 
@@ -80,7 +91,15 @@ namespace Backgammon
         [SerializeField] Transform _showOpponentRank1ButtonContainer;
         [SerializeField] Transform _opponentDiceContainer;
 
-        private void Awake()
+        private Vector2 opponentAnchorAdjustedPosition;
+        private Vector2 opponentAnchorDefaultMin;
+        private Vector2 opponentAnchorDefaultMax;
+
+        private Vector2 matchDetailsAnchorAdjustedPosition;
+        private Vector2 matchDetailsAnchorMin;
+        private Vector2 matchDetailsAnchorMax;
+
+        protected void Awake()
         {
             _inGameStatsContainer.transform.position = _screenCentreTransform.position;
 
@@ -90,8 +109,13 @@ namespace Backgammon
             // STATS BUTTONS
             _statisticsButton.onClick.AddListener(() => OnClickStats());
             _statisticsCloseButton.onClick.AddListener(() => OnClickStats());
-            // GAME BUTTONS
-            _changeGameButton.interactable = false;
+            // CHANGE GAME BUTTONS
+            _changeGameButton.onClick.AddListener(() => OnClickChangeGame());
+            _changeGameUpButton.onClick.AddListener(() => OnClickChangeGameUp());
+            _changeGameDownButton.onClick.AddListener(() => OnClickChangeGameDown());
+            _changeGameConfirmButton.onClick.AddListener(() => OnClickConfirmChangeGame());
+            _changeGameCancelButton.onClick.AddListener(() => OnClickCancelChangeGame());
+            // UNDO BUTTON
             _undoMoveButton.onClick.AddListener(() => OnClickUndoMove());
             _undoMoveButton.interactable = false;
             // CONCEDES BUTTONS
@@ -127,9 +151,18 @@ namespace Backgammon
             _opponentAnimation.Init(_startPosition, _endPosition, .75f, 1f);
             _opponentAnimation.OnAnimationCompleteAction += OpponentScoreIncrementAction;
 
+            opponentAnchorDefaultMin = _opponentInfoTransform.anchorMin;
+            opponentAnchorDefaultMax = _opponentInfoTransform.anchorMax;
+            opponentAnchorAdjustedPosition = new Vector2(_proPlayerInfoTransform.anchorMin.x, _proPlayerInfoTransform.anchorMax.x);
+
             // SHOW PRO RANK 1 MOVE
             _showOpponentRank1ButtonContainer.gameObject.transform.localPosition = _opponentDiceContainer.localPosition;
             _showOpponentRank1Button.onClick.AddListener(() => ShowOpponentRank1Move());
+
+            // MATCH DETAILS TRANSFORM
+            matchDetailsAnchorMin = matchDetailsInfoTransform.anchorMin;
+            matchDetailsAnchorMax = matchDetailsInfoTransform.anchorMax;
+            matchDetailsAnchorAdjustedPosition = new Vector2(_playerInfoTransform.anchorMin.x, _playerInfoTransform.anchorMax.x);
 
             // GAME WON ANIMATIONS
             if (_gameWonAnimation1 is null) _gameWonAnimation1 = Instantiate(_gameWonAnimationPrefab, this.transform);
@@ -138,15 +171,14 @@ namespace Backgammon
             Reset();
         }
 
-        private void OnEnable()
+        protected void OnEnable()
         {
-            if (Main.Instance.IfPlayerVsAI) _concedeGameButton.interactable = true;
-            else _concedeGameButton.interactable = false;
+            AdjustOpponentInfoPanelForGameType(Main.Instance.IfPlayerVsAI);
 
             SetShowOpponentRank1Active(false);
         }
 
-        private void OnDestroy()
+        protected void OnDestroy()
         {
             _playerAnimation.OnAnimationCompleteAction -= PlayerScoreIncrementAction;
             _proPlayerAnimation.OnAnimationCompleteAction -= ProPlayerScoreIncrementAction;
@@ -158,7 +190,13 @@ namespace Backgammon
             // STATS BUTTONS
             _statisticsButton.onClick.RemoveAllListeners();
             _statisticsCloseButton.onClick.RemoveAllListeners();
-            // GAME BUTTONS
+            // CHANGE GAME BUTTONS
+            _changeGameButton.onClick.RemoveAllListeners();
+            _changeGameUpButton.onClick.RemoveAllListeners();
+            _changeGameDownButton.onClick.RemoveAllListeners();
+            _changeGameConfirmButton.onClick.RemoveAllListeners();
+            _changeGameCancelButton.onClick.RemoveAllListeners();
+            // UNDO BUTTON
             _undoMoveButton.onClick.RemoveAllListeners();
             // CONCEDE BUTTONS
             _concedeGameButton.onClick.RemoveAllListeners();
@@ -191,6 +229,7 @@ namespace Backgammon
             var playerProPos = _proPlayerPanel.transform.localPosition;
             _playerPanel.transform.localPosition = new Vector3((active ? 0 : -1 * playerProPos.x), playerProPos.y, 0);
             _proPlayerPanel.gameObject.SetActive(!active);
+            _playerMatchScoreTransform.gameObject.SetActive(active);
 
             // PLAYER SCORE ANIMATION
             _startPosition = _playerAnimationDefaultTransform.position + _offset;
@@ -206,12 +245,32 @@ namespace Backgammon
             _opponentTopMatchedObjectTransform.gameObject.SetActive(active);
         }
 
+        private void AdjustOpponentInfoPanelForGameType(bool ifPlayerVsAI)
+        {
+            if (ifPlayerVsAI)
+            {
+                _opponentInfoTransform.anchorMin = opponentAnchorDefaultMin;
+                _opponentInfoTransform.anchorMax = opponentAnchorDefaultMax;
+
+                matchDetailsInfoTransform.anchorMin = matchDetailsAnchorMin;
+                matchDetailsInfoTransform.anchorMax = matchDetailsAnchorMax;
+            }
+            else
+            {
+                _opponentInfoTransform.anchorMin = new Vector2(opponentAnchorAdjustedPosition.x, opponentAnchorDefaultMin.y);
+                _opponentInfoTransform.anchorMax = new Vector2(opponentAnchorAdjustedPosition.y, opponentAnchorDefaultMax.y);
+
+                matchDetailsInfoTransform.anchorMin = new Vector2(matchDetailsAnchorAdjustedPosition.x, matchDetailsAnchorMin.y);
+                matchDetailsInfoTransform.anchorMax = new Vector2(matchDetailsAnchorAdjustedPosition.y, matchDetailsAnchorMax.y);
+            }
+        }
+
         internal void SetAIDataDelayActive(bool active)
         {
             _aiDataDelayPanel.gameObject.SetActive(active);
         }
 
-        // SET PLAYER VALUES
+        #region PLAYER_VALUES
         internal void SetPlayerName(string name)
         {
             _playerNameText.text = name;
@@ -249,7 +308,9 @@ namespace Backgammon
             SetPlayerTopMatched(_playerMatches, (_playerMatches > currentMatches));
         }
 
-        // SET PRO PLAYER VALUES
+        #endregion
+
+        #region PRO_PLAYER_VALUES
         internal void SetProPlayerName(string name)
         {
             _proPlayerNameText.text = name;
@@ -287,7 +348,9 @@ namespace Backgammon
             SetProPlayerTopMatched(_proPlayerMatches, (_proPlayerMatches > currentMatches));
         }
 
-        // SET OPPONENT VALUES
+        #endregion
+
+        #region OPPONENT_VALUES
         internal void SetOpponentName(string name)
         {
             _opponentNameText.text = name;
@@ -325,7 +388,9 @@ namespace Backgammon
             SetOpponentTopMatched(_opponentMatches, (_opponentMatches > currentMatches));
         }
 
-        // GAME TURN
+        #endregion
+
+        #region GAME_MATCH_POINTS_ANIM
         internal void SetMatchGameValues(int game, int gameOf, int playedFor)
         {
             _matchGameText.text = $"Game {game}/{gameOf} for {playedFor} Points";
@@ -349,7 +414,9 @@ namespace Backgammon
 
             if (playerWon)
             {
-                _gameWonAnimation1.SetPointsScoredText(_playerMatchPointsText.gameObject.transform.position + _offset, points, 1f);
+                // NOTE: DON'T SHOW GAME/MATCH POINTS WON FOR PLAYER IN PRO VERSION - ONLY A.I.
+                if (Main.Instance.IfPlayerVsAI)
+                    _gameWonAnimation1.SetPointsScoredText(_playerMatchPointsText.gameObject.transform.position + _offset, points, 1f);
                 if (!Main.Instance.IfPlayerVsAI)
                     _gameWonAnimation2.SetPointsScoredText(_proPlayerMatchPointsText.gameObject.transform.position + _offset, points, 1f);
             }
@@ -382,6 +449,8 @@ namespace Backgammon
             _opponentTopMatchedHighlight.gameObject.SetActive(false);
         }
 
+        #endregion
+
         internal void Reset()
         {
             SetPlayerScore(0);
@@ -408,12 +477,13 @@ namespace Backgammon
             _gameWonAnimation2.Reset();
         }
 
-        // MENU OPTIONS
+        #region MENU_OPTIONS
         private void OnClickMenu()
         {
             _displayMenu = !_displayMenu;
 
             _menuOptionsContainer.gameObject.SetActive(_displayMenu);
+            _changeGameOptionsContainer.gameObject.SetActive(false);
             _concedeOptionsContainer.gameObject.SetActive(false);
         }
 
@@ -428,6 +498,52 @@ namespace Backgammon
             OnClickMenu();
             Game2D.Context.UndoPlayerMove = true;
         }
+
+        // CHANGE GAME
+
+        int changeGameIndex = 0;
+
+        private void OnClickChangeGame()
+        {
+            // TOGGLE MENU OFF
+            OnClickMenu();
+            changeGameIndex = Game2D.Context.IndexGame;
+            _changeGameIndexLabel.text = (changeGameIndex + 1).ToString();
+            _changeGameOptionsContainer.gameObject.SetActive(!_changeGameOptionsContainer.gameObject.activeInHierarchy);
+        }
+
+        private void OnClickChangeGameUp()
+        {
+            changeGameIndex += 1;
+            if (changeGameIndex >= Game2D.Context.SelectedMatch.GameCount)
+                changeGameIndex = Game2D.Context.SelectedMatch.GameCount - 1;
+
+            _changeGameIndexLabel.text = (changeGameIndex + 1).ToString();
+        }
+
+        private void OnClickChangeGameDown()
+        {
+            changeGameIndex -= 1;
+            if (changeGameIndex <= 0) changeGameIndex = 0;
+            _changeGameIndexLabel.text = (changeGameIndex + 1).ToString();
+        }
+
+        private void OnClickConfirmChangeGame()
+        {
+            _changeGameOptionsContainer.gameObject.SetActive(false);
+            GameListUI.IndexGame = changeGameIndex;
+            Game2D.Context.IfSelectedAnotherGame = true;
+            Game2D.Context.ExitFromStateMachine = true;
+        }
+
+        private void OnClickCancelChangeGame()
+        {
+            // TOGGLE MENU OFF
+            OnClickMenu();
+            _changeGameOptionsContainer.gameObject.SetActive(false);
+        }
+
+        // CONCEDE
 
         private void OnClickConcedeGame()
         {
@@ -469,6 +585,9 @@ namespace Backgammon
             _exitOptionsContainer.gameObject.SetActive(false);
         }
 
+        #endregion
+
+        #region IN_GAME_STATS
         private void OnClickStats()
         {
             _displayStats = !_displayStats;
@@ -503,7 +622,9 @@ namespace Backgammon
                                        $"({(Game2D.Context.TotalValidPlayerMovesThisGame * 3)})";
         }
 
-        // SHOW OPPONENT RANK 1 MOVE
+        #endregion
+
+        #region SHOW_PREVIOUS_OPPONENT_RANK1_[DEPRACTED]
         internal void SetShowOpponentRank1Active(bool active)
         {
             _showOpponentRank1ButtonContainer.gameObject.SetActive(active);
@@ -513,6 +634,8 @@ namespace Backgammon
         {
             Game2D.Context.ShowOpponentRank1Move = true;
         }
+
+        #endregion
 
         // PRIVATE FIELDS
 

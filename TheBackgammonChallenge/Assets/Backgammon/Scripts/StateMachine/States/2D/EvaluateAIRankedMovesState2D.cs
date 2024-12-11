@@ -23,10 +23,8 @@ namespace Backgammon
 
             if (Context.IsPlayersTurn)
                 ActiveState = GameStateMachine2D.EGameState2D.EvaluatePlayer;
-            else if (Main.Instance.IfPlayerVsAI)
+            else 
                 ActiveState = GameStateMachine2D.EGameState2D.EvaluateOpponent;
-            else
-                ActiveState = GameStateMachine2D.EGameState2D.TurnEnd;
         }
 
         public override void UpdateState() { }
