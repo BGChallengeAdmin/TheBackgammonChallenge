@@ -183,7 +183,6 @@ namespace Backgammon
                     {
                         // CLEAR UP U.I.
                         Context.DiceRollsUI.SetPlayerDiceRollsText(string.Empty, 0, 0, false);
-                        Context.GameScreenUI.SetUndoButtonActive(false);
                         Context.UndoPlayerMove = false;
 
                         // EVALUATE PLAYER MOVES

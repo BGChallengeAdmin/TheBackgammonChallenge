@@ -594,9 +594,9 @@ namespace Backgammon
                             appState = AppState.DailyChallenges_In;
                             break;
                         }
-                        else if (titleMenuUI.ifRandomSingleTurn)
+                        else if (titleMenuUI.ifRandomGame)
                         {
-                            appState = AppState.PlayerSelect_In;
+                            appState = AppState.Game_In;
                             break;
                         }
                         else if (titleMenuUI.ifSelectSpecificMove)

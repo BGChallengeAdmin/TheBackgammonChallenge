@@ -105,11 +105,6 @@ namespace Backgammon
                 }
                 else ActiveState = GameStateMachine2D.EGameState2D.EvaluateAIRanks;
             }
-
-            // ENABLE / DISABLE UNDO MOVE
-            if (Context.PlayerMoveIndex > 0 && Context.PlayerMoveIndex < Context.TotalMovesThisTurn)
-                Context.GameScreenUI.SetUndoButtonActive(true);
-            else Context.GameScreenUI.SetUndoButtonActive(false);
         }
 
         public override void UpdateState()

@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 namespace Backgammon
 {
@@ -76,6 +77,8 @@ namespace Backgammon
         [SerializeField] TMP_Text _opponentStatsText;
         [SerializeField] TMP_Text _proPlayerStatsText;
         [SerializeField] TMP_Text _playerStatsText;
+        [SerializeField] Transform _proPlayerStatsWindowTransform;
+        [SerializeField] Transform _opponentStatsWindowTransform;
         [SerializeField] Transform _inGameStatsContainer;
         [SerializeField] Transform _screenCentreTransform;
 
@@ -117,7 +120,6 @@ namespace Backgammon
             _changeGameCancelButton.onClick.AddListener(() => OnClickCancelChangeGame());
             // UNDO BUTTON
             _undoMoveButton.onClick.AddListener(() => OnClickUndoMove());
-            _undoMoveButton.interactable = false;
             // CONCEDES BUTTONS
             _concedeGameButton.onClick.AddListener(() => OnClickConcedeGame());
             _concedeConfirmButton.onClick.AddListener(() => OnClickConfirmConcede());
@@ -218,9 +220,9 @@ namespace Backgammon
             _displayStats = false;
 
             _menuOptionsContainer.gameObject.SetActive(_displayMenu);
-            _concedeOptionsContainer.gameObject.SetActive(_displayStats);
-            _exitOptionsContainer.gameObject.SetActive(_displayStats);
-            _inGameStatsContainer.gameObject.SetActive(_displayMenu);
+            _concedeOptionsContainer.gameObject.SetActive(_displayMenu);
+            _exitOptionsContainer.gameObject.SetActive(_displayMenu);
+            _inGameStatsContainer.gameObject.SetActive(_displayStats);
         }
 
         internal void SetToAILayout(bool active)
@@ -240,6 +242,9 @@ namespace Backgammon
             var proPlayerStatPos = _proPlayerStatsPanel.transform.localPosition;
             _playerStatsPanel.transform.localPosition = new Vector3((active ? 0 : -1 * proPlayerStatPos.x), proPlayerStatPos.y, 0);
             _proPlayerStatsPanel.gameObject.SetActive(!active);
+
+            _proPlayerStatsWindowTransform.gameObject.SetActive(!active);
+            _opponentStatsWindowTransform.gameObject.SetActive(active);
 
             // ENABLE PRO MATCHING
             _opponentTopMatchedObjectTransform.gameObject.SetActive(active);
@@ -467,7 +472,6 @@ namespace Backgammon
             ResetTurnIndicators();
 
             SetGameTurn(0);
-            SetUndoButtonActive(false);
 
             _playerAnimation.Reset();
             _proPlayerAnimation.Reset();
@@ -487,15 +491,12 @@ namespace Backgammon
             _concedeOptionsContainer.gameObject.SetActive(false);
         }
 
-        internal void SetUndoButtonActive(bool active)
-        {
-            _undoMoveButton.interactable = active;
-        }
-
         private void OnClickUndoMove()
         {
             // TOGGLE MENU OFF
             OnClickMenu();
+
+            if (Game2D.Context.PlayerMoveIndex == 0) return;
             Game2D.Context.UndoPlayerMove = true;
         }
 

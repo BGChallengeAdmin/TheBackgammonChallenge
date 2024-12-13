@@ -15,7 +15,11 @@ namespace Backgammon
 
             if (Context.IsPlayersTurn)
             {
-                Context.DiceRollsUI.SetPlayerTapToRoll();
+                var dontRollDiceAnimFirstTurn = ((Context.IfPlayingAsPlayer1 && Context.IfPlayer1GoesFirst) ||
+                                   (!Context.IfPlayingAsPlayer1 && !Context.IfPlayer1GoesFirst)) &&
+                                   Context.IndexTurn < 2;
+
+                if (Context.IndexTurn > 1) Context.DiceRollsUI.SetPlayerTapToRoll();
 
                 if (Context.DoublingManager.CubeOwner != Context.OpponentAs)
                     Context.DoublingManager.SetDoublingActive(true);
@@ -86,13 +90,17 @@ namespace Backgammon
                         Context.AITopRankedMove = Context.AIDataHandler.AIResponse();
                     }
                 }
+                
+                var dontRollDiceAnimFirstTurn = ((Context.IfPlayingAsPlayer1 && Context.IfPlayer1GoesFirst) ||
+                                   (!Context.IfPlayingAsPlayer1 && !Context.IfPlayer1GoesFirst)) &&
+                                   Context.IndexTurn < 2;
 
-                if (!Context.DiceRollsUI.PlayerTapToRoll) return;
+                if (!Context.DiceRollsUI.PlayerTapToRoll && Context.IndexTurn > 1) return;
 
                 Context.DoublingManager.SetDoublingActive(false);
                 Context.GameScreenUI.SetShowOpponentRank1Active(false);
 
-                if (!Context.DiceRollsUI.DiceRollAnimation) return;
+                if (!Context.DiceRollsUI.DiceRollAnimation && Context.IndexTurn > 1) return;
             }
 
             // SET DICE FACE VALUES

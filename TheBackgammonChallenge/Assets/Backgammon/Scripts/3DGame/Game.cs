@@ -83,7 +83,7 @@ namespace Backgammon
             //if (Context.GeneralInfoUI is not null) Context.GeneralInfoUI.SetActive(false);
             //if (Context.ChallengeProgressionUI is not null) Context.ChallengeProgressionUI.SetActive(false);
 
-            if (_defaultBackground.gameObject.activeSelf) _defaultBackground.gameObject.SetActive(true);
+            //if (_defaultBackground.gameObject.activeSelf) _defaultBackground.gameObject.SetActive(true);
         }
 
         // -------------------------------------------- CONFIGURE GAME ---------------------------------------------------

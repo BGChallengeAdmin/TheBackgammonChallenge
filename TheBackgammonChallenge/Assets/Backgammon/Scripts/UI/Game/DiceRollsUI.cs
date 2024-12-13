@@ -40,7 +40,7 @@ namespace Backgammon
         [Header("BUTTONS")]
         [SerializeField] Button _playerTapToRollButton;
 
-        private void Awake()
+        protected void Awake()
         {
         //    var verticalAdjst = new Vector3(0f, _playerDiceContainer.position.y, 0f);
 
@@ -52,7 +52,7 @@ namespace Backgammon
             _playerTapToRollButton.onClick.AddListener(() => OnClickTapToRoll());
         }
 
-        private void OnDestroy()
+        protected void OnDestroy()
         {
             _playerTapToRollButton.onClick.RemoveAllListeners();
         }
@@ -60,7 +60,7 @@ namespace Backgammon
         internal void SetActive(bool active)
         {
             if (active) SetAllOff();
-            if (!active) ResetImageSizes();
+            if (active) ResetImageSizes();
 
             this.gameObject.SetActive(active);
 

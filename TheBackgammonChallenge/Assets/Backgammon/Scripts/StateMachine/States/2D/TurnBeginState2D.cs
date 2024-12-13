@@ -151,7 +151,7 @@ namespace Backgammon
                 var indexTurn = Main.Instance.IfPlayerVsAI ? Context.AIIndexTurn : Context.IndexTurn;
                 Context.GameScreenUI.SetGameTurn(indexTurn + (Context.IfPlayer1GoesFirst ? 1 : 0));
 
-                Context.GameScreenUI.SetUndoButtonActive(false);
+                //Context.GameScreenUI.SetUndoButtonActive(false);
 
                 if (Context.FastForwardTurnIndex <= Context.IndexTurn)
                     Context.IfFastForwarding = false;

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,7 +7,7 @@ namespace Backgammon
     public class TitleMenuUI : MonoBehaviour
     {
         [Header("BUTTONS")]
-        [SerializeField] private Text TitleHeader;
+        [SerializeField] private TMP_Text TitleHeader;
         [SerializeField] private Button DownloadNewMatchesButton;
         [SerializeField] private Button PlayNewMatchButton;
         [SerializeField] private Button PlayRandomGameButton;
@@ -24,13 +25,13 @@ namespace Backgammon
         [SerializeField] private Slider turnSelectSlider;
         [SerializeField] private InputField turnSelectInput;
 
-        private void Awake()
+        protected void Awake()
         {
             turnSelectSlider.onValueChanged.AddListener(delegate { OnSliderValueChanged(); });
             turnSelectInput.onValueChanged.AddListener(delegate { OnInputValueChanged(); });
         }
 
-        void OnEnable()
+        protected void OnEnable()
         {
             // DEBUG - PRINT ALL PLAYER NAMES
 
@@ -118,7 +119,7 @@ namespace Backgammon
             ifSelectNewMatch = false;
             ifContinueMatch = false;
             ifPlayerVsPro = false;
-            ifRandomSingleTurn = false;
+            ifRandomGame = false;
             ifSelectSpecificMove = false;
             ifDownloadMatches = false;
             ifPlayDemo = false;
@@ -160,7 +161,7 @@ namespace Backgammon
 
             if (languagesSO != null)
             {
-                TitleHeader.GetComponentInChildren<Text>().text = languagesSO.titleMenuTitle;
+                TitleHeader.GetComponentInChildren<TMP_Text>().text = languagesSO.titleMenuTitle;
 
                 DownloadNewMatchesButton.GetComponentInChildren<Text>().text = languagesSO.titleMenuDownload;
                 PlayNewMatchButton.GetComponentInChildren<Text>().text = languagesSO.titleMenuNewMatch;
@@ -175,9 +176,7 @@ namespace Backgammon
                 //TitleHeader.text = "Please click the 'Select New Match' button.";
             }
 
-            //DownloadNewMatchesButton.interactable = false;
-            PlayRandomGameButton.interactable = false;
-            //ContinueGameButton.interactable = false;
+            //PlayRandomGameButton.interactable = false;
             PlayDemoButton.interactable = false;
             StatisticsButton.interactable = false;
             
@@ -206,7 +205,7 @@ namespace Backgammon
             //}
         }
 
-        private void OnDestroy()
+        protected void OnDestroy()
         {
             turnSelectSlider.onValueChanged.RemoveAllListeners();
             turnSelectInput.onValueChanged.RemoveAllListeners();
@@ -284,7 +283,7 @@ namespace Backgammon
         public void OnClickPlayRandomGame()
         {
             ifClicked = true;
-            ifPlayerVsPro = true;
+            ifRandomGame = true;
             Main.Instance.IfMatchedPlay = true;
 
             SelectRandomMatchGame();
@@ -354,7 +353,7 @@ namespace Backgammon
                         Backgammon_Asset.MatchReplayDLC matchReplayDLC = matchReplayDLCs[i];
 
                         // SKIP DEMO
-                        if (matchReplayDLC.ID == "DEMO")
+                        if (matchReplayDLC.ID == "DEMO" || matchReplayDLC.ID == "AI")
                             continue;
 
                         if (indexMatchToSelect < indexMatch + matchReplayDLC.MatchCount)
@@ -367,22 +366,12 @@ namespace Backgammon
                     }
 
                     GameListUI.IndexGame = Random.Range(0, MatchSelectUI.Match.GameCount);
-
-                    Debug.Log("GAME: " + GameListUI.IndexGame);
-
-                    // JAMES - Reset to the first turn
                     GameListUI.IndexTurn = 0;
 
-                    // DEBUG - COMMENT THESE FOR NORMAL GAME PLAY
-                    //int DBDLC = 0;
-                    //int DBDLCmatch = 0;
-                    //int DBindexGame = 2;
-                    //int DBindexTurn = 0;
-                    //MatchSelectUI.match = matchReplayDLCs[DBDLC].Match(DBDLCmatch);
-                    //MatchSelectUI.match = GameObject.Find("MatchReplayDLC_ (14)").GetComponentInChildren<Backgammon_Asset.MatchReplayDLC>().Match(DBDLCmatch);
-                    //GameListUI.indexGame = DBindexGame;
-                    //GameListUI.indexTurn = DBindexTurn;
-                    // DEBUG END
+                    GameListUI._playingAs2D = MatchSelectUI.Match.Winner() == 1 ? Game2D.PlayingAs.PLAYER_1 : Game2D.PlayingAs.PLAYER_2;
+
+                    Debug.Log($"MATCH: {MatchSelectUI.Match.name}");
+                    Debug.Log("GAME: " + GameListUI.IndexGame);
                 }
             }
         }
@@ -486,7 +475,7 @@ namespace Backgammon
         public bool ifContinueMatch;
         public bool ifSelectNewMatch;
         public bool ifPlayerVsPro;
-        public bool ifRandomSingleTurn;
+        public bool ifRandomGame;
         public bool ifSelectSpecificMove;
         public bool ifDownloadMatches;
         public bool ifPlayDemo;
