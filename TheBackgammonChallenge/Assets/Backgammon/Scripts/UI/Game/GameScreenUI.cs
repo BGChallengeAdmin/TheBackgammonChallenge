@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 namespace Backgammon
 {

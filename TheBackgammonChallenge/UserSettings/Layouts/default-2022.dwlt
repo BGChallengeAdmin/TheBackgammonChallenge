@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1117
   m_ShowMode: 4
-  m_Title: Console
+  m_Title: Project
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 146
+  controlID: 152
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -536,9 +536,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 16430000
       m_LastClickedID: 0
-      m_ExpandedIDs: 10fbffffda700000a27300001c74000000780000
+      m_ExpandedIDs: 10fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1128,7 +1128,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Backgammon/Scripts/StateMachine/States/2D
+    - Assets/Backgammon/Scripts/UI/Game
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1136,16 +1136,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Backgammon/Scripts/StateMachine/States/2D
+  - Assets/Backgammon/Scripts/UI/Game
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\TBGC\TheBackgammonChallenge\TheBackgammonChallenge
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 267}
-    m_SelectedIDs: c8930000
-    m_LastClickedID: 37832
-    m_ExpandedIDs: 000000008a9300008c9300008e93000090930000929300009493000096930000989300009a9300009c93000000ca9a3b
+    scrollPos: {x: 0, y: 276}
+    m_SelectedIDs: dc930000
+    m_LastClickedID: 37852
+    m_ExpandedIDs: 000000008a9300008c9300008e93000090930000929300009493000096930000989300009a9300009c930000ca93000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1204,18 +1204,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c62300002cbff9ffcc84000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Game
+      m_OriginalName: Game
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 37852
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 12}
     m_CreateAssetUtility:
