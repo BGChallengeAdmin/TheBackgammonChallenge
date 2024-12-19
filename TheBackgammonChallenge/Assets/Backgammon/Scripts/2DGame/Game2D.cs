@@ -41,6 +41,7 @@ namespace Backgammon
         [SerializeField] TurnEndsUI _turnEndsUI = null;
         [SerializeField] GameWonUI _gameWonUI = null;
         [SerializeField] GeneralInfoUI _generalInfoUI = null;
+        [SerializeField] DemoUI _demoUI = null;
         [SerializeField] ChallengeProgressionUI _challengeProgressionUI = null;
         [SerializeField] ConfigureBoardManualUI _configureBoardManualUI = null;
 
@@ -124,6 +125,7 @@ namespace Backgammon
                 if (Context.TurnEndsUI is not null) Context.TurnEndsUI.SetActive(false);
                 if (Context.GameWonUI is not null) Context.GameWonUI.SetActive(false);
                 if (Context.GeneralInfoUI is not null) Context.GeneralInfoUI.SetActive(false);
+                if (Context.GeneralInfoUI is not null) Context.GeneralInfoUI.SetActive(false);
                 if (Context.ChallengeProgressionUI is not null) Context.ChallengeProgressionUI.SetActive(false);
             }
         }
@@ -164,7 +166,7 @@ namespace Backgammon
             _context.SetDataHandlers(_aiDataHandler);
             _context.SetUI(_fadeInFadeOutBackground, _gameScreenUI, _rollForGoesFirstUI, _beforeCommenceUI,
                             _doublingUI, _diceRollsUI, _analysisOrContinueUI, _analysisUI, _observeBoardUI,
-                            _turnEndsUI, _gameWonUI, _generalInfoUI, _challengeProgressionUI, _configureBoardManualUI);
+                            _turnEndsUI, _gameWonUI, _generalInfoUI, _demoUI, _challengeProgressionUI, _configureBoardManualUI);
 
             // MATCH
             _context.SelectedGame = _context.SelectedMatch.Game(_context.IndexGame);
@@ -245,7 +247,7 @@ namespace Backgammon
             if (_debugFastForwardIndex != 0) _context.FastForwardTurnIndex = _debugFastForwardIndex;
 
             if (_context.FastForwardTurnIndex >= Context.SelectedGame.Moves.Length)
-                _context.FastForwardTurnIndex = Context.SelectedGame.Moves.Length - 3;
+                _context.FastForwardTurnIndex = Context.SelectedGame.Moves.Length - 4;
             if (Context.FastForwardTurnIndex > Context.IndexTurn)
                 Context.IfFastForwarding = true;
 
@@ -309,6 +311,7 @@ namespace Backgammon
             Assert.IsNotNull(_turnEndsUI, "MISSING: TURN ENDS UI");
             Assert.IsNotNull(_gameWonUI, "MISSING: GAME WON UI");
             Assert.IsNotNull(_generalInfoUI, "MISSING: GENERAL INFO UI");
+            Assert.IsNotNull(_demoUI, "MISSING: DEMO UI");
             Assert.IsNotNull(_challengeProgressionUI, "MISSING: CHALLENGE PROGRESSION UI");
         }
 

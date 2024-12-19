@@ -26,13 +26,14 @@ namespace Backgammon
             if (!Context.IfFastForwarding)
             {
                 UpdatePlayerScoreData();
+                UpdatePlayerStatsGraphData();
             }
             #endregion
 
             // SET PLAYER AND A.I. MOVE DATA TO THE A.I. GAME
             if (Main.Instance.IfPlayerVsAI) SetAITurnMoveData();
 
-            // DEBUG TESTING - NO FAST FORWARD IN A.I. GAME
+            // DEBUG - NO FAST FORWARD IN A.I. GAME
             if (Main.Instance.IfPlayerVsAI && Context.IfFastForwarding)
             {
                 Context.FastForwardTurnIndex = Context.IndexTurn + 2;
@@ -794,19 +795,19 @@ namespace Backgammon
             string gameName = game.name;
             string matchKey = Context.SelectedMatch.Title + " " + Context.SelectedMatch.ID;
 
-            //var graphStatsGameData = new GraphStatsGameData();
+            var graphStatsGameData = new GraphStatsGameData();
 
-            //graphStatsGameData.matchKey = matchKey;
-            //graphStatsGameData.player1 = match.Player1;
-            //graphStatsGameData.player2 = match.Player2;
-            //graphStatsGameData.playingAs = playingAs == PlayerId.Player1 ? "player1" : "player2";
-            //graphStatsGameData.gameName = gameName;
-            //graphStatsGameData.movesMade = movesThisGame;
-            //graphStatsGameData.movesMatched = matchesThisGame;
-            //graphStatsGameData.topMatched = topMatchesThisGame;
-            //graphStatsGameData.proTopMatched = proTopMatchesThisGame;
+            graphStatsGameData.matchKey = matchKey;
+            graphStatsGameData.player1 = Context.SelectedMatch.Player1;
+            graphStatsGameData.player2 = Context.SelectedMatch.Player2;
+            graphStatsGameData.playingAs = Context.PlayingAs == Game2D.PlayingAs.PLAYER_1 ? "player1" : "player2";
+            graphStatsGameData.gameName = gameName;
+            graphStatsGameData.movesMade = Context.TotalValidPlayerMovesThisGame;
+            graphStatsGameData.movesMatched = Context.TotalValidPlayerMatchesThisGame;
+            graphStatsGameData.topMatched = Context.PlayerTopRankedThisGame;
+            graphStatsGameData.proTopMatched = Context.ProTopRankedThisGame;
 
-            //Main.Instance.PlayerScoresObj .SetGraphStatsData(graphStatsGameData);
+            Main.Instance.PlayerScoresObj.SetGraphStatsData(graphStatsGameData);
         }
     }
 }

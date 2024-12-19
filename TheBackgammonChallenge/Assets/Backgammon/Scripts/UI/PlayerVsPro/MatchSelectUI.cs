@@ -475,6 +475,10 @@ namespace Backgammon
         {
             Match = match;
         }
+        public static void SetMatch_3D(Backgammon_Asset.MatchData match)
+        {
+            Match_3D = match;
+        }
 
         public void EnableDefaultBackground(bool enable)
         {
@@ -484,6 +488,7 @@ namespace Backgammon
 
         public bool ifBack;
         public static Backgammon_Asset.MatchData Match = null;
+        public static Backgammon_Asset.MatchData Match_3D = null;
 
         private bool ifSortedList = false;
         private string sortedListTextUpper = "";

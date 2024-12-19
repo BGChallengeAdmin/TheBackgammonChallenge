@@ -28,6 +28,11 @@ namespace Backgammon
         [SerializeField] MatchAISelectPoints _aiSetPoints = null;
         [SerializeField] MatchAIConfigureSettingsMain _aiConfigMainSettings = null;
 
+        [Header("STATISTICS")]
+        [SerializeField] StatisticsUI statisticsUI = null;
+        [SerializeField] StatisticsResetUI statisticsResetUI = null;
+        [SerializeField] StatisticsResetUIConfirm statisticsResetConfirmUI = null;
+
         [Header("DEFAULT UI")]
         [SerializeField] Transform _defaultBackground = null;
 
@@ -372,6 +377,108 @@ namespace Backgammon
                     }
                     break;
                 #endregion
+                // -------------------------------------------------- STATISTICS -------------------------------------------------------
+                //
+                #region Statistics
+                case AppState.Statistics_In:
+                    {
+                        statisticsUI.gameObject.SetActive(true);
+
+                        appState = AppState.Statistics;
+                    }
+                    break;
+                case AppState.Statistics:
+                    {
+                        if (!(statisticsUI.ifBack || statisticsUI.ifResetAppData))
+                            break;
+
+                        if (statisticsUI.ifResetAppData)
+                            appState = AppState.Statistics_Reset;
+                        else if (statisticsUI.ifBack)
+                            appState = AppState.Statistics_Out;
+                    }
+                    break;
+                case AppState.Statistics_Reset:
+                    {
+                        if (statisticsUI.ifResetAppData)
+                        {
+                            statisticsUI.ifResetAppData = false;
+                            statisticsResetUI.gameObject.SetActive(true);
+                        }
+
+                        if (statisticsResetUI.Back)
+                        {
+                            statisticsResetUI.gameObject.SetActive(false);
+                            appState = AppState.Statistics;
+                            break;
+                        }
+
+                        if (statisticsResetUI.PartialReset)
+                        {
+                            if (!statisticsResetConfirmUI.gameObject.activeInHierarchy)
+                                statisticsResetConfirmUI.gameObject.SetActive(true);
+
+                            if (!(statisticsResetConfirmUI.Back || statisticsResetConfirmUI.OK))
+                                break;
+
+                            if (statisticsResetConfirmUI.Back)
+                            {
+                                statisticsResetUI.PartialReset = false;
+                                statisticsResetConfirmUI.gameObject.SetActive(false);
+                                break;
+                            }
+
+                            if (statisticsResetConfirmUI.OK)
+                            {
+                                _playerPrefsHandler.ResetAppData();
+
+                                statisticsResetConfirmUI.gameObject.SetActive(false);
+                                statisticsResetUI.gameObject.SetActive(false);
+                                statisticsUI.DisplayAppStatistics();
+
+                                appState = AppState.Statistics;
+                                break;
+                            }
+                        }
+
+                        if (statisticsResetUI.FullReset)
+                        {
+                            if (!statisticsResetConfirmUI.gameObject.activeInHierarchy)
+                                statisticsResetConfirmUI.gameObject.SetActive(true);
+
+                            if (!(statisticsResetConfirmUI.Back || statisticsResetConfirmUI.OK))
+                                break;
+
+                            if (statisticsResetConfirmUI.Back)
+                            {
+                                statisticsResetUI.FullReset = false;
+                                statisticsResetConfirmUI.gameObject.SetActive(false);
+                                break;
+                            }
+
+                            if (statisticsResetConfirmUI.OK)
+                            {
+                                _playerPrefsHandler.ResetAppData();
+                                PlayerScoresObj.ResetPlayerScoreData();
+
+                                statisticsResetConfirmUI.gameObject.SetActive(false);
+                                statisticsResetUI.gameObject.SetActive(false);
+                                statisticsUI.DisplayAppStatistics();
+
+                                appState = AppState.Statistics;
+                                break;
+                            }
+                        }
+                    }
+                    break;
+                case AppState.Statistics_Out:
+                    {
+                        statisticsUI.gameObject.SetActive(false);
+                        appState = AppState.TitleMenu_In;
+                    }
+                    break;
+
+                #endregion
                 // -------------------------------------------- DEBUG TOOLKIT UI ------------------------------------------
                 //
                 #region DEBUG_TOOLKIT_UI
@@ -514,6 +621,11 @@ namespace Backgammon
                     break;
                 case AppState.ConfigureBoard:
                     {
+                        if (USING_3D_BACKGROUND && Game.IfGameConcluded)
+                        {
+                            Enable3DBackground(USING_3D_BACKGROUND);
+                        }
+
                         if (!boardDesignerUI.IfClickedExit) return;
 
                         appState = AppState.ConfigureBoard_Out;
@@ -521,7 +633,7 @@ namespace Backgammon
                     break;
                 case AppState.ConfigureBoard_Out:
                     {
-                        _3DGame.SetGameActive(false);
+                        _3DGame.SetGameActive(USING_3D_BACKGROUND);
                         _defaultBackground.gameObject.SetActive(true);
                         boardDesignerUI.gameObject.SetActive(false);
 
@@ -1092,6 +1204,34 @@ namespace Backgammon
                     }
                     break;
                 #endregion
+                // ---------------------------------------------------- DEMO ----------------------------------------------
+                //  
+                #region DEMO
+                case AppState.Demo_In:
+                    {
+                        appState = AppState.Demo;
+                    }
+                    break;
+                case AppState.Demo:
+                    {
+                        Main.Instance.IfDemoIsInPlay = true;
+                        MatchSelectUI.SetContinueMatchByID("DEMO");
+
+                        GameListUI.IndexGame = 0;
+                        GameListUI.IndexTurn = 0;
+
+                        GameListUI._playingAs2D = Game2D.PlayingAs.PLAYER_1;
+                        GameListUI._playingAs3D = Game.PlayingAs.PLAYER_1;
+
+                        appState = AppState.Demo_Out;
+                    }
+                    break;
+                case AppState.Demo_Out:
+                    {
+                        appState = AppState.Game_In;
+                    }
+                    break;
+                #endregion
                 // ---------------------------------------------------- EXIT ----------------------------------------------
                 //  
                 #region ExitApp
@@ -1177,7 +1317,7 @@ namespace Backgammon
                     debug_3DBackground.DebugMessage($"USING: {match.name} {match.ID} {match.Title}");
                 }
 
-                if (match != null) MatchSelectUI.SetMatch(match);
+                if (match != null) MatchSelectUI.SetMatch_3D(match);
                 else
                 {
                     USING_3D_BACKGROUND = false;
@@ -1191,7 +1331,7 @@ namespace Backgammon
                 debug_3DBackground.DebugMessage($"CONFIGURE GAME CONTEXT");
                 GameListUI.IndexGame = UnityEngine.Random.Range(0, match.GameCount - 1);
                 GameListUI._game = match.Game(GameListUI.IndexGame);
-                GameListUI._playingAs = Game.PlayingAs.PLAYER_1;
+                GameListUI._playingAs3D = Game.PlayingAs.PLAYER_1;
             }
 
             // SET ACTIVE AND ENABLE CONTEXT
@@ -1257,6 +1397,14 @@ namespace Backgammon
             MatchTypeSelectIntro_Out,
             MatchTypeSelectIntro,
             //
+            Settings_In,
+            Settings_Out,
+            Settings,
+            //
+            ConfigureBoard_In,
+            ConfigureBoard_Out,
+            ConfigureBoard,
+            //
             // TITLE MENU
             //
             TitleMenu_In,
@@ -1273,8 +1421,17 @@ namespace Backgammon
             //Continue,
             //
             Demo_In,
-            //Demo_Out,
-            //Demo,
+            Demo_Out,
+            Demo,
+            //
+            Statistics_In,
+            Statistics_Out,
+            Statistics,
+            Statistics_Reset,
+            //
+            DownloadMatches_In,
+            DownloadMatches_Out,
+            DownloadMatches,
             //
             PlayerSelect_In,
             //PlayerSelect_Out,
@@ -1284,16 +1441,7 @@ namespace Backgammon
             //DailyChallenges_Out,
             //DailyChallenges,
             //
-            Statistics_In,
-            //Statistics_Out,
-            //Statistics,
-            //Statistics_Reset,
-            //
-            DownloadMatches_In,
-            DownloadMatches_Out,
-            DownloadMatches,
-            //
-            // GAME
+            // PLAYER VS PRO
             //
             MatchIntro_In,
             MatchIntro_Out,
@@ -1302,6 +1450,18 @@ namespace Backgammon
             GameList_In,
             GameList_Out,
             GameList,
+            //
+            // AI GAME
+            //
+            MatchAISelectPoints_In,
+            MatchAISelectPoints_Out,
+            MatchAISelectPoints,
+            //
+            MatchAIConfigureSettingsMain_In,
+            MatchAIConfigureSettingsMain_Out,
+            MatchAIConfigureSettingsMain,
+            //
+            // GAME
             //
             Game_In,
             Game_Out,
@@ -1313,22 +1473,6 @@ namespace Backgammon
             //
             // GENERAL
             //
-            Settings_In,
-            Settings_Out,
-            Settings,
-            //
-            ConfigureBoard_In,
-            ConfigureBoard_Out,
-            ConfigureBoard,
-            //
-            MatchAISelectPoints_In,
-            MatchAISelectPoints_Out,
-            MatchAISelectPoints,
-            //
-            MatchAIConfigureSettingsMain_In,
-            MatchAIConfigureSettingsMain_Out,
-            MatchAIConfigureSettingsMain,
-            ////
             //MatchAISplash_In,
             //MatchAISplash_Out,
             //MatchAISplash,

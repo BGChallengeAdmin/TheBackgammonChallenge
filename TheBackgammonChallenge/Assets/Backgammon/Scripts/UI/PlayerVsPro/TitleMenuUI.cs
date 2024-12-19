@@ -177,8 +177,8 @@ namespace Backgammon
             }
 
             //PlayRandomGameButton.interactable = false;
-            PlayDemoButton.interactable = false;
-            StatisticsButton.interactable = false;
+            //PlayDemoButton.interactable = false;
+            //StatisticsButton.interactable = false;
             
             // DEBUG
             //if (Main.DEBUG_MODE)

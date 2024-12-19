@@ -77,7 +77,7 @@ namespace Backgammon
     {
         // GAME STATS
         public string name = string.Empty;
-        public int index = 0;
+        public int number = 0;
         public float numberOfTurns = 0f;
         public float indexTurnPlayed = 0f;
         public float totalCounterMovesSeenPlayed = 0f;

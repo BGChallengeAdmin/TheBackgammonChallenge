@@ -535,7 +535,6 @@ namespace Backgammon
                 MatchSelectUI.Match = _aiMatch.Match(0);
                 GameListUI.IndexGame = 0;
                 GameListUI.IndexTurn = 0;
-                GameListUI.playingAs = PlayerId.Player1;
                 GameListUI._playingAs2D = Game2D.PlayingAs.PLAYER_1;
 
                 // NOTE: SCRIPTABLE OBJECT - RECONFIGURE BOARD

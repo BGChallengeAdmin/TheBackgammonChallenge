@@ -132,6 +132,7 @@ namespace Backgammon
         internal void ResetCounters()
         {
             _countersOnHomeStack = new Stack<Counter>();
+            _activeCounters = 0;
         }
 
         internal override int GetID() { return 0; }

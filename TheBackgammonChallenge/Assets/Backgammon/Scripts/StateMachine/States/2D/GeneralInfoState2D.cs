@@ -121,7 +121,8 @@ namespace Backgammon
                         // POPUPS IF NOT FORCED
                         if (!forcedMove)
                         {
-                            var better = (playerRank < Context.ProMatchedRankThisTurn && playerRank != 0);
+                            var better = (playerRank < Context.ProMatchedRankThisTurn && playerRank != 0) ||
+                                         (Context.ProMatchedRankThisTurn == 0 && playerRank != 0);
                             var matchedBetter = better ? "EXCEPTIONAL!!\n\n" : string.Empty;
                             var matchedText = better ? "BEAT" : (Context.PlayerMatchedProMove ? "MATCHED" : "DIDN'T MATCH");
 

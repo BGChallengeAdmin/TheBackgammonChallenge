@@ -14,7 +14,7 @@ namespace Backgammon
         private Transform[] _pointConnectorsArray = null;
         private Analysis2DPositionLine[] _pointLinesArrays = null;
 
-        private void Awake()
+        protected void Awake()
         {
             _pointMarkersArray = new Transform[8];
             _pointConnectorsArray = new Transform[4];

@@ -103,11 +103,12 @@ namespace Backgammon
                             _challengeProgressionUI);
 
             // MATCH
+            _context.SelectedMatch = MatchSelectUI.Match_3D;
             _context.SelectedGame = _context.SelectedMatch.Game(_context.IndexGame);
 
             // BOARD CONFIG
-            _context.PlayingAs = GameListUI._playingAs;
-            _context.IfPlayingAsPlayer1 = GameListUI._playingAs == Game.PlayingAs.PLAYER_1 ? true : false;
+            _context.PlayingAs = GameListUI._playingAs3D;
+            _context.IfPlayingAsPlayer1 = GameListUI._playingAs3D == Game.PlayingAs.PLAYER_1 ? true : false;
             _context.IfPlayFromLhs = true;
             _context.IfPlayerIsBlack = true;
 

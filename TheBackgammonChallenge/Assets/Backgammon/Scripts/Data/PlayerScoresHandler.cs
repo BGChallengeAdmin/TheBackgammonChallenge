@@ -21,9 +21,9 @@ namespace Backgammon
         private Backgammon_Asset.MatchReplayDLC[] matchReplayDLCs = null;
 
         // STATS GRAPH
-        //private string playerGraphStatsFilenameJSON = "/PlayerGraphStatsFileJSON.txt";
-        //private List<GraphStatsData> playerGraphStatsList;
-        //private Dictionary<string, float> playerStatisticsDict = null;
+        private string playerGraphStatsFilenameJSON = "/PlayerGraphStatsFileJSON.txt";
+        private List<GraphStatsData> playerGraphStatsList;
+        private Dictionary<string, float> playerStatisticsDict = null;
 
         // AI SCORES
         private string playerAIScoresFilenameJSON = "/PlayerAIScoresFileJSON.txt";
@@ -31,21 +31,21 @@ namespace Backgammon
 
         // READ HANDLERS
         private ReadJSONFromScoreFile readJSONFromScoreFile;
-        //private ReadJSONFromGraphStatsFile readJSONFromGraphStatsFile;
+        private ReadJSONFromGraphStatsFile readJSONFromGraphStatsFile;
         private ReadJSONFromAIScoreFile readJSONFromAIScoreDataFile;
 
         private LanguageScriptableObject languageSO;
 
-        private void Awake()
+        protected void Awake()
         {
             playerScoresDirectoryAbs = Application.persistentDataPath + playerScoresDirectory;
             _playerScoreDict = new Dictionary<string, PlayerScoreData>();
-            //playerGraphStatsList = new List<GraphStatsData>();
-            //playerStatisticsDict = new Dictionary<string, float>();
+            playerGraphStatsList = new List<GraphStatsData>();
+            playerStatisticsDict = new Dictionary<string, float>();
             aiScoreData = new AIScoreData();
 
             readJSONFromScoreFile = new ReadJSONFromScoreFile();
-            //readJSONFromGraphStatsFile = new ReadJSONFromGraphStatsFile();
+            readJSONFromGraphStatsFile = new ReadJSONFromGraphStatsFile();
             readJSONFromAIScoreDataFile = new ReadJSONFromAIScoreFile();
 
             //Debug.Log(playerScoresDirectoryAbs);
@@ -116,8 +116,8 @@ namespace Backgammon
                 string filename = file.Substring((playerScoresDirectoryAbs.Length + 1), (file.Length - playerScoresDirectoryAbs.Length - 1));
                 if (filename == playerScoresFilename.Substring(1, (playerScoresFilename.Length - 1)))
                     continue;
-                //if (filename == playerGraphStatsFilenameJSON.Substring(1, (playerGraphStatsFilenameJSON.Length - 1)))
-                //    continue;
+                if (filename == playerGraphStatsFilenameJSON.Substring(1, (playerGraphStatsFilenameJSON.Length - 1)))
+                    continue;
                 if (filename == playerAIScoresFilenameJSON.Substring(1, (playerAIScoresFilenameJSON.Length - 1)))
                     continue;
 
@@ -153,7 +153,7 @@ namespace Backgammon
                             if (loadedMatchData.gameScoresDict.ContainsKey(game.name))
                             {
                                 loadedMatchData.gameScoresDict[game.name] = game;
-                                loadedMatchData.gameTurnsDict[game.index] = game.turnDatas;
+                                loadedMatchData.gameTurnsDict[game.number] = game.turnDatas;
                             }
                         }
 
@@ -200,29 +200,29 @@ namespace Backgammon
                 if (filename == playerAIScoresFilenameJSON.Substring(1, (playerAIScoresFilenameJSON.Length - 1)))
                     continue;
 
-                //if (filename == playerGraphStatsFilenameJSON.Substring(1, (playerGraphStatsFilenameJSON.Length - 1)))
-                //{
-                //    using StreamReader sr = new StreamReader(file);
-                //    while (sr.Peek() >= 0)
-                //    {
-                //        string line = sr.ReadLine();
-                //        readJSONFromGraphStatsFile.ReadData(line);
-                //    }
+                if (filename == playerGraphStatsFilenameJSON.Substring(1, (playerGraphStatsFilenameJSON.Length - 1)))
+                {
+                    using StreamReader sr = new StreamReader(file);
+                    while (sr.Peek() >= 0)
+                    {
+                        string line = sr.ReadLine();
+                        readJSONFromGraphStatsFile.ReadData(line);
+                    }
 
-                //    GraphStatsData[] loadedDataPoints = readJSONFromGraphStatsFile.LoadedDataPoints;
+                    GraphStatsData[] loadedDataPoints = readJSONFromGraphStatsFile.LoadedDataPoints;
 
-                //    Debug.Log("LOADING PLAYER STATS GRAPH " + loadedDataPoints.Length + " " + playerGraphStatsList.Count);
+                    Debug.Log("LOADING PLAYER STATS GRAPH " + loadedDataPoints.Length + " " + playerGraphStatsList.Count);
 
-                //    for (int graphData = 0; graphData < loadedDataPoints.Length; graphData++)
-                //    {
-                //        var graphDataPoint = loadedDataPoints[graphData];
+                    for (int graphData = 0; graphData < loadedDataPoints.Length; graphData++)
+                    {
+                        var graphDataPoint = loadedDataPoints[graphData];
 
-                //        if (graphDataPoint.matchKey != string.Empty)
-                //        {
-                //            playerGraphStatsList.Add(graphDataPoint);
-                //        }
-                //    }
-                //}
+                        if (graphDataPoint.matchKey != string.Empty)
+                        {
+                            playerGraphStatsList.Add(graphDataPoint);
+                        }
+                    }
+                }
             }
         }
 
@@ -230,23 +230,23 @@ namespace Backgammon
         {
             string playerGraphStatsDataJSON = string.Empty;
 
-            //foreach (GraphStatsData graphData in playerGraphStatsList)
-            //{
-            //    graphData.gameData = graphData.gameDataList.ToArray<GraphStatsGameData>();
-            //    playerGraphStatsDataJSON += JsonUtility.ToJson(graphData) + ",";
-            //}
+            foreach (GraphStatsData graphData in playerGraphStatsList)
+            {
+                graphData.gameData = graphData.gameDataList.ToArray<GraphStatsGameData>();
+                playerGraphStatsDataJSON += JsonUtility.ToJson(graphData) + ",";
+            }
 
-            //// TRIM COMMA
-            //if (playerGraphStatsDataJSON != string.Empty)
-            //    playerGraphStatsDataJSON = playerGraphStatsDataJSON.Remove(playerGraphStatsDataJSON.Length - 1);
-            //string JSONToWrite = "{\"graphDataPoints\":[" + playerGraphStatsDataJSON + "]}";
+            // TRIM COMMA
+            if (playerGraphStatsDataJSON != string.Empty)
+                playerGraphStatsDataJSON = playerGraphStatsDataJSON.Remove(playerGraphStatsDataJSON.Length - 1);
+            string JSONToWrite = "{\"graphDataPoints\":[" + playerGraphStatsDataJSON + "]}";
 
-            //Debug.Log("WRITING PLAYER STATS " + JSONToWrite);
+            Debug.Log("WRITING PLAYER STATS " + JSONToWrite);
 
-            //var writer = new StreamWriter(playerScoresDirectoryAbs + "/" + playerGraphStatsFilenameJSON, false);
-            //writer.Write(JSONToWrite);
-            //writer.Flush();
-            //writer.Close();
+            var writer = new StreamWriter(playerScoresDirectoryAbs + "/" + playerGraphStatsFilenameJSON, false);
+            writer.Write(JSONToWrite);
+            writer.Flush();
+            writer.Close();
         }
 
         private void ReadPlayerAIScoreDataFileJSON()
@@ -259,8 +259,8 @@ namespace Backgammon
                     continue;
                 if (filename == playerScoresFilenameJSON.Substring(1, (playerScoresFilenameJSON.Length - 1)))
                     continue;
-                //if (filename == playerGraphStatsFilenameJSON.Substring(1, (playerGraphStatsFilenameJSON.Length - 1)))
-                //    continue;
+                if (filename == playerGraphStatsFilenameJSON.Substring(1, (playerGraphStatsFilenameJSON.Length - 1)))
+                    continue;
 
                 if (filename == playerAIScoresFilenameJSON.Substring(1, (playerAIScoresFilenameJSON.Length - 1)))
                 {
@@ -289,7 +289,7 @@ namespace Backgammon
             writer.Close();
         }
 
-        // ------------------------------------------------ DICTIONARY OPERATIONS ----------------------------------------------
+        // ---------------------------------------------- STATISTICS DICTIONARY ----------------------------------------------
 
         public void PrePopulateScoreDictionary()
         {
@@ -318,14 +318,14 @@ namespace Backgammon
                         GameScoreData gameData = new GameScoreData();
 
                         gameData.name = game.name;
-                        gameData.index = index + 1;
+                        gameData.number = index + 1;
                         gameData.numberOfTurns = game.NumberOfMoves;
                         gameData.turnDatas = new TurnData[game.NumberOfMoves];
                         totalTurnsInMatch += game.NumberOfMoves;
 
                         matchData.gameScoresDict.Add(gameData.name, gameData);
                         matchData.games[index++] = gameData;
-                        matchData.gameTurnsDict.Add(gameData.index, gameData.turnDatas);
+                        matchData.gameTurnsDict.Add(gameData.number, gameData.turnDatas);
                     }
 
                     matchData.name = match.Title;
@@ -358,13 +358,9 @@ namespace Backgammon
             debug_loadScoresData.DebugMessage("DICTIONARY POPULATED " + matchReplayDLCList.Count() + " " + _playerScoreDict.Count());
         }
 
-        public void PrePopulateGraphStatsList()
+        public Dictionary<string, PlayerScoreData> GetPlayerScoresDict()
         {
-            // CLEAR THE LIST AND ADD ZERO POINT
-            //playerGraphStatsList.Clear();
-            //var gameStatsData = new GraphStatsData();
-            //gameStatsData.gameDataList.Add(new GraphStatsGameData());
-            //playerGraphStatsList.Add(gameStatsData);
+            return _playerScoreDict;
         }
 
         public PlayerScoreData GetPlayerScoreData(string matchKey)
@@ -379,6 +375,26 @@ namespace Backgammon
                 debug_loadScoresData.DebugMessage("***** NEW MATCH CREATED *****");
                 return new PlayerScoreData();
             }
+        }
+
+        public MatchScoreData GetPlayerMatchScore(string matchKey)
+        {
+            // NOTE: matchReference = matchScores.name + " " + matchScores.ID
+            MatchScoreData matchScoreData = null;
+
+            if (_playerScoreDict.ContainsKey(matchKey))
+                matchScoreData = _playerScoreDict[matchKey].matchScores;
+
+            return matchScoreData;
+        }
+
+        public GameScoreData GetPlayerGameScore(string _matchID, string _gameID)
+        {
+            GameScoreData gameScoreData = null;
+
+            gameScoreData = GetPlayerMatchScore(_matchID).gameScoresDict[_gameID];
+
+            return gameScoreData;
         }
 
         public void SetPlayerScoreData(PlayerScoreData data)
@@ -459,7 +475,7 @@ namespace Backgammon
                 currentMatch.player2BestProTopMatched += game.Value.player2BestProTopMatched;
 
                 // GAME TURNS
-                currentMatch.gameTurnsDict[game.Value.index] = game.Value.turnDatas;
+                currentMatch.gameTurnsDict[game.Value.number] = game.Value.turnDatas;
             }
 
             //Debug.Log("DATA " + currentMatch.movesMade + " " + currentMatch.movesMatched + " " + currentMatch.topMatched + " " + currentMatch.proTopMatched);
@@ -478,31 +494,6 @@ namespace Backgammon
                 _playerScoreDict.Add(data.matchKey, data);
         }
 
-        //public void SetGraphStatsData(GraphStatsGameData gameData)
-        //{
-        //    // CHECK PREVIOUS ENTRY IN DICTIONARY - IF SAME MATCH ADD NEW GAME DATA
-        //    if (playerGraphStatsList.Last<GraphStatsData>().matchKey == gameData.matchKey)
-        //    {
-        //        var matchData = playerGraphStatsList.Last<GraphStatsData>();
-
-        //        matchData.totalMovesMade += gameData.movesMade;
-        //        matchData.gameDataList.Add(gameData);
-        //        playerGraphStatsList[playerGraphStatsList.Count - 1] = matchData;
-        //    }
-        //    else
-        //    {
-        //        var gameStatsData = new GraphStatsData();
-        //        gameStatsData.matchKey = gameData.matchKey;
-        //        gameStatsData.player1 = gameData.player1;
-        //        gameStatsData.player2 = gameData.player2;
-        //        gameStatsData.playingAs = gameData.playingAs;
-        //        gameStatsData.totalMovesMade = gameData.movesMade;
-        //        gameStatsData.gameDataList.Add(gameData);
-
-        //        playerGraphStatsList.Add(gameStatsData);
-        //    }
-        //}
-
         public AIScoreData GetAIScoreData()
         {
             return aiScoreData;
@@ -510,127 +501,138 @@ namespace Backgammon
 
         // ---------------------------------------------- GET DICTIONARY STATISTICS ---------------------------------------------
 
-        public Dictionary<string, PlayerScoreData> GetPlayerScoresDict()
+        public void PrePopulateGraphStatsList()
         {
-            return _playerScoreDict;
+            // CLEAR THE LIST AND ADD ZERO POINT
+            playerGraphStatsList.Clear();
+            var gameStatsData = new GraphStatsData();
+            gameStatsData.gameDataList.Add(new GraphStatsGameData());
+            playerGraphStatsList.Add(gameStatsData);
         }
 
-        //public Dictionary<string, float> GetPlayerStatisticsDict()
-        //{
-        //    int availableMatches = 0;
-        //    int availabaleGames = 0;
-
-        //    float totalTurnsAllMatches = 0f;
-        //    float totalMovesSeenPlayedAllMatches = 0f;
-        //    float totalPlayerTurnsPlayed = 0f;
-        //    float totalPlayerMovesMade = 0f;
-
-        //    float proMatches = 0f;
-        //    float totalAIMatchesMade = 0f;
-        //    float totalProAIMatchesMade = 0f;
-
-        //    float overallCompletion = 0f;
-        //    float activeTimePlayed = 0f;
-
-        //    foreach (KeyValuePair<string, PlayerScoreData> score in _playerScoreDict)
-        //    {
-        //        MatchScoreData match = score.Value.matchScores;
-
-        //        // DO NOT INCLUDE THE DEMO IN THE OVERALL STATS
-        //        if (match.name == "DEMO")
-        //            continue;
-
-        //        availableMatches++;
-        //        totalTurnsAllMatches += match.totalNumberOfTurns;
-
-        //        foreach (KeyValuePair<string, GameScoreData> game in match.gameScoresDict)
-        //        {
-        //            availabaleGames++;
-
-        //            totalMovesSeenPlayedAllMatches += game.Value.totalCounterMovesSeenPlayed;
-        //            totalPlayerTurnsPlayed += (game.Value.player1IndexTurn >= game.Value.player2IndexTurn ? game.Value.player1IndexTurn : game.Value.player2IndexTurn);
-        //            totalPlayerMovesMade += game.Value.fullCumulativeMovesMade;
-
-        //            proMatches += game.Value.fullCumulativeMovesMatched;
-        //            totalAIMatchesMade += game.Value.fullCumulativeTopMatchedMoves;
-        //            totalProAIMatchesMade += game.Value.fullCumulativeProTopMatchedMoves;
-
-        //            overallCompletion = (totalPlayerMovesMade / (totalMovesSeenPlayedAllMatches != 0 ? totalMovesSeenPlayedAllMatches : 1)) * 100f;
-        //            activeTimePlayed += game.Value.activeTimePlayed;
-        //        }
-        //    }
-
-        //    if (playerStatisticsDict.ContainsKey("availableMatches"))
-        //        playerStatisticsDict["availableMatches"] = availableMatches;
-        //    else playerStatisticsDict.Add("availableMatches", availableMatches);
-
-        //    if (playerStatisticsDict.ContainsKey("availabaleGames"))
-        //        playerStatisticsDict["availabaleGames"] = availabaleGames;
-        //    else playerStatisticsDict.Add("availabaleGames", availabaleGames);
-
-        //    if (playerStatisticsDict.ContainsKey("totalTurnsAllMatches"))
-        //        playerStatisticsDict["totalTurnsAllMatches"] = totalTurnsAllMatches;
-        //    else playerStatisticsDict.Add("totalTurnsAllMatches", totalTurnsAllMatches);
-
-        //    if (playerStatisticsDict.ContainsKey("totalMovesAllMatches"))
-        //        playerStatisticsDict["totalMovesAllMatches"] = totalMovesSeenPlayedAllMatches;
-        //    else playerStatisticsDict.Add("totalMovesAllMatches", totalMovesSeenPlayedAllMatches);
-
-        //    if (playerStatisticsDict.ContainsKey("totalPlayerTurnsPlayed"))
-        //        playerStatisticsDict["totalPlayerTurnsPlayed"] = totalPlayerTurnsPlayed;
-        //    else playerStatisticsDict.Add("totalPlayerTurnsPlayed", totalPlayerTurnsPlayed);
-
-        //    if (playerStatisticsDict.ContainsKey("totalPlayerMovesMade"))
-        //        playerStatisticsDict["totalPlayerMovesMade"] = totalPlayerMovesMade;
-        //    else playerStatisticsDict.Add("totalPlayerMovesMade", totalPlayerMovesMade);
-
-        //    if (playerStatisticsDict.ContainsKey("proMatches"))
-        //        playerStatisticsDict["proMatches"] = proMatches;
-        //    else playerStatisticsDict.Add("proMatches", proMatches);
-
-        //    if (playerStatisticsDict.ContainsKey("totalAIMatchesMade"))
-        //        playerStatisticsDict["totalAIMatchesMade"] = totalAIMatchesMade;
-        //    else playerStatisticsDict.Add("totalAIMatchesMade", totalAIMatchesMade);
-
-        //    if (playerStatisticsDict.ContainsKey("totalProAIMatchesMade"))
-        //        playerStatisticsDict["totalProAIMatchesMade"] = totalProAIMatchesMade;
-        //    else playerStatisticsDict.Add("totalProAIMatchesMade", totalProAIMatchesMade);
-
-        //    if (playerStatisticsDict.ContainsKey("overallCompletion"))
-        //        playerStatisticsDict["overallCompletion"] = overallCompletion;
-        //    else playerStatisticsDict.Add("overallCompletion", overallCompletion);
-
-        //    if (playerStatisticsDict.ContainsKey("activeTimePlayed"))
-        //        playerStatisticsDict["activeTimePlayed"] = activeTimePlayed;
-        //    else playerStatisticsDict.Add("activeTimePlayed", activeTimePlayed);
-
-        //    return playerStatisticsDict;
-        //}
-
-        public MatchScoreData GetPlayerMatchScore(string matchKey)
+        public Dictionary<string, float> GetPlayerStatisticsDict()
         {
-            // NOTE: matchReference = matchScores.name + " " + matchScores.ID
-            MatchScoreData matchScoreData = null;
+            int availableMatches = 0;
+            int availabaleGames = 0;
 
-            if (_playerScoreDict.ContainsKey(matchKey))
-                matchScoreData = _playerScoreDict[matchKey].matchScores;
+            float totalTurnsAllMatches = 0f;
+            float totalMovesSeenPlayedAllMatches = 0f;
+            float totalPlayerTurnsPlayed = 0f;
+            float totalPlayerMovesMade = 0f;
 
-            return matchScoreData;
+            float proMatches = 0f;
+            float totalAIMatchesMade = 0f;
+            float totalProAIMatchesMade = 0f;
+
+            float overallCompletion = 0f;
+            float activeTimePlayed = 0f;
+
+            foreach (KeyValuePair<string, PlayerScoreData> score in _playerScoreDict)
+            {
+                MatchScoreData match = score.Value.matchScores;
+
+                // DO NOT INCLUDE THE DEMO IN THE OVERALL STATS
+                if (match.name == "DEMO")
+                    continue;
+
+                availableMatches++;
+                totalTurnsAllMatches += match.totalNumberOfTurns;
+
+                foreach (KeyValuePair<string, GameScoreData> game in match.gameScoresDict)
+                {
+                    availabaleGames++;
+
+                    totalMovesSeenPlayedAllMatches += game.Value.totalCounterMovesSeenPlayed;
+                    totalPlayerTurnsPlayed += (game.Value.player1IndexTurn >= game.Value.player2IndexTurn ? game.Value.player1IndexTurn : game.Value.player2IndexTurn);
+                    totalPlayerMovesMade += game.Value.fullCumulativeMovesMade;
+
+                    proMatches += game.Value.fullCumulativeMovesMatched;
+                    totalAIMatchesMade += game.Value.fullCumulativeTopMatchedMoves;
+                    totalProAIMatchesMade += game.Value.fullCumulativeProTopMatchedMoves;
+
+                    overallCompletion = (totalPlayerMovesMade / (totalMovesSeenPlayedAllMatches != 0 ? totalMovesSeenPlayedAllMatches : 1)) * 100f;
+                    activeTimePlayed += game.Value.activeTimePlayed;
+                }
+            }
+
+            if (playerStatisticsDict.ContainsKey("availableMatches"))
+                playerStatisticsDict["availableMatches"] = availableMatches;
+            else playerStatisticsDict.Add("availableMatches", availableMatches);
+
+            if (playerStatisticsDict.ContainsKey("availabaleGames"))
+                playerStatisticsDict["availabaleGames"] = availabaleGames;
+            else playerStatisticsDict.Add("availabaleGames", availabaleGames);
+
+            if (playerStatisticsDict.ContainsKey("totalTurnsAllMatches"))
+                playerStatisticsDict["totalTurnsAllMatches"] = totalTurnsAllMatches;
+            else playerStatisticsDict.Add("totalTurnsAllMatches", totalTurnsAllMatches);
+
+            if (playerStatisticsDict.ContainsKey("totalMovesAllMatches"))
+                playerStatisticsDict["totalMovesAllMatches"] = totalMovesSeenPlayedAllMatches;
+            else playerStatisticsDict.Add("totalMovesAllMatches", totalMovesSeenPlayedAllMatches);
+
+            if (playerStatisticsDict.ContainsKey("totalPlayerTurnsPlayed"))
+                playerStatisticsDict["totalPlayerTurnsPlayed"] = totalPlayerTurnsPlayed;
+            else playerStatisticsDict.Add("totalPlayerTurnsPlayed", totalPlayerTurnsPlayed);
+
+            if (playerStatisticsDict.ContainsKey("totalPlayerMovesMade"))
+                playerStatisticsDict["totalPlayerMovesMade"] = totalPlayerMovesMade;
+            else playerStatisticsDict.Add("totalPlayerMovesMade", totalPlayerMovesMade);
+
+            if (playerStatisticsDict.ContainsKey("proMatches"))
+                playerStatisticsDict["proMatches"] = proMatches;
+            else playerStatisticsDict.Add("proMatches", proMatches);
+
+            if (playerStatisticsDict.ContainsKey("totalAIMatchesMade"))
+                playerStatisticsDict["totalAIMatchesMade"] = totalAIMatchesMade;
+            else playerStatisticsDict.Add("totalAIMatchesMade", totalAIMatchesMade);
+
+            if (playerStatisticsDict.ContainsKey("totalProAIMatchesMade"))
+                playerStatisticsDict["totalProAIMatchesMade"] = totalProAIMatchesMade;
+            else playerStatisticsDict.Add("totalProAIMatchesMade", totalProAIMatchesMade);
+
+            if (playerStatisticsDict.ContainsKey("overallCompletion"))
+                playerStatisticsDict["overallCompletion"] = overallCompletion;
+            else playerStatisticsDict.Add("overallCompletion", overallCompletion);
+
+            if (playerStatisticsDict.ContainsKey("activeTimePlayed"))
+                playerStatisticsDict["activeTimePlayed"] = activeTimePlayed;
+            else playerStatisticsDict.Add("activeTimePlayed", activeTimePlayed);
+
+            return playerStatisticsDict;
         }
 
-        public GameScoreData GetPlayerGameScore(string _matchID, string _gameID)
+        public void SetGraphStatsData(GraphStatsGameData gameData)
         {
-            GameScoreData gameScoreData = null;
+            // CHECK PREVIOUS ENTRY IN DICTIONARY - IF SAME MATCH ADD NEW GAME DATA
+            if (playerGraphStatsList.Last<GraphStatsData>().matchKey == gameData.matchKey)
+            {
+                var matchData = playerGraphStatsList.Last<GraphStatsData>();
 
-            gameScoreData = GetPlayerMatchScore(_matchID).gameScoresDict[_gameID];
+                matchData.totalMovesMade += gameData.movesMade;
+                matchData.gameDataList.Add(gameData);
+                playerGraphStatsList[playerGraphStatsList.Count - 1] = matchData;
+            }
+            else
+            {
+                var gameStatsData = new GraphStatsData();
+                gameStatsData.matchKey = gameData.matchKey;
+                gameStatsData.player1 = gameData.player1;
+                gameStatsData.player2 = gameData.player2;
+                gameStatsData.playingAs = gameData.playingAs;
+                gameStatsData.totalMovesMade = gameData.movesMade;
+                gameStatsData.gameDataList.Add(gameData);
 
-            return gameScoreData;
+                playerGraphStatsList.Add(gameStatsData);
+            }
         }
 
-        //public List<GraphStatsData> GetPlayerGraphStatsData()
-        //{
-        //    return playerGraphStatsList;
-        //}
+        public List<GraphStatsData> GetPlayerGraphStatsData()
+        {
+            return playerGraphStatsList;
+        }
+
+        //------------------------------------------------- HELPERS ------------------------------------------------
 
         public string GetPlayerRanking(float _percentageMatched)
         {
@@ -713,7 +715,7 @@ namespace Backgammon
         internal void ResetPlayerScoreData()
         {
             _playerScoreDict.Clear();
-            //playerGraphStatsList.Clear();
+            playerGraphStatsList.Clear();
             aiScoreData.ResetPlayerScores();
 
             if (Directory.Exists(playerScoresDirectoryAbs))

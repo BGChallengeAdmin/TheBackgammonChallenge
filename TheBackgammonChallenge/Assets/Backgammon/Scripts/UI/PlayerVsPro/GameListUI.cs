@@ -36,12 +36,12 @@ namespace Backgammon
         public GameObject game;
         private Game gameScript;
 
-        private void Start()
+        protected void Start()
         {
             gameScript = game.GetComponent<Game>();
         }
 
-        void OnEnable()
+        protected void OnEnable()
         {
             // CONFIGURE LANGUAGE
 
@@ -131,7 +131,7 @@ namespace Backgammon
             timer = 1.0f;
         }
 
-        private void Update()
+        protected void Update()
         {
             timer -= Time.deltaTime;
 
@@ -144,18 +144,18 @@ namespace Backgammon
 
         public void OnPlayer1Clicked()
         {
-            _playingAs = Game.PlayingAs.PLAYER_1;
+            _playingAs3D = Game.PlayingAs.PLAYER_1;
             _playingAs2D = Game2D.PlayingAs.PLAYER_1;
-            playingAs = PlayerId.Player1;
+
             gameScript.playingAs = PlayerId.Player1;
             OnCommence();
         }
 
         public void OnPlayer2Clicked()
         {
-            _playingAs = Game.PlayingAs.PLAYER_2;
+            _playingAs3D = Game.PlayingAs.PLAYER_2;
             _playingAs2D = Game2D.PlayingAs.PLAYER_2;
-            playingAs = PlayerId.Player2;
+
             gameScript.playingAs = PlayerId.Player2;
             OnCommence();
         }
@@ -246,16 +246,16 @@ namespace Backgammon
 
             if (playingAs == 1)
             {
-                _playingAs = Game.PlayingAs.PLAYER_1;
+                _playingAs3D = Game.PlayingAs.PLAYER_1;
                 _playingAs2D = Game2D.PlayingAs.PLAYER_1;
-                GameListUI.playingAs = PlayerId.Player1;
+
                 gameScript.playingAs = PlayerId.Player1;
             }
             else
             {
-                _playingAs = Game.PlayingAs.PLAYER_2;
+                _playingAs3D = Game.PlayingAs.PLAYER_2;
                 _playingAs2D = Game2D.PlayingAs.PLAYER_2;
-                GameListUI.playingAs = PlayerId.Player2;
+                
                 gameScript.playingAs = PlayerId.Player2;
             }
 
@@ -265,9 +265,8 @@ namespace Backgammon
         }
 
         public static Backgammon_Asset.GameData _game = null;
-        public static Game.PlayingAs _playingAs = Game.PlayingAs.NONE;
+        public static Game.PlayingAs _playingAs3D = Game.PlayingAs.NONE;
         public static Game2D.PlayingAs _playingAs2D = Game2D.PlayingAs.NONE;
-        public static PlayerId playingAs = PlayerId.None;
 
         public static int IndexGame = 0;
         public static int IndexTurn = 0;

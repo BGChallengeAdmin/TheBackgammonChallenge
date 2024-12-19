@@ -35,7 +35,7 @@ namespace Backgammon
         internal void SetUI(Transform defaultBackground, GameScreenUI gameScreenUI, RollForGoesFirstUI rollForGoesFirstUI,
                             BeforeCommenceUI beforeCommenceUI, DoublingUI doublingUI, DiceRollsUI diceRollsUI,
                             AnalysisOrContinueUI analysisOrContinueUI, AnalysisUI analysisUI, ObserveBoardUI observeBoardUI,
-                            TurnEndsUI turnEndsUI, GameWonUI gameWonUI, GeneralInfoUI generalInfoUI,
+                            TurnEndsUI turnEndsUI, GameWonUI gameWonUI, GeneralInfoUI generalInfoUI, DemoUI demoUI,
                             ChallengeProgressionUI challengeProgressionUI, ConfigureBoardManualUI configureBoardManual)
         {
             _defaultBackground = defaultBackground;
@@ -50,6 +50,7 @@ namespace Backgammon
             _turnEndsUI = turnEndsUI;
             _gameWonUI = gameWonUI;
             _generalInfoUI = generalInfoUI;
+            _demoUI = demoUI;
             _challengeProgressionUI = challengeProgressionUI;
             _configureBoardManualUI = configureBoardManual;
         }
@@ -97,6 +98,7 @@ namespace Backgammon
         private TurnEndsUI _turnEndsUI;
         private GameWonUI _gameWonUI;
         private GeneralInfoUI _generalInfoUI;
+        private DemoUI _demoUI;
         private ChallengeProgressionUI _challengeProgressionUI;
         private ConfigureBoardManualUI _configureBoardManualUI;
 
@@ -112,6 +114,7 @@ namespace Backgammon
         internal TurnEndsUI TurnEndsUI { get => _turnEndsUI; }
         internal GameWonUI GameWonUI { get => _gameWonUI; }
         internal GeneralInfoUI GeneralInfoUI { get => _generalInfoUI; }
+        internal DemoUI DemoUI { get => _demoUI; }
         internal ChallengeProgressionUI ChallengeProgressionUI { get => _challengeProgressionUI; }
         internal ConfigureBoardManualUI ConfigureBoardManualUI { get => _configureBoardManualUI; }
         internal FadeInFadeOutImage FadeInFadeOutBlack { get => _defaultBackground.GetComponentInChildren<FadeInFadeOutImage>(); }

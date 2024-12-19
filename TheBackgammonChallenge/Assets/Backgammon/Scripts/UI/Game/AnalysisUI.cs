@@ -33,7 +33,7 @@ namespace Backgammon
         TMP_Text _topRankedMoveButtonText;
         TMP_Text _continueButtonText;
 
-        private void Awake()
+        protected void Awake()
         {
             //_analysisPanelTransform.GetComponent<RectTransform>().sizeDelta =
             //    new Vector2((_analysisPanelScreenWidthPercent * Screen.width),
@@ -48,7 +48,7 @@ namespace Backgammon
             _continueButton.onClick.AddListener(() => OnClickedContinue());
         }
 
-        private void OnEnable()
+        protected void OnEnable()
         {
             _clickedPlayerMove = false;
             _clickedProMove = false;
@@ -70,7 +70,7 @@ namespace Backgammon
             _continueButtonText.text = "Continue";
         }
 
-        private void OnDestroy()
+       protected void OnDestroy()
         {
             _playerMoveButton.onClick.RemoveAllListeners();
             _proMoveButton.onClick.RemoveAllListeners();

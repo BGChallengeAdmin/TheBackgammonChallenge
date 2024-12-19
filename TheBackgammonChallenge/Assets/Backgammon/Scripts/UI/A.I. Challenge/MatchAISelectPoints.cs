@@ -172,8 +172,7 @@ namespace Backgammon
             MatchSelectUI.Match = _aiMatch.Match(0);
             GameListUI.IndexGame = 0;
             GameListUI.IndexTurn = 0;
-            GameListUI.playingAs = PlayerId.Player1;
-
+            
             // NOTE: SCRIPTABLE OBJECT - RECONFIGURE BOARD
             _aiSettingsSO.ContinueBoardState.ResetToNewGame();
             _aiSettingsSO.PlayerTurnID = Game2D.PlayingAs.PLAYER_1;
@@ -183,6 +182,7 @@ namespace Backgammon
 
             IfCommence = true;
         }
+
         public void EnableDefaultBackground(bool enable)
         {
             _backgroundImage1.enabled = enable;

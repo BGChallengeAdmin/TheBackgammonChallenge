@@ -55,8 +55,7 @@ namespace Backgammon
 
         public void OnAccept()
         {
-            GameListUI.playingAs =  match.Winner() == 1 ? PlayerId.Player1 : PlayerId.Player2;
-            GameListUI._playingAs = match.Winner() == 1 ? Game.PlayingAs.PLAYER_1 : Game.PlayingAs.PLAYER_2;
+            GameListUI._playingAs3D = match.Winner() == 1 ? Game.PlayingAs.PLAYER_1 : Game.PlayingAs.PLAYER_2;
             GameListUI._playingAs2D = match.Winner() == 1 ? Game2D.PlayingAs.PLAYER_1 : Game2D.PlayingAs.PLAYER_2;
             GameListUI.IndexGame = gameIndex;
 
@@ -70,12 +69,13 @@ namespace Backgammon
 
         private void TestIfPlayerCanChangeGameIndex()
         {
+            _changeGameOptions.gameObject.SetActive(false);
+            return;
+
             // WHICH GAME HAS THE PLAYER SEEN UP TO
             // NOTE: matchReference = matchScores.name + " " + matchScores.ID
             var matchKey = match.name + " " + match.ID;
             var playerMatchScore = Main.Instance.PlayerScoresObj.GetPlayerMatchScore(matchKey);
-
-            _changeGameOptions.gameObject.SetActive(false);
 
             if (playerMatchScore is null)
             {
@@ -85,10 +85,10 @@ namespace Backgammon
             {
                 foreach (var game in playerMatchScore.gameScoresDict.Values)
                 {
-                    if (game.indexTurnPlayed < game.numberOfTurns && game.index > 1)
+                    if (game.indexTurnPlayed < game.numberOfTurns && game.number > 1)
                     {
                         _changeGameOptions.gameObject.SetActive(true);
-                        maxGameIndex = game.index;
+                        maxGameIndex = game.number;
                         break;
                     }
                 }

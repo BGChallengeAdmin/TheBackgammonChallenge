@@ -115,8 +115,11 @@ namespace Backgammon
 
         private void SetPlayerStatsPanel()
         {
-            var playerInfoText = $"You matched {Context.TotalValidPlayerMatchesThisGame}/{Context.TotalValidPlayerMovesThisGame} moves";
-            playerInfoText += $"\n";
+            var playerInfoText = string.Empty;
+            
+            if (!Main.Instance.IfPlayerVsAI) playerInfoText += $"You matched {Context.TotalValidPlayerMatchesThisGame}/{Context.TotalValidPlayerMovesThisGame} moves";
+            if (!Main.Instance.IfPlayerVsAI) playerInfoText += $"\n";
+            
             playerInfoText += $"You had\n {Context.PlayerTopRankedThisGame} Rank #1 for {(Context.PlayerTopRankedThisGame * 3)} Pts.";
             playerInfoText += $"\n{Context.PlayerSecondRankedThisGame} Rank #2 for {(Context.PlayerSecondRankedThisGame * 2)} Pts.";
             playerInfoText += $"\nFor a total of {Context.PlayerScoreThisGame} / {(Context.TotalValidPlayerMovesThisGame * 3)} possible Pts.";
