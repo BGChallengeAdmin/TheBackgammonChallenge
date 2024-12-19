@@ -308,6 +308,19 @@ namespace Backgammon
             doubleDicePlayedCounter += number;
         }
 
+        internal void SetAllDicePlayed()
+        {
+            _playerDice1Image.transform.localScale = _dicePlayedScale;
+            _playerDice2Image.transform.localScale = _dicePlayedScale;
+            _playerDice3Image.transform.localScale = _dicePlayedScale;
+            _playerDice4Image.transform.localScale = _dicePlayedScale;
+
+            _opponentDice1Image.transform.localScale = _dicePlayedScale;
+            _opponentDice2Image.transform.localScale = _dicePlayedScale;
+            _opponentDice3Image.transform.localScale = _dicePlayedScale;
+            _opponentDice4Image.transform.localScale = _dicePlayedScale;
+        }
+
         // RESET
         private void SetAllOff()
         {

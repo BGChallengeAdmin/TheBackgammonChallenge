@@ -162,6 +162,7 @@ namespace Backgammon
                 {
                     // CLEAR UP U.I.
                     Context.DiceRollsUI.SetOpponentDiceRollsText(string.Empty, 0, 0, false);
+                    Context.DiceRollsUI.SetAllDicePlayed();
 
                     ActiveState = GameStateMachine2D.EGameState2D.EvaluateAIRanks;
 
@@ -183,6 +184,7 @@ namespace Backgammon
                     {
                         // CLEAR UP U.I.
                         Context.DiceRollsUI.SetPlayerDiceRollsText(string.Empty, 0, 0, false);
+                        Context.DiceRollsUI.SetAllDicePlayed();
                         Context.UndoPlayerMove = false;
 
                         // EVALUATE PLAYER MOVES

@@ -113,7 +113,8 @@ namespace Backgammon
                         var singlePossibleMove = Context.TotalMovesThisTurn == 1;
                         var forcedMove = false;
 
-                        if ((comingInFromBar || singleRankedMove || singlePossibleMove) && !Context.IfBearingOff)
+                        if (((comingInFromBar || singleRankedMove || singlePossibleMove) && !Context.IfBearingOff) ||
+                            (singleRankedMove && Context.IfBearingOff))
                         {
                             forcedMove = true;
                         }

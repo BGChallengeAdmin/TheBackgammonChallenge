@@ -9,6 +9,7 @@ namespace Backgammon
             Context.Debug_reportState.DebugMessage($"ENTER STATE: GAME WON");
 
             SetEndOfGameMatchStats();
+            Context.GameScreenUI.SetMenuAndStatsInteractible(false);
 
             var wonMatchByPoints = (Context.SelectedGame.Player1PointsAtEnd >= Context.SelectedMatch.Points) ||
                                   (Context.SelectedGame.Player2PointsAtEnd >= Context.SelectedMatch.Points);

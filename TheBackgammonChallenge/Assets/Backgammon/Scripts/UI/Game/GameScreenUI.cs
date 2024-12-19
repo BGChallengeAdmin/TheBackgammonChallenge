@@ -177,6 +177,8 @@ namespace Backgammon
             AdjustOpponentInfoPanelForGameType(Main.Instance.IfPlayerVsAI);
 
             SetShowOpponentRank1Active(false);
+
+            SetMenuAndStatsInteractible(true);
         }
 
         protected void OnDestroy()
@@ -243,7 +245,10 @@ namespace Backgammon
             _proPlayerStatsPanel.gameObject.SetActive(!active);
 
             _proPlayerStatsWindowTransform.gameObject.SetActive(!active);
-            _opponentStatsWindowTransform.gameObject.SetActive(active);
+            
+            // DISBALE OPPONENET STATS - NOT CURRENTLY USED
+            //_opponentStatsWindowTransform.gameObject.SetActive(active);
+            _opponentStatsWindowTransform.gameObject.SetActive(false);
 
             // ENABLE PRO MATCHING
             _opponentTopMatchedObjectTransform.gameObject.SetActive(active);
@@ -478,6 +483,12 @@ namespace Backgammon
 
             _gameWonAnimation1.Reset();
             _gameWonAnimation2.Reset();
+        }
+
+        internal void SetMenuAndStatsInteractible(bool enable)
+        {
+            _menuButton.interactable = enable;
+            _statisticsButton.interactable = enable;
         }
 
         #region MENU_OPTIONS

@@ -62,6 +62,17 @@ namespace Backgammon
             string[] moveParts = turnData.Split(':');
 
             #region TestExceptions
+
+            // TODO / FIXME : TEST FOR POOR NOTATION (53:UnableToMove) != (61:CannotMove)
+            // IN SOME CASES THE "CANNOT MOVE" NOTATION HAS BEEN USED TO COVER BOTH SCENARIOS
+            // THIS IS / WILL BE UPDATED IN THE AutoBuilder
+            // SHOULD BE CHECKED BUT IS HIGHLY UNLIKELY
+
+            if (TestIfBlockedFromMovingFromBar(Context.IsPlayersTurn))
+            {
+                moveParts[0] = string.Empty;
+            }
+
             if (moveParts[0] == string.Empty)
             {
                 // NOTE: NOTATION ALLOWS ":" TO SHOW A SKIPPED TURN
