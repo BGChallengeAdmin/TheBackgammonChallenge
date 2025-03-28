@@ -1,5 +1,6 @@
 namespace Backgammon
 {
+
     public class ConfigureBoardForContinueState2D : GameState2D
     {
         public ConfigureBoardForContinueState2D(GameStateContext2D context, GameStateMachine2D.EGameState2D estate) : base(context, estate) { }

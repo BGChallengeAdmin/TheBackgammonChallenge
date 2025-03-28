@@ -67,7 +67,7 @@ namespace Backgammon
             _inGameDoublingText.text = "Would you like to offer Doubles?";
         }
 
-        internal void SetOfferedDoublesText(Probabilities probabilities)
+        internal void SetOfferedDoublesText(Probabilities probabilities, bool playerOfferedDoubles)
         {
             _inGameDoublingConfirmButton.gameObject.SetActive(true);
 
@@ -75,21 +75,21 @@ namespace Backgammon
 
             _inGameDoublingText.text = "CORRECT / INCORRECT";
 
-            if (probabilities is not null)
+            if (probabilities != null)
             {
                 var decision = probabilities.cubeDecision.owner;
 
-                _inGameDoublingText.text = CalculateDoublingValues(probabilities);
+                _inGameDoublingText.text = CalculateDoublingValues(probabilities, playerOfferedDoubles);
             }
         }
 
-        private string CalculateDoublingValues(Probabilities probabilities)
+        private string CalculateDoublingValues(Probabilities probabilities, bool playerOfferedDoubles)
         {
             // IF PLAYER / PRO MATCHED CORRECT DECISIONS - TAKE / DROP / DOUBLE / REDOUBLE
 
             var aiEvaluation = string.Empty;
 
-            if (Game2D.Context.PlayerOfferedDoubles)
+            if (playerOfferedDoubles)
             {
                 // TEST AGAINST PLAYER OR PRO OFFERING DOUBLES
 
@@ -162,7 +162,7 @@ namespace Backgammon
                     debug_Doubling.DebugMessage($"DOUBLING: PRO WAS CORRECT");
                 }
             }
-            else if (!Game2D.Context.PlayerOfferedDoubles)
+            else if (!playerOfferedDoubles)
             {
                 // OPPONENT OFFERED DOUBLES
 

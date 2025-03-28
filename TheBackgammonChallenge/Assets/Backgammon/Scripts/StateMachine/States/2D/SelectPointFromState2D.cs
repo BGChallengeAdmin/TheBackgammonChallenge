@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Backgammon
 {
     public class SelectPointFromState2D : GameState2D

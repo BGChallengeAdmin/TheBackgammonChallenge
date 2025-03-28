@@ -5,6 +5,8 @@ namespace Backgammon
 {
     public class AIDataState2D : GameState2D
     {
+        public AIDataState2D(GameStateContext2D context, GameStateMachine2D.EGameState2D estate) : base(context, estate) { }
+
         // BENCHMARKING
         private bool _benchmarking = false;
         private int _connectionCounter = 0;
@@ -18,8 +20,6 @@ namespace Backgammon
         private float _averageRange = 0;
         private float _lowestRange = 100;
         private float _highestRange = -1;
-
-        public AIDataState2D(GameStateContext2D context, GameStateMachine2D.EGameState2D estate) : base(context, estate) { }
 
         public override void EnterState()
         {

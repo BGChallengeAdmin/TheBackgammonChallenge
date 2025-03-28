@@ -38,7 +38,7 @@ namespace Backgammon
             // DOUBLING DIALOG
             if (!Context.DoublingUI.IfClicked) return;
 
-            Context.DoublingUI.SetOfferedDoublesText(Context.AIDoublingData);
+            Context.DoublingUI.SetOfferedDoublesText(Context.AIDoublingData, Context.PlayerOfferedDoubles);
 
             if (Main.Instance.IfPlayerVsAI && Context.DoublingUI.IfClickedYes)
                 Context.AIPlayerAcceptsDoubles = true;

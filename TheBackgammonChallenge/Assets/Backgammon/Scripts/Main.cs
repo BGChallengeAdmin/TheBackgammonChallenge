@@ -40,7 +40,8 @@ namespace Backgammon
         [SerializeField] GameAssetManager gameAssetManager;
 
         [Header("GAME")]
-        [SerializeField] Game2D _2DGame = null;
+        [SerializeField] IBackgammonGame _2DGame = null;
+        [SerializeField] IBackgammonGame _2DGame_Strategy = null;
         [SerializeField] Game _3DGame = null;
         [SerializeField] Backgammon_Asset.MatchReplayDLC _defaultMatchData = null;
         [SerializeField] BoardDesignSO[] _boardDesignsSOArray = null;
@@ -91,7 +92,7 @@ namespace Backgammon
 
             // JAMES - TURN SPLASH ON / OFF
             appState = AppState.LogoSplash_In;
-            //appState = AppState.Login_In;
+            appState = AppState.Login_In;
             //appState = AppState.MatchTypeSelectIntro_In;
             //appState = AppState.Game_In;
 
@@ -1025,7 +1026,9 @@ namespace Backgammon
 
                         SetGameTimeFactor(SettingsUI.replaySpeed);
 
-                        _2DGame.ConfigureContextAndInit();
+                        //_2DGame.ConfigureContextAndInit();
+
+                        _2DGame_Strategy.ConfigureContextAndInit();
 
                         signalCommenceGame = true;
                         timer = timeGameOver;
@@ -1043,7 +1046,7 @@ namespace Backgammon
                         //    playerSelectUI.firstGame = true;
                         //}
 
-                        if (!Game2D.IfGameConcluded)
+                        if (!Game2DStrategy.IfGameConcluded)
                         {
                             // NOTE: CHECK IF USED
 
@@ -1055,7 +1058,7 @@ namespace Backgammon
 
                             if (IfGamePaused)
                             {
-                                if (Game2D.IfUpdatingBoard)
+                                if (Game2DStrategy.IfUpdatingBoard)
                                     break;
                                 appState = AppState.PauseMenu_In;
                             }
@@ -1071,16 +1074,18 @@ namespace Backgammon
                     break;
                 case AppState.Game_Out:
                     {
-                        _2DGame.ExitGame();
+                        //_2DGame.ExitGame();
+                        _2DGame_Strategy.ExitGame();
+
                         _playerPrefsHandler.SaveAppData();
 
-                        if (Game2D.Context.IfSelectedAnotherGame)
+                        if (Game2DStrategy.Context.GameConfig.IfSelectedAnotherGame)
                         {
                             GameListUI.IndexTurn = 0;
                             appState = AppState.Game_In;
                             break;
                         }
-                        else if (Game2D.Context.IfPlayNextGame)
+                        else if (Game2DStrategy.Context.GameConfig.IfPlayNextGame)
                         {
                             // PRO AND A.I. MATCHES WERE NOT COMPLETED ON POINTS
 
@@ -1094,7 +1099,7 @@ namespace Backgammon
                             appState = AppState.Game_In;
                             break;
                         }
-                        else if (Game2D.Context.IfPlayAnotherMatch)
+                        else if (Game2DStrategy.Context.GameConfig.IfPlayAnotherMatch)
                         {
                             if (Main.instance.IfPlayerVsAI)
                             {
@@ -1109,7 +1114,7 @@ namespace Backgammon
                             break;
                         }
 
-                        Game2D.AIIfUsingHistoricDice = false;
+                        Game2DStrategy.AIIfUsingHistoricDice = false;
 
                         // DEFAULT TO MAIN MENU
                         appState = AppState.MatchTypeSelectIntro_In;

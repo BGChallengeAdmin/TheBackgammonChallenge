@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Backgammon
 {
     public class EvaluateAIRankedMovesState2D : GameState2D

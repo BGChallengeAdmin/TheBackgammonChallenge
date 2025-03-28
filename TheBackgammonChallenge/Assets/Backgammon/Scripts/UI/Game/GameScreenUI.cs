@@ -587,6 +587,7 @@ namespace Backgammon
         {
             _exitOptionsContainer.gameObject.SetActive(false);
             Game2D.Context.ExitFromStateMachine = true;
+            Game2DStrategy.Context.ExitFromStateMachine = true;
         }
 
         private void OnClickCancelExit()

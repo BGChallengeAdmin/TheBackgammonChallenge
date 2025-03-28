@@ -4,7 +4,7 @@ using static Backgammon.GeneralInfoState2D;
 
 namespace Backgammon
 {
-    public class GameStateContext2D
+    public class GameStateContext2D : IBackgammonContext
     {
         public GameStateContext2D(Game2D game, BoardMaterialsManager2D boardMaterialsManager, BarManager2D barManager,
                                 HomeManager2D homeManager, DoublingManager2D doublingManager, PointsManager2D pointsManager,
@@ -149,9 +149,6 @@ namespace Backgammon
         public bool AIPlayerAcceptsDoubles = false;
         public bool DoublingTakesOrDrops = false;
 
-        public bool PlayerMatchedProMove = false;
-        public bool ShowOpponentRank1Move = false;
-
         public bool UndoPlayerMove = false;
         public bool ReplayPlayerMove = false;
         public bool ConcedeTheGame = false;
@@ -192,6 +189,9 @@ namespace Backgammon
         public bool OpponentTurnWasAnalysed = false;
         public bool AITurnWasAnalysed = false;
         public float LostEquity = 0f;
+
+        public bool PlayerMatchedProMove = false;
+        public bool ShowOpponentRank1Move = false;
 
         // STATS
         public int TotalValidPlayerMovesThisGame = 0;
@@ -365,6 +365,26 @@ namespace Backgammon
 
                     Points[p] = point.Counters *
                         (context.IfPlayerIsBlack ?
+                        (point.Colour == Game2D.PlayerColour.BLACK ? 1 : -1) :
+                        (point.Colour == Game2D.PlayerColour.WHITE ? 1 : -1));
+                }
+            }
+            
+            public void SetStateFromContext(GameStateContext2DStrategy context)
+            {
+                Reset();
+
+                PlayerBarCount = context.BarManager.PlayerBar.Counters;
+                OpponentBarCount = context.BarManager.OpponentBar.Counters;
+                PlayerHomeCount = context.HomeManager.PlayerHome.Counters;
+                OpponentHomeCount = context.HomeManager.OpponentHome.Counters;
+
+                for (int p = 0; p < 24; p++)
+                {
+                    var point = context.PointsManager.Points[p];
+
+                    Points[p] = point.Counters *
+                        (context.GameConfig.IfPlayerIsBlack ?
                         (point.Colour == Game2D.PlayerColour.BLACK ? 1 : -1) :
                         (point.Colour == Game2D.PlayerColour.WHITE ? 1 : -1));
                 }

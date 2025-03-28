@@ -22,7 +22,7 @@ namespace Backgammon
 
             if (!Context.DoublingUI.IfClicked) return;
 
-            Context.DoublingUI.SetOfferedDoublesText(Context.AIDoublingData);
+            Context.DoublingUI.SetOfferedDoublesText(Context.AIDoublingData, Context.PlayerOfferedDoubles);
 
             if (!Context.DoublingUI.IfClickedConfirm) return;
 

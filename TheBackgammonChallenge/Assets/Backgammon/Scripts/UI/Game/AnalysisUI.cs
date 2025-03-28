@@ -56,18 +56,6 @@ namespace Backgammon
             _clickedTopRankedMove = false;
             _clickedContinue = false;
             _ifClicked = false;
-
-            var match = Game2D.Context.SelectedMatch;
-            var player1 = Game2D.Context.IfPlayingAsPlayer1;
-            var proPlayer = player1 ? match.Player1Surname : match.Player2Surname;
-            var opponent = player1 ? match.Player2Surname : match.Player1Surname;
-
-            _playerMoveButtonText.text = "Show your move";
-            if (!Main.Instance.IfPlayerVsAI)
-                _proMoveButtonText.text = "Show " + proPlayer + "s move";
-            _opponentMoveButtonText.text = "Show " + opponent + "s move";
-            _topRankedMoveButtonText.text = "Show Top Ranked move";
-            _continueButtonText.text = "Continue";
         }
 
        protected void OnDestroy()
@@ -93,17 +81,29 @@ namespace Backgammon
             this.gameObject.SetActive(active);
         }
 
-        internal void SetToAILayout(bool active)
+        internal void SetToAILayout(bool setToAILayout, Backgammon_Asset.MatchData match, bool isPlayer1)
         {
             // SET WHICH VALUES SHOWN
-            _playerRankTransform.gameObject.SetActive(!active);
-            _playerProRankTransform.gameObject.SetActive(!active);
-            _aiRankTransform.gameObject.SetActive(active);
+            _playerRankTransform.gameObject.SetActive(!setToAILayout);
+            _playerProRankTransform.gameObject.SetActive(!setToAILayout);
+            _aiRankTransform.gameObject.SetActive(setToAILayout);
 
             // SET BUTTON TEXT
-            var match = Game2D.Context.SelectedMatch;
-            var proPlayer = Game2D.Context.IfPlayingAsPlayer1 ? match.Player1Surname : match.Player2Surname;
-            _proMoveButtonText.text = active ? ("Your % to win.") : ("Show " + proPlayer + "s move");
+            //var match = Game2D.Context.SelectedMatch;
+
+            var proPlayer = isPlayer1 ? match.Player1Surname : match.Player2Surname;
+            var opponent = isPlayer1 ? match.Player2Surname : match.Player1Surname;
+
+            _playerMoveButtonText.text = "Show your move";
+            if (!Main.Instance.IfPlayerVsAI)
+                _proMoveButtonText.text = "Show " + proPlayer + "s move";
+            _opponentMoveButtonText.text = "Show " + opponent + "s move";
+            _topRankedMoveButtonText.text = "Show Top Ranked move";
+            _continueButtonText.text = "Continue";
+
+            proPlayer = isPlayer1 ? match.Player1Surname : match.Player2Surname;
+
+            _proMoveButtonText.text = setToAILayout ? ("Your % to win.") : ("Show " + proPlayer + "s move");
         }
 
         // TEXT
